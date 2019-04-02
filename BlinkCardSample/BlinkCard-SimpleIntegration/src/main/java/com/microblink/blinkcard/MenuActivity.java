@@ -11,7 +11,6 @@ import com.microblink.BaseMenuActivity;
 import com.microblink.MenuListItem;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkcard.BlinkCardEliteRecognizer;
 import com.microblink.entities.recognizers.blinkcard.BlinkCardRecognizer;
 import com.microblink.result.activity.RecognizerBundleResultActivity;
 import com.microblink.uisettings.ActivityRunner;
@@ -53,7 +52,6 @@ public class MenuActivity extends BaseMenuActivity {
         List<com.microblink.MenuListItem> items = new ArrayList<>();
 
         items.add(buildBlinkCardElement());
-        items.add(buildBlinkCardEliteElement());
 
         return items;
     }
@@ -98,25 +96,13 @@ public class MenuActivity extends BaseMenuActivity {
     }
 
     private MenuListItem buildBlinkCardElement() {
-        return new MenuListItem("BlinkCard", new Runnable() {
+        return new MenuListItem("Scan credit or payment card", new Runnable() {
             @Override
             public void run() {
                 BlinkCardRecognizer blinkCard = new BlinkCardRecognizer();
                 ImageSettings.enableAllImages(blinkCard);
 
                 blinkCardRecognitionAction(blinkCard);
-            }
-        });
-    }
-
-    private MenuListItem buildBlinkCardEliteElement() {
-        return new MenuListItem("BlinkCard elite", new Runnable() {
-            @Override
-            public void run() {
-                BlinkCardEliteRecognizer blinkCardElite = new BlinkCardEliteRecognizer();
-                ImageSettings.enableAllImages(blinkCardElite);
-
-                blinkCardRecognitionAction(blinkCardElite);
             }
         });
     }
