@@ -51,7 +51,8 @@ public class MenuActivity extends BaseMenuActivity {
     protected List<com.microblink.MenuListItem> createMenuListItems() {
         List<com.microblink.MenuListItem> items = new ArrayList<>();
 
-        items.add(buildBlinkCardElement());
+        items.add(buildBlinkCardElement(true));
+        items.add(buildBlinkCardElement(false));
 
         return items;
     }
@@ -95,16 +96,22 @@ public class MenuActivity extends BaseMenuActivity {
         ActivityRunner.startActivityForResult(this, MY_BLINK_CARD_REQUEST_CODE, uiSettings);
     }
 
-    private MenuListItem buildBlinkCardElement() {
-        return new MenuListItem("Scan credit or payment card", new Runnable() {
-            @Override
-            public void run() {
-                BlinkCardRecognizer blinkCard = new BlinkCardRecognizer();
-                ImageSettings.enableAllImages(blinkCard);
+    private MenuListItem buildBlinkCardElement(final boolean scanBothSides) {
+        return new MenuListItem(
+                scanBothSides ? "Scan both sides" : "Scan front side only",
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        BlinkCardRecognizer blinkCard = new BlinkCardRecognizer();
+                        if (!scanBothSides) {
+                            blinkCard.setExtractCvv(false);
+                        }
+                        ImageSettings.enableAllImages(blinkCard);
 
-                blinkCardRecognitionAction(blinkCard);
-            }
-        });
+                        blinkCardRecognitionAction(blinkCard);
+                    }
+                }
+        );
     }
-
+    
 }
