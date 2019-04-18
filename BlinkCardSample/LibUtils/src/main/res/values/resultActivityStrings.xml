@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+           tools:ignore="MissingTranslation">
+    <string name="RecognizedData">Data</string>
+    <string name="Label">Label</string>
+    <string name="Value">Value</string>
+    <string name="IsDataCorrect">Confirm that all data is correct?</string>
+    <string name="Confirm">Confirm data</string>
+    <string name="Cancel">Cancel</string>
+
+    <string name="title_field_by_field_results">Field by field results</string>
+    <string name="title_random_field_results">Random scan results</string>
+
+    <string name="PPIssuer">Issuer</string>
+    <string name="PPPaymentCardNumber">Card number</string>
+    <string name="PPOwner">Owner</string>
+    <string name="PPValidThru">Valid thru</string>
+    <string name="PPCVV">CVV</string>
+    <string name="PPInventoryNumber">Inventory number</string>
+
+    <string name="MBFullDocumentImageFront">Full document image front</string>
+    <string name="MBEncodedFullDocumentImageFront">Encoded full document image front</string>
+    <string name="MBFullDocumentImageBack">Full document image back</string>
+    <string name="MBEncodedFullDocumentImageBack">Encoded full document image back</string>
+
+    <string name="MBDigitalSignature">Digital signature</string>
+    <string name="MBDigitalSignatureVersion">Digital signature version</string>
+</resources>
