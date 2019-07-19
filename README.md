@@ -100,7 +100,7 @@ After that, you just need to add _BlinkCard_ as a dependency to your application
 
 ```
 dependencies {
-    implementation('com.microblink:blinkcard:1.0.0@aar') {
+    implementation('com.microblink:blinkcard:1.0.1@aar') {
         transitive = true
     }
 }
@@ -112,7 +112,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkcard-1.0.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkcard-1.0.1` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -184,7 +184,7 @@ Open your `pom.xml` file and add these directives as appropriate:
     <dependency>
         <groupId>com.microblink</groupId>
         <artifactId>blinkcard</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <type>aar</type>
     </dependency>
 </dependencies>
