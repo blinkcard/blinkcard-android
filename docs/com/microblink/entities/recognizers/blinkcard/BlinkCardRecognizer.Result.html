@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -283,65 +283,70 @@ implements <a href="../../../../../com/microblink/entities/recognizers/blinkid/C
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#getEncodedBackFullDocumentImage--">getEncodedBackFullDocumentImage</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html" title="class in com.microblink.entities.recognizers.blinkid">DataMatchResult</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#getDocumentDataMatch--">getDocumentDataMatch</a></span>()</code>
+<div class="block">Returns result of the data matching algorithm for scanned parts/sides of the document.</div>
+</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#getEncodedFrontFullDocumentImage--">getEncodedFrontFullDocumentImage</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#getEncodedBackFullDocumentImage--">getEncodedBackFullDocumentImage</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#getFullDocumentBackImage--">getFullDocumentBackImage</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>byte[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#getEncodedFrontFullDocumentImage--">getEncodedFrontFullDocumentImage</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#getFullDocumentFrontImage--">getFullDocumentFrontImage</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#getFullDocumentBackImage--">getFullDocumentBackImage</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
+<td class="colFirst"><code><a href="../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#getFullDocumentFrontImage--">getFullDocumentFrontImage</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#getIban--">getIban</a></span>()</code>
+<div class="block">Payment card's IBAN.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#getInventoryNumber--">getInventoryNumber</a></span>()</code>
 <div class="block">Payment card's inventory number.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/microblink/entities/recognizers/blinkcard/CardIssuer.html" title="class in com.microblink.entities.recognizers.blinkcard">CardIssuer</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#getIssuer--">getIssuer</a></span>()</code>
 <div class="block">Returns the payment card's issuing network.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#getOwner--">getOwner</a></span>()</code>
 <div class="block">Information about the payment card owner (name, company, etc.)</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#getValidThru--">getValidThru</a></span>()</code>
 <div class="block">The payment card's last month of validity.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#isDocumentDataMatch--">isDocumentDataMatch</a></span>()</code>
-<div class="block">Returns <code>true</code> if data from scanned parts/sides of the document match,
- <code>false</code> otherwise.</div>
-</td>
-</tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#isScanningFirstSideDone--">isScanningFirstSideDone</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>protected byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#serializeToByteArray--">serializeToByteArray</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#terminateNative-long-">terminateNative</a></span>(long&nbsp;nativeContext)</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -415,24 +420,26 @@ implements <a href="../../../../../com/microblink/entities/recognizers/blinkid/C
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="isDocumentDataMatch--">
+<a name="getDocumentDataMatch--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>isDocumentDataMatch</h4>
-<pre>public&nbsp;boolean&nbsp;isDocumentDataMatch()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/microblink/entities/recognizers/blinkid/CombinedResult.html#isDocumentDataMatch--">CombinedResult</a></code></span></div>
-<div class="block">Returns <code>true</code> if data from scanned parts/sides of the document match,
- <code>false</code> otherwise. For example if date of expiry is scanned from the front and back side
- of the document and values do not match, this method will return <code>false</code>. Result will
- be  only if scanned values for all fields that are compared are the same.</div>
+<h4>getDocumentDataMatch</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html" title="class in com.microblink.entities.recognizers.blinkid">DataMatchResult</a>&nbsp;getDocumentDataMatch()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/microblink/entities/recognizers/blinkid/CombinedResult.html#getDocumentDataMatch--">CombinedResult</a></code></span></div>
+<div class="block">Returns result of the data matching algorithm for scanned parts/sides of the document.
+ For example if date of expiry is scanned from the front and back side
+ of the document and values do not match, this method will return <a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html#Failed"><code>DataMatchResult.Failed</code></a>.
+ Result will be <a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html#Success"><code>DataMatchResult.Success</code></a> only if scanned values for all fields that are
+ compared are the same. If data matching has not been performed, result will be
+ <a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html#NotPerformed"><code>DataMatchResult.NotPerformed</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../com/microblink/entities/recognizers/blinkid/CombinedResult.html#isDocumentDataMatch--">isDocumentDataMatch</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/microblink/entities/recognizers/blinkid/CombinedResult.html" title="interface in com.microblink.entities.recognizers.blinkid">CombinedResult</a></code></dd>
+<dd><code><a href="../../../../../com/microblink/entities/recognizers/blinkid/CombinedResult.html#getDocumentDataMatch--">getDocumentDataMatch</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/microblink/entities/recognizers/blinkid/CombinedResult.html" title="interface in com.microblink.entities.recognizers.blinkid">CombinedResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd><code>true</code> if data from scanned parts/sides of the document match,
- <code>false</code> otherwise.</dd>
+<dd>result of the data matching algorithm for scanned parts/sides of the document.</dd>
 </dl>
 </li>
 </ul>
@@ -603,6 +610,17 @@ public&nbsp;<a href="../../../../../com/microblink/image/Image.html" title="clas
 </dl>
 </li>
 </ul>
+<a name="getIban--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIban</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;getIban()</pre>
+<div class="block">Payment card's IBAN.</div>
+</li>
+</ul>
 <a name="getCardNumber--">
 <!--   -->
 </a>
@@ -684,7 +702,7 @@ protected&nbsp;byte[]&nbsp;serializeToByteArray()</pre>
  This is required in order to retain the result even after owning entity has mutated it.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../com/microblink/entities/Entity.Result.html#clone--">clone</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/entities/Entity.Result.html" title="class in com.microblink.entities">Entity.Result</a></code></dd>
+<dd><code><a href="../../../../../com/microblink/entities/recognizers/Recognizer.Result.html#clone--">clone</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/entities/recognizers/Recognizer.Result.html" title="class in com.microblink.entities.recognizers">Recognizer.Result</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a copy of the result</dd>
 </dl>

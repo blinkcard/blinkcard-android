@@ -7,11 +7,11 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.microblink.BaseMenuActivity;
-import com.microblink.MenuListItem;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkcard.BlinkCardRecognizer;
+import com.microblink.menu.BaseMenuActivity;
+import com.microblink.menu.MenuListItem;
 import com.microblink.result.activity.RecognizerBundleResultActivity;
 import com.microblink.uisettings.ActivityRunner;
 import com.microblink.uisettings.BlinkCardUISettings;
@@ -48,8 +48,8 @@ public class MenuActivity extends BaseMenuActivity {
     }
 
     @Override
-    protected List<com.microblink.MenuListItem> createMenuListItems() {
-        List<com.microblink.MenuListItem> items = new ArrayList<>();
+    protected List<MenuListItem> createMenuListItems() {
+        List<MenuListItem> items = new ArrayList<>();
 
         items.add(buildBlinkCardElement(true));
         items.add(buildBlinkCardElement(false));
@@ -96,15 +96,16 @@ public class MenuActivity extends BaseMenuActivity {
         ActivityRunner.startActivityForResult(this, MY_BLINK_CARD_REQUEST_CODE, uiSettings);
     }
 
-    private MenuListItem buildBlinkCardElement(final boolean scanBothSides) {
+    private MenuListItem buildBlinkCardElement(final boolean scanIbanAndCvv) {
         return new MenuListItem(
-                scanBothSides ? "Scan both sides" : "Scan front side only",
+                scanIbanAndCvv ? "Scan all fields" : "Scan without IBAN and CVV",
                 new Runnable() {
                     @Override
                     public void run() {
                         BlinkCardRecognizer blinkCard = new BlinkCardRecognizer();
-                        if (!scanBothSides) {
+                        if (!scanIbanAndCvv) {
                             blinkCard.setExtractCvv(false);
+                            blinkCard.setExtractIban(false);
                         }
                         ImageSettings.enableAllImages(blinkCard);
 

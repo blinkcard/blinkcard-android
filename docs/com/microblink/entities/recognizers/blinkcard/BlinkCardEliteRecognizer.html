@@ -255,7 +255,7 @@ implements <a href="../../../../../com/microblink/entities/recognizers/blinkid/C
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardEliteRecognizer.html#consumeResultFrom-com.microblink.entities.recognizers.blinkcard.BlinkCardEliteRecognizer-">consumeResultFrom</a></span>(<a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardEliteRecognizer.html" title="class in com.microblink.entities.recognizers.blinkcard">BlinkCardEliteRecognizer</a>&nbsp;other)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardEliteRecognizer.html#consumeResultFrom-com.microblink.entities.Entity-">consumeResultFrom</a></span>(<a href="../../../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a>&nbsp;other)</code>
 <div class="block">Consume result from other entity.</div>
 </td>
 </tr>
@@ -377,7 +377,7 @@ implements <a href="../../../../../com/microblink/entities/recognizers/blinkid/C
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardEliteRecognizer.html#setReturnFullDocumentImage-boolean-">setReturnFullDocumentImage</a></span>(boolean&nbsp;returnFullDocumentImage)</code>
 <div class="block">Sets whether full document image should be available in
- <code>com.microblink.entities.recognizers.blinkid.imageresult.FullDocumentImageResult</code>.</div>
+ <a href="../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </td>
 </tr>
 <tr id="i21" class="rowColor">
@@ -423,7 +423,7 @@ implements <a href="../../../../../com/microblink/entities/recognizers/blinkid/C
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardEliteRecognizer.html#shouldReturnFullDocumentImage--">shouldReturnFullDocumentImage</a></span>()</code>
 <div class="block">Returns whether full document image will be available in
- <code>com.microblink.entities.recognizers.blinkid.imageresult.FullDocumentImageResult</code>.</div>
+ <a href="../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </td>
 </tr>
 <tr id="i28" class="altColor">
@@ -442,7 +442,7 @@ implements <a href="../../../../../com/microblink/entities/recognizers/blinkid/C
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.entities.recognizers.<a href="../../../../../com/microblink/entities/recognizers/Recognizer.html" title="class in com.microblink.entities.recognizers">Recognizer</a></h3>
-<code><a href="../../../../../com/microblink/entities/recognizers/Recognizer.html#requiresAutofocus--">requiresAutofocus</a>, <a href="../../../../../com/microblink/entities/recognizers/Recognizer.html#requiresLandscapeMode--">requiresLandscapeMode</a></code></li>
+<code><a href="../../../../../com/microblink/entities/recognizers/Recognizer.html#isExcludedFromPing--">isExcludedFromPing</a>, <a href="../../../../../com/microblink/entities/recognizers/Recognizer.html#requiresAutofocus--">requiresAutofocus</a>, <a href="../../../../../com/microblink/entities/recognizers/Recognizer.html#requiresLandscapeMode--">requiresLandscapeMode</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.com.microblink.entities.Entity">
@@ -613,9 +613,9 @@ implements <a href="../../../../../com/microblink/entities/recognizers/blinkid/C
 <pre>public&nbsp;void&nbsp;setReturnFullDocumentImage(boolean&nbsp;returnFullDocumentImage)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-">FullDocumentImageOptions</a></code></span></div>
 <div class="block">Sets whether full document image should be available in
- <code>com.microblink.entities.recognizers.blinkid.imageresult.FullDocumentImageResult</code>.
+ <a href="../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.
  If enabled, get image using
- <code>com.microblink.entities.recognizers.blinkid.imageresult.FullDocumentImageResult#getFullDocumentImage()</code>
+ <a href="../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html#getFullDocumentImage--"><code>FullDocumentImageResult.getFullDocumentImage()</code></a>
  By default, this is set to 'false'.
 
  <b>IMPORTANT NOTE: </b> If you set
@@ -634,7 +634,7 @@ implements <a href="../../../../../com/microblink/entities/recognizers/blinkid/C
 <dd><code><a href="../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-">setReturnFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FullDocumentImageOptions</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>returnFullDocumentImage</code> - whether full document image will be available in
- <code>com.microblink.entities.recognizers.blinkid.imageresult.FullDocumentImageResult</code>.</dd>
+ <a href="../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</dd>
 </dl>
 </li>
 </ul>
@@ -647,7 +647,7 @@ implements <a href="../../../../../com/microblink/entities/recognizers/blinkid/C
 <pre>public&nbsp;boolean&nbsp;shouldReturnFullDocumentImage()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#shouldReturnFullDocumentImage--">FullDocumentImageOptions</a></code></span></div>
 <div class="block">Returns whether full document image will be available in
- <code>com.microblink.entities.recognizers.blinkid.imageresult.FullDocumentImageResult</code>.
+ <a href="../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.
  By default, this is set to 'false'.
 
  By default, this is set to 'false'</div>
@@ -656,7 +656,7 @@ implements <a href="../../../../../com/microblink/entities/recognizers/blinkid/C
 <dd><code><a href="../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#shouldReturnFullDocumentImage--">shouldReturnFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FullDocumentImageOptions</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>whether full document image will be available in
- <code>com.microblink.entities.recognizers.blinkid.imageresult.FullDocumentImageResult</code>.</dd>
+ <a href="../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</dd>
 </dl>
 </li>
 </ul>
@@ -960,21 +960,21 @@ protected&nbsp;byte[]&nbsp;serializeNativeSettings()</pre>
  or <a href="../../../../../com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi"><code>RecognizerRunner</code></a> with the updated entity hierarchy.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../com/microblink/entities/Entity.html#clone--">clone</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a></code></dd>
+<dd><code><a href="../../../../../com/microblink/entities/recognizers/Recognizer.html#clone--">clone</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/entities/recognizers/Recognizer.html" title="class in com.microblink.entities.recognizers">Recognizer</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a copy of the entity</dd>
 </dl>
 </li>
 </ul>
-<a name="consumeResultFrom-com.microblink.entities.recognizers.blinkcard.BlinkCardEliteRecognizer-">
+<a name="consumeResultFrom-com.microblink.entities.Entity-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>consumeResultFrom</h4>
 <pre>public&nbsp;void&nbsp;consumeResultFrom(@NonNull
-                              <a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardEliteRecognizer.html" title="class in com.microblink.entities.recognizers.blinkcard">BlinkCardEliteRecognizer</a>&nbsp;other)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../com/microblink/entities/Entity.html#consumeResultFrom-E-">Entity</a></code></span></div>
+                              <a href="../../../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a>&nbsp;other)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../com/microblink/entities/Entity.html#consumeResultFrom-com.microblink.entities.Entity-">Entity</a></code></span></div>
 <div class="block">Consume result from other entity. The result from other will be put instead current result
  of this entity.
  This method is used inside <code>com.microblink.entities.recognizers.RecognizerBundle#loadFromIntent(Intent)</code>
@@ -982,7 +982,7 @@ protected&nbsp;byte[]&nbsp;serializeNativeSettings()</pre>
  have arrived over <code>Intent</code></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../com/microblink/entities/Entity.html#consumeResultFrom-E-">consumeResultFrom</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a></code></dd>
+<dd><code><a href="../../../../../com/microblink/entities/Entity.html#consumeResultFrom-com.microblink.entities.Entity-">consumeResultFrom</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>other</code> - Entity from which result should be consumed.</dd>
 </dl>

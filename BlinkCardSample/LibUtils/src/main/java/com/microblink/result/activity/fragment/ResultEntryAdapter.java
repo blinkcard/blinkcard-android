@@ -1,6 +1,7 @@
 package com.microblink.result.activity.fragment;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.microblink.R;
+import com.microblink.libutils.R;
 import com.microblink.result.extract.RecognitionResultEntry;
 
 import java.util.List;
@@ -46,7 +47,7 @@ public class ResultEntryAdapter extends ArrayAdapter<RecognitionResultEntry> {
             convertView = mInflater.inflate(R.layout.result_entry, parent, false);
         }
         setupTitle(convertView, entry.getKey());
-        EditText valueText = convertView.findViewById(R.id.resultValue);
+        TextView valueText = convertView.findViewById(R.id.resultValue);
         valueText.setText(entry.getValue());
         return convertView;
     }

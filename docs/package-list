@@ -14,11 +14,16 @@ com.microblink.entities.recognizers.blinkid.imageresult
 com.microblink.entities.recognizers.framegrabber
 com.microblink.entities.recognizers.successframe
 com.microblink.entities.settings
+com.microblink.entities.util
 com.microblink.fragment
 com.microblink.fragment.overlay
 com.microblink.fragment.overlay.blinkcard
+com.microblink.fragment.overlay.blinkcard.scanlineui
 com.microblink.fragment.overlay.components
-com.microblink.fragment.overlay.listener.verification
+com.microblink.fragment.overlay.components.feedback
+com.microblink.fragment.overlay.components.settings
+com.microblink.fragment.overlay.components.statusmsg
+com.microblink.fragment.overlay.fieldbyfield
 com.microblink.fragment.overlay.verification
 com.microblink.geometry
 com.microblink.hardware

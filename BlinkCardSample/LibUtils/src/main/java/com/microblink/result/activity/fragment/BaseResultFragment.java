@@ -3,15 +3,16 @@ package com.microblink.result.activity.fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ListView;
 
-import com.microblink.R;
+import com.microblink.libutils.R;
 import com.microblink.locale.LanguageUtils;
+import com.microblink.result.activity.fragment.ResultEntryAdapter;
 import com.microblink.result.extract.RecognitionResultEntry;
 
 import java.util.List;
@@ -45,8 +46,8 @@ public abstract class BaseResultFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mListView = new ListView(getActivity());
-        mListView.setDivider(null);
-        mListView.setDividerHeight(0);
+        mListView.setDividerHeight(1);
+        mListView.setScrollbarFadingEnabled(false);
 
         // some id is required so that android can save listview's scroll state
         // when activity goes to background

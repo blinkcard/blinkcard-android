@@ -3,17 +3,18 @@ package com.microblink.result.extract;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import android.text.TextUtils;
 
-import com.microblink.R;
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.image.Image;
+import com.microblink.libutils.R;
 import com.microblink.results.date.Date;
 import com.microblink.results.date.DateResult;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -74,7 +75,11 @@ public class RecognitionResultEntry {
         }
 
         public RecognitionResultEntry build(@StringRes int key, String value) {
-            return new RecognitionResultEntry(createKey(key), value);
+            if (key == R.string.PPIBAN) {
+                return new RecognitionResultEntry(createKey(key), RecognitionResultExtractorUtils.formatIBAN(value));
+            } else {
+                return new RecognitionResultEntry(createKey(key), value);
+            }
         }
 
         public RecognitionResultEntry build(@StringRes int key, DateResult value) {

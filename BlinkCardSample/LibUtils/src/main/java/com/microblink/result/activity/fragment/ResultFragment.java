@@ -3,7 +3,7 @@ package com.microblink.result.activity.fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.widget.Toast;
 
 import com.microblink.entities.recognizers.Recognizer;
@@ -16,7 +16,6 @@ import java.util.List;
 
 public class ResultFragment extends BaseResultFragment {
 
-    public static final boolean TEST_STANDALONE_RESULT = false;
     public static final String RECOGNIZER_POSITION = "RECOGNIZER_POSITION";
 
     private int mRecognizerPosition;
@@ -39,27 +38,20 @@ public class ResultFragment extends BaseResultFragment {
     protected void checkHostActivity(Activity hostActivity) {
         if ( !(hostActivity instanceof ResultFragmentActivity) ) {
             throw new ClassCastException("ResultFragment must be used inside activity which"
-                    + " implements ResultFragment.IResultFragmentActivity interface");
+                    + " implements ResultFragment.ResultFragmentActivity interface");
         }
     }
 
     @Override
     protected List<RecognitionResultEntry> createResultEntries(Context context) {
         // this must be called after the activity has been created
-        Recognizer<Recognizer, Recognizer.Result> recognizer =
+        Recognizer<Recognizer.Result> recognizer =
                 ((ResultFragmentActivity) getActivity()).getRecognizerAtPosition(
                         mRecognizerPosition);
 
         // Extract data from BaseRecognitionResult
         BaseResultExtractor resultExtractor = ResultExtractorFactoryProvider.get().createExtractor(recognizer);
         List<RecognitionResultEntry> extractedData = resultExtractor.extractData(getActivity(), recognizer);
-
-        // test for transfer of standalone
-        if ( TEST_STANDALONE_RESULT ) {
-            Recognizer firstRecognizer = getActivity().getIntent().getParcelableExtra("proba");
-            resultExtractor = ResultExtractorFactoryProvider.get().createExtractor(firstRecognizer);
-            extractedData = resultExtractor.extractData(getActivity(), firstRecognizer);
-        }
 
         if (extractedData.size() <= 0) {
             Toast.makeText(getActivity(), "Result list is empty", Toast.LENGTH_SHORT).show();
@@ -90,6 +82,6 @@ public class ResultFragment extends BaseResultFragment {
      * Interface which must be implemented by all activities that use {@link ResultFragment}.
      */
     public interface ResultFragmentActivity {
-        Recognizer<Recognizer, Recognizer.Result > getRecognizerAtPosition(int resultPosition);
+        Recognizer<Recognizer.Result > getRecognizerAtPosition(int resultPosition);
     }
 }

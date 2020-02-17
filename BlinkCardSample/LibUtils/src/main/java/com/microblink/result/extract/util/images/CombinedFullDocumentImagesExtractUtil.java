@@ -1,9 +1,9 @@
 package com.microblink.result.extract.util.images;
 
-import com.microblink.R;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.blinkid.imageresult.CombinedFullDocumentImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedCombinedFullDocumentImageResult;
+import com.microblink.libutils.R;
 import com.microblink.result.extract.RecognitionResultEntry;
 
 import java.util.List;
