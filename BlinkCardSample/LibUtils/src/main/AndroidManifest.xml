@@ -1,17 +1,9 @@
-<manifest package="com.microblink"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest package="com.microblink.libutils"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <application
-        android:label="@string/app_name"
-        android:supportsRtl="true">
-
-        <activity
-            android:name="com.microblink.result.activity.RecognizerBundleResultActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="nosensor"
-            android:theme="@style/Theme.AppTheme">
-        </activity>
-
+    <application>
+        <activity android:name="com.microblink.help.HelpActivity"/>
+        <activity android:name="com.microblink.result.activity.RecognizerBundleResultActivity"/>
     </application>
 
 </manifest>

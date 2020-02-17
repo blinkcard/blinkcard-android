@@ -2,11 +2,11 @@ package com.microblink.result.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.CallSuper;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
@@ -44,7 +44,7 @@ public class RecognizerBundleResultActivity extends BaseResultActivity implement
         List<Recognizer> recognizersWithResult = new ArrayList<>();
         mRecognizerBundle = new RecognizerBundle();
         mRecognizerBundle.loadFromIntent(intent);
-        for ( Recognizer< Recognizer, Recognizer.Result > r : mRecognizerBundle.getRecognizers() ) {
+        for ( Recognizer<Recognizer.Result> r : mRecognizerBundle.getRecognizers() ) {
             if ( r.getResult().getResultState() != Recognizer.Result.State.Empty ) {
                 recognizersWithResult.add( r );
             }
@@ -63,7 +63,7 @@ public class RecognizerBundleResultActivity extends BaseResultActivity implement
     }
 
     @Override
-    public Recognizer< Recognizer, Recognizer.Result > getRecognizerAtPosition(int resultPosition) {
+    public Recognizer<Recognizer.Result > getRecognizerAtPosition(int resultPosition) {
         if (resultPosition < 0 || resultPosition >= mRecognizersWithResult.size()) {
             throw new IllegalStateException("Recognizer with non empty result on requested position"
                     + " does not exist. Possible cause is that recognizer bundle state has been lost"

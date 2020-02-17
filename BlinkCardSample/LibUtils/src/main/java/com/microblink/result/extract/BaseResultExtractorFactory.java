@@ -1,6 +1,7 @@
 package com.microblink.result.extract;
 
 import com.microblink.entities.recognizers.Recognizer;
+import com.microblink.entities.recognizers.successframe.SuccessFrameGrabberRecognizer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +12,9 @@ public abstract class BaseResultExtractorFactory {
 
     public BaseResultExtractor createExtractor(Recognizer recognizer) {
         if (extractorMap.isEmpty()) {
+            // SuccessFrameGrabberResultExtractor is needed in all cases
+            add(SuccessFrameGrabberRecognizer.class,
+                    new SuccessFrameGrabberResultExtractor());
             addExtractors();
         }
 

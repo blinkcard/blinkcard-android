@@ -1,13 +1,16 @@
 package com.microblink.result.extract;
 
-import com.microblink.result.extract.blinkcard.BlinkCardResultExtractorFactory;
-
 public class ResultExtractorFactoryProvider {
 
-    private static final BlinkCardResultExtractorFactory extractorFactory = new BlinkCardResultExtractorFactory();
+    private static BaseResultExtractorFactory resultExtractorFactory;
 
     public static BaseResultExtractorFactory get() {
-        return extractorFactory;
+        if (resultExtractorFactory == null) throw new NullPointerException("Please set result extractor factory!");
+        return resultExtractorFactory;
+    }
+
+    public static void set(BaseResultExtractorFactory extractorFactory) {
+        resultExtractorFactory = extractorFactory;
     }
 
 }

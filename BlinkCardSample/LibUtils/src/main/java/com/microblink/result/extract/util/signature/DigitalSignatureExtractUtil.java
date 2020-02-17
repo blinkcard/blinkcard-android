@@ -1,8 +1,8 @@
 package com.microblink.result.extract.util.signature;
 
-import com.microblink.R;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.blinkid.digitalsignature.DigitalSignatureResult;
+import com.microblink.libutils.R;
 import com.microblink.result.extract.RecognitionResultEntry;
 
 import java.util.List;

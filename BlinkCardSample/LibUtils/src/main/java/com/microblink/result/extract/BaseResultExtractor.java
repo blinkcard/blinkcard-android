@@ -9,7 +9,7 @@ import com.microblink.results.date.DateResult;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseResultExtractor<ResultType extends Recognizer.Result, RecognizerType extends Recognizer<?, ResultType>> {
+public abstract class BaseResultExtractor<ResultType extends Recognizer.Result, RecognizerType extends Recognizer<ResultType>> {
 
     protected RecognitionResultEntry.Builder mBuilder;
     protected List<RecognitionResultEntry> mExtractedData;

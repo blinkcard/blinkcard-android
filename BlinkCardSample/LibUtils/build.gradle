@@ -2,24 +2,35 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
     }
-
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard/proguard-rules.pro'
+        }
+        distribute {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard/proguard-rules.pro'
+            matchingFallbacks = ['release']
         }
     }
-
 }
 
 dependencies {
     implementation("com.microblink:blinkcard:${rootProject.ext.blinkCardVersion}@aar") {
         transitive = true
     }
+
+    implementation "androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}"
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.preference:preference:1.1.0'
 }

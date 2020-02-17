@@ -1,7 +1,7 @@
 package com.microblink.result.extract.blinkcard;
 
-import com.microblink.R;
 import com.microblink.entities.recognizers.blinkcard.BlinkCardEliteRecognizer;
+import com.microblink.libutils.R;
 import com.microblink.result.extract.BaseResultExtractor;
 import com.microblink.result.extract.util.images.CombinedFullDocumentImagesExtractUtil;
 import com.microblink.result.extract.util.signature.DigitalSignatureExtractUtil;

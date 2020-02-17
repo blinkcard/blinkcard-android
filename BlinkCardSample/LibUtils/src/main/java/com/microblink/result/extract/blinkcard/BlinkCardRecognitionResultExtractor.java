@@ -1,7 +1,7 @@
 package com.microblink.result.extract.blinkcard;
 
-import com.microblink.R;
 import com.microblink.entities.recognizers.blinkcard.BlinkCardRecognizer;
+import com.microblink.libutils.R;
 import com.microblink.result.extract.BaseResultExtractor;
 import com.microblink.result.extract.util.images.CombinedFullDocumentImagesExtractUtil;
 import com.microblink.result.extract.util.signature.DigitalSignatureExtractUtil;
@@ -15,6 +15,7 @@ public class BlinkCardRecognitionResultExtractor extends BaseResultExtractor<Bli
         addIfNotEmpty(R.string.PPOwner, result.getOwner());
         add(R.string.PPValidThru, result.getValidThru().getOriginalDateString());
         add(R.string.PPCVV, result.getCvv());
+        add(R.string.PPIBAN, result.getIban());
         add(R.string.PPInventoryNumber, result.getInventoryNumber());
         CombinedFullDocumentImagesExtractUtil.extractCombinedFullDocumentImages(result, mExtractedData, mBuilder);
         DigitalSignatureExtractUtil.extractDigitalSignature(result, mExtractedData, mBuilder);

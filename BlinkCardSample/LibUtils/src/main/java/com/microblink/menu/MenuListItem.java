@@ -1,6 +1,6 @@
-package com.microblink;
+package com.microblink.menu;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 public class MenuListItem {
 
