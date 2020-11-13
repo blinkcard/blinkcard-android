@@ -14,7 +14,7 @@
         android:required="false" />
 
     <application
-        android:name="com.microblink.BlinkCardSampleApp"
+        android:name=".BlinkCardSampleApp"
         android:allowBackup="false"
         android:extractNativeLibs="false"
         android:icon="@mipmap/ic_launcher"

@@ -1,7 +1,7 @@
-package com.microblink;
+package com.microblink.blinkcard;
 
-import com.microblink.result.extract.BaseResultExtractorFactory;
-import com.microblink.result.extract.blinkcard.BlinkCardResultExtractorFactory;
+import com.microblink.blinkcard.result.extract.BaseResultExtractorFactory;
+import com.microblink.blinkcard.result.extract.blinkcard.BlinkCardResultExtractorFactory;
 
 public final class BlinkCardSampleApp extends SampleApplication {
 

@@ -2,28 +2,33 @@ package com.microblink.blinkcard;
 
 import android.app.Activity;
 import android.content.ComponentName;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.microblink.entities.recognizers.Recognizer;
-import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkcard.BlinkCardRecognizer;
-import com.microblink.menu.BaseMenuActivity;
-import com.microblink.menu.MenuListItem;
-import com.microblink.result.activity.RecognizerBundleResultActivity;
-import com.microblink.uisettings.ActivityRunner;
-import com.microblink.uisettings.BlinkCardUISettings;
-import com.microblink.util.RecognizerCompatibility;
-import com.microblink.util.RecognizerCompatibilityStatus;
+import com.microblink.blinkcard.activity.edit.BlinkCardEditResultBundle;
+import com.microblink.blinkcard.entities.recognizers.Recognizer;
+import com.microblink.blinkcard.entities.recognizers.RecognizerBundle;
+import com.microblink.blinkcard.entities.recognizers.blinkcard.BlinkCardRecognizer;
+import com.microblink.blinkcard.menu.BaseMenuActivity;
+import com.microblink.blinkcard.menu.MenuListItem;
+import com.microblink.blinkcard.result.activity.RecognizerBundleResultActivity;
+import com.microblink.blinkcard.uisettings.ActivityRunner;
+import com.microblink.blinkcard.uisettings.BlinkCardUISettings;
+import com.microblink.blinkcard.util.RecognizerCompatibility;
+import com.microblink.blinkcard.util.RecognizerCompatibilityStatus;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.appcompat.app.AlertDialog;
+
 public class MenuActivity extends BaseMenuActivity {
 
     public static final int MY_BLINK_CARD_REQUEST_CODE = 0x101;
+    public static final int MY_BLINK_CARD_WITH_EDIT_REQUEST_CODE = 0x102;
 
     @Override
     protected String getTitleText() {
@@ -53,6 +58,7 @@ public class MenuActivity extends BaseMenuActivity {
 
         items.add(buildBlinkCardElement(true));
         items.add(buildBlinkCardElement(false));
+        items.add(buildBlinkCardWithEditElement());
 
         return items;
     }
@@ -68,8 +74,12 @@ public class MenuActivity extends BaseMenuActivity {
         // onActivityResult is called whenever we are returned from activity started
         // with startActivityForResult. We need to check request code to determine
         // that we have really returned from BlinkCard activity.
-        if (requestCode == MY_BLINK_CARD_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
-            startResultActivity(data);
+        if (resultCode == Activity.RESULT_OK && data != null) {
+            if (requestCode == MY_BLINK_CARD_REQUEST_CODE) {
+                startResultActivity(data);
+            } else if (requestCode == MY_BLINK_CARD_WITH_EDIT_REQUEST_CODE) {
+                showBlinkCardEditedResults(data);
+            }
         } else {
             // if BlinkCard activity did not return result, user has probably
             // pressed Back button and cancelled scanning
@@ -85,15 +95,48 @@ public class MenuActivity extends BaseMenuActivity {
         startActivity(data);
     }
 
+    private void showBlinkCardEditedResults(final Intent data) {
+        BlinkCardEditResultBundle resultBundle = BlinkCardEditResultBundle.createFromIntent(data);
+        String resultString =
+                resultBundle.cardNumber + "\n"
+                + resultBundle.expiryDate + "\n"
+                + resultBundle.cvv + "\n"
+                + resultBundle.owner + "\n"
+                + resultBundle.iban;
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(resultString);
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface anInterface, int i) {
+                startResultActivity(data);
+            }
+        });
+        builder.create().show();
+    }
+
     /**
-     * Starts {@link com.microblink.activity.BlinkCardActivity} with given recognizer.
+     * Starts {@link com.microblink.blinkcard.activity.BlinkCardActivity} with given recognizer.
      * @param recognizer that will be used.
      */
-    private void blinkCardRecognitionAction(Recognizer recognizer) {
+    private void blinkCardRecognitionAction(Recognizer recognizer, boolean enableEditing) {
         BlinkCardUISettings uiSettings = new BlinkCardUISettings(new RecognizerBundle(recognizer));
         uiSettings.setBeepSoundResourceID(R.raw.beep);
 
-        ActivityRunner.startActivityForResult(this, MY_BLINK_CARD_REQUEST_CODE, uiSettings);
+        int requestCode;
+        if (enableEditing) {
+            requestCode = MY_BLINK_CARD_WITH_EDIT_REQUEST_CODE;
+            uiSettings.setEditScreenEnabled(true);
+            // You can also configure edit fields
+            // BlinkCardEditFieldConfiguration editConfiguration = new BlinkCardEditFieldConfiguration();
+            // editConfiguration.shouldDisplayIban = true;
+            // ...
+            // uiSettings.setEditScreenFieldConfiguration(editConfiguration);
+        } else {
+            requestCode = MY_BLINK_CARD_REQUEST_CODE;
+        }
+
+        ActivityRunner.startActivityForResult(this, requestCode, uiSettings);
     }
 
     private MenuListItem buildBlinkCardElement(final boolean scanIbanAndCvv) {
@@ -108,8 +151,21 @@ public class MenuActivity extends BaseMenuActivity {
                             blinkCard.setExtractIban(false);
                         }
                         ImageSettings.enableAllImages(blinkCard);
+                        blinkCardRecognitionAction(blinkCard, false);
+                    }
+                }
+        );
+    }
 
-                        blinkCardRecognitionAction(blinkCard);
+    private MenuListItem buildBlinkCardWithEditElement() {
+        return new MenuListItem(
+                "Scan card and edit fields",
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        BlinkCardRecognizer blinkCard = new BlinkCardRecognizer();
+                        ImageSettings.enableAllImages(blinkCard);
+                        blinkCardRecognitionAction(blinkCard, true);
                     }
                 }
         );

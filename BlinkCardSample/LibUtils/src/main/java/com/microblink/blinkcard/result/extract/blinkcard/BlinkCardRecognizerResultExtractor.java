@@ -23,21 +23,18 @@ public class BlinkCardRecognizerResultExtractor extends BaseResultExtractor<Blin
         if (firstSideImage != null) {
             add(R.string.MBFullDocumentImageFirstSide, firstSideImage);
             add(R.string.MBDocumentFirstSideImageBlurred, result.isFirstSideBlurred());
-        }
-        byte[] encodedFirstSide = result.getEncodedFirstSideFullDocumentImage();
-        if (encodedFirstSide != null) {
+            byte[] encodedFirstSide = result.getEncodedFirstSideFullDocumentImage();
             add(R.string.MBEncodedFullDocumentImageFirstSide, encodedFirstSide);
-
         }
+
         Image secondSideImage = result.getSecondSideFullDocumentImage();
         if (secondSideImage != null) {
             add(R.string.MBFullDocumentImageSecondSide, result.getSecondSideFullDocumentImage());
             add(R.string.MBDocumentSecondSideImageBlurred, result.isSecondSideBlurred());
-        }
-        byte[] encodedSecondSide = result.getEncodedSecondSideFullDocumentImage();
-        if (encodedSecondSide != null) {
+            byte[] encodedSecondSide = result.getEncodedSecondSideFullDocumentImage();
             add(R.string.MBEncodedFullDocumentImageSecondSide, encodedSecondSide);
         }
+
         DigitalSignatureExtractUtil.extractDigitalSignature(result, mExtractedData, mBuilder);
     }
 
