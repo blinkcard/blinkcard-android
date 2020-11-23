@@ -56,6 +56,7 @@
     <string name="PPWithdraw">Withdrawal</string>
     <string name="PPDueDate">Due date</string>
     <string name="PPPaymentStatus">Payment status</string>
+    <string name="PPPaymentSituationId">Payment situation ID</string>
     <string name="PPPayerAccount">Payer account</string>
     <string name="PPPayerReference">Payer Reference No</string>
     <string name="PPPayerReferenceModel">Payer Model</string>
@@ -89,25 +90,30 @@
     <string name="PPBarcodeRawData">Barcode raw data</string>
     <string name="PPBarcodeType">Barcode type</string>
     <string name="PPExtendedBarcodeData">Extended barcode data</string>
-    <string name="PPMRTDDocumentType">Document Type</string>
+    <string name="PPDocumentType">Document Type</string>
     <string name="PPMRZParsed">MRZ parsed</string>
     <string name="PPMRZVerified">MRZ verified</string>
     <string name="PPDocumentBothSidesMatch">Document Both Sides Match</string>
     <string name="PPPrimaryId">Primary ID</string>
     <string name="PPSecondaryId">Secondary ID</string>
     <string name="PPDateOfBirth">Date of birth</string>
+    <string name="PPAge">Age</string>
     <string name="PPDateOfExpiry">Date of Expiry</string>
     <string name="PPDateOfExpiryPermanent">Date of Expiry Permanent</string>
+    <string name="PPExpired">Expired</string>
     <string name="PPDocumentCode">Document code</string>
     <string name="PPDocumentNumber">Document number</string>
     <string name="PPDocumentAdditionalNumber">Document additional number</string>
+    <string name="PPPersonalAdditionalNumber">Personal additional number</string>
     <string name="PPNationalNumber">National number</string>
     <string name="PPOpt1">Optional field 1</string>
     <string name="PPOpt2">Optional field 2</string>
     <string name="PPSex">Sex</string>
     <string name="PPNationality">Nationality</string>
+    <string name="PPNationalityCode">Nationality code</string>
     <string name="PPCitizenship">Citizenship</string>
     <string name="PPIssuer">Issuer</string>
+    <string name="PPIssuerCode">Issuer code</string>
     <string name="PPMRZText">MRZ text</string>
     <string name="PPFirstName">First name</string>
     <string name="PPLastName">Last name</string>
@@ -119,15 +125,20 @@
     <string name="PPIssuedBy">Issued by</string>
     <string name="PPIssuingAgency">Issuing agency</string>
     <string name="PPAddress">Address</string>
+    <string name="PPStreet">Street</string>
+    <string name="PPPostalCode">Postal Code</string>
+    <string name="PPJurisdiction">Jurisdiction</string>
     <string name="PPAdditionalAddressInformation">Additional Address Information</string>
     <string name="PPResidence">Residence</string>
     <string name="PPAddressChangeDate">Date of address change</string>
     <string name="PPFacultyAddress">Faculty Address</string>
     <string name="PPAddressZipCode">Address ZIP code</string>
+    <string name="PPAddressPostalCode">Address postal code</string>
     <string name="PPAddressStreet">Address street</string>
     <string name="PPAddressCity">Address city</string>
     <string name="PPAddressState">Address state</string>
     <string name="PPAddressHouseNumber">Address house number</string>
+    <string name="PPAddressJurisdiction">Address jurisdiction</string>
     <string name="PPPlaceOfBirth">Place of birth</string>
     <string name="PPPlaceOfOrigin">Place of origin</string>
     <string name="PPPlaceOfIssue">Place of issue</string>
@@ -135,6 +146,8 @@
     <string name="PPDriverNumber">Driver number</string>
     <string name="PPDetectorResult">Detector result</string>
     <string name="PPFullName">Full name</string>
+    <string name="PPMiddleName">Middle name</string>
+    <string name="PPNameSuffix">Name suffix</string>
     <string name="PPLocalizedName">Localized name</string>
     <string name="PPAdditionalNameInformation">Additional name information</string>
     <string name="PPCommercialCode">Commercial Code</string>
@@ -162,6 +175,7 @@
     <string name="PPPaymentOptions">Payment options</string>
     <string name="PPEyeColour">Eye colour</string>
     <string name="PPPrincipalResidenceAtIssuance">Principal residence at issuance</string>
+    <string name="PPRemittanceInformation">Remittance information</string>
     <string name="PPHeight">Height</string>
     <string name="PPAlienNumber">ALien number</string>
     <string name="PPApplicationReceiptNumber">Application receipt number</string>
@@ -172,6 +186,9 @@
     <string name="PPValidFrom">Valid from</string>
     <string name="PPValidUntil">Valid until</string>
     <string name="PPValidThru">Valid thru</string>
+    <string name="PPShopId">Shop ID</string>
+    <string name="PPMerchantDeviceId">Merchant device ID</string>
+    <string name="PPValidityPeriod">Validity period</string>
     <string name="PPPassportNumber">Passport number</string>
     <string name="PPEmployer">Employer</string>
     <string name="PPSector">Sector</string>
@@ -185,6 +202,9 @@
     <string name="PPIdentityCardNumber">Identity card number</string>
     <string name="PPDistrictCode">District code</string>
     <string name="PPCustomerID">Customer ID</string>
+    <string name="PPRecipientInternalId">Recipient internal ID</string>
+    <string name="PPLoyaltyID">Loyalty ID</string>
+    <string name="PPNavVerificationCode">NAV verification code</string>
     <string name="PPLicenceNumber">Licence Number</string>
     <string name="PPLicenceType">Licence Type</string>
     <string name="PPLicenceCategories">Licence Categories</string>
@@ -218,6 +238,8 @@
     <string name="PPCivilIdNumber">Civil Id Number</string>
     <string name="PPSerialNo">Serial No</string>
     <string name="PPPaymentCardNumber">Card number</string>
+    <string name="PPPaymentCardNumberValid">Card number valid</string>
+    <string name="PPPaymentCardNumberPrefix">Card number prefix</string>
     <string name="PaymentCardType">Type</string>
     <string name="PPCVV">CVV</string>
     <string name="PPInventoryNumber">Inventory number</string>
@@ -253,12 +275,45 @@
     <string name="MBEncodedFullDocumentImageFront">Encoded full document image front</string>
     <string name="MBFullDocumentImageBack">Full document image back</string>
     <string name="MBEncodedFullDocumentImageBack">Encoded full document image back</string>
+    <string name="MBFullDocumentImageFirstSide">Full document image first side</string>
+    <string name="MBEncodedFullDocumentImageFirstSide">Encoded full document image first side</string>
+    <string name="MBFullDocumentImageSecondSide">Full document image second side</string>
+    <string name="MBEncodedFullDocumentImageSecondSide">Encoded full document image second side</string>
     <string name="MBMRZImage">MRZ image</string>
     <string name="MBFaceImage">Face image</string>
     <string name="MBEncodedFaceImage">Encoded face image</string>
     <string name="MBSignatureImage">Signature image</string>
     <string name="MBEncodedSignatureImage">Encoded signature image</string>
     <string name="MBHighResImage">High resolution image</string>
+
+    <string name="MBDocumentImageColorStatus">Image color status</string>
+    <string name="MBDocumentFrontImageColorStatus">Front image color status</string>
+    <string name="MBDocumentBackImageColorStatus">Back image color status</string>
+
+    <string name="MBDocumentImageMoireStatus">Moire status</string>
+    <string name="MBDocumentFrontImageMoireStatus">Front image Moire status</string>
+    <string name="MBDocumentBackImageMoireStatus">Back image Moire status</string>
+
+    <string name="MBDocumentImageFaceStatus">Face detection status</string>
+    <string name="MBDocumentFrontImageFaceStatus">Front image face detection status</string>
+    <string name="MBDocumentBackImageFaceStatus">Back image face detection status</string>
+
+    <string name="MBDocumentImageMrzStatus">Mrz detection status</string>
+    <string name="MBDocumentFrontImageMrzStatus">Front image mrz detection status</string>
+    <string name="MBDocumentBackImageMrzStatus">Back image mrz detection status</string>
+
+    <string name="MBDocumentImageBarcodeStatus">Barcode detection status</string>
+    <string name="MBDocumentFrontImageBarcodeStatus">Front image barcode detection status</string>
+    <string name="MBDocumentBackImageBarcodeStatus">Back image barcode detection status</string>
+
+    <string name="MBDocumentImageBlurred">Image blurred</string>
+    <string name="MBDocumentFrontImageBlurred">Front image blurred</string>
+    <string name="MBDocumentBackImageBlurred">Back image blurred</string>
+    <string name="MBDocumentFirstSideImageBlurred">First side image blurred</string>
+    <string name="MBDocumentSecondSideImageBlurred">Second side image blurred</string>
+
+    <string name="MBProcessingStatus">Processing status</string>
+    <string name="MBRecognitionMode">Recognition mode</string>
 
     <string name="MBDigitalSignature">Digital signature</string>
     <string name="MBDigitalSignatureVersion">Digital signature version</string>
