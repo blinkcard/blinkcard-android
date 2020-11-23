@@ -1,7 +1,7 @@
 package com.microblink.blinkcard;
 
-import com.microblink.entities.recognizers.Recognizer;
-import com.microblink.entities.recognizers.blinkid.imageoptions.FullDocumentImageOptions;
+import com.microblink.blinkcard.entities.recognizers.Recognizer;
+import com.microblink.blinkcard.entities.recognizers.blinkid.imageoptions.FullDocumentImageOptions;
 
 public class ImageSettings {
 
