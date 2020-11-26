@@ -636,6 +636,32 @@ When you are using combined recognizer and images of both document sides are req
 
 To launch a built-in activity that uses `BlinkCardOverlayController` use [`BlinkCardUISettings`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/uisettings/BlinkCardUISettings.html).
 
+### Scan overlay theming
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/wiki/blinkcard/blinkcard-android/images/scan_screen_customisation.png" alt="BlinkID SDK">
+</p>
+
+To customise overlay, provide your custom style resource via [`BlinkCardUISettings.setOverlayViewStyle()`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/uisettings/BlinkCardUISettings.html#setOverlayViewStyle-int-) method or via [`ScanLineOverlayView `](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/fragment/overlay/blinkcard/scanlineui/ScanLineOverlayView.html) constructor. You can customise elements labeled on the screenshot above by providing the following attributes in your style:
+
+**exit**
+
+* `mb_exitScanDrawable` - icon drawable
+
+**torch**
+
+* `mb_torchOnDrawable` - icon drawable that is shown when the torch is enabled
+* `mb_torchOffDrawable` - icon drawable that is show when the torch is disabled
+
+**instructions text**
+
+* `mb_instructionsTextAppearance` - style that will be used as `android:textAppearance`
+
+**glare warning**
+
+* `mb_glareWarningTextAppearance` - style that will be used as TextAppearance
+* `mb_glareWarningBackgroundDrawable` - drawable used for background
+* note that you can disable this element by using [`BlinkCardUISettings.setShowGlareWarning(false)`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/uisettings/BlinkCardUISettings.html#setShowGlareWarning-boolean-)
+
 ### Edit results screen
 SDK also provides an activity that allows users to edit scanned results and input data that wasn't scanned. Note that this activity works only with `BlinkCardRecognizer`.
 
@@ -648,6 +674,54 @@ Edit results activity can be customised in several ways:
 * to configure which fields should be displayed use `BlinkCardUISettings.setEditScreenFieldConfiguration()`
 * set your custom theme with `BlinkCardUISettings.setEditScreenTheme()` method
 * change default strings by using `BlinkCardUISettings.setEditScreenStrings()`
+
+### Edit screen theming
+
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/wiki/blinkcard/blinkcard-android/images/edit_screen_customisation.png" alt="BlinkID SDK">
+</p>
+
+To customise edit results activity, provide your custom theme resource via [`BlinkCardUISettings.setEditScreenTheme()`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/uisettings/BlinkCardUISettings.html#setEditScreenTheme-int-). Your custom theme can either:
+
+1. extend our default theme `MB_theme_blink_card_edit_screen` and override just specific attributes
+2. extend any of the AppCompat themes and define all attributes listed below
+
+Our default theme extends `Theme.AppCompat.Light` so if you want to use a dark theme you'll need to go with option number 2.
+
+**toolbar**
+
+* `mb_blinkcardEditToolbarTheme` - style that will be used as toolbar theme
+* `mb_blinkcardEditToolbarBackground` - toolbar background color
+
+**label**
+
+* `mb_blinkcardEditLabelTextAppearance` - style that will be used as `android:textAppearance`
+* `mb_blinkcardEditLabelTextColor` - text color used when the field is not in focus or in error state
+* `mb_blinkcardEditErrorColor` - text color used in case of an error
+* `colorAccent` - text color used when the field is focused
+
+**value**
+
+* `mb_blinkcardEditValueTextAppearance` - style that will be used as `android:textAppearance`
+* `mb_blinkcardEditValueTextColor` - color for inputed value text
+* `mb_blinkcardEditValueHintColor` - color for hint text
+
+**divider**
+
+* `mb_glareWarningTextAppearance` - style that will be used as `android:textAppearance`
+* `mb_blinkcardEditDividerColor` - background color used when the field is not in focus or in error state
+* `mb_blinkcardEditErrorColor` - background color used when the field is in error state
+* `colorAccent` - background color used when the field is focused
+
+**error**
+
+* `mb_blinkcardEditErrorTextAppearance` - style that will be used as `android:textAppearance`
+* `mb_blinkcardEditErrorColor ` - text color
+
+**confirm button**
+
+* `mb_blinkcardEditConfirmButtonStyle` - button style
+
 
 ## <a name="translation"></a> Translation and localization
 
