@@ -8,13 +8,9 @@ We're proud to announce our AI-driven BlinkCard v2.0! Extract the **card number*
 
 As of this version, BlinkCard SDK is fully compatible with other Microblink SDKs, which means that you can use it with other Microblink SDKs in the same application.
 
-- BlinkCard v2.0 now supports card layouts with all information on the back side of the card!
-
 - `BlinkCardRecognizer` is a Combined recognizer, which means it's designed for scanning **both sides of a card**. However, if all required data is found on the first side, we do not wait for second side scanning. We can return the result early. A set of required fields is defined through the recognizer's settings.
 
 - "Front side" and "back side" are terms more suited to ID scanning. We start the scanning process with the **side containing the card number**. This makes the UX easier for users with cards where all data is on the back side.
-
-- We've expanded the set of possible recognizer states with **StageValid**. This state is set when first side scanning completes with valid data, and second side scanning is required.
 
 - Available `BlinkCardRecognizer` [**settings**](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardRecognizer.html):
 	- You can toggle mandatory **extraction** of all fields except the PAN.
@@ -42,6 +38,7 @@ As of this version, BlinkCard SDK is fully compatible with other Microblink SDKs
 		- FieldIdentificationFailed - if we detected a field, but we're unable to parse it (possible glare issues, or a finger covering the field)
 		- ImageReturnFailed - failed to return requested images
 		- UnsupportedCard - this card layout is currently unsupported.
+- We've expanded the set of possible recognizer states with **StageValid**. This state is set when first side scanning completes with valid data, and second side scanning is required.
 
 
 ### New features:
