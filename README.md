@@ -1007,6 +1007,11 @@ When you have to determine what is the license-relate problem or you simply do n
 * please stress out that you are reporting problem related to Android version of _BlinkCard_ SDK
 * if unsure about the problem, you should also provide excerpt from ADB logcat containing license error
 
+**Keep in mind:** Versions 2.0.0 and above require an internet connection to work under our new License Management Program.
+
+We’re only asking you to do this so we can validate your trial license key. Scanning or data extraction of credit cards still happens offline, on the device itself. 
+Once the validation is complete, you can continue using the SDK in offline mode (or over a private network) until the next check. 
+
 ### Other problems
 
 If you are having problems with scanning certain items, undesired behaviour on specific device(s), crashes inside _BlinkCard_ or anything unmentioned, please do as follows:
@@ -1070,6 +1075,11 @@ When automatic scanning of camera frames with our camera management is used (pro
 #### <a name="ocrResultForbidden"></a> `onOcrResult()` method in my `OcrCallback` is never invoked and all `Result` objects always return `null` in their OCR result getters
 
 In order to be able to obtain raw OCR result, which contains locations of each character, its value and its alternatives, you need to have a license that allows that. By default, licenses do not allow exposing raw OCR results in public API. If you really need that, please [contact us](https://help.microblink.com) and explain your use case.
+
+#### <a name="networkRequiredError"></a> I am getting a ‘Network required’ error when I'm on a private network“
+
+Online trial licenses require a public network access for validation purposes. See [Licensing issues](#licensing-issues).
+
 # <a name="info"></a> Additional info
 
 ## <a name="size_report"></a> BlinkCard SDK size
