@@ -1076,7 +1076,7 @@ When automatic scanning of camera frames with our camera management is used (pro
 
 In order to be able to obtain raw OCR result, which contains locations of each character, its value and its alternatives, you need to have a license that allows that. By default, licenses do not allow exposing raw OCR results in public API. If you really need that, please [contact us](https://help.microblink.com) and explain your use case.
 
-#### <a name="networkRequiredError"></a> I am getting a ‘Network required’ error when I'm on a private network“
+#### <a name="networkRequiredError"></a> I am getting a ‘Network required’ error when I'm on a private network
 
 Online trial licenses require a public network access for validation purposes. See [Licensing issues](#licensing-issues).
 
