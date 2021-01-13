@@ -1019,7 +1019,7 @@ If you are having problems with scanning certain items, undesired behaviour on s
 * enable logging to get the ability to see what is library doing. To enable logging, put this line in your application:
 
 	```java
-	com.microblink.util.Log.setLogLevel(com.microblink.util.Log.LogLevel.LOG_VERBOSE);
+	com.microblink.blinkcard.util.Log.setLogLevel(com.microblink.blinkcard.util.Log.LogLevel.LOG_VERBOSE);
 	```
 
 	After this line, library will display as much information about its work as possible. Please save the entire log of scanning session to a file that you will send to us. It is important to send the entire log, not just the part where crash occurred, because crashes are sometimes caused by unexpected behaviour in the early stage of the library initialization.
