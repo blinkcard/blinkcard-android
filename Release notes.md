@@ -1,5 +1,27 @@
 # Release notes
 
+## 2.1.0
+
+### New features:
+- We’ve updated SDK's Android target API level to 30.
+- We’ve translated the complete SDK to the Serbian language.
+- We’ve made the SDK safe from tapjacking, a form of attack where a user is tricked into tapping something he or she didn’t intend to tap. We did this by adding a new security option that prompts the SDK to discard touches when the activity's window is obscured by another visible window. To activate it, use UISettings.setFilterTouchesWhenObscured(true).
+
+### Other improvements:
+- We’ve updated our default UI with new error messages shown if the user doesn’t place the card within the frame.
+- We’ve updated security code field on the edit results screen, it is no longer anonymized.
+- We’ve added a new edit results screen customisation option, you can now change the toolbar icon (`mb_blinkcardEditToolbarNavigationIcon` theme attribute).
+- We've introduced other variants of `resetRecognitionState` methods that enable resetting of the current recognition step. Call `RecognizerRunner.resetRecognitionState(false)` when scanning with Direct API and `RecognizerRunnerView.resetRecognitionState(false)` when scanning with the camera to clear the scanning cache and results only for the current recognition step, for example, only for the backside of the document.
+
+### Minor API changes:
+- We've replaced `Using time-limited license!` warning with `Using trial license!` warning. The warning message is displayed when using a trial license key. To disable it, use `MicroblinkSDK.setShowTrialLicenseWarning(false)`.
+
+### Bug fixes:
+- SDK does not require permission android.permission.ACCESS_NETWORK_STATE to unlock itself anymore, in cases when the license key needs online activation.
+- We have fixed an edit results screen issue causing user changes being lost when the app goes to background.
+- We've fixed the front camera error on `Oukitel WP8 Pro`.
+
+
 ## 2.0.0
 
 ### **BlinkCard v2 Release Announcement**
@@ -8,9 +30,13 @@ We're proud to announce our AI-driven BlinkCard v2.0! Extract the **card number*
 
 As of this version, BlinkCard SDK is fully compatible with other Microblink SDKs, which means that you can use it with other Microblink SDKs in the same application.
 
+- BlinkCard v2.0 now supports card layouts with all information on the back side of the card!
+
 - `BlinkCardRecognizer` is a Combined recognizer, which means it's designed for scanning **both sides of a card**. However, if all required data is found on the first side, we do not wait for second side scanning. We can return the result early. A set of required fields is defined through the recognizer's settings.
 
 - "Front side" and "back side" are terms more suited to ID scanning. We start the scanning process with the **side containing the card number**. This makes the UX easier for users with cards where all data is on the back side.
+
+- We've expanded the set of possible recognizer states with **StageValid**. This state is set when first side scanning completes with valid data, and second side scanning is required.
 
 - Available `BlinkCardRecognizer` [**settings**](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardRecognizer.html):
 	- You can toggle mandatory **extraction** of all fields except the PAN.
@@ -38,7 +64,6 @@ As of this version, BlinkCard SDK is fully compatible with other Microblink SDKs
 		- FieldIdentificationFailed - if we detected a field, but we're unable to parse it (possible glare issues, or a finger covering the field)
 		- ImageReturnFailed - failed to return requested images
 		- UnsupportedCard - this card layout is currently unsupported.
-- We've expanded the set of possible recognizer states with **StageValid**. This state is set when first side scanning completes with valid data, and second side scanning is required.
 
 
 ### New features:

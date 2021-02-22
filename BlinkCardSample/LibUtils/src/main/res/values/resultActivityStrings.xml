@@ -104,6 +104,7 @@
     <string name="PPDocumentCode">Document code</string>
     <string name="PPDocumentNumber">Document number</string>
     <string name="PPDocumentAdditionalNumber">Document additional number</string>
+    <string name="PPDocumentOptionalAdditionalNumber">Document optional additional number</string>
     <string name="PPPersonalAdditionalNumber">Personal additional number</string>
     <string name="PPNationalNumber">National number</string>
     <string name="PPOpt1">Optional field 1</string>
@@ -266,6 +267,10 @@
     <string name="PPClassInfoCountry">Country</string>
     <string name="PPClassInfoRegion">Region</string>
     <string name="PPClassInfoType">Type</string>
+    <string name="PPClassInfoCountryName">Country name</string>
+    <string name="PPClassInfoIsoNumericCountryCode">ISO numeric country code</string>
+    <string name="PPClassInfoIsoAlpha2CountryCode">ISO two letter country code</string>
+    <string name="PPClassInfoIsoAlpha3CountryCode">ISO three letter country code</string>
 
     <string name="MBRecognitionStatus">Recognition status</string>
     <string name="MBFullDocumentImage">Full document image</string>

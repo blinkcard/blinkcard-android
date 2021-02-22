@@ -93,7 +93,7 @@ Add _BlinkCard_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkcard:2.0.0@aar') {
+    implementation('com.microblink:blinkcard:2.1.0@aar') {
         transitive = true
     }
 }
@@ -105,7 +105,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkcard-2.0.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkcard-2.1.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -274,26 +274,26 @@ The `ScanningOverlayBinder` is responsible for returning `non-null` implementati
 Here is the minimum example for activity that hosts the `RecognizerRunnerFragment`:
 
 ```java
-public class MyActivity extends Activity implements RecognizerRunnerFragment.ScanningOverlayBinder {
+public class MyActivity extends AppCompatActivity implements RecognizerRunnerFragment.ScanningOverlayBinder {
     private BlinkCardRecognizer mRecognizer;
     private RecognizerBundle mRecognizerBundle;
-    private BlinkCardOverlayController mScanOverlay = createOverlay();
+    private BlinkCardOverlayController mScanOverlay;
     private RecognizerRunnerFragment mRecognizerRunnerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate();
         setContentView(R.layout.activity_my_activity);
-
+        mScanOverlay = createOverlay();
         if (null == savedInstanceState) {
             // create fragment transaction to replace R.id.recognizer_runner_view_container with RecognizerRunnerFragment
             mRecognizerRunnerFragment = new RecognizerRunnerFragment();
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.recognizer_runner_view_container, mRecognizerRunnerFragment);
             fragmentTransaction.commit();
         } else {
             // obtain reference to fragment restored by Android within super.onCreate() call
-            mRecognizerRunnerFragment = (RecognizerRunnerFragment) getFragmentManager().findFragmentById(R.id.recognizer_runner_view_container);
+            mRecognizerRunnerFragment = (RecognizerRunnerFragment) getSupportFragmentManager().findFragmentById(R.id.recognizer_runner_view_container);
         }
     }
 
@@ -329,6 +329,9 @@ public class MyActivity extends Activity implements RecognizerRunnerFragment.Sca
             // removal of RecognizerRunnerFragment - in the time between end of this method
             // and beginning of execution of the transaction. So to ensure result within mRecognizer
             // does not get mutated, ensure calling pauseScanning() as shown above.
+        }
+        @Override
+        public void onUnrecoverableError(@NonNull Throwable throwable) {
         }
     };
     
@@ -1009,7 +1012,7 @@ When you have to determine what is the license-relate problem or you simply do n
 
 **Keep in mind:** Versions 2.0.0 and above require an internet connection to work under our new License Management Program.
 
-We’re only asking you to do this so we can validate your trial license key. Scanning or data extraction of credit cards still happens offline, on the device itself. 
+We’re only asking you to do this so we can validate your trial license key. Data extraction still happens offline, on the device itself.
 Once the validation is complete, you can continue using the SDK in offline mode (or over a private network) until the next check. 
 
 ### Other problems
@@ -1072,14 +1075,13 @@ This usually happens when you attempt to transfer standalone `Result` that conta
 
 When automatic scanning of camera frames with our camera management is used (provided camera overlays or direct usage of `RecognizerRunnerView`), we use a stream of video frames and send multiple images to the recognition to boost reading accuracy. Also, we perform frame quality analysis and combine scanning results from multiple camera frames. On the other hand, when you are using the Direct API with a single image per document side, we cannot combine multiple images. We do our best to extract as much information as possible from that image. In some cases, when the quality of the input image is not good enough, for example, when the image is blurred or when glare is present, we are not able to successfully read the document.
 
-#### <a name="ocrResultForbidden"></a> `onOcrResult()` method in my `OcrCallback` is never invoked and all `Result` objects always return `null` in their OCR result getters
-
-In order to be able to obtain raw OCR result, which contains locations of each character, its value and its alternatives, you need to have a license that allows that. By default, licenses do not allow exposing raw OCR results in public API. If you really need that, please [contact us](https://help.microblink.com) and explain your use case.
-
 #### <a name="networkRequiredError"></a> I am getting a ‘Network required’ error when I'm on a private network
 
 Online trial licenses require a public network access for validation purposes. See [Licensing issues](#licensing-issues).
 
+#### <a name="ocrResultForbidden"></a> `onOcrResult()` method in my `OcrCallback` is never invoked and all `Result` objects always return `null` in their OCR result getters
+
+In order to be able to obtain raw OCR result, which contains locations of each character, its value and its alternatives, you need to have a license that allows that. By default, licenses do not allow exposing raw OCR results in public API. If you really need that, please [contact us](https://help.microblink.com) and explain your use case.
 # <a name="info"></a> Additional info
 
 ## <a name="size_report"></a> BlinkCard SDK size

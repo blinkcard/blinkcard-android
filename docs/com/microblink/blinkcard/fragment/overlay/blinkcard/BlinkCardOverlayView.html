@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -123,7 +123,7 @@ var activeTableTab = "activeTableTab";
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>android.view.View</code></td>
+<td class="colFirst"><code>android.view.ViewGroup</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayView.html#createLayout-android.app.Activity-android.view.ViewGroup-">createLayout</a></span>(android.app.Activity&nbsp;activity,
             android.view.ViewGroup&nbsp;parentView)</code>
 <div class="block">Inflate your custom layout layout here</div>
@@ -149,29 +149,41 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayView.html#onCardDetectionUpdate-com.microblink.blinkcard.view.recognition.DetectionStatus-">onCardDetectionUpdate</a></span>(<a href="../../../../../../com/microblink/blinkcard/view/recognition/DetectionStatus.html" title="class in com.microblink.blinkcard.view.recognition">DetectionStatus</a>&nbsp;status)</code>
+<div class="block">Called on any update to card detection process.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayView.html#onFirstSideScanStarted--">onFirstSideScanStarted</a></span>()</code>
 <div class="block">Called when scanning of the first side starts.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayView.html#onFrameProcessingStatus-com.microblink.blinkcard.entities.recognizers.blinkcard.BlinkCardProcessingStatus-">onFrameProcessingStatus</a></span>(<a href="../../../../../../com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardProcessingStatus.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardProcessingStatus</a>&nbsp;status)</code>
+<div class="block">Called after each frame has been processed</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayView.html#onScanningPaused--">onScanningPaused</a></span>()</code>
 <div class="block">Called when scanning is paused.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayView.html#onScanningResumed--">onScanningResumed</a></span>()</code>
 <div class="block">Called when scanning is resumed.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayView.html#onSecondSideScanStarted--">onSecondSideScanStarted</a></span>()</code>
 <div class="block">Called when scanning of the second side starts.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayView.html#onTorchStateChanged-boolean-">onTorchStateChanged</a></span>(boolean&nbsp;torchOn)</code>
 <div class="block">Called when torch (flashlight) state is updated.</div>
@@ -199,10 +211,10 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>createLayout</h4>
 <pre>@NonNull
-android.view.View&nbsp;createLayout(@NonNull
-                                        android.app.Activity&nbsp;activity,
-                                        @NonNull
-                                        android.view.ViewGroup&nbsp;parentView)</pre>
+android.view.ViewGroup&nbsp;createLayout(@NonNull
+                                             android.app.Activity&nbsp;activity,
+                                             @NonNull
+                                             android.view.ViewGroup&nbsp;parentView)</pre>
 <div class="block">Inflate your custom layout layout here</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -298,7 +310,7 @@ android.view.View&nbsp;createLayout(@NonNull
 <a name="onTorchStateChanged-boolean-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>onTorchStateChanged</h4>
 <pre>void&nbsp;onTorchStateChanged(boolean&nbsp;torchOn)</pre>
@@ -306,6 +318,30 @@ android.view.View&nbsp;createLayout(@NonNull
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>torchOn</code> - <code>true</code> if torch is turned on, <code>false</code> otherwise.</dd>
+</dl>
+</li>
+</ul>
+<a name="onCardDetectionUpdate-com.microblink.blinkcard.view.recognition.DetectionStatus-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onCardDetectionUpdate</h4>
+<pre>void&nbsp;onCardDetectionUpdate(<a href="../../../../../../com/microblink/blinkcard/view/recognition/DetectionStatus.html" title="class in com.microblink.blinkcard.view.recognition">DetectionStatus</a>&nbsp;status)</pre>
+<div class="block">Called on any update to card detection process.</div>
+</li>
+</ul>
+<a name="onFrameProcessingStatus-com.microblink.blinkcard.entities.recognizers.blinkcard.BlinkCardProcessingStatus-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>onFrameProcessingStatus</h4>
+<pre>void&nbsp;onFrameProcessingStatus(<a href="../../../../../../com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardProcessingStatus.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardProcessingStatus</a>&nbsp;status)</pre>
+<div class="block">Called after each frame has been processed</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>status</code> - latest frame processing status</dd>
 </dl>
 </li>
 </ul>
