@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -206,32 +206,42 @@ extends <a href="../../../../../../com/microblink/blinkcard/fragment/overlay/Bas
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayController.html#onFrameRecognitionDone-com.microblink.blinkcard.recognition.RecognitionSuccessType-">onFrameRecognitionDone</a></span>(<a href="../../../../../../com/microblink/blinkcard/recognition/RecognitionSuccessType.html" title="class in com.microblink.blinkcard.recognition">RecognitionSuccessType</a>&nbsp;recognitionSuccessType)</code>
+<div class="block">Called for each camera frame, after the recognition has been completed.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayController.html#onRecognizerRunnerViewCreated-com.microblink.blinkcard.fragment.RecognizerRunnerFragment-">onRecognizerRunnerViewCreated</a></span>(<a href="../../../../../../com/microblink/blinkcard/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.blinkcard.fragment">RecognizerRunnerFragment</a>&nbsp;recognizerRunnerFragment)</code>
 <div class="block">Called when <a href="../../../../../../com/microblink/blinkcard/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkcard.view.recognition"><code>RecognizerRunnerView</code></a> has been created within given
  <a href="../../../../../../com/microblink/blinkcard/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.blinkcard.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayController.html#onScanningDone-com.microblink.blinkcard.recognition.RecognitionSuccessType-">onScanningDone</a></span>(<a href="../../../../../../com/microblink/blinkcard/recognition/RecognitionSuccessType.html" title="class in com.microblink.blinkcard.recognition">RecognitionSuccessType</a>&nbsp;successType)</code>
 <div class="block">This method is called when recognition is done.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayController.html#pauseScanning--">pauseScanning</a></span>()</code>
 <div class="block">If the <a href="../../../../../../com/microblink/blinkcard/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkcard.view.recognition"><code>RecognizerRunnerView</code></a> has been created, pauses the scanning
  loop by calling <a href="../../../../../../com/microblink/blinkcard/view/recognition/RecognizerRunnerView.html#pauseScanning--"><code>RecognizerRunnerView.pauseScanning()</code></a>.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayController.html#reconfigureRecognizers-com.microblink.blinkcard.entities.recognizers.RecognizerBundle-">reconfigureRecognizers</a></span>(<a href="../../../../../../com/microblink/blinkcard/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.blinkcard.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</code>&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayController.html#resumeScanning--">resumeScanning</a></span>()</code>
 <div class="block">If the <a href="../../../../../../com/microblink/blinkcard/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkcard.view.recognition"><code>RecognizerRunnerView</code></a> has been created, resumes the scanning
  loop (that has been paused) by calling <a href="../../../../../../com/microblink/blinkcard/view/recognition/RecognizerRunnerView.html#resumeScanning-boolean-"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a> }.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayController.html#shouldResetStateOnRecognizerResume--">shouldResetStateOnRecognizerResume</a></span>()</code>&nbsp;</td>
 </tr>
@@ -352,6 +362,15 @@ public&nbsp;<a href="../../../../../../com/microblink/blinkcard/entities/recogni
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>recognizerRunnerFragment</code> - <a href="../../../../../../com/microblink/blinkcard/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.blinkcard.fragment"><code>RecognizerRunnerFragment</code></a> within which <a href="../../../../../../com/microblink/blinkcard/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkcard.view.recognition"><code>RecognizerRunnerView</code></a> has been created.</dd>
 </dl>
+</li>
+</ul>
+<a name="reconfigureRecognizers-com.microblink.blinkcard.entities.recognizers.RecognizerBundle-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>reconfigureRecognizers</h4>
+<pre>public&nbsp;void&nbsp;reconfigureRecognizers(<a href="../../../../../../com/microblink/blinkcard/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.blinkcard.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</pre>
 </li>
 </ul>
 <a name="onFragmentPaused--">
@@ -486,7 +505,7 @@ public&nbsp;<a href="../../../../../../com/microblink/blinkcard/entities/recogni
 <a name="resumeScanning--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>resumeScanning</h4>
 <pre>public&nbsp;void&nbsp;resumeScanning()</pre>
@@ -502,6 +521,25 @@ public&nbsp;<a href="../../../../../../com/microblink/blinkcard/entities/recogni
 <dd><code><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/BaseOverlayController.html#resumeScanning--">resumeScanning</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/BaseOverlayController.html" title="class in com.microblink.blinkcard.fragment.overlay">BaseOverlayController</a></code></dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../../../com/microblink/blinkcard/view/recognition/RecognizerRunnerView.html#resumeScanning-boolean-"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="onFrameRecognitionDone-com.microblink.blinkcard.recognition.RecognitionSuccessType-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>onFrameRecognitionDone</h4>
+<pre>public&nbsp;void&nbsp;onFrameRecognitionDone(<a href="../../../../../../com/microblink/blinkcard/recognition/RecognitionSuccessType.html" title="class in com.microblink.blinkcard.recognition">RecognitionSuccessType</a>&nbsp;recognitionSuccessType)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/ScanningOverlay.html#onFrameRecognitionDone-com.microblink.blinkcard.recognition.RecognitionSuccessType-">ScanningOverlay</a></code></span></div>
+<div class="block">Called for each camera frame, after the recognition has been completed.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/ScanningOverlay.html#onFrameRecognitionDone-com.microblink.blinkcard.recognition.RecognitionSuccessType-">onFrameRecognitionDone</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.blinkcard.fragment.overlay">ScanningOverlay</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/BaseOverlayController.html#onFrameRecognitionDone-com.microblink.blinkcard.recognition.RecognitionSuccessType-">onFrameRecognitionDone</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../com/microblink/blinkcard/fragment/overlay/BaseOverlayController.html" title="class in com.microblink.blinkcard.fragment.overlay">BaseOverlayController</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>recognitionSuccessType</code> - frame recognition status.</dd>
 </dl>
 </li>
 </ul>

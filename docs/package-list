@@ -22,6 +22,7 @@ com.microblink.blinkcard.fragment.overlay
 com.microblink.blinkcard.fragment.overlay.blinkcard
 com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui
 com.microblink.blinkcard.fragment.overlay.components
+com.microblink.blinkcard.fragment.overlay.components.debug
 com.microblink.blinkcard.fragment.overlay.components.feedback
 com.microblink.blinkcard.fragment.overlay.components.settings
 com.microblink.blinkcard.fragment.overlay.components.snackbar
