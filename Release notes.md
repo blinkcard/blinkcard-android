@@ -13,9 +13,6 @@
 - We’ve added a new edit results screen customisation option, you can now change the toolbar icon (`mb_blinkcardEditToolbarNavigationIcon` theme attribute).
 - We've introduced other variants of `resetRecognitionState` methods that enable resetting of the current recognition step. Call `RecognizerRunner.resetRecognitionState(false)` when scanning with Direct API and `RecognizerRunnerView.resetRecognitionState(false)` when scanning with the camera to clear the scanning cache and results only for the current recognition step, for example, only for the backside of the document.
 
-### Minor API changes:
-- We've replaced `Using time-limited license!` warning with `Using trial license!` warning. The warning message is displayed when using a trial license key. To disable it, use `MicroblinkSDK.setShowTrialLicenseWarning(false)`.
-
 ### Bug fixes:
 - SDK does not require permission android.permission.ACCESS_NETWORK_STATE to unlock itself anymore, in cases when the license key needs online activation.
 - We have fixed an edit results screen issue causing user changes being lost when the app goes to background.
