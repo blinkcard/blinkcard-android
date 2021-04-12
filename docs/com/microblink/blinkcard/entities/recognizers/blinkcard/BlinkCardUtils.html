@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9};
+var methods = {"i0":9,"i1":9,"i2":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,8 +47,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../../com/microblink/blinkcard/entities/recognizers/blinkcard/Issuer.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardProcessingStatus.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../com/microblink/blinkcard/entities/recognizers/blinkcard/CardNumberAnonymizationSettings.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../../index.html?com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardUtils.html" target="_top">Frames</a></li>
@@ -156,6 +156,12 @@ extends java.lang.Object</pre>
 <div class="block">Checks whether the provided cardNumber is valid.</div>
 </td>
 </tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardUtils.html#isValidIban-java.lang.String-">isValidIban</a></span>(java.lang.String&nbsp;iban)</code>
+<div class="block">Checks whether the provided iban is valid.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -209,14 +215,23 @@ public static&nbsp;<a href="../../../../../../com/microblink/blinkcard/entities/
 <a name="isValidCardNumber-java.lang.String-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>isValidCardNumber</h4>
-<pre>@NonNull
-public static&nbsp;boolean&nbsp;isValidCardNumber(java.lang.String&nbsp;cardNumber)</pre>
+<pre>public static&nbsp;boolean&nbsp;isValidCardNumber(java.lang.String&nbsp;cardNumber)</pre>
 <div class="block">Checks whether the provided cardNumber is valid.
  Validation is performed by calculating the check digit using Luhn algorithm and comparing it
  with the last digit of the provided card number.</div>
+</li>
+</ul>
+<a name="isValidIban-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isValidIban</h4>
+<pre>public static&nbsp;boolean&nbsp;isValidIban(java.lang.String&nbsp;iban)</pre>
+<div class="block">Checks whether the provided iban is valid.</div>
 </li>
 </ul>
 </li>
@@ -246,8 +261,8 @@ public static&nbsp;boolean&nbsp;isValidCardNumber(java.lang.String&nbsp;cardNumb
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../../com/microblink/blinkcard/entities/recognizers/blinkcard/Issuer.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardProcessingStatus.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../com/microblink/blinkcard/entities/recognizers/blinkcard/CardNumberAnonymizationSettings.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../../index.html?com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardUtils.html" target="_top">Frames</a></li>

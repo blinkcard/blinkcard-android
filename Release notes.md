@@ -1,5 +1,27 @@
 # Release notes
 
+## 2.2.0
+
+### New features:
+- We've added a new feature that lets you anonymize extracted results, images or both:
+	- Choose which fields you want to mask:
+		- Card number
+		- Card number prefix
+		- CVV
+		- Owner
+		- IBAN
+	- Choose a `BlinkCardAnonymizationMode` for each field:
+		- `None`
+		- `ImageOnly` - Black boxes will cover chosen data on the extracted image, results are not anonymized
+		- `ResultFieldsOnly` - String data is redacted from the result, images are not anonymized
+		- `FullResult` - Both images and string data (results) are anonymized
+	- You can customize the way you anonymize the card number through `CardNumberAnonymizationSettings`:
+		- `prefixDigitsVisible` - Defines how many digits at the beginning of the card number remain visible after anonymization
+		- `suffixDigitsVisible` - Defines how many digits at the end of the card number remain visible after anonymization
+
+### Improvements 
+- We've added support for new horizontal card layouts
+
 ## 2.1.0
 
 ### New features:
@@ -12,6 +34,9 @@
 - We’ve updated security code field on the edit results screen, it is no longer anonymized.
 - We’ve added a new edit results screen customisation option, you can now change the toolbar icon (`mb_blinkcardEditToolbarNavigationIcon` theme attribute).
 - We've introduced other variants of `resetRecognitionState` methods that enable resetting of the current recognition step. Call `RecognizerRunner.resetRecognitionState(false)` when scanning with Direct API and `RecognizerRunnerView.resetRecognitionState(false)` when scanning with the camera to clear the scanning cache and results only for the current recognition step, for example, only for the backside of the document.
+
+### Minor API changes:
+- We've replaced `Using time-limited license!` warning with `Using trial license!` warning. The warning message is displayed when using a trial license key. To disable it, use `MicroblinkSDK.setShowTrialLicenseWarning(false)`.
 
 ### Bug fixes:
 - SDK does not require permission android.permission.ACCESS_NETWORK_STATE to unlock itself anymore, in cases when the license key needs online activation.
