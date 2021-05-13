@@ -1,5 +1,12 @@
 # Release notes
 
+## 2.3.0
+
+### New features:
+- We've added support for vertical payment cards.
+- As of this release, BlinkCard supports the Visa Quick Read format (the one where the card number spans through four lines).
+- We've changed the threshold for "Camera too far" and "Camera too near" callbacks. From now on, the card needs to be closer to the camera.
+
 ## 2.2.0
 
 ### New features:
