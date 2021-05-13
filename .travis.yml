@@ -2,12 +2,12 @@ language: android
 sudo: false
 jdk:
   - oraclejdk8
+before_install:
+    - yes | sdkmanager "platforms;android-30"
 android:
     components:
-        - platform-tools
-        - tools
         - build-tools-29.0.2
-        - android-29
+        - android-30
         - extra-android-m2repository
 script:
     - cd BlinkCardSample
