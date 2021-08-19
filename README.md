@@ -8,6 +8,8 @@ Using _BlinkCard_ in your app requires a valid license. You can obtain a trial l
 
 See below for more information about how to integrate _BlinkCard_ SDK into your app and also check latest [Release notes](Release%20notes.md).
 
+You can start by watching our [step-by-step tutorial](https://vimeo.com/542539564/c0f92f9cbf), in which you’ll find out how to make BlinkCard SDK a part of your Android app.
+
 To see _BlinkCard_ in action, check our [demo app](https://play.google.com/store/apps/details?id=com.microblink.blinkcardapp).
 
 # Table of contents
@@ -93,7 +95,7 @@ Add _BlinkCard_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkcard:2.2.0@aar') {
+    implementation('com.microblink:blinkcard:2.4.0@aar') {
         transitive = true
     }
 }
@@ -105,7 +107,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkcard-2.2.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkcard-2.4.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -203,7 +205,7 @@ _BlinkCard_ requires **Android 4.1** (API level **16**) or newer. For best perfo
 
 ### Camera
 
-Camera video preview resolution also matters. In order to perform successful scans, camera preview resolution must be at least 480p. Note that camera preview resolution is not the same as video recording resolution. For example, [Sony Xperia Go](http://www.gsmarena.com/sony_xperia_go-4782.php) supports 720p video recording but preview resolution is only 320p - _BlinkCard_ won't work on that device.
+Camera video preview resolution also matters. In order to perform successful scans, camera preview resolution must be at least 720p. Note that camera preview resolution is not the same as video recording resolution. For example, [Sony Xperia Go](http://www.gsmarena.com/sony_xperia_go-4782.php) supports 720p video recording but preview resolution is only 320p - _BlinkCard_ won't work on that device.
 
 ### Processor architecture
 
@@ -875,7 +877,7 @@ This problem is usually solved with transitive Maven dependencies, i.e. when pub
 
 _BlinkCard_ is distributed with **ARMv7**, **ARM64**, **x86** and **x86_64** native library binaries.
 
-**ARMv7** architecture gives the ability to take advantage of hardware accelerated floating point operations and SIMD processing with [NEON](http://www.arm.com/products/processors/technologies/neon.php). This gives _BlinkCard_ a huge performance boost on devices that have ARMv7 processors. Most new devices (all since 2012.) have ARMv7 processor so it makes little sense not to take advantage of performance boosts that those processors can give. Also note that some devices with ARMv7 processors do not support NEON instruction sets, most popular being those based on [NVIDIA Tegra 2](https://en.wikipedia.org/wiki/Tegra#Tegra_2). Since these devices are old by today's standard, _BlinkCard_ does not support them. For the same reason, _BlinkCard_ does not support devices with ARMv5 (`armeabi`) architecture.
+**ARMv7** architecture gives the ability to take advantage of hardware accelerated floating point operations and SIMD processing with [NEON](http://www.arm.com/products/processors/technologies/neon.php). This gives _BlinkCard_ a huge performance boost on devices that have ARMv7 processors. Most new devices (all since 2012.) have ARMv7 processor so it makes little sense not to take advantage of performance boosts that those processors can give. Also note that some devices with ARMv7 processors do not support NEON and VFPv4 instruction sets, most popular being those based on [NVIDIA Tegra 2](https://en.wikipedia.org/wiki/Tegra#Tegra_2), [ARM Cortex A9](https://en.wikipedia.org/wiki/ARM_Cortex-A9) and older. Since these devices are old by today's standard, _BlinkCard_ does not support them. For the same reason, _BlinkCard_ does not support devices with ARMv5 (`armeabi`) architecture.
 
 **ARM64** is the new processor architecture that most new devices use. ARM64 processors are very powerful and also have the possibility to take advantage of new NEON64 SIMD instruction set to quickly process multiple pixels with a single instruction.
 
