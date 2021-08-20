@@ -10,7 +10,7 @@ See below for more information about how to integrate _BlinkCard_ SDK into your 
 
 You can start by watching our [step-by-step tutorial](https://vimeo.com/542539564/c0f92f9cbf), in which you’ll find out how to make BlinkCard SDK a part of your Android app.
 
-To see _BlinkCard_ in action, check our [demo app](https://play.google.com/store/apps/details?id=com.microblink.blinkcardapp).
+To see _BlinkCard_ in action, check our [demo app](https://play.google.com/store/apps/details?id=com.microblink.showcase.playstore).
 
 # Table of contents
 
