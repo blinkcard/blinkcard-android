@@ -1,5 +1,17 @@
 # Release notes
 
+## 2.4.0
+
+### Improvements and fixes:
+- We updated the default BlinkCard scanning screen (`BlinkCardOverlayController` and `BlinkCardActivity`) which is activated when using BlinkCardUISettings. Now the UI supports landscape mode. 
+- From now on, BlinkCard reads and extracts the expiry date in MM/YYYY format
+- We’ve fixed camera issues for the following devices: 
+	- Motorola Moto G100 - Camera 2 API wasn’t working
+	- Realme X50 5G - Problem with Camera 2 API in legacy mode
+	- LG K4 - Camera 2 API wasn’t working
+	- Galaxy Tab Active 2 - broken aspect ratio
+
+
 ## 2.3.0
 
 ### New features:
