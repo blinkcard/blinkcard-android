@@ -1,11 +1,23 @@
 # Release notes
 
+
+## 2.5.0
+
+### Improvements and fixes:
+- Improved date extraction from partial dates.
+- Fixed broken anonymization in result screen when the PAN number was anonymized but the image was not. We now correctly anonymize the image too.
+
+
+### Minor breaking API change
+
+- We've changed how `RecognizerRunner` processes images. Now it can treat `Image` objects as either video frame or photo frame. Until now, Direct API always processed images as photo frames, that not giving ability to recognizers to use time-redundant information for yield better recognition quality.
+
 ## 2.4.0
 
 ### Improvements and fixes:
-- We updated the default BlinkCard scanning screen (`BlinkCardOverlayController` and `BlinkCardActivity`) which is activated when using BlinkCardUISettings. Now the UI supports landscape mode. 
+- We updated the default BlinkCard scanning screen (`BlinkCardOverlayController` and `BlinkCardActivity`) which is activated when using BlinkCardUISettings. Now the UI supports landscape mode.
 - From now on, BlinkCard reads and extracts the expiry date in MM/YYYY format
-- We’ve fixed camera issues for the following devices: 
+- We’ve fixed camera issues for the following devices:
 	- Motorola Moto G100 - Camera 2 API wasn’t working
 	- Realme X50 5G - Problem with Camera 2 API in legacy mode
 	- LG K4 - Camera 2 API wasn’t working
@@ -38,7 +50,7 @@
 		- `prefixDigitsVisible` - Defines how many digits at the beginning of the card number remain visible after anonymization
 		- `suffixDigitsVisible` - Defines how many digits at the end of the card number remain visible after anonymization
 
-### Improvements 
+### Improvements
 - We've added support for new horizontal card layouts
 
 ## 2.1.0
