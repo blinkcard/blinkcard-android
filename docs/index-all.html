@@ -106,6 +106,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/blinkcard/view/CameraViewGroup.html#addChildView(android.view.View,boolean,int)">addChildView(View, boolean, int)</a></span> - Method in class com.microblink.blinkcard.view.<a href="com/microblink/blinkcard/view/CameraViewGroup.html" title="class in com.microblink.blinkcard.view">CameraViewGroup</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.html#addConcreteRecognizerExtractor(com.microblink.blinkcard.fragment.overlay.DocumentRecognizerManager.ConcreteRecognizerExtractor)">addConcreteRecognizerExtractor(DocumentRecognizerManager.ConcreteRecognizerExtractor)</a></span> - Method in class com.microblink.blinkcard.fragment.overlay.<a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.html" title="class in com.microblink.blinkcard.fragment.overlay">DocumentRecognizerManager</a></dt>
+<dd>
+<div class="block">Adds additional extractor for the recognizer wrapper class, which unwraps and returns concrete
+ recognizer if it is wrapped inside other recognizer, e.g.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/blinkcard/view/ocrResult/OcrResultDotsView.html#addDisplayablePointsDetection(com.microblink.blinkcard.metadata.detection.points.DisplayablePointsDetection)">addDisplayablePointsDetection(DisplayablePointsDetection)</a></span> - Method in class com.microblink.blinkcard.view.ocrResult.<a href="com/microblink/blinkcard/view/ocrResult/OcrResultDotsView.html" title="class in com.microblink.blinkcard.view.ocrResult">OcrResultDotsView</a></dt>
 <dd>
 <div class="block">Method to add new <a href="com/microblink/blinkcard/metadata/detection/points/DisplayablePointsDetection.html" title="class in com.microblink.blinkcard.metadata.detection.points"><code>DisplayablePointsDetection</code></a>.</div>
@@ -1309,6 +1314,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.html#%3Cinit%3E()">DocumentRecognizerManager()</a></span> - Constructor for class com.microblink.blinkcard.fragment.overlay.<a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.html" title="class in com.microblink.blinkcard.fragment.overlay">DocumentRecognizerManager</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.ConcreteRecognizerExtractor.html" title="interface in com.microblink.blinkcard.fragment.overlay"><span class="typeNameLink">DocumentRecognizerManager.ConcreteRecognizerExtractor</span></a> - Interface in <a href="com/microblink/blinkcard/fragment/overlay/package-summary.html">com.microblink.blinkcard.fragment.overlay</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/microblink/blinkcard/fragment/overlay/DocumentSide.html" title="enum in com.microblink.blinkcard.fragment.overlay"><span class="typeNameLink">DocumentSide</span></a> - Enum in <a href="com/microblink/blinkcard/fragment/overlay/package-summary.html">com.microblink.blinkcard.fragment.overlay</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/blinkcard/entities/recognizers/blinkid/imageoptions/dpi/DpiOptionsUtils.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkid.imageoptions.dpi"><span class="typeNameLink">DpiOptionsUtils</span></a> - Class in <a href="com/microblink/blinkcard/entities/recognizers/blinkid/imageoptions/dpi/package-summary.html">com.microblink.blinkcard.entities.recognizers.blinkid.imageoptions.dpi</a></dt>
@@ -1616,6 +1623,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/blinkcard/entities/recognizers/RecognizerBundle.html#getConcreteCreator()">getConcreteCreator()</a></span> - Method in class com.microblink.blinkcard.entities.recognizers.<a href="com/microblink/blinkcard/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.blinkcard.entities.recognizers">RecognizerBundle</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.html#getConcreteRecognizer(com.microblink.blinkcard.entities.recognizers.Recognizer)">getConcreteRecognizer(Recognizer)</a></span> - Method in class com.microblink.blinkcard.fragment.overlay.<a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.html" title="class in com.microblink.blinkcard.fragment.overlay">DocumentRecognizerManager</a></dt>
+<dd>
+<div class="block">Unwraps and returns concrete recognizer if it is wrapped inside given
+ recognizer, e.g.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.ConcreteRecognizerExtractor.html#getConcreteRecognizer(com.microblink.blinkcard.entities.recognizers.Recognizer)">getConcreteRecognizer(Recognizer&lt;?&gt;)</a></span> - Method in interface com.microblink.blinkcard.fragment.overlay.<a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.ConcreteRecognizerExtractor.html" title="interface in com.microblink.blinkcard.fragment.overlay">DocumentRecognizerManager.ConcreteRecognizerExtractor</a></dt>
+<dd>
+<div class="block">Returns concrete recognizer which is wrapped in the given recognizer.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/blinkcard/view/BaseCameraView.html#getConfigurationOrientation()">getConfigurationOrientation()</a></span> - Method in class com.microblink.blinkcard.view.<a href="com/microblink/blinkcard/view/BaseCameraView.html" title="class in com.microblink.blinkcard.view">BaseCameraView</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/blinkcard/fragment/RecognizerRunnerFragment.html#getContentLayout()">getContentLayout()</a></span> - Method in class com.microblink.blinkcard.fragment.<a href="com/microblink/blinkcard/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.blinkcard.fragment">RecognizerRunnerFragment</a></dt>
@@ -1624,7 +1640,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  of this fragment.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/blinkcard/fragment/overlay/BaseOverlayController.html#getContext()">getContext()</a></span> - Method in class com.microblink.blinkcard.fragment.overlay.<a href="com/microblink/blinkcard/fragment/overlay/BaseOverlayController.html" title="class in com.microblink.blinkcard.fragment.overlay">BaseOverlayController</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Returns context of the parent activity, after the RecognizerRunnerFragment is attached.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/blinkcard/view/BaseCameraView.html#getCurrentOrientation()">getCurrentOrientation()</a></span> - Method in class com.microblink.blinkcard.view.<a href="com/microblink/blinkcard/view/BaseCameraView.html" title="class in com.microblink.blinkcard.view">BaseCameraView</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#getCurrentState()">getCurrentState()</a></span> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
@@ -2129,6 +2147,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.html#getRecognizersFor(com.microblink.blinkcard.fragment.overlay.DocumentSide)">getRecognizersFor(DocumentSide)</a></span> - Method in class com.microblink.blinkcard.fragment.overlay.<a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.html" title="class in com.microblink.blinkcard.fragment.overlay">DocumentRecognizerManager</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/blinkcard/fragment/overlay/OverlayResources.html#getResourceId(int)">getResourceId(int)</a></span> - Method in class com.microblink.blinkcard.fragment.overlay.<a href="com/microblink/blinkcard/fragment/overlay/OverlayResources.html" title="class in com.microblink.blinkcard.fragment.overlay">OverlayResources</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/blinkcard/entities/Entity.html#getResult()">getResult()</a></span> - Method in class com.microblink.blinkcard.entities.<a href="com/microblink/blinkcard/entities/Entity.html" title="class in com.microblink.blinkcard.entities">Entity</a></dt>
 <dd>
 <div class="block">Returns the last result of the entity.</div>
@@ -2298,6 +2318,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">returns the width of the frame</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.ConcreteRecognizerExtractor.html#getWrapperRecognizerClass()">getWrapperRecognizerClass()</a></span> - Method in interface com.microblink.blinkcard.fragment.overlay.<a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.ConcreteRecognizerExtractor.html" title="interface in com.microblink.blinkcard.fragment.overlay">DocumentRecognizerManager.ConcreteRecognizerExtractor</a></dt>
+<dd>
+<div class="block">Returns class of the wrapper recognizer from which <a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.ConcreteRecognizerExtractor.html#getConcreteRecognizer(com.microblink.blinkcard.entities.recognizers.Recognizer)"><code>DocumentRecognizerManager.ConcreteRecognizerExtractor.getConcreteRecognizer(Recognizer)</code></a>
+ extracts the concrete recognizer.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/blinkcard/geometry/Point.html#getX()">getX()</a></span> - Method in class com.microblink.blinkcard.geometry.<a href="com/microblink/blinkcard/geometry/Point.html" title="class in com.microblink.blinkcard.geometry">Point</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/blinkcard/geometry/Rectangle.html#getX()">getX()</a></span> - Method in class com.microblink.blinkcard.geometry.<a href="com/microblink/blinkcard/geometry/Rectangle.html" title="class in com.microblink.blinkcard.geometry">Rectangle</a></dt>
@@ -2399,7 +2424,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><a href="com/microblink/blinkcard/image/ImageFrame.html" title="class in com.microblink.blinkcard.image"><span class="typeNameLink">ImageFrame</span></a> - Class in <a href="com/microblink/blinkcard/image/package-summary.html">com.microblink.blinkcard.image</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/microblink/blinkcard/image/ImageFrame.html#%3Cinit%3E(com.microblink.blinkcard.image.Image,long)">ImageFrame(Image, long)</a></span> - Constructor for class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageFrame.html" title="class in com.microblink.blinkcard.image">ImageFrame</a></dt>
+<dt><span class="memberNameLink"><a href="com/microblink/blinkcard/image/ImageFrame.html#%3Cinit%3E(com.microblink.blinkcard.image.Image,boolean,long)">ImageFrame(Image, boolean, long)</a></span> - Constructor for class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageFrame.html" title="class in com.microblink.blinkcard.image">ImageFrame</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardAnonymizationMode.html#ImageOnly">ImageOnly</a></span> - com.microblink.blinkcard.entities.recognizers.blinkcard.<a href="com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardAnonymizationMode.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardAnonymizationMode</a></dt>
 <dd>
@@ -3864,11 +3889,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Perform recognition of image represented as Android Bitmap.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeImage(com.microblink.blinkcard.image.Image,com.microblink.blinkcard.view.recognition.ScanResultListener)">recognizeImage(Image, ScanResultListener)</a></span> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
+<dt><span class="memberNameLink"><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeImage(com.microblink.blinkcard.image.Image,boolean,com.microblink.blinkcard.view.recognition.ScanResultListener)">recognizeImage(Image, boolean, ScanResultListener)</a></span> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
 <dd>
 <div class="block">Use this method to directly recognize Image object obtained via MetadataListener while recognizer is active.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeImageWithRecognizers(com.microblink.blinkcard.image.Image,com.microblink.blinkcard.view.recognition.ScanResultListener,com.microblink.blinkcard.entities.recognizers.RecognizerBundle)">recognizeImageWithRecognizers(Image, ScanResultListener, RecognizerBundle)</a></span> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
+<dt><span class="memberNameLink"><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeImageWithRecognizers(com.microblink.blinkcard.image.Image,boolean,com.microblink.blinkcard.view.recognition.ScanResultListener,com.microblink.blinkcard.entities.recognizers.RecognizerBundle)">recognizeImageWithRecognizers(Image, boolean, ScanResultListener, RecognizerBundle)</a></span> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
 <dd>
 <div class="block">Use this method to directly recognize Image object obtained via MetadataListener while recognizer is active.</div>
 </dd>
