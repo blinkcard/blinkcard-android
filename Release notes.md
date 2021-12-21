@@ -1,5 +1,8 @@
 # Release notes
 
+## 2.5.1
+
+- Scanning improvements
 
 ## 2.5.0
 

@@ -822,7 +822,8 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 <ul class="blockList">
 <li class="blockList">
 <h4>setPaddingEdge</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setPaddingEdge&#8203;(float&nbsp;paddingEdge)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setPaddingEdge&#8203;(@FloatRange(from=0.0,to=1.0)
+                           float&nbsp;paddingEdge)</pre>
 <div class="block">Padding is a minimum distance from the edge of the frame and it is defined as a percentage
  of the frame width. Default value is 0.0f and in that case padding edge and image edge are
  the same. If padding edge is needed, recommended value is 0.02f.
@@ -835,7 +836,9 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 <ul class="blockList">
 <li class="blockList">
 <h4>getPaddingEdge</h4>
-<pre class="methodSignature">public&nbsp;float&nbsp;getPaddingEdge()</pre>
+<pre class="methodSignature">@FloatRange(from=0.0,
+            to=1.0)
+public&nbsp;float&nbsp;getPaddingEdge()</pre>
 <div class="block">Padding is a minimum distance from the edge of the frame and it is defined as a percentage
  of the frame width. Default value is 0.0f and in that case padding edge and image edge are
  the same. If padding edge is needed, recommended value is 0.02f.
@@ -865,7 +868,8 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 <ul class="blockList">
 <li class="blockList">
 <h4>setFullDocumentImageDpi</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setFullDocumentImageDpi&#8203;(int&nbsp;desiredDPI)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setFullDocumentImageDpi&#8203;(@IntRange(from=100L,to=400L)
+                                    int&nbsp;desiredDPI)</pre>
 <div class="block">Sets desired DPI (Dots Per Inch) for full document image that should be returned.
  By default, this is set to '250'.</div>
 <dl>
