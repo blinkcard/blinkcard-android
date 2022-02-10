@@ -4,7 +4,6 @@ import com.microblink.blinkcard.entities.recognizers.blinkcard.BlinkCardRecogniz
 import com.microblink.blinkcard.image.Image;
 import com.microblink.blinkcard.libutils.R;
 import com.microblink.blinkcard.result.extract.BaseResultExtractor;
-import com.microblink.blinkcard.result.extract.util.signature.DigitalSignatureExtractUtil;
 
 public class BlinkCardRecognizerResultExtractor extends BaseResultExtractor<BlinkCardRecognizer.Result, BlinkCardRecognizer> {
 
@@ -34,8 +33,6 @@ public class BlinkCardRecognizerResultExtractor extends BaseResultExtractor<Blin
             byte[] encodedSecondSide = result.getEncodedSecondSideFullDocumentImage();
             add(R.string.MBEncodedFullDocumentImageSecondSide, encodedSecondSide);
         }
-
-        DigitalSignatureExtractUtil.extractDigitalSignature(result, mExtractedData, mBuilder);
     }
 
 

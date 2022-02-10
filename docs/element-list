@@ -7,7 +7,6 @@ com.microblink.blinkcard.entities.recognizers
 com.microblink.blinkcard.entities.recognizers.blinkcard
 com.microblink.blinkcard.entities.recognizers.blinkcard.legacy
 com.microblink.blinkcard.entities.recognizers.blinkid
-com.microblink.blinkcard.entities.recognizers.blinkid.digitalsignature
 com.microblink.blinkcard.entities.recognizers.blinkid.imageoptions
 com.microblink.blinkcard.entities.recognizers.blinkid.imageoptions.dpi
 com.microblink.blinkcard.entities.recognizers.blinkid.imageoptions.encode

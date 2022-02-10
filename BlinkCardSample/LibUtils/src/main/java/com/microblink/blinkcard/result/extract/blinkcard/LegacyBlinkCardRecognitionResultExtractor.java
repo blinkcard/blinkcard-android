@@ -4,7 +4,6 @@ import com.microblink.blinkcard.entities.recognizers.blinkcard.legacy.LegacyBlin
 import com.microblink.blinkcard.libutils.R;
 import com.microblink.blinkcard.result.extract.BaseResultExtractor;
 import com.microblink.blinkcard.result.extract.util.images.CombinedFullDocumentImagesExtractUtil;
-import com.microblink.blinkcard.result.extract.util.signature.DigitalSignatureExtractUtil;
 
 public class LegacyBlinkCardRecognitionResultExtractor extends BaseResultExtractor<LegacyBlinkCardRecognizer.Result, LegacyBlinkCardRecognizer> {
 
@@ -18,7 +17,6 @@ public class LegacyBlinkCardRecognitionResultExtractor extends BaseResultExtract
         add(R.string.PPIBAN, result.getIban());
         add(R.string.PPInventoryNumber, result.getInventoryNumber());
         CombinedFullDocumentImagesExtractUtil.extractCombinedFullDocumentImages(result, mExtractedData, mBuilder);
-        DigitalSignatureExtractUtil.extractDigitalSignature(result, mExtractedData, mBuilder);
     }
 
 
