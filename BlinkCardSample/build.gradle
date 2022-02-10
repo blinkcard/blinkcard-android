@@ -29,7 +29,7 @@ task clean(type: Delete) {
 // versions of libraries that all modules require
 
 project.ext {
-    blinkCardVersion = '2.5.1'
+    blinkCardVersion = '2.5.2'
     compileSdkVersion = 31
     targetSdkVersion = 31
     appCompatVersion = '1.2.0'

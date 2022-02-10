@@ -1,5 +1,13 @@
 # Release notes
 
+## 2.5.2
+
+### Visual identity update
+- We’ve updated Microblink logo and colors
+
+### Fixes
+- Fixed crash on some devices (mostly Huawei) when opening camera if SDK was used in full screen mode
+
 ## 2.5.1
 
 - Scanning improvements
