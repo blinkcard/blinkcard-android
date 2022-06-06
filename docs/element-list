@@ -1,6 +1,8 @@
 com.microblink.blinkcard
 com.microblink.blinkcard.activity
 com.microblink.blinkcard.activity.edit
+com.microblink.blinkcard.activity.result
+com.microblink.blinkcard.activity.result.contract
 com.microblink.blinkcard.directApi
 com.microblink.blinkcard.entities
 com.microblink.blinkcard.entities.recognizers
