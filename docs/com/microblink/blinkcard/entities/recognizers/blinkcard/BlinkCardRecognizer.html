@@ -6,15 +6,16 @@
 <title>BlinkCardRecognizer (LibBlinkCard API)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="../../../../../../jquery/jquery-ui.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../../jquery/jquery-ui.min.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../../../../script.js"></script>
 <script type="text/javascript" src="../../../../../../jquery/jszip/dist/jszip.min.js"></script>
 <script type="text/javascript" src="../../../../../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
 <!--[if IE]>
 <script type="text/javascript" src="../../../../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../../../../jquery/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="../../../../../../jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="../../../../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
 <script type="text/javascript"><!--
@@ -155,7 +156,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 <ul class="blockList">
 <li class="blockList">
 <!-- ======== NESTED CLASS SUMMARY ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="nested.class.summary">
 <!--   -->
@@ -185,7 +186,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 </ul>
 </section>
 <!-- =========== FIELD SUMMARY =========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="field.summary">
 <!--   -->
@@ -236,7 +237,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 </ul>
 </section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="constructor.summary">
 <!--   -->
@@ -257,7 +258,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 </ul>
 </section>
 <!-- ========== METHOD SUMMARY =========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.summary">
 <!--   -->
@@ -321,8 +322,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 <td class="colFirst"><code>float</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPaddingEdge()">getPaddingEdge</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Padding is a minimum distance from the edge of the frame and it is defined as a percentage
- of the frame width.</div>
+<div class="block">Minimum required distance between the edge of the scanning frame and the document.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
@@ -334,7 +334,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAllowBlurFilter(boolean)">setAllowBlurFilter</a></span>&#8203;(boolean&nbsp;allowBlurFilter)</code></th>
 <td class="colLast">
-<div class="block">Whether blured frames filtering is allowed.</div>
+<div class="block">Skip processing of the blurred frames.</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
@@ -401,8 +401,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPaddingEdge(float)">setPaddingEdge</a></span>&#8203;(float&nbsp;paddingEdge)</code></th>
 <td class="colLast">
-<div class="block">Padding is a minimum distance from the edge of the frame and it is defined as a percentage
- of the frame width.</div>
+<div class="block">Minimum required distance between the edge of the scanning frame and the document.</div>
 </td>
 </tr>
 <tr id="i19" class="rowColor">
@@ -417,7 +416,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldAllowBlurFilter()">shouldAllowBlurFilter</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Whether blured frames filtering is allowed.</div>
+<div class="block">Skip processing of the blurred frames.</div>
 </td>
 </tr>
 <tr id="i21" class="rowColor">
@@ -503,7 +502,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 <ul class="blockList">
 <li class="blockList">
 <!-- ============ FIELD DETAIL =========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="field.detail">
 <!--   -->
@@ -522,7 +521,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 </ul>
 </section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="constructor.detail">
 <!--   -->
@@ -541,7 +540,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 </ul>
 </section>
 <!-- ============ METHOD DETAIL ========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.detail">
 <!--   -->
@@ -576,7 +575,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 <li class="blockList">
 <h4>setAllowBlurFilter</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setAllowBlurFilter&#8203;(boolean&nbsp;allowBlurFilter)</pre>
-<div class="block">Whether blured frames filtering is allowed.
+<div class="block">Skip processing of the blurred frames.
  By default, this is set to 'true'</div>
 </li>
 </ul>
@@ -587,7 +586,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 <li class="blockList">
 <h4>shouldAllowBlurFilter</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;shouldAllowBlurFilter()</pre>
-<div class="block">Whether blured frames filtering is allowed.
+<div class="block">Skip processing of the blurred frames.
  By default, this is set to 'true'</div>
 </li>
 </ul>
@@ -767,10 +766,9 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 <h4>setPaddingEdge</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setPaddingEdge&#8203;(@FloatRange(from=0.0,to=1.0)
                            float&nbsp;paddingEdge)</pre>
-<div class="block">Padding is a minimum distance from the edge of the frame and it is defined as a percentage
- of the frame width. Default value is 0.0f and in that case padding edge and image edge are
- the same. If padding edge is needed, recommended value is 0.02f.
- By default, this is set to '0.0' which means that padding edge and image edge are the same.</div>
+<div class="block">Minimum required distance between the edge of the scanning frame and the document.
+ Defined as a percentage of the frame width.
+ By default, this is set to '0.0' in which case the padding edge and the image edge are the same. Alternative recommended value is 0.02f.</div>
 </li>
 </ul>
 <a id="getPaddingEdge()">
@@ -782,10 +780,9 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 <pre class="methodSignature">@FloatRange(from=0.0,
             to=1.0)
 public&nbsp;float&nbsp;getPaddingEdge()</pre>
-<div class="block">Padding is a minimum distance from the edge of the frame and it is defined as a percentage
- of the frame width. Default value is 0.0f and in that case padding edge and image edge are
- the same. If padding edge is needed, recommended value is 0.02f.
- By default, this is set to '0.0' which means that padding edge and image edge are the same.</div>
+<div class="block">Minimum required distance between the edge of the scanning frame and the document.
+ Defined as a percentage of the frame width.
+ By default, this is set to '0.0' in which case the padding edge and the image edge are the same. Alternative recommended value is 0.02f.</div>
 </li>
 </ul>
 <a id="getFullDocumentImageDpi()">

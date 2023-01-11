@@ -6,7 +6,7 @@ import com.microblink.blinkcard.entities.recognizers.Recognizer;
 import com.microblink.blinkcard.image.Image;
 import com.microblink.blinkcard.result.ResultSource;
 import com.microblink.blinkcard.results.date.Date;
-import com.microblink.blinkcard.results.date.DateResult;
+import com.microblink.blinkcard.results.date.SimpleDate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,18 +61,21 @@ public abstract class BaseResultExtractor<ResultType extends Recognizer.Result, 
         mExtractedData.add(mBuilder.build(key, value, valueSuffix));
     }
 
-    protected void add(int key, DateResult date) {
-        mExtractedData.add(mBuilder.build(key, date.getDate()));
+    protected void add(int key, Date date) {
+        mExtractedData.add(mBuilder.build(key, date != null ? date.getDate() : null));
     }
 
-    protected void addIfNotEmpty(int key, DateResult dateResult) {
-        Date date = dateResult.getDate();
+    protected void addIfNotEmpty(int key, Date dateResult) {
+        if (dateResult == null) return;
+        SimpleDate date = dateResult.getDate();
         if (date != null) {
             add(key, dateResult);
+        } else {
+            addIfNotEmpty(key, dateResult.getOriginalDateString());
         }
     }
 
-    protected void add(int key, Date date) {
+    protected void add(int key, SimpleDate date) {
         mExtractedData.add(mBuilder.build(key, date));
     }
 

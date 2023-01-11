@@ -6,15 +6,16 @@
 <title>BlinkCardOverlayView (LibBlinkCard API)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="../../../../../../jquery/jquery-ui.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../../jquery/jquery-ui.min.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../../../../script.js"></script>
 <script type="text/javascript" src="../../../../../../jquery/jszip/dist/jszip.min.js"></script>
 <script type="text/javascript" src="../../../../../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
 <!--[if IE]>
 <script type="text/javascript" src="../../../../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../../../../jquery/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="../../../../../../jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="../../../../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
 <script type="text/javascript"><!--
@@ -26,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6};
+var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -123,7 +124,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="scanlineui/ScanLineOverlayView.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui">ScanLineOverlayView</a></code></dd>
+<dd><code><a href="reticleui/BlinkCardReticleOverlayView.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui">BlinkCardReticleOverlayView</a></code></dd>
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">BlinkCardOverlayView</span></pre>
@@ -134,7 +135,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <!-- ========== METHOD SUMMARY =========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.summary">
 <!--   -->
@@ -148,77 +149,101 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#cleanup()">cleanup</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Clean up your resources here.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>android.view.ViewGroup</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createLayout(android.app.Activity,android.view.ViewGroup)">createLayout</a></span>&#8203;(android.app.Activity&nbsp;activity,
-            android.view.ViewGroup&nbsp;parentView)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createLayout(android.app.Activity,com.microblink.blinkcard.view.recognition.RecognizerRunnerView)">createLayout</a></span>&#8203;(android.app.Activity&nbsp;activity,
+            <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkcard.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</code></th>
 <td class="colLast">
 <div class="block">Inflate your custom layout layout here</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../components/TorchController.html" title="class in com.microblink.blinkcard.fragment.overlay.components">TorchController</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createTorchController(com.microblink.blinkcard.view.recognition.RecognizerRunnerView)">createTorchController</a></span>&#8203;(<a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkcard.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</code></th>
 <td class="colLast">
 <div class="block">Return properly set-up torch controller or null if torch is handled by the activity.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#disableManualEntryButton()">disableManualEntryButton</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Manual entry button should be disabled/hidden from the UI.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#enableManualEntryButton(android.view.View.OnClickListener)">enableManualEntryButton</a></span>&#8203;(android.view.View.OnClickListener&nbsp;onClickListener)</code></th>
 <td class="colLast">
 <div class="block">Manual entry button should be enabled/shown in the UI.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code><a href="../components/onboarding/OnboardingView.html" title="interface in com.microblink.blinkcard.fragment.overlay.components.onboarding">OnboardingView</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOnboardingView()">getOnboardingView</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="../reticle/RetryDialogStrings.html" title="class in com.microblink.blinkcard.fragment.overlay.reticle">RetryDialogStrings</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRecognitionTimeoutDialogStrings()">getRecognitionTimeoutDialogStrings</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onCardDetectionUpdate(com.microblink.blinkcard.view.recognition.DetectionStatus)">onCardDetectionUpdate</a></span>&#8203;(<a href="../../../view/recognition/DetectionStatus.html" title="enum in com.microblink.blinkcard.view.recognition">DetectionStatus</a>&nbsp;status)</code></th>
 <td class="colLast">
 <div class="block">Called on any update to card detection process.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onConfigurationChanged(int)">onConfigurationChanged</a></span>&#8203;(int&nbsp;newHostScreenOrientation)</code></th>
+<td class="colLast">
+<div class="block">Called when host's screen orientation is changed.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onErrorDialogShown()">onErrorDialogShown</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Called when error dialog is shown.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onFirstSideScanStarted()">onFirstSideScanStarted</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Called when scanning of the first side starts.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onFrameProcessingStatus(com.microblink.blinkcard.entities.recognizers.blinkcard.BlinkCardProcessingStatus)">onFrameProcessingStatus</a></span>&#8203;(<a href="../../../entities/recognizers/blinkcard/BlinkCardProcessingStatus.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardProcessingStatus</a>&nbsp;status)</code></th>
 <td class="colLast">
 <div class="block">Called after each frame has been processed</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onScanningPaused()">onScanningPaused</a></span>()</code></th>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onScanSuccess()">onScanSuccess</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Called when scanning is paused.</div>
+<div class="block">Called when both sides are scanned.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onScanningResumed()">onScanningResumed</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Called when scanning is resumed.</div>
-</td>
-</tr>
-<tr id="i9" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onSecondSideScanStarted()">onSecondSideScanStarted</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Called when scanning of the second side starts.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onTorchStateChanged(boolean)">onTorchStateChanged</a></span>&#8203;(boolean&nbsp;torchOn)</code></th>
 <td class="colLast">
@@ -236,13 +261,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <!-- ============ METHOD DETAIL ========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.detail">
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="createLayout(android.app.Activity,android.view.ViewGroup)">
+<a id="createLayout(android.app.Activity,com.microblink.blinkcard.view.recognition.RecognizerRunnerView)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -252,14 +277,31 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 android.view.ViewGroup&nbsp;createLayout&#8203;(@NonNull
                                     android.app.Activity&nbsp;activity,
                                     @NonNull
-                                    android.view.ViewGroup&nbsp;parentView)</pre>
+                                    <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkcard.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</pre>
 <div class="block">Inflate your custom layout layout here</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>activity</code> - current activity</dd>
-<dd><code>parentView</code> - root view to be used as inflation parent</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>root view of your custom layout</dd>
+</dl>
+</li>
+</ul>
+<a id="onConfigurationChanged(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onConfigurationChanged</h4>
+<pre class="methodSignature">void&nbsp;onConfigurationChanged&#8203;(int&nbsp;newHostScreenOrientation)</pre>
+<div class="block">Called when host's screen orientation is changed.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newHostScreenOrientation</code> - orientation code, possible values are:
+                                 ActivityInfo.SCREEN_ORIENTATION_PORTRAIT,
+                                 ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT,
+                                 ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE and
+                                 ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE</dd>
 </dl>
 </li>
 </ul>
@@ -301,24 +343,40 @@ android.view.ViewGroup&nbsp;createLayout&#8203;(@NonNull
 <div class="block">Called when scanning of the second side starts.</div>
 </li>
 </ul>
-<a id="onScanningPaused()">
+<a id="cleanup()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>onScanningPaused</h4>
-<pre class="methodSignature">void&nbsp;onScanningPaused()</pre>
-<div class="block">Called when scanning is paused.</div>
+<h4>cleanup</h4>
+<pre class="methodSignature">void&nbsp;cleanup()</pre>
+<div class="block">Clean up your resources here.</div>
 </li>
 </ul>
-<a id="onScanningResumed()">
+<a id="onScanSuccess()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>onScanningResumed</h4>
-<pre class="methodSignature">void&nbsp;onScanningResumed()</pre>
-<div class="block">Called when scanning is resumed.</div>
+<h4>onScanSuccess</h4>
+<pre class="methodSignature">long&nbsp;onScanSuccess()</pre>
+<div class="block">Called when both sides are scanned.
+ If you wish to animate success state, return delay in milliseconds and overlay controller will
+ wait before reporting that scanning is done.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>delay in milliseconds</dd>
+</dl>
+</li>
+</ul>
+<a id="onErrorDialogShown()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onErrorDialogShown</h4>
+<pre class="methodSignature">void&nbsp;onErrorDialogShown()</pre>
+<div class="block">Called when error dialog is shown. Make sure to stop animations here.</div>
 </li>
 </ul>
 <a id="enableManualEntryButton(android.view.View.OnClickListener)">
@@ -372,7 +430,7 @@ android.view.ViewGroup&nbsp;createLayout&#8203;(@NonNull
 <a id="onFrameProcessingStatus(com.microblink.blinkcard.entities.recognizers.blinkcard.BlinkCardProcessingStatus)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>onFrameProcessingStatus</h4>
 <pre class="methodSignature">void&nbsp;onFrameProcessingStatus&#8203;(<a href="../../../entities/recognizers/blinkcard/BlinkCardProcessingStatus.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardProcessingStatus</a>&nbsp;status)</pre>
@@ -380,6 +438,30 @@ android.view.ViewGroup&nbsp;createLayout&#8203;(@NonNull
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>status</code> - latest frame processing status</dd>
+</dl>
+</li>
+</ul>
+<a id="getOnboardingView()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOnboardingView</h4>
+<pre class="methodSignature">@Nullable
+<a href="../components/onboarding/OnboardingView.html" title="interface in com.microblink.blinkcard.fragment.overlay.components.onboarding">OnboardingView</a>&nbsp;getOnboardingView()</pre>
+</li>
+</ul>
+<a id="getRecognitionTimeoutDialogStrings()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getRecognitionTimeoutDialogStrings</h4>
+<pre class="methodSignature">@NonNull
+<a href="../reticle/RetryDialogStrings.html" title="class in com.microblink.blinkcard.fragment.overlay.reticle">RetryDialogStrings</a>&nbsp;getRecognitionTimeoutDialogStrings()</pre>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>strings to be used for error dialog shown when second document side can't be recognized</dd>
 </dl>
 </li>
 </ul>
