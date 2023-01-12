@@ -10,7 +10,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AlertDialog;
 
 import com.microblink.blinkcard.activity.edit.BlinkCardEditResultBundle;
-import com.microblink.blinkcard.activity.result.ScanResult;
+import com.microblink.blinkcard.activity.result.ResultStatus;
 import com.microblink.blinkcard.activity.result.contract.MbScan;
 import com.microblink.blinkcard.entities.recognizers.Recognizer;
 import com.microblink.blinkcard.entities.recognizers.RecognizerBundle;
@@ -68,9 +68,9 @@ public class MenuActivity extends BaseMenuActivity {
     private final ActivityResultLauncher<UISettings> blinkCardScanLauncher = registerForActivityResult(
             new MbScan(),
             result -> {
-                if (result.getResultStatus() == ScanResult.ResultStatus.FINISHED) {
-                    startResultActivity(result.getData());
-                } else if (result.getResultStatus() == ScanResult.ResultStatus.EXCEPTION) {
+                if (result.getResultStatus() == ResultStatus.FINISHED) {
+                    startResultActivity(result.getResult());
+                } else if (result.getResultStatus() == ResultStatus.EXCEPTION) {
                     Toast.makeText(this, result.getException().toString(), Toast.LENGTH_SHORT).show();
                 } else {
                     // if BlinkCard activity did not return result, user has probably
@@ -84,9 +84,9 @@ public class MenuActivity extends BaseMenuActivity {
     private final ActivityResultLauncher<UISettings> blinkCardEditScanLauncher = registerForActivityResult(
             new MbScan(),
             result -> {
-                if (result.getResultStatus() == ScanResult.ResultStatus.FINISHED) {
-                    showBlinkCardEditedResults(result.getData());
-                } else if (result.getResultStatus() == ScanResult.ResultStatus.EXCEPTION) {
+                if (result.getResultStatus() == ResultStatus.FINISHED) {
+                    showBlinkCardEditedResults(result.getResult());
+                } else if (result.getResultStatus() == ResultStatus.EXCEPTION) {
                     Toast.makeText(this, result.getException().toString(), Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(this, "Scan cancelled!", Toast.LENGTH_SHORT).show();
