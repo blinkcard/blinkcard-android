@@ -6,15 +6,16 @@
 <title>BlinkCardAnonymizationSettings (LibBlinkCard API)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="../../../../../../jquery/jquery-ui.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../../jquery/jquery-ui.min.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../../../../script.js"></script>
 <script type="text/javascript" src="../../../../../../jquery/jszip/dist/jszip.min.js"></script>
 <script type="text/javascript" src="../../../../../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
 <!--[if IE]>
 <script type="text/javascript" src="../../../../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../../../../jquery/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="../../../../../../jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="../../../../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
 <script type="text/javascript"><!--
@@ -26,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -140,7 +141,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="constructor.summary">
 <!--   -->
@@ -161,7 +162,7 @@ extends java.lang.Object</pre>
 </ul>
 </section>
 <!-- ========== METHOD SUMMARY =========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.summary">
 <!--   -->
@@ -196,48 +197,62 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFallbackAnonymization()">getFallbackAnonymization</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns whether the anonymization is applied on all fields of the image if extraction is uncertain.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="BlinkCardAnonymizationMode.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardAnonymizationMode</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIbanAnonymizationMode()">getIbanAnonymizationMode</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the mode of IBAN anonymization.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="BlinkCardAnonymizationMode.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardAnonymizationMode</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOwnerAnonymizationMode()">getOwnerAnonymizationMode</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the mode of owner anonymization.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCardNumberAnonymizationSettings(com.microblink.blinkcard.entities.recognizers.blinkcard.CardNumberAnonymizationSettings)">setCardNumberAnonymizationSettings</a></span>&#8203;(<a href="CardNumberAnonymizationSettings.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard">CardNumberAnonymizationSettings</a>&nbsp;cardNumberAnonymizationSettings)</code></th>
 <td class="colLast">
 <div class="block">Sets the parameters of card number anonymization.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCardNumberPrefixAnonymizationMode(com.microblink.blinkcard.entities.recognizers.blinkcard.BlinkCardAnonymizationMode)">setCardNumberPrefixAnonymizationMode</a></span>&#8203;(<a href="BlinkCardAnonymizationMode.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardAnonymizationMode</a>&nbsp;cardNumberPrefixAnonymizationMode)</code></th>
 <td class="colLast">
 <div class="block">Sets the mode of card number prefix anonymization.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCvvAnonymizationMode(com.microblink.blinkcard.entities.recognizers.blinkcard.BlinkCardAnonymizationMode)">setCvvAnonymizationMode</a></span>&#8203;(<a href="BlinkCardAnonymizationMode.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardAnonymizationMode</a>&nbsp;cvvAnonymizationMode)</code></th>
 <td class="colLast">
 <div class="block">Sets the mode of CVV anonymization.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFallbackAnonymization(boolean)">setFallbackAnonymization</a></span>&#8203;(boolean&nbsp;fallbackAnonymization)</code></th>
+<td class="colLast">
+<div class="block">If true, anonymization is applied on all fields of the image if extraction is uncertain.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setIbanAnonymizationMode(com.microblink.blinkcard.entities.recognizers.blinkcard.BlinkCardAnonymizationMode)">setIbanAnonymizationMode</a></span>&#8203;(<a href="BlinkCardAnonymizationMode.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardAnonymizationMode</a>&nbsp;ibanAnonymizationMode)</code></th>
 <td class="colLast">
 <div class="block">Sets the mode of IBAN anonymization.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOwnerAnonymizationMode(com.microblink.blinkcard.entities.recognizers.blinkcard.BlinkCardAnonymizationMode)">setOwnerAnonymizationMode</a></span>&#8203;(<a href="BlinkCardAnonymizationMode.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardAnonymizationMode</a>&nbsp;ownerAnonymizationMode)</code></th>
 <td class="colLast">
@@ -262,7 +277,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="constructor.detail">
 <!--   -->
@@ -281,7 +296,7 @@ extends java.lang.Object</pre>
 </ul>
 </section>
 <!-- ============ METHOD DETAIL ========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.detail">
 <!--   -->
@@ -380,11 +395,31 @@ extends java.lang.Object</pre>
 <a id="setOwnerAnonymizationMode(com.microblink.blinkcard.entities.recognizers.blinkcard.BlinkCardAnonymizationMode)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setOwnerAnonymizationMode</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setOwnerAnonymizationMode&#8203;(<a href="BlinkCardAnonymizationMode.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardAnonymizationMode</a>&nbsp;ownerAnonymizationMode)</pre>
 <div class="block">Sets the mode of owner anonymization.</div>
+</li>
+</ul>
+<a id="getFallbackAnonymization()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFallbackAnonymization</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;getFallbackAnonymization()</pre>
+<div class="block">Returns whether the anonymization is applied on all fields of the image if extraction is uncertain.</div>
+</li>
+</ul>
+<a id="setFallbackAnonymization(boolean)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setFallbackAnonymization</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setFallbackAnonymization&#8203;(boolean&nbsp;fallbackAnonymization)</pre>
+<div class="block">If true, anonymization is applied on all fields of the image if extraction is uncertain.</div>
 </li>
 </ul>
 </li>

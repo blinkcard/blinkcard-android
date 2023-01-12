@@ -2,20 +2,18 @@ package com.microblink.blinkcard.result.extract;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Matrix;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import android.text.TextUtils;
 
-import com.microblink.blinkcard.hardware.orientation.Orientation;
 import com.microblink.blinkcard.image.Image;
 import com.microblink.blinkcard.libutils.R;
 import com.microblink.blinkcard.results.date.Date;
-import com.microblink.blinkcard.results.date.DateResult;
+import com.microblink.blinkcard.results.date.SimpleDate;
 import com.microblink.blinkcard.util.ImageUtils;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -83,7 +81,7 @@ public class RecognitionResultEntry {
             }
         }
 
-        public RecognitionResultEntry build(@StringRes int key, DateResult value) {
+        public RecognitionResultEntry build(@StringRes int key, Date value) {
             if (value == null) {
                 return new RecognitionResultEntry(createKey(key), "");
             } else {
@@ -91,7 +89,7 @@ public class RecognitionResultEntry {
             }
         }
 
-        public RecognitionResultEntry build(@StringRes int key, Date value) {
+        public RecognitionResultEntry build(@StringRes int key, SimpleDate value) {
             String strVal = "";
             if (value != null) {
                 Calendar cal = GregorianCalendar.getInstance();

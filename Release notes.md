@@ -1,5 +1,23 @@
 # Release notes
 
+## 2.7.0
+
+### New features:
+- Improved support for diverse credit card designs.
+
+### Architecture support:
+- Devices that are based on the Intel x86 architecture, rather than ARMv7, are no longer supported. x86 and x86_64 architectures are used on very few devices today with most of them being manufactured before 2015, and only a few after that (e.g. Asus Zenfone 4). According to the Device catalog on Google Play Console, these devices make up about 1% of all Android devices (223 out of 22074 devices that have an API level of 21 and above support this architecture).
+
+#### New user instructions that lead to successful scans
+- More detailed instructions on how to scan credit cards, via an intro tutorial or tooltip during scanning, leading to improved success rates in credit card scanning and data extraction.
+
+#### New layout for `BlinkCardUISettings`
+- The scanning screen now shows a reticle in the center with scanning instruction.
+
+### What's new in the BlinkCard Recognizer?
+- Added a new property `fallbackAnonymization` in `AnonymizationSettings`. If true, anonymization is applied on all fields of the image if extraction is uncertain.
+- Improved anonymization performance.
+
 ## 2.6.0
 
 ### New features:

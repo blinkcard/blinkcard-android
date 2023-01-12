@@ -6,15 +6,16 @@
 <title>BlinkCardOverlaySettings.Builder (LibBlinkCard API)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="../../../../../../jquery/jquery-ui.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../../jquery/jquery-ui.min.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../../../../script.js"></script>
 <script type="text/javascript" src="../../../../../../jquery/jszip/dist/jszip.min.js"></script>
 <script type="text/javascript" src="../../../../../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
 <!--[if IE]>
 <script type="text/javascript" src="../../../../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../../../../jquery/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="../../../../../../jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="../../../../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
 <script type="text/javascript"><!--
@@ -26,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -144,7 +145,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="constructor.summary">
 <!--   -->
@@ -165,7 +166,7 @@ extends java.lang.Object</pre>
 </ul>
 </section>
 <!-- ========== METHOD SUMMARY =========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.summary">
 <!--   -->
@@ -190,40 +191,55 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlaySettings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setBeepResourceId(int)">setBeepResourceId</a></span>&#8203;(int&nbsp;beepResourceId)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setBackSideScanningTimeoutMs(long)">setBackSideScanningTimeoutMs</a></span>&#8203;(long&nbsp;backSideScanningTimeoutMs)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlaySettings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCameraSettings(com.microblink.blinkcard.fragment.overlay.components.settings.OverlayCameraSettings)">setCameraSettings</a></span>&#8203;(<a href="../components/settings/OverlayCameraSettings.html" title="class in com.microblink.blinkcard.fragment.overlay.components.settings">OverlayCameraSettings</a>&nbsp;cameraSettings)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setBeepResourceId(int)">setBeepResourceId</a></span>&#8203;(int&nbsp;beepResourceId)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlaySettings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCurrentImageListener(com.microblink.blinkcard.image.CurrentImageListener)">setCurrentImageListener</a></span>&#8203;(<a href="../../../image/CurrentImageListener.html" title="interface in com.microblink.blinkcard.image">CurrentImageListener</a>&nbsp;currentImageListener)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCameraSettings(com.microblink.blinkcard.fragment.overlay.components.settings.OverlayCameraSettings)">setCameraSettings</a></span>&#8203;(<a href="../components/settings/OverlayCameraSettings.html" title="class in com.microblink.blinkcard.fragment.overlay.components.settings">OverlayCameraSettings</a>&nbsp;cameraSettings)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlaySettings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDebugImageListener(com.microblink.blinkcard.image.DebugImageListener)">setDebugImageListener</a></span>&#8203;(<a href="../../../image/DebugImageListener.html" title="interface in com.microblink.blinkcard.image">DebugImageListener</a>&nbsp;debugImageListener)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCurrentImageListener(com.microblink.blinkcard.image.CurrentImageListener)">setCurrentImageListener</a></span>&#8203;(<a href="../../../image/CurrentImageListener.html" title="interface in com.microblink.blinkcard.image">CurrentImageListener</a>&nbsp;currentImageListener)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlaySettings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setIsEditScreenEnabled(boolean)">setIsEditScreenEnabled</a></span>&#8203;(boolean&nbsp;isEditScreenEnabled)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDebugImageListener(com.microblink.blinkcard.image.DebugImageListener)">setDebugImageListener</a></span>&#8203;(<a href="../../../image/DebugImageListener.html" title="interface in com.microblink.blinkcard.image">DebugImageListener</a>&nbsp;debugImageListener)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlaySettings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOcrResultDisplayMode(com.microblink.blinkcard.uisettings.options.OcrResultDisplayMode)">setOcrResultDisplayMode</a></span>&#8203;(<a href="../../../uisettings/options/OcrResultDisplayMode.html" title="enum in com.microblink.blinkcard.uisettings.options">OcrResultDisplayMode</a>&nbsp;ocrResultDisplayMode)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setIsEditScreenEnabled(boolean)">setIsEditScreenEnabled</a></span>&#8203;(boolean&nbsp;isEditScreenEnabled)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlaySettings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setShouldShowManualEntryButton(boolean)">setShouldShowManualEntryButton</a></span>&#8203;(boolean&nbsp;shouldShowManualEntryButton)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLockedToPortrait(boolean)">setLockedToPortrait</a></span>&#8203;(boolean&nbsp;lockedToPortrait)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
+<td class="colFirst"><code><a href="BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlaySettings.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOcrResultDisplayMode(com.microblink.blinkcard.uisettings.options.OcrResultDisplayMode)">setOcrResultDisplayMode</a></span>&#8203;(<a href="../../../uisettings/options/OcrResultDisplayMode.html" title="enum in com.microblink.blinkcard.uisettings.options">OcrResultDisplayMode</a>&nbsp;ocrResultDisplayMode)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code><a href="BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlaySettings.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setShouldShowManualEntryButton(boolean)">setShouldShowManualEntryButton</a></span>&#8203;(boolean&nbsp;shouldShowManualEntryButton)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code><a href="BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlaySettings.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setShowTooltipTimeIntervalMs(long)">setShowTooltipTimeIntervalMs</a></span>&#8203;(long&nbsp;showTooltipTimeIntervalMs)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlaySettings.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSplashResourceId(int)">setSplashResourceId</a></span>&#8203;(int&nbsp;splashResourceId)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -246,7 +262,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="constructor.detail">
 <!--   -->
@@ -266,7 +282,7 @@ extends java.lang.Object</pre>
 </ul>
 </section>
 <!-- ============ METHOD DETAIL ========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.detail">
 <!--   -->
@@ -365,6 +381,36 @@ public&nbsp;<a href="BlinkCardOverlaySettings.Builder.html" title="class in com.
 <h4>setIsEditScreenEnabled</h4>
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlaySettings.Builder</a>&nbsp;setIsEditScreenEnabled&#8203;(boolean&nbsp;isEditScreenEnabled)</pre>
+</li>
+</ul>
+<a id="setLockedToPortrait(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setLockedToPortrait</h4>
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlaySettings.Builder</a>&nbsp;setLockedToPortrait&#8203;(boolean&nbsp;lockedToPortrait)</pre>
+</li>
+</ul>
+<a id="setBackSideScanningTimeoutMs(long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setBackSideScanningTimeoutMs</h4>
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlaySettings.Builder</a>&nbsp;setBackSideScanningTimeoutMs&#8203;(long&nbsp;backSideScanningTimeoutMs)</pre>
+</li>
+</ul>
+<a id="setShowTooltipTimeIntervalMs(long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setShowTooltipTimeIntervalMs</h4>
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlaySettings.Builder</a>&nbsp;setShowTooltipTimeIntervalMs&#8203;(long&nbsp;showTooltipTimeIntervalMs)</pre>
 </li>
 </ul>
 <a id="build()">

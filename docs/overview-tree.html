@@ -6,15 +6,16 @@
 <title>Class Hierarchy (LibBlinkCard API)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="jquery/jquery-ui.css" title="Style">
+<link rel="stylesheet" type="text/css" href="jquery/jquery-ui.min.css" title="Style">
+<link rel="stylesheet" type="text/css" href="jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="script.js"></script>
 <script type="text/javascript" src="jquery/jszip/dist/jszip.min.js"></script>
 <script type="text/javascript" src="jquery/jszip-utils/dist/jszip-utils.min.js"></script>
 <!--[if IE]>
 <script type="text/javascript" src="jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="jquery/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-ui.min.js"></script>
 </head>
 <body>
 <script type="text/javascript"><!--
@@ -118,13 +119,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li><a href="com/microblink/blinkcard/fragment/package-tree.html">com.microblink.blinkcard.fragment</a>, </li>
 <li><a href="com/microblink/blinkcard/fragment/overlay/package-tree.html">com.microblink.blinkcard.fragment.overlay</a>, </li>
 <li><a href="com/microblink/blinkcard/fragment/overlay/blinkcard/package-tree.html">com.microblink.blinkcard.fragment.overlay.blinkcard</a>, </li>
-<li><a href="com/microblink/blinkcard/fragment/overlay/blinkcard/scanlineui/package-tree.html">com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui</a>, </li>
+<li><a href="com/microblink/blinkcard/fragment/overlay/blinkcard/reticleui/package-tree.html">com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui</a>, </li>
+<li><a href="com/microblink/blinkcard/fragment/overlay/blinkcard/reticleui/options/package-tree.html">com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui.options</a>, </li>
 <li><a href="com/microblink/blinkcard/fragment/overlay/components/package-tree.html">com.microblink.blinkcard.fragment.overlay.components</a>, </li>
 <li><a href="com/microblink/blinkcard/fragment/overlay/components/debug/package-tree.html">com.microblink.blinkcard.fragment.overlay.components.debug</a>, </li>
 <li><a href="com/microblink/blinkcard/fragment/overlay/components/feedback/package-tree.html">com.microblink.blinkcard.fragment.overlay.components.feedback</a>, </li>
+<li><a href="com/microblink/blinkcard/fragment/overlay/components/onboarding/package-tree.html">com.microblink.blinkcard.fragment.overlay.components.onboarding</a>, </li>
 <li><a href="com/microblink/blinkcard/fragment/overlay/components/settings/package-tree.html">com.microblink.blinkcard.fragment.overlay.components.settings</a>, </li>
 <li><a href="com/microblink/blinkcard/fragment/overlay/components/snackbar/package-tree.html">com.microblink.blinkcard.fragment.overlay.components.snackbar</a>, </li>
 <li><a href="com/microblink/blinkcard/fragment/overlay/components/statusmsg/package-tree.html">com.microblink.blinkcard.fragment.overlay.components.statusmsg</a>, </li>
+<li><a href="com/microblink/blinkcard/fragment/overlay/reticle/package-tree.html">com.microblink.blinkcard.fragment.overlay.reticle</a>, </li>
 <li><a href="com/microblink/blinkcard/fragment/overlay/verification/package-tree.html">com.microblink.blinkcard.fragment.overlay.verification</a>, </li>
 <li><a href="com/microblink/blinkcard/geometry/package-tree.html">com.microblink.blinkcard.geometry</a>, </li>
 <li><a href="com/microblink/blinkcard/hardware/package-tree.html">com.microblink.blinkcard.hardware</a>, </li>
@@ -146,7 +150,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li><a href="com/microblink/blinkcard/metadata/recognition/package-tree.html">com.microblink.blinkcard.metadata.recognition</a>, </li>
 <li><a href="com/microblink/blinkcard/metadata/text/package-tree.html">com.microblink.blinkcard.metadata.text</a>, </li>
 <li><a href="com/microblink/blinkcard/recognition/package-tree.html">com.microblink.blinkcard.recognition</a>, </li>
-<li><a href="com/microblink/blinkcard/results/package-tree.html">com.microblink.blinkcard.results</a>, </li>
 <li><a href="com/microblink/blinkcard/results/date/package-tree.html">com.microblink.blinkcard.results.date</a>, </li>
 <li><a href="com/microblink/blinkcard/results/ocr/package-tree.html">com.microblink.blinkcard.results.ocr</a>, </li>
 <li><a href="com/microblink/blinkcard/uisettings/package-tree.html">com.microblink.blinkcard.uisettings</a>, </li>
@@ -160,7 +163,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </ul>
 </div>
 <div class="contentContainer">
-<section role="region">
+<section>
 <h2 title="Class Hierarchy">Class Hierarchy</h2>
 <ul>
 <li class="circle">java.lang.Object
@@ -171,6 +174,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </ul>
 </li>
 <li class="circle">com.microblink.blinkcard.uisettings.<a href="com/microblink/blinkcard/uisettings/ActivityRunner.html" title="class in com.microblink.blinkcard.uisettings"><span class="typeNameLink">ActivityRunner</span></a></li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.reticle.<a href="com/microblink/blinkcard/fragment/overlay/reticle/AnimationEndListener.html" title="class in com.microblink.blinkcard.fragment.overlay.reticle"><span class="typeNameLink">AnimationEndListener</span></a> (implements android.animation.Animator.AnimatorListener)</li>
 <li class="circle">com.microblink.blinkcard.view.<a href="com/microblink/blinkcard/view/BaseCameraView.BaseCameraListener.html" title="class in com.microblink.blinkcard.view"><span class="typeNameLink">BaseCameraView.BaseCameraListener</span></a> (implements com.microblink.blinkcard.hardware.camera.CameraListener)</li>
 <li class="circle">com.microblink.blinkcard.view.<a href="com/microblink/blinkcard/view/BaseCameraView.BaseCameraViewEventsListener.html" title="class in com.microblink.blinkcard.view"><span class="typeNameLink">BaseCameraView.BaseCameraViewEventsListener</span></a> (implements com.microblink.blinkcard.view.surface.ICameraView.CameraViewEventListener)</li>
 <li class="circle">com.microblink.blinkcard.view.<a href="com/microblink/blinkcard/view/BaseCameraView.BaseOrientationChangeListener.html" title="class in com.microblink.blinkcard.view"><span class="typeNameLink">BaseCameraView.BaseOrientationChangeListener</span></a> (implements com.microblink.blinkcard.hardware.orientation.OrientationChangeListener)
@@ -190,13 +194,22 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="circle">com.microblink.blinkcard.fragment.overlay.blinkcard.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayController.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard"><span class="typeNameLink">BlinkCardOverlayController</span></a></li>
 </ul>
 </li>
+<li class="circle">com.microblink.blinkcard.activity.result.<a href="com/microblink/blinkcard/activity/result/BaseScanResult.html" title="class in com.microblink.blinkcard.activity.result"><span class="typeNameLink">BaseScanResult</span></a>&lt;T&gt;
+<ul>
+<li class="circle">com.microblink.blinkcard.activity.result.<a href="com/microblink/blinkcard/activity/result/ScanResult.html" title="class in com.microblink.blinkcard.activity.result"><span class="typeNameLink">ScanResult</span></a></li>
+</ul>
+</li>
 <li class="circle">com.microblink.blinkcard.entities.recognizers.blinkcard.<a href="com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardAnonymizationSettings.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard"><span class="typeNameLink">BlinkCardAnonymizationSettings</span></a></li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/reticleui/BlinkCardDialogOnboardingPresenter.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui"><span class="typeNameLink">BlinkCardDialogOnboardingPresenter</span></a> (implements com.microblink.blinkcard.fragment.overlay.components.onboarding.<a href="com/microblink/blinkcard/fragment/overlay/components/onboarding/OnboardingPresenter.html" title="interface in com.microblink.blinkcard.fragment.overlay.components.onboarding">OnboardingPresenter</a>)</li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/reticleui/BlinkCardDialogOnboardingView.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui"><span class="typeNameLink">BlinkCardDialogOnboardingView</span></a> (implements com.microblink.blinkcard.fragment.overlay.components.onboarding.<a href="com/microblink/blinkcard/fragment/overlay/components/onboarding/OnboardingView.html" title="interface in com.microblink.blinkcard.fragment.overlay.components.onboarding">OnboardingView</a>)</li>
 <li class="circle">com.microblink.blinkcard.activity.edit.<a href="com/microblink/blinkcard/activity/edit/BlinkCardEditFieldConfiguration.html" title="class in com.microblink.blinkcard.activity.edit"><span class="typeNameLink">BlinkCardEditFieldConfiguration</span></a> (implements android.os.Parcelable)</li>
 <li class="circle">com.microblink.blinkcard.activity.edit.<a href="com/microblink/blinkcard/activity/edit/BlinkCardEditResultBundle.html" title="class in com.microblink.blinkcard.activity.edit"><span class="typeNameLink">BlinkCardEditResultBundle</span></a></li>
 <li class="circle">com.microblink.blinkcard.activity.edit.<a href="com/microblink/blinkcard/activity/edit/BlinkCardEditStrings.html" title="class in com.microblink.blinkcard.activity.edit"><span class="typeNameLink">BlinkCardEditStrings</span></a> (implements android.os.Parcelable)</li>
 <li class="circle">com.microblink.blinkcard.activity.edit.<a href="com/microblink/blinkcard/activity/edit/BlinkCardEditStrings.Builder.html" title="class in com.microblink.blinkcard.activity.edit"><span class="typeNameLink">BlinkCardEditStrings.Builder</span></a></li>
 <li class="circle">com.microblink.blinkcard.fragment.overlay.blinkcard.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlaySettings.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard"><span class="typeNameLink">BlinkCardOverlaySettings</span></a></li>
 <li class="circle">com.microblink.blinkcard.fragment.overlay.blinkcard.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard"><span class="typeNameLink">BlinkCardOverlaySettings.Builder</span></a></li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/reticleui/BlinkCardReticleOverlayStrings.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui"><span class="typeNameLink">BlinkCardReticleOverlayStrings</span></a> (implements android.os.Parcelable)</li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/reticleui/BlinkCardReticleOverlayView.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui"><span class="typeNameLink">BlinkCardReticleOverlayView</span></a> (implements com.microblink.blinkcard.fragment.overlay.blinkcard.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayView.html" title="interface in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlayView</a>)</li>
 <li class="circle">com.microblink.blinkcard.entities.recognizers.blinkcard.<a href="com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardUtils.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard"><span class="typeNameLink">BlinkCardUtils</span></a></li>
 <li class="circle">com.microblink.blinkcard.util.<a href="com/microblink/blinkcard/util/CameraPermissionManager.html" title="class in com.microblink.blinkcard.util"><span class="typeNameLink">CameraPermissionManager</span></a></li>
 <li class="circle">com.microblink.blinkcard.uisettings.<a href="com/microblink/blinkcard/uisettings/CameraSettings.html" title="class in com.microblink.blinkcard.uisettings"><span class="typeNameLink">CameraSettings</span></a> (implements android.os.Parcelable)</li>
@@ -237,8 +250,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 </ul>
 </li>
-<li class="circle">com.microblink.blinkcard.results.date.<a href="com/microblink/blinkcard/results/date/Date.html" title="class in com.microblink.blinkcard.results.date"><span class="typeNameLink">Date</span></a></li>
-<li class="circle">com.microblink.blinkcard.results.date.<a href="com/microblink/blinkcard/results/date/DateResult.html" title="class in com.microblink.blinkcard.results.date"><span class="typeNameLink">DateResult</span></a> (implements android.os.Parcelable, com.microblink.blinkcard.results.<a href="com/microblink/blinkcard/results/Result.html" title="interface in com.microblink.blinkcard.results">Result</a>)</li>
+<li class="circle">com.microblink.blinkcard.results.date.<a href="com/microblink/blinkcard/results/date/Date.html" title="class in com.microblink.blinkcard.results.date"><span class="typeNameLink">Date</span></a> (implements android.os.Parcelable, com.microblink.blinkcard.results.date.<a href="com/microblink/blinkcard/results/date/SimpleDateResult.html" title="interface in com.microblink.blinkcard.results.date">SimpleDateResult</a>)</li>
 <li class="circle">com.microblink.blinkcard.results.date.<a href="com/microblink/blinkcard/results/date/DateUtils.html" title="class in com.microblink.blinkcard.results.date"><span class="typeNameLink">DateUtils</span></a></li>
 <li class="circle">com.microblink.blinkcard.fragment.overlay.components.debug.<a href="com/microblink/blinkcard/fragment/overlay/components/debug/DebugViewHandler.html" title="class in com.microblink.blinkcard.fragment.overlay.components.debug"><span class="typeNameLink">DebugViewHandler</span></a></li>
 <li class="circle">com.microblink.blinkcard.metadata.<a href="com/microblink/blinkcard/metadata/DisplayableObject.html" title="class in com.microblink.blinkcard.metadata"><span class="typeNameLink">DisplayableObject</span></a>
@@ -284,6 +296,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="circle">com.microblink.blinkcard.fragment.overlay.components.<a href="com/microblink/blinkcard/fragment/overlay/components/FlipManager.html" title="class in com.microblink.blinkcard.fragment.overlay.components"><span class="typeNameLink">FlipManager</span></a></li>
 <li class="circle">androidx.fragment.app.Fragment (implements androidx.activity.result.ActivityResultCaller, android.content.ComponentCallbacks, androidx.lifecycle.HasDefaultViewModelProviderFactory, androidx.lifecycle.LifecycleOwner, androidx.savedstate.SavedStateRegistryOwner, android.view.View.OnCreateContextMenuListener, androidx.lifecycle.ViewModelStoreOwner)
 <ul>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.components.onboarding.<a href="com/microblink/blinkcard/fragment/overlay/components/onboarding/OnboardingFragment.html" title="class in com.microblink.blinkcard.fragment.overlay.components.onboarding"><span class="typeNameLink">OnboardingFragment</span></a></li>
 <li class="circle">com.microblink.blinkcard.fragment.<a href="com/microblink/blinkcard/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.blinkcard.fragment"><span class="typeNameLink">RecognizerRunnerFragment</span></a></li>
 </ul>
 </li>
@@ -293,6 +306,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="circle">com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageBuilder.html" title="class in com.microblink.blinkcard.image"><span class="typeNameLink">ImageBuilder</span></a></li>
 <li class="circle">com.microblink.blinkcard.entities.recognizers.blinkid.imageoptions.extension.<a href="com/microblink/blinkcard/entities/recognizers/blinkid/imageoptions/extension/ImageExtensionFactors.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkid.imageoptions.extension"><span class="typeNameLink">ImageExtensionFactors</span></a></li>
 <li class="circle">com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageFrame.html" title="class in com.microblink.blinkcard.image"><span class="typeNameLink">ImageFrame</span></a> (implements com.microblink.blinkcard.hardware.camera.frame.ICameraFrame)</li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.reticle.<a href="com/microblink/blinkcard/fragment/overlay/reticle/InnerReticleAnimator.html" title="class in com.microblink.blinkcard.fragment.overlay.reticle"><span class="typeNameLink">InnerReticleAnimator</span></a></li>
 <li class="circle">com.microblink.blinkcard.locale.<a href="com/microblink/blinkcard/locale/LanguageUtils.html" title="class in com.microblink.blinkcard.locale"><span class="typeNameLink">LanguageUtils</span></a></li>
 <li class="circle">com.microblink.blinkcard.metadata.<a href="com/microblink/blinkcard/metadata/MetadataCallbacks.html" title="class in com.microblink.blinkcard.metadata"><span class="typeNameLink">MetadataCallbacks</span></a></li>
 <li class="circle">com.microblink.blinkcard.<a href="com/microblink/blinkcard/MicroblinkSDK.html" title="class in com.microblink.blinkcard"><span class="typeNameLink">MicroblinkSDK</span></a></li>
@@ -307,11 +321,22 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="circle">com.microblink.blinkcard.fragment.overlay.<a href="com/microblink/blinkcard/fragment/overlay/OverlayResources.html" title="class in com.microblink.blinkcard.fragment.overlay"><span class="typeNameLink">OverlayResources</span></a></li>
 <li class="circle">com.microblink.blinkcard.fragment.overlay.<a href="com/microblink/blinkcard/fragment/overlay/OverlayStringsBuilder.html" title="class in com.microblink.blinkcard.fragment.overlay"><span class="typeNameLink">OverlayStringsBuilder</span></a>&lt;Self,&#8203;Key&gt;
 <ul>
-<li class="circle">com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/scanlineui/ScanLineOverlayStrings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui"><span class="typeNameLink">ScanLineOverlayStrings.Builder</span></a></li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/reticleui/BlinkCardReticleOverlayStrings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui"><span class="typeNameLink">BlinkCardReticleOverlayStrings.Builder</span></a> (implements com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui.options.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/reticleui/options/BlinkCardReticleOverlayStringsOptions.html" title="interface in com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui.options">BlinkCardReticleOverlayStringsOptions</a>&lt;T&gt;)</li>
 </ul>
 </li>
+<li class="circle">androidx.viewpager.widget.PagerAdapter
+<ul>
+<li class="circle">androidx.fragment.app.FragmentStatePagerAdapter
+<ul>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.components.onboarding.<a href="com/microblink/blinkcard/fragment/overlay/components/onboarding/OnboardingPagerAdapter.html" title="class in com.microblink.blinkcard.fragment.overlay.components.onboarding"><span class="typeNameLink">OnboardingPagerAdapter</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.<a href="com/microblink/blinkcard/fragment/overlay/PingSessionFlowManager.html" title="class in com.microblink.blinkcard.fragment.overlay"><span class="typeNameLink">PingSessionFlowManager</span></a></li>
 <li class="circle">com.microblink.blinkcard.geometry.<a href="com/microblink/blinkcard/geometry/Point.html" title="class in com.microblink.blinkcard.geometry"><span class="typeNameLink">Point</span></a> (implements android.os.Parcelable)</li>
 <li class="circle">com.microblink.blinkcard.fragment.overlay.components.feedback.<a href="com/microblink/blinkcard/fragment/overlay/components/feedback/PointSetFeedbackHandler.html" title="class in com.microblink.blinkcard.fragment.overlay.components.feedback"><span class="typeNameLink">PointSetFeedbackHandler</span></a> (implements com.microblink.blinkcard.fragment.overlay.components.feedback.<a href="com/microblink/blinkcard/fragment/overlay/components/feedback/RecognitionFeedbackHandler.html" title="interface in com.microblink.blinkcard.fragment.overlay.components.feedback">RecognitionFeedbackHandler</a>)</li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.reticle.<a href="com/microblink/blinkcard/fragment/overlay/reticle/ProgressAnimator.html" title="class in com.microblink.blinkcard.fragment.overlay.reticle"><span class="typeNameLink">ProgressAnimator</span></a></li>
 <li class="circle">com.microblink.blinkcard.geometry.<a href="com/microblink/blinkcard/geometry/Quadrilateral.html" title="class in com.microblink.blinkcard.geometry"><span class="typeNameLink">Quadrilateral</span></a> (implements android.os.Parcelable)</li>
 <li class="circle">com.microblink.blinkcard.view.viewfinder.quadview.<a href="com/microblink/blinkcard/view/viewfinder/quadview/QuadViewManager.html" title="class in com.microblink.blinkcard.view.viewfinder.quadview"><span class="typeNameLink">QuadViewManager</span></a></li>
 <li class="circle">com.microblink.blinkcard.view.viewfinder.quadview.<a href="com/microblink/blinkcard/view/viewfinder/quadview/QuadViewManagerFactory.html" title="class in com.microblink.blinkcard.view.viewfinder.quadview"><span class="typeNameLink">QuadViewManagerFactory</span></a></li>
@@ -320,10 +345,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="circle">com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi"><span class="typeNameLink">RecognizerRunner</span></a></li>
 <li class="circle">com.microblink.blinkcard.entities.recognizers.<a href="com/microblink/blinkcard/entities/recognizers/RecognizerUtils.html" title="class in com.microblink.blinkcard.entities.recognizers"><span class="typeNameLink">RecognizerUtils</span></a></li>
 <li class="circle">com.microblink.blinkcard.geometry.<a href="com/microblink/blinkcard/geometry/Rectangle.html" title="class in com.microblink.blinkcard.geometry"><span class="typeNameLink">Rectangle</span></a> (implements android.os.Parcelable)</li>
-<li class="circle">com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/scanlineui/ScanLineOverlayStrings.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui"><span class="typeNameLink">ScanLineOverlayStrings</span></a> (implements android.os.Parcelable)</li>
-<li class="circle">com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/scanlineui/ScanLineOverlayView.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui"><span class="typeNameLink">ScanLineOverlayView</span></a> (implements com.microblink.blinkcard.fragment.overlay.blinkcard.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayView.html" title="interface in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlayView</a>)</li>
-<li class="circle">com.microblink.blinkcard.activity.result.<a href="com/microblink/blinkcard/activity/result/ScanResult.html" title="class in com.microblink.blinkcard.activity.result"><span class="typeNameLink">ScanResult</span></a></li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.reticle.<a href="com/microblink/blinkcard/fragment/overlay/reticle/RetryDialogStrings.html" title="class in com.microblink.blinkcard.fragment.overlay.reticle"><span class="typeNameLink">RetryDialogStrings</span></a></li>
 <li class="circle">com.microblink.blinkcard.fragment.overlay.components.<a href="com/microblink/blinkcard/fragment/overlay/components/ScanSoundPlayer.html" title="class in com.microblink.blinkcard.fragment.overlay.components"><span class="typeNameLink">ScanSoundPlayer</span></a></li>
+<li class="circle">com.microblink.blinkcard.entities.recognizers.<a href="com/microblink/blinkcard/entities/recognizers/SignedPayload.html" title="class in com.microblink.blinkcard.entities.recognizers"><span class="typeNameLink">SignedPayload</span></a></li>
+<li class="circle">com.microblink.blinkcard.results.date.<a href="com/microblink/blinkcard/results/date/SimpleDate.html" title="class in com.microblink.blinkcard.results.date"><span class="typeNameLink">SimpleDate</span></a></li>
 <li class="circle">com.microblink.blinkcard.fragment.overlay.components.snackbar.<a href="com/microblink/blinkcard/fragment/overlay/components/snackbar/SnackbarManager.html" title="class in com.microblink.blinkcard.fragment.overlay.components.snackbar"><span class="typeNameLink">SnackbarManager</span></a></li>
 <li class="circle">com.microblink.blinkcard.fragment.overlay.components.statusmsg.<a href="com/microblink/blinkcard/fragment/overlay/components/statusmsg/StatusTextManager.html" title="class in com.microblink.blinkcard.fragment.overlay.components.statusmsg"><span class="typeNameLink">StatusTextManager</span></a></li>
 <li class="circle">com.microblink.blinkcard.fragment.overlay.components.statusmsg.<a href="com/microblink/blinkcard/fragment/overlay/components/statusmsg/StatusTextStyler.Default.html" title="class in com.microblink.blinkcard.fragment.overlay.components.statusmsg"><span class="typeNameLink">StatusTextStyler.Default</span></a> (implements com.microblink.blinkcard.fragment.overlay.components.statusmsg.<a href="com/microblink/blinkcard/fragment/overlay/components/statusmsg/StatusTextStyler.html" title="interface in com.microblink.blinkcard.fragment.overlay.components.statusmsg">StatusTextStyler</a>)</li>
@@ -346,6 +371,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 </ul>
 </li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.<a href="com/microblink/blinkcard/fragment/overlay/TooltipManager.html" title="class in com.microblink.blinkcard.fragment.overlay"><span class="typeNameLink">TooltipManager</span></a></li>
 <li class="circle">com.microblink.blinkcard.fragment.overlay.components.<a href="com/microblink/blinkcard/fragment/overlay/components/TorchController.html" title="class in com.microblink.blinkcard.fragment.overlay.components"><span class="typeNameLink">TorchController</span></a></li>
 <li class="circle">com.microblink.blinkcard.uisettings.<a href="com/microblink/blinkcard/uisettings/UISettings.html" title="class in com.microblink.blinkcard.uisettings"><span class="typeNameLink">UISettings</span></a>&lt;ScanOverlayType&gt;
 <ul>
@@ -354,8 +380,20 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 <li class="circle">android.view.View (implements android.view.accessibility.AccessibilityEventSource, android.graphics.drawable.Drawable.Callback, android.view.KeyEvent.Callback)
 <ul>
+<li class="circle">android.widget.ImageView
+<ul>
+<li class="circle">androidx.appcompat.widget.AppCompatImageView (implements androidx.core.view.TintableBackgroundView, androidx.core.widget.TintableImageSourceView)
+<ul>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.reticle.<a href="com/microblink/blinkcard/fragment/overlay/reticle/ReticleView.html" title="class in com.microblink.blinkcard.fragment.overlay.reticle"><span class="typeNameLink">ReticleView</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.reticle.<a href="com/microblink/blinkcard/fragment/overlay/reticle/InnerReticleView.html" title="class in com.microblink.blinkcard.fragment.overlay.reticle"><span class="typeNameLink">InnerReticleView</span></a></li>
 <li class="circle">com.microblink.blinkcard.view.ocrResult.<a href="com/microblink/blinkcard/view/ocrResult/OcrResultCharsView.html" title="class in com.microblink.blinkcard.view.ocrResult"><span class="typeNameLink">OcrResultCharsView</span></a> (implements com.microblink.blinkcard.view.ocrResult.<a href="com/microblink/blinkcard/view/ocrResult/IOcrResultView.html" title="interface in com.microblink.blinkcard.view.ocrResult">IOcrResultView</a>)</li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.reticle.<a href="com/microblink/blinkcard/fragment/overlay/reticle/PageIndicatorView.html" title="class in com.microblink.blinkcard.fragment.overlay.reticle"><span class="typeNameLink">PageIndicatorView</span></a></li>
 <li class="circle">com.microblink.blinkcard.view.viewfinder.points.<a href="com/microblink/blinkcard/view/viewfinder/points/PointSetView.html" title="class in com.microblink.blinkcard.view.viewfinder.points"><span class="typeNameLink">PointSetView</span></a> (implements com.microblink.blinkcard.view.viewfinder.points.<a href="com/microblink/blinkcard/view/viewfinder/points/IDisplayablePointsView.html" title="interface in com.microblink.blinkcard.view.viewfinder.points">IDisplayablePointsView</a>, android.animation.ValueAnimator.AnimatorUpdateListener)</li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.reticle.<a href="com/microblink/blinkcard/fragment/overlay/reticle/ProgressView.html" title="class in com.microblink.blinkcard.fragment.overlay.reticle"><span class="typeNameLink">ProgressView</span></a></li>
 <li class="circle">android.view.ViewGroup (implements android.view.ViewManager, android.view.ViewParent)
 <ul>
 <li class="circle">com.microblink.blinkcard.view.<a href="com/microblink/blinkcard/view/BaseCameraView.html" title="class in com.microblink.blinkcard.view"><span class="typeNameLink">BaseCameraView</span></a>
@@ -370,7 +408,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="circle">com.microblink.blinkcard.view.ocrResult.<a href="com/microblink/blinkcard/view/ocrResult/OcrResultDotsView.html" title="class in com.microblink.blinkcard.view.ocrResult"><span class="typeNameLink">OcrResultDotsView</span></a> (implements com.microblink.blinkcard.view.viewfinder.points.<a href="com/microblink/blinkcard/view/viewfinder/points/IDisplayablePointsView.html" title="interface in com.microblink.blinkcard.view.viewfinder.points">IDisplayablePointsView</a>, com.microblink.blinkcard.view.ocrResult.<a href="com/microblink/blinkcard/view/ocrResult/IOcrResultView.html" title="interface in com.microblink.blinkcard.view.ocrResult">IOcrResultView</a>, com.microblink.blinkcard.hardware.orientation.OrientationChangeListener)</li>
 <li class="circle">android.widget.RelativeLayout
 <ul>
-<li class="circle">com.microblink.blinkcard.fragment.overlay.blinkcard.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayLayout.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard"><span class="typeNameLink">BlinkCardOverlayLayout</span></a></li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.reticle.<a href="com/microblink/blinkcard/fragment/overlay/reticle/TouchInterceptRelativeLayout.html" title="class in com.microblink.blinkcard.fragment.overlay.reticle"><span class="typeNameLink">TouchInterceptRelativeLayout</span></a></li>
 </ul>
 </li>
 </ul>
@@ -386,7 +424,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 </ul>
 </section>
-<section role="region">
+<section>
 <h2 title="Interface Hierarchy">Interface Hierarchy</h2>
 <ul>
 <li class="circle">com.microblink.blinkcard.hardware.camera.<a href="com/microblink/blinkcard/hardware/camera/AutofocusListener.html" title="interface in com.microblink.blinkcard.hardware.camera"><span class="typeNameLink">AutofocusListener</span></a>
@@ -401,6 +439,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="circle">com.microblink.blinkcard.view.<a href="com/microblink/blinkcard/view/BaseCameraView.VisiblePartUpdateListener.html" title="interface in com.microblink.blinkcard.view"><span class="typeNameLink">BaseCameraView.VisiblePartUpdateListener</span></a></li>
 <li class="circle">com.microblink.blinkcard.uisettings.options.<a href="com/microblink/blinkcard/uisettings/options/BeepSoundUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options"><span class="typeNameLink">BeepSoundUIOptions</span></a></li>
 <li class="circle">com.microblink.blinkcard.fragment.overlay.blinkcard.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayView.html" title="interface in com.microblink.blinkcard.fragment.overlay.blinkcard"><span class="typeNameLink">BlinkCardOverlayView</span></a></li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui.options.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/reticleui/options/BlinkCardReticleOverlayStringsOptions.html" title="interface in com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui.options"><span class="typeNameLink">BlinkCardReticleOverlayStringsOptions</span></a>&lt;T&gt;</li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/reticleui/CardAnimator.html" title="interface in com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui"><span class="typeNameLink">CardAnimator</span></a></li>
 <li class="circle">com.microblink.blinkcard.entities.recognizers.blinkid.<a href="com/microblink/blinkcard/entities/recognizers/blinkid/CombinedDataMatchResult.html" title="interface in com.microblink.blinkcard.entities.recognizers.blinkid"><span class="typeNameLink">CombinedDataMatchResult</span></a></li>
 <li class="circle">com.microblink.blinkcard.entities.recognizers.blinkid.imageresult.<a href="com/microblink/blinkcard/entities/recognizers/blinkid/imageresult/CombinedFullDocumentImageResult.html" title="interface in com.microblink.blinkcard.entities.recognizers.blinkid.imageresult"><span class="typeNameLink">CombinedFullDocumentImageResult</span></a></li>
 <li class="circle">com.microblink.blinkcard.entities.recognizers.blinkid.<a href="com/microblink/blinkcard/entities/recognizers/blinkid/CombinedRecognizer.html" title="interface in com.microblink.blinkcard.entities.recognizers.blinkid"><span class="typeNameLink">CombinedRecognizer</span></a></li>
@@ -437,6 +477,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="circle">com.microblink.blinkcard.metadata.ocr.<a href="com/microblink/blinkcard/metadata/ocr/OcrCallback.html" title="interface in com.microblink.blinkcard.metadata.ocr"><span class="typeNameLink">OcrCallback</span></a></li>
 <li class="circle">com.microblink.blinkcard.uisettings.options.<a href="com/microblink/blinkcard/uisettings/options/OcrResultDisplayUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options"><span class="typeNameLink">OcrResultDisplayUIOptions</span></a></li>
 <li class="circle">com.microblink.blinkcard.view.<a href="com/microblink/blinkcard/view/OnActivityFlipListener.html" title="interface in com.microblink.blinkcard.view"><span class="typeNameLink">OnActivityFlipListener</span></a></li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.components.onboarding.<a href="com/microblink/blinkcard/fragment/overlay/components/onboarding/OnboardingPresenter.html" title="interface in com.microblink.blinkcard.fragment.overlay.components.onboarding"><span class="typeNameLink">OnboardingPresenter</span></a></li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.components.onboarding.<a href="com/microblink/blinkcard/fragment/overlay/components/onboarding/OnboardingView.html" title="interface in com.microblink.blinkcard.fragment.overlay.components.onboarding"><span class="typeNameLink">OnboardingView</span></a></li>
 <li class="circle">com.microblink.blinkcard.view.<a href="com/microblink/blinkcard/view/OnSizeChangedListener.html" title="interface in com.microblink.blinkcard.view"><span class="typeNameLink">OnSizeChangedListener</span></a></li>
 <li class="circle">com.microblink.blinkcard.view.<a href="com/microblink/blinkcard/view/OrientationAllowedListener.html" title="interface in com.microblink.blinkcard.view"><span class="typeNameLink">OrientationAllowedListener</span></a></li>
 <li class="circle">com.microblink.blinkcard.fragment.overlay.verification.<a href="com/microblink/blinkcard/fragment/overlay/verification/OverlayTorchStateListener.html" title="interface in com.microblink.blinkcard.fragment.overlay.verification"><span class="typeNameLink">OverlayTorchStateListener</span></a></li>
@@ -458,7 +500,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="circle">com.microblink.blinkcard.view.viewfinder.quadview.<a href="com/microblink/blinkcard/view/viewfinder/quadview/QuadViewAnimationListener.html" title="interface in com.microblink.blinkcard.view.viewfinder.quadview"><span class="typeNameLink">QuadViewAnimationListener</span></a></li>
 <li class="circle">com.microblink.blinkcard.fragment.overlay.components.feedback.<a href="com/microblink/blinkcard/fragment/overlay/components/feedback/RecognitionFeedbackHandler.html" title="interface in com.microblink.blinkcard.fragment.overlay.components.feedback"><span class="typeNameLink">RecognitionFeedbackHandler</span></a></li>
 <li class="circle">com.microblink.blinkcard.fragment.<a href="com/microblink/blinkcard/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html" title="interface in com.microblink.blinkcard.fragment"><span class="typeNameLink">RecognizerRunnerFragment.ScanningOverlayBinder</span></a></li>
-<li class="circle">com.microblink.blinkcard.results.<a href="com/microblink/blinkcard/results/Result.html" title="interface in com.microblink.blinkcard.results"><span class="typeNameLink">Result</span></a></li>
 <li class="circle">com.microblink.blinkcard.view.recognition.<a href="com/microblink/blinkcard/view/recognition/ScanResultListener.html" title="interface in com.microblink.blinkcard.view.recognition"><span class="typeNameLink">ScanResultListener</span></a>
 <ul>
 <li class="circle">com.microblink.blinkcard.view.recognition.<a href="com/microblink/blinkcard/view/recognition/ParcelableScanResultListener.html" title="interface in com.microblink.blinkcard.view.recognition"><span class="typeNameLink">ParcelableScanResultListener</span></a> (also extends android.os.Parcelable)</li>
@@ -466,14 +507,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </ul>
 </li>
 <li class="circle">com.microblink.blinkcard.hardware.accelerometer.<a href="com/microblink/blinkcard/hardware/accelerometer/ShakeCallback.html" title="interface in com.microblink.blinkcard.hardware.accelerometer"><span class="typeNameLink">ShakeCallback</span></a></li>
+<li class="circle">com.microblink.blinkcard.results.date.<a href="com/microblink/blinkcard/results/date/SimpleDateResult.html" title="interface in com.microblink.blinkcard.results.date"><span class="typeNameLink">SimpleDateResult</span></a></li>
 <li class="circle">com.microblink.blinkcard.uisettings.options.<a href="com/microblink/blinkcard/uisettings/options/SplashScreenUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options"><span class="typeNameLink">SplashScreenUIOptions</span></a></li>
 <li class="circle">com.microblink.blinkcard.fragment.overlay.components.statusmsg.<a href="com/microblink/blinkcard/fragment/overlay/components/statusmsg/StatusTextStyler.html" title="interface in com.microblink.blinkcard.fragment.overlay.components.statusmsg"><span class="typeNameLink">StatusTextStyler</span></a></li>
 <li class="circle">com.microblink.blinkcard.uisettings.options.<a href="com/microblink/blinkcard/uisettings/options/StringsUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options"><span class="typeNameLink">StringsUIOptions</span></a>&lt;T&gt;</li>
 <li class="circle">com.microblink.blinkcard.uisettings.options.<a href="com/microblink/blinkcard/uisettings/options/StyleUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options"><span class="typeNameLink">StyleUIOptions</span></a></li>
 <li class="circle">com.microblink.blinkcard.hardware.<a href="com/microblink/blinkcard/hardware/SuccessCallback.html" title="interface in com.microblink.blinkcard.hardware"><span class="typeNameLink">SuccessCallback</span></a></li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.reticle.<a href="com/microblink/blinkcard/fragment/overlay/reticle/TouchInterceptRelativeLayout.TouchListener.html" title="interface in com.microblink.blinkcard.fragment.overlay.reticle"><span class="typeNameLink">TouchInterceptRelativeLayout.TouchListener</span></a></li>
 </ul>
 </section>
-<section role="region">
+<section>
 <h2 title="Enum Hierarchy">Enum Hierarchy</h2>
 <ul>
 <li class="circle">java.lang.Object
@@ -483,9 +526,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="circle">com.microblink.blinkcard.view.<a href="com/microblink/blinkcard/view/BaseCameraView.CameraViewState.html" title="enum in com.microblink.blinkcard.view"><span class="typeNameLink">BaseCameraView.CameraViewState</span></a></li>
 <li class="circle">com.microblink.blinkcard.entities.recognizers.blinkcard.<a href="com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardAnonymizationMode.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard"><span class="typeNameLink">BlinkCardAnonymizationMode</span></a></li>
 <li class="circle">com.microblink.blinkcard.entities.recognizers.blinkcard.<a href="com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardProcessingStatus.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard"><span class="typeNameLink">BlinkCardProcessingStatus</span></a></li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/reticleui/BlinkCardReticleUiState.html" title="enum in com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui"><span class="typeNameLink">BlinkCardReticleUiState</span></a></li>
 <li class="circle">com.microblink.blinkcard.view.<a href="com/microblink/blinkcard/view/CameraAspectMode.html" title="enum in com.microblink.blinkcard.view"><span class="typeNameLink">CameraAspectMode</span></a> (implements android.os.Parcelable)</li>
 <li class="circle">com.microblink.blinkcard.hardware.camera.<a href="com/microblink/blinkcard/hardware/camera/CameraType.html" title="enum in com.microblink.blinkcard.hardware.camera"><span class="typeNameLink">CameraType</span></a> (implements android.os.Parcelable)</li>
-<li class="circle">com.microblink.blinkcard.entities.recognizers.blinkid.<a href="com/microblink/blinkcard/entities/recognizers/blinkid/DataMatchResult.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkid"><span class="typeNameLink">DataMatchResult</span></a></li>
+<li class="circle">com.microblink.blinkcard.entities.recognizers.blinkid.<a href="com/microblink/blinkcard/entities/recognizers/blinkid/DataMatchState.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkid"><span class="typeNameLink">DataMatchState</span></a></li>
 <li class="circle">com.microblink.blinkcard.view.recognition.<a href="com/microblink/blinkcard/view/recognition/DetectionStatus.html" title="enum in com.microblink.blinkcard.view.recognition"><span class="typeNameLink">DetectionStatus</span></a></li>
 <li class="circle">com.microblink.blinkcard.fragment.overlay.<a href="com/microblink/blinkcard/fragment/overlay/DocumentSide.html" title="enum in com.microblink.blinkcard.fragment.overlay"><span class="typeNameLink">DocumentSide</span></a></li>
 <li class="circle">com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageFormat.html" title="enum in com.microblink.blinkcard.image"><span class="typeNameLink">ImageFormat</span></a></li>
@@ -506,7 +550,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="circle">com.microblink.blinkcard.entities.recognizers.<a href="com/microblink/blinkcard/entities/recognizers/RecognizerBundle.RecognitionDebugMode.html" title="enum in com.microblink.blinkcard.entities.recognizers"><span class="typeNameLink">RecognizerBundle.RecognitionDebugMode</span></a></li>
 <li class="circle">com.microblink.blinkcard.util.<a href="com/microblink/blinkcard/util/RecognizerCompatibilityStatus.html" title="enum in com.microblink.blinkcard.util"><span class="typeNameLink">RecognizerCompatibilityStatus</span></a></li>
 <li class="circle">com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.State.html" title="enum in com.microblink.blinkcard.directApi"><span class="typeNameLink">RecognizerRunner.State</span></a></li>
-<li class="circle">com.microblink.blinkcard.activity.result.<a href="com/microblink/blinkcard/activity/result/ScanResult.ResultStatus.html" title="enum in com.microblink.blinkcard.activity.result"><span class="typeNameLink">ScanResult.ResultStatus</span></a></li>
+<li class="circle">com.microblink.blinkcard.activity.result.<a href="com/microblink/blinkcard/activity/result/ResultStatus.html" title="enum in com.microblink.blinkcard.activity.result"><span class="typeNameLink">ResultStatus</span></a></li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.reticle.<a href="com/microblink/blinkcard/fragment/overlay/reticle/ReticleView.Type.html" title="enum in com.microblink.blinkcard.fragment.overlay.reticle"><span class="typeNameLink">ReticleView.Type</span></a></li>
+<li class="circle">com.microblink.blinkcard.fragment.overlay.reticle.<a href="com/microblink/blinkcard/fragment/overlay/reticle/StatusMessageMode.html" title="enum in com.microblink.blinkcard.fragment.overlay.reticle"><span class="typeNameLink">StatusMessageMode</span></a></li>
 <li class="circle">com.microblink.blinkcard.hardware.camera.<a href="com/microblink/blinkcard/hardware/camera/VideoResolutionPreset.html" title="enum in com.microblink.blinkcard.hardware.camera"><span class="typeNameLink">VideoResolutionPreset</span></a> (implements android.os.Parcelable)</li>
 </ul>
 </li>

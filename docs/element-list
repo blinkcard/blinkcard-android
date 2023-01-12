@@ -21,13 +21,16 @@ com.microblink.blinkcard.entities.util
 com.microblink.blinkcard.fragment
 com.microblink.blinkcard.fragment.overlay
 com.microblink.blinkcard.fragment.overlay.blinkcard
-com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui
+com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui
+com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui.options
 com.microblink.blinkcard.fragment.overlay.components
 com.microblink.blinkcard.fragment.overlay.components.debug
 com.microblink.blinkcard.fragment.overlay.components.feedback
+com.microblink.blinkcard.fragment.overlay.components.onboarding
 com.microblink.blinkcard.fragment.overlay.components.settings
 com.microblink.blinkcard.fragment.overlay.components.snackbar
 com.microblink.blinkcard.fragment.overlay.components.statusmsg
+com.microblink.blinkcard.fragment.overlay.reticle
 com.microblink.blinkcard.fragment.overlay.verification
 com.microblink.blinkcard.geometry
 com.microblink.blinkcard.hardware
@@ -49,7 +52,6 @@ com.microblink.blinkcard.metadata.ocr
 com.microblink.blinkcard.metadata.recognition
 com.microblink.blinkcard.metadata.text
 com.microblink.blinkcard.recognition
-com.microblink.blinkcard.results
 com.microblink.blinkcard.results.date
 com.microblink.blinkcard.results.ocr
 com.microblink.blinkcard.uisettings

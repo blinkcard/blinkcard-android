@@ -6,15 +6,16 @@
 <title>BlinkCardUISettings (LibBlinkCard API)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="../../../../jquery/jquery-ui.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../jquery/jquery-ui.min.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../../script.js"></script>
 <script type="text/javascript" src="../../../../jquery/jszip/dist/jszip.min.js"></script>
 <script type="text/javascript" src="../../../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
 <!--[if IE]>
 <script type="text/javascript" src="../../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../../jquery/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="../../../../jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="../../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
 <script type="text/javascript"><!--
@@ -26,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -136,12 +137,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="options/BeepSoundUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">BeepSoundUIOptions</a></code>, <code><a href="options/CurrentImageListenerUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">CurrentImageListenerUIOptions</a></code>, <code><a href="options/DebugImageListenerUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">DebugImageListenerUIOptions</a></code>, <code><a href="options/HighResSuccessFrameCaptureUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">HighResSuccessFrameCaptureUIOptions</a></code>, <code><a href="options/OcrResultDisplayUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">OcrResultDisplayUIOptions</a></code>, <code><a href="options/SplashScreenUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">SplashScreenUIOptions</a></code>, <code><a href="options/StringsUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">StringsUIOptions</a>&lt;<a href="../fragment/overlay/blinkcard/scanlineui/ScanLineOverlayStrings.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui">ScanLineOverlayStrings</a>&gt;</code>, <code><a href="options/StyleUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">StyleUIOptions</a></code></dd>
+<dd><code><a href="options/BeepSoundUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">BeepSoundUIOptions</a></code>, <code><a href="options/CurrentImageListenerUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">CurrentImageListenerUIOptions</a></code>, <code><a href="options/DebugImageListenerUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">DebugImageListenerUIOptions</a></code>, <code><a href="options/HighResSuccessFrameCaptureUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">HighResSuccessFrameCaptureUIOptions</a></code>, <code><a href="options/OcrResultDisplayUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">OcrResultDisplayUIOptions</a></code>, <code><a href="options/SplashScreenUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">SplashScreenUIOptions</a></code>, <code><a href="options/StringsUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">StringsUIOptions</a>&lt;<a href="../fragment/overlay/blinkcard/reticleui/BlinkCardReticleOverlayStrings.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui">BlinkCardReticleOverlayStrings</a>&gt;</code>, <code><a href="options/StyleUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">StyleUIOptions</a></code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">BlinkCardUISettings</span>
 extends <a href="UISettings.html" title="class in com.microblink.blinkcard.uisettings">UISettings</a>&lt;<a href="../fragment/overlay/blinkcard/BlinkCardOverlayController.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlayController</a>&gt;
-implements <a href="options/BeepSoundUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">BeepSoundUIOptions</a>, <a href="options/DebugImageListenerUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">DebugImageListenerUIOptions</a>, <a href="options/CurrentImageListenerUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">CurrentImageListenerUIOptions</a>, <a href="options/HighResSuccessFrameCaptureUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">HighResSuccessFrameCaptureUIOptions</a>, <a href="options/SplashScreenUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">SplashScreenUIOptions</a>, <a href="options/OcrResultDisplayUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">OcrResultDisplayUIOptions</a>, <a href="options/StyleUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">StyleUIOptions</a>, <a href="options/StringsUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">StringsUIOptions</a>&lt;<a href="../fragment/overlay/blinkcard/scanlineui/ScanLineOverlayStrings.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui">ScanLineOverlayStrings</a>&gt;</pre>
+implements <a href="options/BeepSoundUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">BeepSoundUIOptions</a>, <a href="options/DebugImageListenerUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">DebugImageListenerUIOptions</a>, <a href="options/CurrentImageListenerUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">CurrentImageListenerUIOptions</a>, <a href="options/HighResSuccessFrameCaptureUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">HighResSuccessFrameCaptureUIOptions</a>, <a href="options/SplashScreenUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">SplashScreenUIOptions</a>, <a href="options/OcrResultDisplayUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">OcrResultDisplayUIOptions</a>, <a href="options/StyleUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">StyleUIOptions</a>, <a href="options/StringsUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">StringsUIOptions</a>&lt;<a href="../fragment/overlay/blinkcard/reticleui/BlinkCardReticleOverlayStrings.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui">BlinkCardReticleOverlayStrings</a>&gt;</pre>
 </li>
 </ul>
 </div>
@@ -149,7 +150,7 @@ implements <a href="options/BeepSoundUIOptions.html" title="interface in com.mic
 <ul class="blockList">
 <li class="blockList">
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="constructor.summary">
 <!--   -->
@@ -174,7 +175,7 @@ implements <a href="options/BeepSoundUIOptions.html" title="interface in com.mic
 </ul>
 </section>
 <!-- ========== METHOD SUMMARY =========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.summary">
 <!--   -->
@@ -225,20 +226,30 @@ implements <a href="options/BeepSoundUIOptions.html" title="interface in com.mic
 </td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getShowTooltipTimeIntervalMs()">getShowTooltipTimeIntervalMs</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.Class&lt;?&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTargetActivity()">getTargetActivity</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns target activity.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEditScreenEnabled()">isEditScreenEnabled</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns whether edit scan results screen will be shown after scanning.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isLockedToPortrait()">isLockedToPortrait</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#saveToIntent(android.content.Intent)">saveToIntent</a></span>&#8203;(android.content.Intent&nbsp;intent)</code></th>
 <td class="colLast">
@@ -246,14 +257,19 @@ implements <a href="options/BeepSoundUIOptions.html" title="interface in com.mic
  corresponding scan activity.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setBackSideScanningTimeoutMs(long)">setBackSideScanningTimeoutMs</a></span>&#8203;(long&nbsp;backSideScanningTimeoutMs)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setBeepSoundResourceID(int)">setBeepSoundResourceID</a></span>&#8203;(int&nbsp;beepSoundResourceID)</code></th>
 <td class="colLast">
 <div class="block">Defines the resource ID of the sound to be played when recognition is successful.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCurrentImageListener(com.microblink.blinkcard.image.CurrentImageListener)">setCurrentImageListener</a></span>&#8203;(<a href="../image/CurrentImageListener.html" title="interface in com.microblink.blinkcard.image">CurrentImageListener</a>&nbsp;currentImageListener)</code></th>
 <td class="colLast">
@@ -261,7 +277,7 @@ implements <a href="options/BeepSoundUIOptions.html" title="interface in com.mic
  are currently being processed.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDebugImageListener(com.microblink.blinkcard.image.DebugImageListener)">setDebugImageListener</a></span>&#8203;(<a href="../image/DebugImageListener.html" title="interface in com.microblink.blinkcard.image">DebugImageListener</a>&nbsp;debugImageListener)</code></th>
 <td class="colLast">
@@ -269,7 +285,7 @@ implements <a href="options/BeepSoundUIOptions.html" title="interface in com.mic
  being processed.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEditScreenEnabled(boolean)">setEditScreenEnabled</a></span>&#8203;(boolean&nbsp;enabled)</code></th>
 <td class="colLast">
@@ -277,49 +293,64 @@ implements <a href="options/BeepSoundUIOptions.html" title="interface in com.mic
  scanning.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEditScreenFieldConfiguration(com.microblink.blinkcard.activity.edit.BlinkCardEditFieldConfiguration)">setEditScreenFieldConfiguration</a></span>&#8203;(<a href="../activity/edit/BlinkCardEditFieldConfiguration.html" title="class in com.microblink.blinkcard.activity.edit">BlinkCardEditFieldConfiguration</a>&nbsp;fieldConfiguration)</code></th>
 <td class="colLast">
 <div class="block">Configures which fields are available on edit scan results screen.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEditScreenStrings(com.microblink.blinkcard.activity.edit.BlinkCardEditStrings)">setEditScreenStrings</a></span>&#8203;(<a href="../activity/edit/BlinkCardEditStrings.html" title="class in com.microblink.blinkcard.activity.edit">BlinkCardEditStrings</a>&nbsp;strings)</code></th>
 <td class="colLast">
 <div class="block">Sets strings that will be used in edit scan results screen.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEditScreenTheme(int)">setEditScreenTheme</a></span>&#8203;(int&nbsp;editScreenResourceID)</code></th>
 <td class="colLast">
 <div class="block">Provide your own theme to style edit screen.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOcrResultDisplayMode(com.microblink.blinkcard.uisettings.options.OcrResultDisplayMode)">setOcrResultDisplayMode</a></span>&#8203;(<a href="options/OcrResultDisplayMode.html" title="enum in com.microblink.blinkcard.uisettings.options">OcrResultDisplayMode</a>&nbsp;ocrResultDisplayMode)</code></th>
 <td class="colLast">
 <div class="block">Defines mode in which OCR result will be drawn on camera preview.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOverlayViewStyle(int)">setOverlayViewStyle</a></span>&#8203;(int&nbsp;styleResourceID)</code></th>
 <td class="colLast">
 <div class="block">Provide your own style to replace default icons and colors.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setShowGlareWarning(boolean)">setShowGlareWarning</a></span>&#8203;(boolean&nbsp;showFlashlightWarning)</code></th>
 <td class="colLast">
 <div class="block">Defines whether glare warning will be displayed in UI, when flashlight is turned ON.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i22" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setShowIntroductionDialog(boolean)">setShowIntroductionDialog</a></span>&#8203;(boolean&nbsp;showIntroductionDialog)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i23" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setShowOnboardingInfo(boolean)">setShowOnboardingInfo</a></span>&#8203;(boolean&nbsp;showOnboardingInfo)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i24" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setShowTooltipTimeIntervalMs(long)">setShowTooltipTimeIntervalMs</a></span>&#8203;(long&nbsp;showTooltipTimeIntervalMs)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSplashScreenLayoutResourceID(int)">setSplashScreenLayoutResourceID</a></span>&#8203;(int&nbsp;splashScreenLayoutResourceID)</code></th>
 <td class="colLast">
@@ -327,9 +358,9 @@ implements <a href="options/BeepSoundUIOptions.html" title="interface in com.mic
  while camera is being initialized.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setStrings(com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui.ScanLineOverlayStrings)">setStrings</a></span>&#8203;(<a href="../fragment/overlay/blinkcard/scanlineui/ScanLineOverlayStrings.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui">ScanLineOverlayStrings</a>&nbsp;strings)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setStrings(com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui.BlinkCardReticleOverlayStrings)">setStrings</a></span>&#8203;(<a href="../fragment/overlay/blinkcard/reticleui/BlinkCardReticleOverlayStrings.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui">BlinkCardReticleOverlayStrings</a>&nbsp;strings)</code></th>
 <td class="colLast">
 <div class="block">Sets strings that will be used in the UI.</div>
 </td>
@@ -359,7 +390,7 @@ implements <a href="options/BeepSoundUIOptions.html" title="interface in com.mic
 <ul class="blockList">
 <li class="blockList">
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="constructor.detail">
 <!--   -->
@@ -389,7 +420,7 @@ implements <a href="options/BeepSoundUIOptions.html" title="interface in com.mic
 </ul>
 </section>
 <!-- ============ METHOD DETAIL ========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.detail">
 <!--   -->
@@ -428,18 +459,18 @@ public&nbsp;<a href="../entities/recognizers/RecognizerBundle.html" title="class
 </dl>
 </li>
 </ul>
-<a id="setStrings(com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui.ScanLineOverlayStrings)">
+<a id="setStrings(com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui.BlinkCardReticleOverlayStrings)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setStrings</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setStrings&#8203;(@NonNull
-                       <a href="../fragment/overlay/blinkcard/scanlineui/ScanLineOverlayStrings.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui">ScanLineOverlayStrings</a>&nbsp;strings)</pre>
+                       <a href="../fragment/overlay/blinkcard/reticleui/BlinkCardReticleOverlayStrings.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui">BlinkCardReticleOverlayStrings</a>&nbsp;strings)</pre>
 <div class="block">Sets strings that will be used in the UI.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="options/StringsUIOptions.html#setStrings(T)">setStrings</a></code>&nbsp;in interface&nbsp;<code><a href="options/StringsUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">StringsUIOptions</a>&lt;<a href="../fragment/overlay/blinkcard/scanlineui/ScanLineOverlayStrings.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.scanlineui">ScanLineOverlayStrings</a>&gt;</code></dd>
+<dd><code><a href="options/StringsUIOptions.html#setStrings(T)">setStrings</a></code>&nbsp;in interface&nbsp;<code><a href="options/StringsUIOptions.html" title="interface in com.microblink.blinkcard.uisettings.options">StringsUIOptions</a>&lt;<a href="../fragment/overlay/blinkcard/reticleui/BlinkCardReticleOverlayStrings.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard.reticleui">BlinkCardReticleOverlayStrings</a>&gt;</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>strings</code> - strings that will be used</dd>
 </dl>
@@ -672,6 +703,60 @@ public&nbsp;int&nbsp;getEditScreenTheme()</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>showFlashlightWarning</code> - whether glare warning will be displayed in UI.</dd>
 </dl>
+</li>
+</ul>
+<a id="setShowOnboardingInfo(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setShowOnboardingInfo</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setShowOnboardingInfo&#8203;(boolean&nbsp;showOnboardingInfo)</pre>
+</li>
+</ul>
+<a id="setShowIntroductionDialog(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setShowIntroductionDialog</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setShowIntroductionDialog&#8203;(boolean&nbsp;showIntroductionDialog)</pre>
+</li>
+</ul>
+<a id="setBackSideScanningTimeoutMs(long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setBackSideScanningTimeoutMs</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setBackSideScanningTimeoutMs&#8203;(long&nbsp;backSideScanningTimeoutMs)</pre>
+</li>
+</ul>
+<a id="setShowTooltipTimeIntervalMs(long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setShowTooltipTimeIntervalMs</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setShowTooltipTimeIntervalMs&#8203;(long&nbsp;showTooltipTimeIntervalMs)</pre>
+</li>
+</ul>
+<a id="getShowTooltipTimeIntervalMs()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getShowTooltipTimeIntervalMs</h4>
+<pre class="methodSignature">public&nbsp;long&nbsp;getShowTooltipTimeIntervalMs()</pre>
+</li>
+</ul>
+<a id="isLockedToPortrait()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isLockedToPortrait</h4>
+<pre class="methodSignature">protected&nbsp;boolean&nbsp;isLockedToPortrait()</pre>
 </li>
 </ul>
 <a id="getTargetActivity()">
