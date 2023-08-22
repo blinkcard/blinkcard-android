@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -320,31 +320,65 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>float</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHandDocumentOverlapThreshold()">getHandDocumentOverlapThreshold</a></span>()</code></th>
+<td class="colLast">
+<div class="block">This parameter is used to adjust heuristics that eliminate cases when the hand is present in
+ the input but it is not holding the document.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>float</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHandScaleThreshold()">getHandScaleThreshold</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Hand scale is calculated as a ratio between area of hand mask and document mask.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>float</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPaddingEdge()">getPaddingEdge</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Minimum required distance between the edge of the scanning frame and the document.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
+<td class="colFirst"><code><a href="MatchLevel.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">MatchLevel</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPhotocopyAnalysisMatchLevel()">getPhotocopyAnalysisMatchLevel</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Photocopy analysis match level - higher is stricter.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code><a href="MatchLevel.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">MatchLevel</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getScreenAnalysisMatchLevel()">getScreenAnalysisMatchLevel</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Screen analysis match level - higher is stricter.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readFromParcel(android.os.Parcel)">readFromParcel</a></span>&#8203;(android.os.Parcel&nbsp;in)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>protected byte[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#serializeNativeSettings()">serializeNativeSettings</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAllowBlurFilter(boolean)">setAllowBlurFilter</a></span>&#8203;(boolean&nbsp;allowBlurFilter)</code></th>
 <td class="colLast">
 <div class="block">Skip processing of the blurred frames.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAnonymizationSettings(com.microblink.blinkcard.entities.recognizers.blinkcard.BlinkCardAnonymizationSettings)">setAnonymizationSettings</a></span>&#8203;(<a href="BlinkCardAnonymizationSettings.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardAnonymizationSettings</a>&nbsp;anonymizationSettings)</code></th>
 <td class="colLast">
 <div class="block">Sets the settings which control the anonymization of returned data.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEncodeFullDocumentImage(boolean)">setEncodeFullDocumentImage</a></span>&#8203;(boolean&nbsp;encodeFullDocumentImage)</code></th>
 <td class="colLast">
@@ -352,7 +386,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
  recognition result.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setExtractCvv(boolean)">setExtractCvv</a></span>&#8203;(boolean&nbsp;extractCvv)</code></th>
 <td class="colLast">
@@ -360,14 +394,14 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
   By default, this is set to 'true'</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setExtractExpiryDate(boolean)">setExtractExpiryDate</a></span>&#8203;(boolean&nbsp;extractExpiryDate)</code></th>
 <td class="colLast">
 <div class="block">Should extract the payment card's expiry date.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setExtractIban(boolean)">setExtractIban</a></span>&#8203;(boolean&nbsp;extractIban)</code></th>
 <td class="colLast">
@@ -375,7 +409,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
   By default, this is set to 'true'</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setExtractOwner(boolean)">setExtractOwner</a></span>&#8203;(boolean&nbsp;extractOwner)</code></th>
 <td class="colLast">
@@ -383,28 +417,57 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
  By default, this is set to 'true'</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFullDocumentImageDpi(int)">setFullDocumentImageDpi</a></span>&#8203;(int&nbsp;desiredDPI)</code></th>
 <td class="colLast">
 <div class="block">Sets desired DPI (Dots Per Inch) for full document image that should be returned.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFullDocumentImageExtensionFactors(com.microblink.blinkcard.entities.recognizers.blinkid.imageoptions.extension.ImageExtensionFactors)">setFullDocumentImageExtensionFactors</a></span>&#8203;(<a href="../blinkid/imageoptions/extension/ImageExtensionFactors.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkid.imageoptions.extension">ImageExtensionFactors</a>&nbsp;fullDocumentImageExtensionFactors)</code></th>
 <td class="colLast">
 <div class="block">Sets extension factors for full document image.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i23" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setHandDocumentOverlapThreshold(float)">setHandDocumentOverlapThreshold</a></span>&#8203;(float&nbsp;handDocumentOverlapThreshold)</code></th>
+<td class="colLast">
+<div class="block">This parameter is used to adjust heuristics that eliminate cases when the hand is present in
+ the input but it is not holding the document.</div>
+</td>
+</tr>
+<tr id="i24" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setHandScaleThreshold(float)">setHandScaleThreshold</a></span>&#8203;(float&nbsp;handScaleThreshold)</code></th>
+<td class="colLast">
+<div class="block">Hand scale is calculated as a ratio between area of hand mask and document mask.</div>
+</td>
+</tr>
+<tr id="i25" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLivenessStatusCallback(com.microblink.blinkcard.entities.recognizers.blinkcard.LivenessStatusCallback)">setLivenessStatusCallback</a></span>&#8203;(<a href="LivenessStatusCallback.html" title="interface in com.microblink.blinkcard.entities.recognizers.blinkcard">LivenessStatusCallback</a>&nbsp;livenessStatusCallback)</code></th>
+<td class="colLast">
+<div class="block">Sets the <a href="LivenessStatusCallback.html" title="interface in com.microblink.blinkcard.entities.recognizers.blinkcard"><code>LivenessStatusCallback</code></a> that will receive liveness status.</div>
+</td>
+</tr>
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPaddingEdge(float)">setPaddingEdge</a></span>&#8203;(float&nbsp;paddingEdge)</code></th>
 <td class="colLast">
 <div class="block">Minimum required distance between the edge of the scanning frame and the document.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i27" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPhotocopyAnalysisMatchLevel(com.microblink.blinkcard.entities.recognizers.blinkcard.MatchLevel)">setPhotocopyAnalysisMatchLevel</a></span>&#8203;(<a href="MatchLevel.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">MatchLevel</a>&nbsp;photocopyAnalysisMatchLevel)</code></th>
+<td class="colLast">
+<div class="block">Photocopy analysis match level - higher is stricter.</div>
+</td>
+</tr>
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setReturnFullDocumentImage(boolean)">setReturnFullDocumentImage</a></span>&#8203;(boolean&nbsp;returnFullDocumentImage)</code></th>
 <td class="colLast">
@@ -412,21 +475,28 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
  <a href="../blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.blinkcard.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i29" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setScreenAnalysisMatchLevel(com.microblink.blinkcard.entities.recognizers.blinkcard.MatchLevel)">setScreenAnalysisMatchLevel</a></span>&#8203;(<a href="MatchLevel.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">MatchLevel</a>&nbsp;screenAnalysisMatchLevel)</code></th>
+<td class="colLast">
+<div class="block">Screen analysis match level - higher is stricter.</div>
+</td>
+</tr>
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldAllowBlurFilter()">shouldAllowBlurFilter</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Skip processing of the blurred frames.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldEncodeFullDocumentImage()">shouldEncodeFullDocumentImage</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns whether encoding of full document images and writing them into the recognition result is enabled.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldExtractCvv()">shouldExtractCvv</a></span>()</code></th>
 <td class="colLast">
@@ -434,14 +504,14 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
   By default, this is set to 'true'</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldExtractExpiryDate()">shouldExtractExpiryDate</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Should extract the payment card's expiry date.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i34" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldExtractIban()">shouldExtractIban</a></span>()</code></th>
 <td class="colLast">
@@ -449,7 +519,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
   By default, this is set to 'true'</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldExtractOwner()">shouldExtractOwner</a></span>()</code></th>
 <td class="colLast">
@@ -457,7 +527,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
  By default, this is set to 'true'</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldReturnFullDocumentImage()">shouldReturnFullDocumentImage</a></span>()</code></th>
 <td class="colLast">
@@ -465,9 +535,15 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
  <a href="../blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.blinkcard.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#terminateNative(long)">terminateNative</a></span>&#8203;(long&nbsp;nativeContext)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i38" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeToParcel(android.os.Parcel,int)">writeToParcel</a></span>&#8203;(android.os.Parcel&nbsp;dest,
+             int&nbsp;flags)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -483,7 +559,7 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.blinkcard.entities.<a href="../../Entity.html" title="class in com.microblink.blinkcard.entities">Entity</a></h3>
-<code><a href="../../Entity.html#describeContents()">describeContents</a>, <a href="../../Entity.html#finalize()">finalize</a>, <a href="../../Entity.html#getNativeContext()">getNativeContext</a>, <a href="../../Entity.html#getResult()">getResult</a>, <a href="../../Entity.html#nativeGetNativeResultContext(long)">nativeGetNativeResultContext</a>, <a href="../../Entity.html#readFromParcel(android.os.Parcel)">readFromParcel</a>, <a href="../../Entity.html#writeToParcel(android.os.Parcel,int)">writeToParcel</a></code></li>
+<code><a href="../../Entity.html#describeContents()">describeContents</a>, <a href="../../Entity.html#finalize()">finalize</a>, <a href="../../Entity.html#getNativeContext()">getNativeContext</a>, <a href="../../Entity.html#getResult()">getResult</a>, <a href="../../Entity.html#nativeGetNativeResultContext(long)">nativeGetNativeResultContext</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -546,6 +622,33 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="setHandScaleThreshold(float)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setHandScaleThreshold</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setHandScaleThreshold&#8203;(@FloatRange(from=0.0,to=1.0)
+                                  float&nbsp;handScaleThreshold)</pre>
+<div class="block">Hand scale is calculated as a ratio between area of hand mask and document mask.
+ `handScaleThreshold` is the minimal value for hand to be accepted as significant.
+ By default, this is set to '0.15'.</div>
+</li>
+</ul>
+<a id="getHandScaleThreshold()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHandScaleThreshold</h4>
+<pre class="methodSignature">@FloatRange(from=0.0,
+            to=1.0)
+public&nbsp;float&nbsp;getHandScaleThreshold()</pre>
+<div class="block">Hand scale is calculated as a ratio between area of hand mask and document mask.
+ `handScaleThreshold` is the minimal value for hand to be accepted as significant.
+ By default, this is set to '0.15'.</div>
+</li>
+</ul>
 <a id="setExtractExpiryDate(boolean)">
 <!--   -->
 </a>
@@ -758,6 +861,41 @@ implements <a href="../blinkid/CombinedRecognizer.html" title="interface in com.
  By default, this is set to 'true'</div>
 </li>
 </ul>
+<a id="setHandDocumentOverlapThreshold(float)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setHandDocumentOverlapThreshold</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setHandDocumentOverlapThreshold&#8203;(@FloatRange(from=0.0,to=1.0)
+                                            float&nbsp;handDocumentOverlapThreshold)</pre>
+<div class="block">This parameter is used to adjust heuristics that eliminate cases when the hand is present in
+ the input but it is not holding the document.
+ `handDocumentOverlapThreshold` is the minimal ratio of hand pixels inside the frame
+ surrounding the document and area of that frame. Only pixels inside that frame are used to
+ ignore false-positive hand segmentations inside the document (e.g. profile photo on
+ documents)
+ By default, this is set to '0.05'.</div>
+</li>
+</ul>
+<a id="getHandDocumentOverlapThreshold()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHandDocumentOverlapThreshold</h4>
+<pre class="methodSignature">@FloatRange(from=0.0,
+            to=1.0)
+public&nbsp;float&nbsp;getHandDocumentOverlapThreshold()</pre>
+<div class="block">This parameter is used to adjust heuristics that eliminate cases when the hand is present in
+ the input but it is not holding the document.
+ `handDocumentOverlapThreshold` is the minimal ratio of hand pixels inside the frame
+ surrounding the document and area of that frame. Only pixels inside that frame are used to
+ ignore false-positive hand segmentations inside the document (e.g. profile photo on
+ documents)
+ By default, this is set to '0.05'.</div>
+</li>
+</ul>
 <a id="setPaddingEdge(float)">
 <!--   -->
 </a>
@@ -783,6 +921,54 @@ public&nbsp;float&nbsp;getPaddingEdge()</pre>
 <div class="block">Minimum required distance between the edge of the scanning frame and the document.
  Defined as a percentage of the frame width.
  By default, this is set to '0.0' in which case the padding edge and the image edge are the same. Alternative recommended value is 0.02f.</div>
+</li>
+</ul>
+<a id="setScreenAnalysisMatchLevel(com.microblink.blinkcard.entities.recognizers.blinkcard.MatchLevel)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setScreenAnalysisMatchLevel</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setScreenAnalysisMatchLevel&#8203;(@NonNull
+                                        <a href="MatchLevel.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">MatchLevel</a>&nbsp;screenAnalysisMatchLevel)</pre>
+<div class="block">Screen analysis match level - higher is stricter.
+ By default, this is set to 'Level5'.</div>
+</li>
+</ul>
+<a id="getScreenAnalysisMatchLevel()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getScreenAnalysisMatchLevel</h4>
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="MatchLevel.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">MatchLevel</a>&nbsp;getScreenAnalysisMatchLevel()</pre>
+<div class="block">Screen analysis match level - higher is stricter.
+ By default, this is set to 'Level5'.</div>
+</li>
+</ul>
+<a id="setPhotocopyAnalysisMatchLevel(com.microblink.blinkcard.entities.recognizers.blinkcard.MatchLevel)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setPhotocopyAnalysisMatchLevel</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setPhotocopyAnalysisMatchLevel&#8203;(@NonNull
+                                           <a href="MatchLevel.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">MatchLevel</a>&nbsp;photocopyAnalysisMatchLevel)</pre>
+<div class="block">Photocopy analysis match level - higher is stricter.
+ By default, this is set to 'Level5'.</div>
+</li>
+</ul>
+<a id="getPhotocopyAnalysisMatchLevel()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPhotocopyAnalysisMatchLevel</h4>
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="MatchLevel.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">MatchLevel</a>&nbsp;getPhotocopyAnalysisMatchLevel()</pre>
+<div class="block">Photocopy analysis match level - higher is stricter.
+ By default, this is set to 'Level5'.</div>
 </li>
 </ul>
 <a id="getFullDocumentImageDpi()">
@@ -892,6 +1078,52 @@ public&nbsp;<a href="../blinkid/CombinedResult.html" title="interface in com.mic
 <dd><code><a href="../blinkid/CombinedRecognizer.html#getCombinedResult()">getCombinedResult</a></code>&nbsp;in interface&nbsp;<code><a href="../blinkid/CombinedRecognizer.html" title="interface in com.microblink.blinkcard.entities.recognizers.blinkid">CombinedRecognizer</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>combined result which is associated with this combined recognizer.</dd>
+</dl>
+</li>
+</ul>
+<a id="setLivenessStatusCallback(com.microblink.blinkcard.entities.recognizers.blinkcard.LivenessStatusCallback)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setLivenessStatusCallback</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setLivenessStatusCallback&#8203;(@Nullable
+                                      <a href="LivenessStatusCallback.html" title="interface in com.microblink.blinkcard.entities.recognizers.blinkcard">LivenessStatusCallback</a>&nbsp;livenessStatusCallback)</pre>
+<div class="block">Sets the <a href="LivenessStatusCallback.html" title="interface in com.microblink.blinkcard.entities.recognizers.blinkcard"><code>LivenessStatusCallback</code></a> that will receive liveness status.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>livenessStatusCallback</code> - <a href="LivenessStatusCallback.html" title="interface in com.microblink.blinkcard.entities.recognizers.blinkcard"><code>LivenessStatusCallback</code></a> that will receive liveness status.</dd>
+</dl>
+</li>
+</ul>
+<a id="writeToParcel(android.os.Parcel,int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeToParcel</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;writeToParcel&#8203;(@NonNull
+                          android.os.Parcel&nbsp;dest,
+                          int&nbsp;flags)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>writeToParcel</code>&nbsp;in interface&nbsp;<code>android.os.Parcelable</code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../Entity.html#writeToParcel(android.os.Parcel,int)">writeToParcel</a></code>&nbsp;in class&nbsp;<code><a href="../../Entity.html" title="class in com.microblink.blinkcard.entities">Entity</a>&lt;<a href="BlinkCardRecognizer.Result.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardRecognizer.Result</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a id="readFromParcel(android.os.Parcel)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>readFromParcel</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;readFromParcel&#8203;(@NonNull
+                              android.os.Parcel&nbsp;in)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../Entity.html#readFromParcel(android.os.Parcel)">readFromParcel</a></code>&nbsp;in class&nbsp;<code><a href="../../Entity.html" title="class in com.microblink.blinkcard.entities">Entity</a>&lt;<a href="BlinkCardRecognizer.Result.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardRecognizer.Result</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>

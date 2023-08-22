@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -297,105 +297,126 @@ implements <a href="../blinkid/CombinedResult.html" title="interface in com.micr
 </td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code><a href="DocumentLivenessCheckResult.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard">DocumentLivenessCheckResult</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDocumentLivenessCheck()">getDocumentLivenessCheck</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Document liveness check (screen, photocopy, hand presence) which can pass or fail.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>byte[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEncodedFirstSideFullDocumentImage()">getEncodedFirstSideFullDocumentImage</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Encoded image of the payment card from first side recognition in JPEG format.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>byte[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEncodedSecondSideFullDocumentImage()">getEncodedSecondSideFullDocumentImage</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Encoded image of the payment card from second side recognition in JPEG format.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../results/date/Date.html" title="class in com.microblink.blinkcard.results.date">Date</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExpiryDate()">getExpiryDate</a></span>()</code></th>
 <td class="colLast">
 <div class="block">The payment card's expiry date.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../image/Image.html" title="class in com.microblink.blinkcard.image">Image</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFirstSideFullDocumentImage()">getFirstSideFullDocumentImage</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Full image of the payment card from first side recognition.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIban()">getIban</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Payment card's IBAN.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="Issuer.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">Issuer</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIssuer()">getIssuer</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Payment card's issuing network.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOwner()">getOwner</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Information about the payment card owner.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="BlinkCardProcessingStatus.html" title="enum in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardProcessingStatus</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProcessingStatus()">getProcessingStatus</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Status of the last recognition process.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../image/Image.html" title="class in com.microblink.blinkcard.image">Image</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSecondSideFullDocumentImage()">getSecondSideFullDocumentImage</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Full image of the payment card from second side recognition.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isCardNumberValid()">isCardNumberValid</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Flag which indicatew whether the payment card number is valid or not.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isFirstSideAnonymized()">isFirstSideAnonymized</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Whether the first scanned side is anonymized.</div>
+</td>
+</tr>
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isFirstSideBlurred()">isFirstSideBlurred</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Whether the first scanned side is blurred.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isScanningFirstSideDone()">isScanningFirstSideDone</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i19" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isSecondSideAnonymized()">isSecondSideAnonymized</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Whether the second scanned side is anonymized.</div>
+</td>
+</tr>
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isSecondSideBlurred()">isSecondSideBlurred</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Whether the second scanned side is blurred.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>protected byte[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#serializeToByteArray()">serializeToByteArray</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#terminateNative(long)">terminateNative</a></span>&#8203;(long&nbsp;nativeContext)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -522,6 +543,16 @@ public&nbsp;byte[]&nbsp;getEncodedFirstSideFullDocumentImage()</pre>
 <div class="block">Encoded image of the payment card from first side recognition in JPEG format.</div>
 </li>
 </ul>
+<a id="isFirstSideAnonymized()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isFirstSideAnonymized</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;isFirstSideAnonymized()</pre>
+<div class="block">Whether the first scanned side is anonymized.</div>
+</li>
+</ul>
 <a id="isSecondSideBlurred()">
 <!--   -->
 </a>
@@ -582,6 +613,16 @@ public&nbsp;<a href="BlinkCardProcessingStatus.html" title="enum in com.microbli
 </dl>
 </li>
 </ul>
+<a id="isSecondSideAnonymized()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isSecondSideAnonymized</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;isSecondSideAnonymized()</pre>
+<div class="block">Whether the second scanned side is anonymized.</div>
+</li>
+</ul>
 <a id="getIban()">
 <!--   -->
 </a>
@@ -602,6 +643,17 @@ public&nbsp;java.lang.String&nbsp;getIban()</pre>
 <pre class="methodSignature">@NonNull
 public&nbsp;java.lang.String&nbsp;getCardNumberPrefix()</pre>
 <div class="block">The payment card number prefix.</div>
+</li>
+</ul>
+<a id="getDocumentLivenessCheck()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDocumentLivenessCheck</h4>
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="DocumentLivenessCheckResult.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard">DocumentLivenessCheckResult</a>&nbsp;getDocumentLivenessCheck()</pre>
+<div class="block">Document liveness check (screen, photocopy, hand presence) which can pass or fail.</div>
 </li>
 </ul>
 <a id="isFirstSideBlurred()">
