@@ -1,5 +1,8 @@
 # Release notes
 
+## 2.8.1
+- Fixed crashing issue when opening onboarding screens the help button
+
 ## 2.8.0
 
 ### Improvements
@@ -15,7 +18,7 @@
 
 ### BlinkCard Recognizer Result
 - Two new booleans: `firstSideAnonymized` and `secondSideAnonymized` have been added to indicate whether the first or second side of the card has been anonymized, respectively.
-- New result `documentLivenessCheck` which has new liveness model results. It contains liveness information about the first and second sides of the card. Liveness information contains the results of checks performed on the card using screen detection, photocopy detection, and the presence of a live hand.
+- New result documentLivenessCheck which has new liveness model results. It contains liveness information about the first and second sides of the card. Liveness information contains the results of checks performed on the card using screen detection, photocopy detection, and the presence of a live hand.
 
 ## 2.7.0
 
