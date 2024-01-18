@@ -1,5 +1,22 @@
 # Release notes
 
+# 2.9.0
+
+### What's new in the BlinkCard Recognizer?
+- Improved scanning performance and added support for virtually any card layout
+- Improved IBAN parser which now supports more IBAN formats
+- Added option `allowInvalidCardNumber` which allows reading invalid card numbers to avoid endless scanning on samples and test cards:
+    - use with care as it might reduce accuracy in certain situations in production
+    - for invalid card number the flag `cardNumberValid` in `BlinkCardRecognizer.Result` will be set to `false`
+
+### Improvements
+- Better support for RTL languages in our default UX
+
+### Breaking API changes:
+- Min Android SDK API level is raised to **21 (Android 5.0)**
+- Removed legacy recognizers: `LegacyBlinkCardRecognizer` and `LegacyBlinkCardEliteRecognizer`
+
+
 ## 2.8.1
 - Fixed crashing issue when opening onboarding screens the help button
 

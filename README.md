@@ -61,7 +61,7 @@ The package contains Android Archive (AAR) that contains everything you need to 
  
 The source code of all sample apps is given to you to show you how to perform integration of _BlinkCard_ SDK into your app. You can use this source code and all resources as you wish. You can use sample apps as a basis for creating your own app, or you can copy/paste the code and/or resources from sample apps into your app and use them as you wish without even asking us for permission.
  
-_BlinkCard_ is supported on Android SDK version 16 (Android 4.1) or later.
+_BlinkCard_ is supported on Android SDK version 21 (Android 5.0) or later.
 
 The list of all provided scan activities can be found in the [Built-in activities and overlays](#built-in-ui-components) section.
 
@@ -92,7 +92,7 @@ Add _BlinkCard_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkcard:2.8.1@aar') {
+    implementation('com.microblink:blinkcard:2.9.0@aar') {
         transitive = true
     }
 }
@@ -100,11 +100,11 @@ dependencies {
 
 #### Importing Javadoc
 
-Android studio 3.0 should automatically import javadoc from maven dependency. If that doesn't happen, you can do that manually by following these steps:
+Android studio should automatically import javadoc from maven dependency. If that doesn't happen, you can do that manually by following these steps:
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkcard-2.8.1` entry, right click on it and select `Library Properties...`
+3. Locate `blinkcard-2.9.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -198,7 +198,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 ### Android Version
 
-_BlinkCard_ requires Android API level **16** or newer. For best performance and compatibility, we recommend at least Android 5.0.
+_BlinkCard_ requires Android API level **21** or newer.
 
 ### Camera
 
@@ -206,7 +206,7 @@ Camera video preview resolution also matters. In order to perform successful sca
 
 ### Processor architecture
 
-_BlinkCard_ is distributed with **ARMv7** and **ARM64** native library binaries. The support for **x86** and **x86_64** has been removed in _BlinkCard v2.7.0_.
+_BlinkCard_ is distributed with **ARMv7** and **ARM64** native library binaries.
 
 _BlinkCard_ is a native library, written in C++ and available for multiple platforms. Because of this, _BlinkCard_ cannot work on devices with obscure hardware architectures. We have compiled _BlinkCard_ native code only for the most popular Android [ABIs](https://en.wikipedia.org/wiki/Application_binary_interface).
 
@@ -923,12 +923,6 @@ The [`BlinkCardRecognizer`](https://blinkcard.github.io/blinkcard-android/com/mi
 `BlinkCardRecognizer` is a Combined recognizer, which means it's designed for scanning **both sides of a card**. However, if all required data is found on the first side, we do not wait for second side scanning. We can return the result early. A set of required fields is defined through the recognizer's settings.
 
 "Front side" and "back side" are terms more suited to ID scanning. We start the scanning process with the **side containing the card number**. This makes the UX easier for users with cards where all data is on the back side.
-
-### <a name="legacy_blink_card_recognizer"></a> LegacyBlinkCardRecognizer (deprecated)
-The [`LegacyBlinkCardRecognizer`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/blinkcard/legacy/LegacyBlinkCardRecognizer.html) scans back side of Payment / Debit card after scanning the front side and combines data from both sides.
-
-### <a name="legacy_blink_card_elite_recognizer"></a> LegacyBlinkCardEliteRecognizer (deprecated)
-The [`LegacyBlinkCardEliteRecognizer`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/blinkcard/legacy/LegacyBlinkCardEliteRecognizer.html) scans back side of elite Payment / Debit card after scanning the front side and combines data from both sides.
 # <a name="embed-aar"></a> Embedding _BlinkCard_ inside another SDK
 	
 You need to ensure that the final app gets all resources required by _BlinkCard_. At the time of writing this documentation, [Android does not have support for combining multiple AAR libraries into single fat AAR](https://stackoverflow.com/questions/20700581/android-studio-how-to-package-single-aar-from-multiple-library-projects/20715155#20715155). The problem is that resource merging is done while building application, not while building AAR, so application must be aware of all its dependencies. **There is no official Android way of "hiding" third party AAR within your AAR.**
