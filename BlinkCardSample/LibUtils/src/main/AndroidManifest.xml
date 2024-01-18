@@ -1,5 +1,4 @@
-<manifest package="com.microblink.blinkcard.libutils"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application>
         <activity android:name="com.microblink.blinkcard.help.HelpActivity"/>

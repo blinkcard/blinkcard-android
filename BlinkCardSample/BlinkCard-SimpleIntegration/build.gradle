@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion = rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "com.microblink.blinkcard"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion rootProject.ext.targetSdkVersion
     }
     buildTypes {
@@ -23,6 +23,12 @@ android {
             reset()
             include 'armeabi-v7a', 'arm64-v8a'
             universalApk true
+        }
+    }
+    namespace 'com.microblink.blinkcard'
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging false
         }
     }
 }
