@@ -379,15 +379,21 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlaySettings.Builder.html#%3Cinit%3E(com.microblink.blinkcard.entities.recognizers.RecognizerBundle)" class="member-name-link">Builder(RecognizerBundle)</a> - Constructor for class com.microblink.blinkcard.fragment.overlay.blinkcard.<a href="com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlaySettings.Builder.html" title="class in com.microblink.blinkcard.fragment.overlay.blinkcard">BlinkCardOverlaySettings.Builder</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/microblink/blinkcard/image/ImageBuilder.html#buildImageFromCamera1NV21Frame(byte%5B%5D,int,int,com.microblink.blinkcard.hardware.orientation.Orientation,com.microblink.blinkcard.geometry.Rectangle)" class="member-name-link">buildImageFromCamera1NV21Frame(byte[], int, int, Orientation, Rectangle)</a> - Static method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageBuilder.html" title="class in com.microblink.blinkcard.image">ImageBuilder</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="com/microblink/blinkcard/image/ImageBuilder.html#buildImageFromCamera2Image(android.media.Image,com.microblink.blinkcard.hardware.orientation.Orientation,com.microblink.blinkcard.geometry.Rectangle)" class="member-name-link">buildImageFromCamera2Image(Image, Orientation, Rectangle)</a> - Static method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageBuilder.html" title="class in com.microblink.blinkcard.image">ImageBuilder</a></dt>
-<dd>
-<div class="block">Builds image object from Camera2 frame in YUV_420_888 format.</div>
-</dd>
 <dt><a href="com/microblink/blinkcard/image/ImageBuilder.html#buildImageFromJpegBytes(byte%5B%5D,int)" class="member-name-link">buildImageFromJpegBytes(byte[], int)</a> - Static method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageBuilder.html" title="class in com.microblink.blinkcard.image">ImageBuilder</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/blinkcard/image/ImageBuilder.html#buildImageFromNativeContext(long,boolean,java.lang.Object)" class="member-name-link">buildImageFromNativeContext(long, boolean, Object)</a> - Static method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageBuilder.html" title="class in com.microblink.blinkcard.image">ImageBuilder</a></dt>
+<dd>
+<div class="block">Builds image object from native context.</div>
+</dd>
+<dt><a href="com/microblink/blinkcard/image/ImageBuilder.html#buildInputImageFromCamera1NV21Frame(byte%5B%5D,int,int,com.microblink.blinkcard.hardware.orientation.Orientation,com.microblink.blinkcard.geometry.Rectangle)" class="member-name-link">buildInputImageFromCamera1NV21Frame(byte[], int, int, Orientation, Rectangle)</a> - Static method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageBuilder.html" title="class in com.microblink.blinkcard.image">ImageBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/microblink/blinkcard/image/ImageBuilder.html#buildInputImageFromCamera2Image(android.media.Image,com.microblink.blinkcard.hardware.orientation.Orientation,com.microblink.blinkcard.geometry.Rectangle)" class="member-name-link">buildInputImageFromCamera2Image(Image, Orientation, Rectangle)</a> - Static method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageBuilder.html" title="class in com.microblink.blinkcard.image">ImageBuilder</a></dt>
+<dd>
+<div class="block">Builds input image object from Camera2 frame in YUV_420_888 format.</div>
+</dd>
+<dt><a href="com/microblink/blinkcard/image/ImageBuilder.html#buildInputImageFromImage(com.microblink.blinkcard.image.Image)" class="member-name-link">buildInputImageFromImage(Image)</a> - Static method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageBuilder.html" title="class in com.microblink.blinkcard.image">ImageBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/microblink/blinkcard/image/ImageBuilder.html#buildInputImageFromNativeContext(long,boolean,java.lang.Object)" class="member-name-link">buildInputImageFromNativeContext(long, boolean, Object)</a> - Static method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageBuilder.html" title="class in com.microblink.blinkcard.image">ImageBuilder</a></dt>
 <dd>
 <div class="block">Builds image object from native context.</div>
 </dd>
@@ -991,24 +997,6 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/blinkcard/results/date/DateUtils.html#%3Cinit%3E()" class="member-name-link">DateUtils()</a> - Constructor for class com.microblink.blinkcard.results.date.<a href="com/microblink/blinkcard/results/date/DateUtils.html" title="class in com.microblink.blinkcard.results.date">DateUtils</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/microblink/blinkcard/image/ImageType.html#DEBUG_DETECTION" class="member-name-link">DEBUG_DETECTION</a> - Enum constant in enum class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageType.html" title="enum class in com.microblink.blinkcard.image">ImageType</a></dt>
-<dd>
-<div class="block">This is the image that was used as scratch surface to display document detection process (if any).</div>
-</dd>
-<dt><a href="com/microblink/blinkcard/image/ImageType.html#DEBUG_DEWARPED" class="member-name-link">DEBUG_DEWARPED</a> - Enum constant in enum class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageType.html" title="enum class in com.microblink.blinkcard.image">ImageType</a></dt>
-<dd>
-<div class="block">This is the dewarped image that is obtained after performing perspecitve correction
- of each element that needs to be scanned.</div>
-</dd>
-<dt><a href="com/microblink/blinkcard/image/ImageType.html#DEBUG_MARKED_DEWARPED" class="member-name-link">DEBUG_MARKED_DEWARPED</a> - Enum constant in enum class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageType.html" title="enum class in com.microblink.blinkcard.image">ImageType</a></dt>
-<dd>
-<div class="block">This is same as DEBUG_DEWARPED, except it also contains visualisation of OCR result layered
- onto image.</div>
-</dd>
-<dt><a href="com/microblink/blinkcard/image/ImageType.html#DEBUG_OCR_INPUT" class="member-name-link">DEBUG_OCR_INPUT</a> - Enum constant in enum class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageType.html" title="enum class in com.microblink.blinkcard.image">ImageType</a></dt>
-<dd>
-<div class="block">This is grayscale image preprocessed with OCR engine.</div>
-</dd>
 <dt><a href="com/microblink/blinkcard/metadata/image/DebugImageCallback.html" class="type-name-link" title="interface in com.microblink.blinkcard.metadata.image">DebugImageCallback</a> - Interface in <a href="com/microblink/blinkcard/metadata/image/package-summary.html">com.microblink.blinkcard.metadata.image</a></dt>
 <dd>
 <div class="block">Callback that will be invoked when recognition process wishes to display a debug image.</div>
@@ -1158,11 +1146,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Device is on blacklist and PhotoPay is not supported on that device.</div>
 </dd>
-<dt><a href="com/microblink/blinkcard/image/ImageType.html#DEWARPED" class="member-name-link">DEWARPED</a> - Enum constant in enum class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageType.html" title="enum class in com.microblink.blinkcard.image">ImageType</a></dt>
-<dd>
-<div class="block">This is the dewarped image that is obtained after performing perspective correction
- of the detected item.</div>
-</dd>
 <dt><a href="com/microblink/blinkcard/entities/recognizers/blinkcard/Issuer.html#Diners" class="member-name-link">Diners</a> - Enum constant in enum class com.microblink.blinkcard.entities.recognizers.blinkcard.<a href="com/microblink/blinkcard/entities/recognizers/blinkcard/Issuer.html" title="enum class in com.microblink.blinkcard.entities.recognizers.blinkcard">Issuer</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/blinkcard/directApi/DirectApiErrorListener.html" class="type-name-link" title="interface in com.microblink.blinkcard.directApi">DirectApiErrorListener</a> - Interface in <a href="com/microblink/blinkcard/directApi/package-summary.html">com.microblink.blinkcard.directApi</a></dt>
@@ -1220,6 +1203,10 @@ loadScripts(document, 'script');</script>
 <div class="block">Disposes wrapped image.</div>
 </dd>
 <dt><a href="com/microblink/blinkcard/image/Image.html#dispose()" class="member-name-link">dispose()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/Image.html" title="class in com.microblink.blinkcard.image">Image</a></dt>
+<dd>
+<div class="block">Disposes native object containing image pixels.</div>
+</dd>
+<dt><a href="com/microblink/blinkcard/image/InputImage.html#dispose()" class="member-name-link">dispose()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/InputImage.html" title="class in com.microblink.blinkcard.image">InputImage</a></dt>
 <dd>
 <div class="block">Disposes native object containing image pixels.</div>
 </dd>
@@ -1414,6 +1401,8 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/microblink/blinkcard/entities/Entity.Result.html#finalize()" class="member-name-link">finalize()</a> - Method in class com.microblink.blinkcard.entities.<a href="com/microblink/blinkcard/entities/Entity.Result.html" title="class in com.microblink.blinkcard.entities">Entity.Result</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/blinkcard/image/Image.html#finalize()" class="member-name-link">finalize()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/Image.html" title="class in com.microblink.blinkcard.image">Image</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/microblink/blinkcard/image/InputImage.html#finalize()" class="member-name-link">finalize()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/InputImage.html" title="class in com.microblink.blinkcard.image">InputImage</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/blinkcard/results/ocr/OcrResult.html#finalize()" class="member-name-link">finalize()</a> - Method in class com.microblink.blinkcard.results.ocr.<a href="com/microblink/blinkcard/results/ocr/OcrResult.html" title="class in com.microblink.blinkcard.results.ocr">OcrResult</a></dt>
 <dd>&nbsp;</dd>
@@ -1818,6 +1807,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">returns the height of the frame</div>
 </dd>
+<dt><a href="com/microblink/blinkcard/image/InputImage.html#getHeight()" class="member-name-link">getHeight()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/InputImage.html" title="class in com.microblink.blinkcard.image">InputImage</a></dt>
+<dd>
+<div class="block">Returns the height of the image (corrected for the current orientation).</div>
+</dd>
 <dt><a href="com/microblink/blinkcard/results/ocr/OcrChar.html#getHeight()" class="member-name-link">getHeight()</a> - Method in class com.microblink.blinkcard.results.ocr.<a href="com/microblink/blinkcard/results/ocr/OcrChar.html" title="class in com.microblink.blinkcard.results.ocr">OcrChar</a></dt>
 <dd>
 <div class="block">Returns the height of the char, in pixels.</div>
@@ -1852,7 +1845,17 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns the format of the image.</div>
 </dd>
+<dt><a href="com/microblink/blinkcard/image/InputImage.html#getImageFormat()" class="member-name-link">getImageFormat()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/InputImage.html" title="class in com.microblink.blinkcard.image">InputImage</a></dt>
+<dd>
+<div class="block">Returns the format of the image.</div>
+</dd>
 <dt><a href="com/microblink/blinkcard/image/Image.html#getImageName()" class="member-name-link">getImageName()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/Image.html" title="class in com.microblink.blinkcard.image">Image</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Do not rely on this information anymore. New API images will be nameless.</div>
+</div>
+</dd>
+<dt><a href="com/microblink/blinkcard/image/InputImage.html#getImageName()" class="member-name-link">getImageName()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/InputImage.html" title="class in com.microblink.blinkcard.image">InputImage</a></dt>
 <dd>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
 <div class="deprecation-comment">Do not rely on this information anymore. New API images will be nameless.</div>
@@ -1862,12 +1865,12 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns the orientation of the image.</div>
 </dd>
+<dt><a href="com/microblink/blinkcard/image/InputImage.html#getImageOrientation()" class="member-name-link">getImageOrientation()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/InputImage.html" title="class in com.microblink.blinkcard.image">InputImage</a></dt>
+<dd>
+<div class="block">Returns the orientation of the image.</div>
+</dd>
 <dt><a href="com/microblink/blinkcard/entities/recognizers/HighResImagesBundle.html#getImages()" class="member-name-link">getImages()</a> - Method in class com.microblink.blinkcard.entities.recognizers.<a href="com/microblink/blinkcard/entities/recognizers/HighResImagesBundle.html" title="class in com.microblink.blinkcard.entities.recognizers">HighResImagesBundle</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/microblink/blinkcard/image/Image.html#getImageType()" class="member-name-link">getImageType()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/Image.html" title="class in com.microblink.blinkcard.image">Image</a></dt>
-<dd>
-<div class="block">Returns the type of the image.</div>
-</dd>
 <dt><a href="com/microblink/blinkcard/view/BaseCameraView.html#getInitialOrientation()" class="member-name-link">getInitialOrientation()</a> - Method in class com.microblink.blinkcard.view.<a href="com/microblink/blinkcard/view/BaseCameraView.html" title="class in com.microblink.blinkcard.view">BaseCameraView</a></dt>
 <dd>
 <div class="block">Returns the initial orientation of rotatable view as set by setInitialOrientation.</div>
@@ -2017,11 +2020,19 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns the raw height of the image (uncorrected for the orientation)</div>
 </dd>
-<dt><a href="com/microblink/blinkcard/image/Image.html#getRawROI()" class="member-name-link">getRawROI()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/Image.html" title="class in com.microblink.blinkcard.image">Image</a></dt>
+<dt><a href="com/microblink/blinkcard/image/InputImage.html#getRawHeight()" class="member-name-link">getRawHeight()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/InputImage.html" title="class in com.microblink.blinkcard.image">InputImage</a></dt>
+<dd>
+<div class="block">Returns the raw height of the image (uncorrected for the orientation)</div>
+</dd>
+<dt><a href="com/microblink/blinkcard/image/InputImage.html#getRawROI()" class="member-name-link">getRawROI()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/InputImage.html" title="class in com.microblink.blinkcard.image">InputImage</a></dt>
 <dd>
 <div class="block">Returns the region of interest in image in raw form (not corrected for orientation).</div>
 </dd>
 <dt><a href="com/microblink/blinkcard/image/Image.html#getRawWidth()" class="member-name-link">getRawWidth()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/Image.html" title="class in com.microblink.blinkcard.image">Image</a></dt>
+<dd>
+<div class="block">Returns the raw width of the image (uncorrected for the orientation)</div>
+</dd>
+<dt><a href="com/microblink/blinkcard/image/InputImage.html#getRawWidth()" class="member-name-link">getRawWidth()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/InputImage.html" title="class in com.microblink.blinkcard.image">InputImage</a></dt>
 <dd>
 <div class="block">Returns the raw width of the image (uncorrected for the orientation)</div>
 </dd>
@@ -2085,7 +2096,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns currently used image extension factor relative to full image width in RIGHT direction.</div>
 </dd>
-<dt><a href="com/microblink/blinkcard/image/Image.html#getROI()" class="member-name-link">getROI()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/Image.html" title="class in com.microblink.blinkcard.image">Image</a></dt>
+<dt><a href="com/microblink/blinkcard/image/InputImage.html#getROI()" class="member-name-link">getROI()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/InputImage.html" title="class in com.microblink.blinkcard.image">InputImage</a></dt>
 <dd>
 <div class="block">Returns the region of interest in image corrected for current orientation of image.</div>
 </dd>
@@ -2240,6 +2251,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">returns the width of the frame</div>
 </dd>
+<dt><a href="com/microblink/blinkcard/image/InputImage.html#getWidth()" class="member-name-link">getWidth()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/InputImage.html" title="class in com.microblink.blinkcard.image">InputImage</a></dt>
+<dd>
+<div class="block">Returns the width of the image (corrected for the current orientation).</div>
+</dd>
 <dt><a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.ConcreteRecognizerExtractor.html#getWrapperRecognizerClass()" class="member-name-link">getWrapperRecognizerClass()</a> - Method in interface com.microblink.blinkcard.fragment.overlay.<a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.ConcreteRecognizerExtractor.html" title="interface in com.microblink.blinkcard.fragment.overlay">DocumentRecognizerManager.ConcreteRecognizerExtractor</a></dt>
 <dd>
 <div class="block">Returns class of the wrapper recognizer from which <a href="com/microblink/blinkcard/fragment/overlay/DocumentRecognizerManager.ConcreteRecognizerExtractor.html#getConcreteRecognizer(com.microblink.blinkcard.entities.recognizers.Recognizer)"><code>DocumentRecognizerManager.ConcreteRecognizerExtractor.getConcreteRecognizer(Recognizer)</code></a>
@@ -2349,7 +2364,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/microblink/blinkcard/image/ImageFrame.html" class="type-name-link" title="class in com.microblink.blinkcard.image">ImageFrame</a> - Class in <a href="com/microblink/blinkcard/image/package-summary.html">com.microblink.blinkcard.image</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/microblink/blinkcard/image/ImageFrame.html#%3Cinit%3E(com.microblink.blinkcard.image.Image,boolean,long)" class="member-name-link">ImageFrame(Image, boolean, long)</a> - Constructor for class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageFrame.html" title="class in com.microblink.blinkcard.image">ImageFrame</a></dt>
+<dt><a href="com/microblink/blinkcard/image/ImageFrame.html#%3Cinit%3E(com.microblink.blinkcard.image.InputImage,boolean,long)" class="member-name-link">ImageFrame(InputImage, boolean, long)</a> - Constructor for class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageFrame.html" title="class in com.microblink.blinkcard.image">ImageFrame</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardAnonymizationMode.html#ImageOnly" class="member-name-link">ImageOnly</a> - Enum constant in enum class com.microblink.blinkcard.entities.recognizers.blinkcard.<a href="com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardAnonymizationMode.html" title="enum class in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardAnonymizationMode</a></dt>
 <dd>
@@ -2362,10 +2377,6 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardProcessingStatus.html#ImageReturnFailed" class="member-name-link">ImageReturnFailed</a> - Enum constant in enum class com.microblink.blinkcard.entities.recognizers.blinkcard.<a href="com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardProcessingStatus.html" title="enum class in com.microblink.blinkcard.entities.recognizers.blinkcard">BlinkCardProcessingStatus</a></dt>
 <dd>
 <div class="block">Failed to return a requested image.</div>
-</dd>
-<dt><a href="com/microblink/blinkcard/image/ImageType.html" class="type-name-link" title="enum class in com.microblink.blinkcard.image">ImageType</a> - Enum Class in <a href="com/microblink/blinkcard/image/package-summary.html">com.microblink.blinkcard.image</a></dt>
-<dd>
-<div class="block">Defines the type of image that is being returned.</div>
 </dd>
 <dt><a href="com/microblink/blinkcard/fragment/overlay/reticle/StatusMessageMode.html#IMMEDIATE" class="member-name-link">IMMEDIATE</a> - Enum constant in enum class com.microblink.blinkcard.fragment.overlay.reticle.<a href="com/microblink/blinkcard/fragment/overlay/reticle/StatusMessageMode.html" title="enum class in com.microblink.blinkcard.fragment.overlay.reticle">StatusMessageMode</a></dt>
 <dd>&nbsp;</dd>
@@ -2393,6 +2404,10 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/blinkcard/fragment/overlay/reticle/InnerReticleView.html#%3Cinit%3E(android.content.Context,android.util.AttributeSet,int)" class="member-name-link">InnerReticleView(Context, AttributeSet, int)</a> - Constructor for class com.microblink.blinkcard.fragment.overlay.reticle.<a href="com/microblink/blinkcard/fragment/overlay/reticle/InnerReticleView.html" title="class in com.microblink.blinkcard.fragment.overlay.reticle">InnerReticleView</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/microblink/blinkcard/image/InputImage.html" class="type-name-link" title="class in com.microblink.blinkcard.image">InputImage</a> - Class in <a href="com/microblink/blinkcard/image/package-summary.html">com.microblink.blinkcard.image</a></dt>
+<dd>
+<div class="block">Represents a image that is being processed.</div>
+</dd>
 <dt><a href="com/microblink/blinkcard/intent/IntentDataTransferMode.html" class="type-name-link" title="enum class in com.microblink.blinkcard.intent">IntentDataTransferMode</a> - Enum Class in <a href="com/microblink/blinkcard/intent/package-summary.html">com.microblink.blinkcard.intent</a></dt>
 <dd>
 <div class="block">Intent data transfer mode which is used for transferring Microblink SDK data between
@@ -2478,6 +2493,10 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns true if the device is being shaken</div>
 </dd>
 <dt><a href="com/microblink/blinkcard/image/Image.html#isDisposed()" class="member-name-link">isDisposed()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/Image.html" title="class in com.microblink.blinkcard.image">Image</a></dt>
+<dd>
+<div class="block">Returns true if image's internal buffers are disposed and cannot be used anymore.</div>
+</dd>
+<dt><a href="com/microblink/blinkcard/image/InputImage.html#isDisposed()" class="member-name-link">isDisposed()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/InputImage.html" title="class in com.microblink.blinkcard.image">InputImage</a></dt>
 <dd>
 <div class="block">Returns true if image's internal buffers are disposed and cannot be used anymore.</div>
 </dd>
@@ -3590,10 +3609,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Created by dodo on 07/10/14.</div>
 </dd>
-<dt><a href="com/microblink/blinkcard/image/ImageType.html#ORIGINAL" class="member-name-link">ORIGINAL</a> - Enum constant in enum class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageType.html" title="enum class in com.microblink.blinkcard.image">ImageType</a></dt>
-<dd>
-<div class="block">This is the original image that arrived from camera.</div>
-</dd>
 <dt><a href="com/microblink/blinkcard/entities/recognizers/blinkcard/Issuer.html#Other" class="member-name-link">Other</a> - Enum constant in enum class com.microblink.blinkcard.entities.recognizers.blinkcard.<a href="com/microblink/blinkcard/entities/recognizers/blinkcard/Issuer.html" title="enum class in com.microblink.blinkcard.entities.recognizers.blinkcard">Issuer</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/blinkcard/fragment/overlay/components/settings/OverlayCameraSettings.html" class="type-name-link" title="class in com.microblink.blinkcard.fragment.overlay.components.settings">OverlayCameraSettings</a> - Class in <a href="com/microblink/blinkcard/fragment/overlay/components/settings/package-summary.html">com.microblink.blinkcard.fragment.overlay.components.settings</a></dt>
@@ -3924,11 +3939,11 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/blinkcard/entities/recognizers/RecognizerUtils.html#%3Cinit%3E()" class="member-name-link">RecognizerUtils()</a> - Constructor for class com.microblink.blinkcard.entities.recognizers.<a href="com/microblink/blinkcard/entities/recognizers/RecognizerUtils.html" title="class in com.microblink.blinkcard.entities.recognizers">RecognizerUtils</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeStillImage(com.microblink.blinkcard.image.Image,com.microblink.blinkcard.view.recognition.ScanResultListener)" class="member-name-link">recognizeStillImage(Image, ScanResultListener)</a> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
+<dt><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeStillImage(com.microblink.blinkcard.image.InputImage,com.microblink.blinkcard.view.recognition.ScanResultListener)" class="member-name-link">recognizeStillImage(InputImage, ScanResultListener)</a> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
 <dd>
 <div class="block">Use this method to directly recognize still Image.</div>
 </dd>
-<dt><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeStillImageWithRecognizers(com.microblink.blinkcard.image.Image,com.microblink.blinkcard.view.recognition.ScanResultListener,com.microblink.blinkcard.entities.recognizers.RecognizerBundle)" class="member-name-link">recognizeStillImageWithRecognizers(Image, ScanResultListener, RecognizerBundle)</a> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
+<dt><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeStillImageWithRecognizers(com.microblink.blinkcard.image.InputImage,com.microblink.blinkcard.view.recognition.ScanResultListener,com.microblink.blinkcard.entities.recognizers.RecognizerBundle)" class="member-name-link">recognizeStillImageWithRecognizers(InputImage, ScanResultListener, RecognizerBundle)</a> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
 <dd>
 <div class="block">Use this method to directly recognize still Image, with given recognition settings.</div>
 </dd>
@@ -3940,11 +3955,11 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Use this method to directly recognize given string data without performing the OCR, while recognizer is active.</div>
 </dd>
-<dt><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeVideoImage(com.microblink.blinkcard.image.Image,com.microblink.blinkcard.view.recognition.ScanResultListener)" class="member-name-link">recognizeVideoImage(Image, ScanResultListener)</a> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
+<dt><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeVideoImage(com.microblink.blinkcard.image.InputImage,com.microblink.blinkcard.view.recognition.ScanResultListener)" class="member-name-link">recognizeVideoImage(InputImage, ScanResultListener)</a> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
 <dd>
 <div class="block">Use this method to directly recognize Image from the video stream.</div>
 </dd>
-<dt><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeVideoImageWithRecognizers(com.microblink.blinkcard.image.Image,com.microblink.blinkcard.view.recognition.ScanResultListener,com.microblink.blinkcard.entities.recognizers.RecognizerBundle)" class="member-name-link">recognizeVideoImageWithRecognizers(Image, ScanResultListener, RecognizerBundle)</a> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
+<dt><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeVideoImageWithRecognizers(com.microblink.blinkcard.image.InputImage,com.microblink.blinkcard.view.recognition.ScanResultListener,com.microblink.blinkcard.entities.recognizers.RecognizerBundle)" class="member-name-link">recognizeVideoImageWithRecognizers(InputImage, ScanResultListener, RecognizerBundle)</a> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
 <dd>
 <div class="block">Use this method to directly recognize Image from the video stream, with given recognition settings.</div>
 </dd>
@@ -4534,6 +4549,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Use this method to change Image's orientation.</div>
 </dd>
+<dt><a href="com/microblink/blinkcard/image/InputImage.html#setImageOrientation(com.microblink.blinkcard.hardware.orientation.Orientation)" class="member-name-link">setImageOrientation(Orientation)</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/InputImage.html" title="class in com.microblink.blinkcard.image">InputImage</a></dt>
+<dd>
+<div class="block">Use this method to change InputImage's orientation.</div>
+</dd>
 <dt><a href="com/microblink/blinkcard/view/viewfinder/quadview/QuadViewManager.html#setInitialHostActivityOrientation(int)" class="member-name-link">setInitialHostActivityOrientation(int)</a> - Method in class com.microblink.blinkcard.view.viewfinder.quadview.<a href="com/microblink/blinkcard/view/viewfinder/quadview/QuadViewManager.html" title="class in com.microblink.blinkcard.view.viewfinder.quadview">QuadViewManager</a></dt>
 <dd>
 <div class="block">Changes initial host activity orientation.</div>
@@ -4807,7 +4826,7 @@ loadScripts(document, 'script');</script>
 <div class="block">Sets whether full document image should be available in
  <a href="com/microblink/blinkcard/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.blinkcard.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </dd>
-<dt><a href="com/microblink/blinkcard/image/Image.html#setROI(android.graphics.Rect)" class="member-name-link">setROI(Rect)</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/Image.html" title="class in com.microblink.blinkcard.image">Image</a></dt>
+<dt><a href="com/microblink/blinkcard/image/InputImage.html#setROI(android.graphics.Rect)" class="member-name-link">setROI(Rect)</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/InputImage.html" title="class in com.microblink.blinkcard.image">InputImage</a></dt>
 <dd>
 <div class="block">Sets the region of interest in image.</div>
 </dd>
@@ -5195,11 +5214,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Recognition performed successfully (all data found).</div>
 </dd>
-<dt><a href="com/microblink/blinkcard/image/ImageType.html#SUCCESSFUL_SCAN" class="member-name-link">SUCCESSFUL_SCAN</a> - Enum constant in enum class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageType.html" title="enum class in com.microblink.blinkcard.image">ImageType</a></dt>
-<dd>
-<div class="block">This is the original image that arrived from camera that was used to recognize
- item.</div>
-</dd>
 <dt><a href="com/microblink/blinkcard/entities/recognizers/blinkcard/CardNumberAnonymizationSettings.html#suffixDigitsVisible" class="member-name-link">suffixDigitsVisible</a> - Variable in class com.microblink.blinkcard.entities.recognizers.blinkcard.<a href="com/microblink/blinkcard/entities/recognizers/blinkcard/CardNumberAnonymizationSettings.html" title="class in com.microblink.blinkcard.entities.recognizers.blinkcard">CardNumberAnonymizationSettings</a></dt>
 <dd>
 <div class="block">Defines how many digits at the end of the card number remain visible after anonymization.</div>
@@ -5250,6 +5264,10 @@ loadScripts(document, 'script');</script>
 <div class="block">Converts this quadrilateral to array of float points.</div>
 </dd>
 <dt><a href="com/microblink/blinkcard/fragment/overlay/components/TorchController.html#toggleTorchState()" class="member-name-link">toggleTorchState()</a> - Method in class com.microblink.blinkcard.fragment.overlay.components.<a href="com/microblink/blinkcard/fragment/overlay/components/TorchController.html" title="class in com.microblink.blinkcard.fragment.overlay.components">TorchController</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/microblink/blinkcard/image/InputImage.html#toImage()" class="member-name-link">toImage()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/InputImage.html" title="class in com.microblink.blinkcard.image">InputImage</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/microblink/blinkcard/image/Image.html#toInputImage()" class="member-name-link">toInputImage()</a> - Method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/Image.html" title="class in com.microblink.blinkcard.image">Image</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/blinkcard/fragment/overlay/TooltipManager.html" class="type-name-link" title="class in com.microblink.blinkcard.fragment.overlay">TooltipManager</a> - Class in <a href="com/microblink/blinkcard/fragment/overlay/package-summary.html">com.microblink.blinkcard.fragment.overlay</a></dt>
 <dd>&nbsp;</dd>
@@ -5447,10 +5465,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns the enum constant of this class with the specified name.</div>
 </dd>
-<dt><a href="com/microblink/blinkcard/image/ImageType.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageType.html" title="enum class in com.microblink.blinkcard.image">ImageType</a></dt>
-<dd>
-<div class="block">Returns the enum constant of this class with the specified name.</div>
-</dd>
 <dt><a href="com/microblink/blinkcard/intent/IntentDataTransferMode.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class com.microblink.blinkcard.intent.<a href="com/microblink/blinkcard/intent/IntentDataTransferMode.html" title="enum class in com.microblink.blinkcard.intent">IntentDataTransferMode</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this class with the specified name.</div>
@@ -5596,11 +5610,6 @@ the order they are declared.</div>
 the order they are declared.</div>
 </dd>
 <dt><a href="com/microblink/blinkcard/image/ImageFormat.html#values()" class="member-name-link">values()</a> - Static method in enum class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageFormat.html" title="enum class in com.microblink.blinkcard.image">ImageFormat</a></dt>
-<dd>
-<div class="block">Returns an array containing the constants of this enum class, in
-the order they are declared.</div>
-</dd>
-<dt><a href="com/microblink/blinkcard/image/ImageType.html#values()" class="member-name-link">values()</a> - Static method in enum class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageType.html" title="enum class in com.microblink.blinkcard.image">ImageType</a></dt>
 <dd>
 <div class="block">Returns an array containing the constants of this enum class, in
 the order they are declared.</div>
