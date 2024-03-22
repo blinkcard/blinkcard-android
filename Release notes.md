@@ -1,6 +1,34 @@
 # Release notes
 
-# 2.9.0
+## 2.9.1 
+
+### Minor API changes
+
+- split up `Image` class to `Image` and `InputImage`
+    - `InputImage` is to be used as an input to the recognizers. `Image` will be the result of recognizer processing
+    - `InputImage` retains ROI functionality, but is now not serializable
+    - `InputImage` handles YUV planes more efficiently
+    - `Image` is now always `BGRA` and is serializable
+
+### Bug fixes
+
+- removed UI thread blocking while waiting for recognition to complete
+    - this fixes the ANR that can occur when app gets resumed from background on slow network connections when using online license keys
+- fix documentation generated links to Javadoc
+- fixed crash that occurred when HDR image was provided as `Bitmap` to the Direct API
+    - if provided Bitmap is not in `ARGB_8888` config, it will be automatically converted into `ARGB_8888` config
+    - only if the conversion is not possible, then the exception will be thrown
+
+
+### Other changes
+
+- native code is now built using NDK r26c and uses dynamic c++ runtime (`libc++_shared.so`)
+    - in case when multiple different dependencies use the same runtime in the same app, the latest available version of the library should be packaged into the app
+- added support for license keys that support multiple application IDs
+- added `android.permission.INTERNET` permission to the manifest of `LibBlinkCard`
+    - this permission is needed in order to correctly perform license key validation for licenses that require that
+
+## 2.9.0
 
 ### What's new in the BlinkCard Recognizer?
 - Improved scanning performance and added support for virtually any card layout
