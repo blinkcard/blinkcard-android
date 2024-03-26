@@ -90,7 +90,7 @@ Add _BlinkCard_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkcard:2.9.1@aar') {
+    implementation('com.microblink:blinkcard:2.9.2@aar') {
         transitive = true
     }
 }
@@ -102,7 +102,7 @@ Android studio should automatically import javadoc from maven dependency. If tha
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/studio/projects#ProjectView)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkcard-2.9.1` entry, right click on it and select `Library Properties...`
+3. Locate `blinkcard-2.9.2` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -298,6 +298,8 @@ The `ScanningOverlayBinder` is responsible for returning `non-null` implementati
 
 Here is the minimum example for activity that hosts the `RecognizerRunnerFragment`:
 
+##### Java
+
 ```java
 public class MyActivity extends AppCompatActivity implements RecognizerRunnerFragment.ScanningOverlayBinder {
     private BlinkCardRecognizer mRecognizer;
@@ -359,6 +361,70 @@ public class MyActivity extends AppCompatActivity implements RecognizerRunnerFra
         public void onUnrecoverableError(@NonNull Throwable throwable) {
         }
     };
+    
+}
+```
+
+##### Kotlin Compose
+
+```kotlin
+package com.microblink.blinkid
+
+class MainActivity : AppCompatActivity(), RecognizerRunnerFragment.ScanningOverlayBinder {
+    private lateinit var mRecognizer: BlinkCardRecognizer
+    private lateinit var mRecognizerRunnerFragment: RecognizerRunnerFragment
+    private lateinit var mRecognizerBundle: RecognizerBundle
+    private lateinit var mScanOverlay: BlinkCardOverlayController
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (!::mScanOverlay.isInitialized) {
+            mScanOverlay = createOverlayController()
+        }
+        setContent {
+            this.run {
+                // viewBinding has to be set to 'true' in buildFeatures block of the build.gradle file
+                AndroidViewBinding(RecognizerRunnerLayoutBinding::inflate) {
+                    mRecognizerRunnerFragment =
+                        fragmentContainerView.getFragment<RecognizerRunnerFragment>()
+                }
+            }
+        }
+    }
+
+    override fun getScanningOverlay(): ScanningOverlay {
+        return mScanOverlay
+    }
+
+    private fun createOverlay(): BlinkCardOverlayController {
+        // create BlinkCardRecognizer
+        val mRecognizer = BlinkCardRecognizer()
+
+        // bundle recognizers into RecognizerBundle
+        mRecognizerBundle = RecognizerBundle(mRecognizer)
+
+        val settings = BlinkCardUISettings(mRecognizerBundle)
+
+        return settings.createOverlayController(this, mScanResultListener)
+    }
+
+    private val mScanResultListener: ScanResultListener = object : ScanResultListener {
+        override fun onScanningDone(p0: RecognitionSuccessType) {
+            // pause scanning to prevent new results while fragment is being removed
+            mRecognizerRunnerFragment!!.recognizerRunnerView!!.pauseScanning()
+
+            // now you can remove the RecognizerRunnerFragment with new fragment transaction
+            // and use result within mRecognizer safely without the need for making a copy of it
+
+            // if not paused, as soon as this method ends, RecognizerRunnerFragments continues
+            // scanning. Note that this can happen even if you created fragment transaction for
+            // removal of RecognizerRunnerFragment - in the time between end of this method
+            // and beginning of execution of the transaction. So to ensure result within mRecognizer
+            // does not get mutated, ensure calling pauseScanning() as shown above.
+        }
+        override fun onUnrecoverableError(p0: Throwable) {
+        }
+    }
     
 }
 ```
