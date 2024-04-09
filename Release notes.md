@@ -1,5 +1,11 @@
 # Release notes
 
+## 2.9.3
+
+### Bug fixes
+
+- fixed Ping server URL error when using `proguard-android-optimize.txt` default proguard file
+
 ## 2.9.2 
 
 ### Bug fixes
@@ -11,7 +17,6 @@
 
 - Add option to change Ping URL for Ping proxy feature through `MicroblinkSDK.setPingProxyUrl()`
 - minor improvements in the default UI w.r.t. accessibility
-
 
 ## 2.9.1 
 
