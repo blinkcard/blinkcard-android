@@ -57,6 +57,14 @@
     public *;
 }
 
+-keep class com.microblink.blinkcard.menu.BaseMenuActivity {
+    *;
+}
+
+-keep class com.microblink.blinkcard.menu.MenuListItem {
+    *;
+}
+
 # new gradle plugin does not do that, and causes app to violently crash
 -keep class **.R$* {
     *;
