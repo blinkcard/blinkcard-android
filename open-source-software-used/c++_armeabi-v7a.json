@@ -6,7 +6,7 @@
         "description": "Patches for deficient C++ runtime implementations"
     },
     {
-        "package": "gtest/1.14.4@microblink/main#fd39529aac0692de0c0f8224a6c0cc24",
+        "package": "gtest/1.14.7@microblink/main#818f423340f2f03abac082b39d50cd1f",
         "url": "https://bitbucket.org/microblink/core-google-test/src",
         "license": "BSD 3-Clause",
         "description": "Google's C++ test framework"
@@ -48,7 +48,7 @@
         "description": "UTF-8 with C++ in a Portable Way"
     },
     {
-        "package": "sweater/1.1.1@microblink/main#58d62b50e7ff4aa47aa07a3ace9ff314",
+        "package": "sweater/1.1.4@microblink/main#08f619e71a655de4d7c5305175fb4e4b",
         "url": "https://github.com/microblink/sweater",
         "license": "MIT",
         "description": "Humble Outer Dispatch"
@@ -78,25 +78,25 @@
         "description": "err - yet another take on C++ error handling"
     },
     {
-        "package": "mmap/1.0.1@microblink/main#9e90aa2c4058b3f9e679c134a8aa5e12",
+        "package": "mmap/1.0.2@microblink/main#49540e8a3d87662b601b9b433396582c",
         "url": "https://github.com/microblink/mmap",
         "license": "Boost Software License",
         "description": "portable, lightweight, powerful, near-zero-overhead memory mapping and virtual memory management"
     },
     {
-        "package": "zlib/1.3.1@microblink/main#3bb0d02536a06b4fb5df2043276f3075",
+        "package": "zlib/1.3.2@microblink/main#52419110a760a9cb8cd7bd57b01de0b2",
         "url": "https://github.com/microblink/zlib",
         "license": "Zlib",
         "description": "A massively spiffy yet delicately unobtrusive compression library."
     },
     {
-        "package": "opencv/4.9.2@microblink/main#bc5e716aa1b98ce67086c915bf92bc6d",
+        "package": "opencv/4.10.1@microblink/main#2bc2be2ecc71966cde69f7dbdf85a312",
         "url": "https://github.com/microblink/opencv",
         "license": "MIT",
         "description": "Microblink's fork of OpenCV"
     },
     {
-        "package": "libjpeg_turbo/3.0.2.1@microblink/main#8d4cd747400b9edbca03e136b9ad6cdf",
+        "package": "libjpeg_turbo/3.0.2.2@microblink/main#c5ae8c1d15ab8215718ea3df429e55e1",
         "url": "https://github.com/microblink/libjpeg-turbo",
         "license": "BSD-3-Clause, Zlib",
         "description": "SIMD-accelerated libjpeg-compatible JPEG codec library"
@@ -118,6 +118,12 @@
         "url": "https://github.com/microblink/abseil-cpp",
         "license": "Apache-2.0",
         "description": "Abseil Common Libraries (C++) from Google"
+    },
+    {
+        "package": "qoixx/0.1.7.3@microblink/main#7a99513f8b969271ba87111c1317f1f0",
+        "url": "https://github.com/microblink/qoixx",
+        "license": "MIT License",
+        "description": "qoixx is a high performance MIT licensed single-header QOI implementation written in C++20."
     },
     {
         "package": "eigen/3.4.1@microblink/main#89924435ee7bbea82943ab36e0f2669c",
@@ -144,7 +150,7 @@
         "description": "A small and fast ECDH and ECDSA implementation for 8-bit, 32-bit, and 64-bit processors."
     },
     {
-        "package": "xnnpack/20230525.1.3@microblink/main#76b20374e1ba44656d13d3b5e9638b18",
+        "package": "xnnpack/20230525.1.4@microblink/main#492ca6c9a9ea680e1424c32500c912a0",
         "url": "https://github.com/microblink/XNNPACK",
         "license": "BSD",
         "description": "XNNPACK library"
@@ -168,19 +174,13 @@
         "description": "Computation using data flow graphs for scalable machine learning"
     },
     {
-        "package": "pimpl/1.0.0@microblink/main#2b4abddcd2c84a38b21c7ccc46e185df",
+        "package": "pimpl/1.0.1@microblink/main#4857170a202027c0fd2f22d0c2c4c7a3",
         "url": "https://github.com/microblink/pimpl",
         "license": "BSD 2-Clause \"Simplified\" License",
         "description": "Proving pimpls do not require heap, exceptions or runtime polymorphism."
     },
     {
-        "package": "gtest/1.11.7@microblink/main#ee721777df2fda6385aea939746ce85f",
-        "url": "https://bitbucket.org/microblink/core-google-test/src",
-        "license": "BSD 3-Clause",
-        "description": "Google's C++ test framework"
-    },
-    {
-        "package": "tinyxml2/2.2.3@microblink/main#98d2d30c9f2f87e390d2ab6874d78574",
+        "package": "tinyxml2/2.2.4@microblink/main#e75d39f68113ec40fde0b991ffa76a37",
         "url": "https://github.com/microblink/tinyxml2",
         "license": "Zlib",
         "description": "a simple, small, efficient, C++ XML parser"
