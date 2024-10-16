@@ -1,5 +1,14 @@
 # Release notes
 
+## 2.10.0
+
+### Improvements
+
+- Liveness detection update:
+    - Improved performance of photocopy detection
+    - Adjusted thresholds for screen detection in order to decrease FAR and FRR
+
+
 ## 2.9.3
 
 ### Bug fixes

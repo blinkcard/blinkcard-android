@@ -99,6 +99,7 @@
     <string name="PPDocumentType">Document Type</string>
     <string name="PPMRZParsed">MRZ parsed</string>
     <string name="PPMRZVerified">MRZ verified</string>
+    <string name="PPDependentsInfo">Dependents info</string>
     <string name="PPDocumentBothSidesMatch">Document Both Sides Match</string>
     <string name="PPDataMatch">Data match</string>
     <string name="PPDocumentNumberMatch">Document number data match</string>
@@ -296,6 +297,14 @@
     <string name="PPIdCode">ID Code</string>
     <string name="PPVersionNumber">Version number</string>
     <string name="PPCharacterSet">Character set</string>
+    <string name="PPDocumentSubtype">Document subtype</string>
+    <string name="PPRemarks">Remarks</string>
+    <string name="PPResidencePermitType">Residence permit type</string>
+    <string name="PPManufacturingYear">Manufacturing year</string>
+    <string name="PPVehicleType">Vehicle type</string>
+    <string name="PPEligibilityCategory">Eligibility category</string>
+    <string name="PPSpecificDocumentValidity">Specific document validity</string>
+    <string name="PPVisaType">Visa type</string>
 
     <string name="MBRecognitionStatus">Recognition status</string>
     <string name="MBFullDocumentImage">Full document image</string>
@@ -321,6 +330,7 @@
     <string name="MBFrontCameraFrame">Front raw camera frame</string>
     <string name="MBBackCameraFrame">Back raw camera frame</string>
     <string name="MBBarcodeCameraFrame">Barcode raw camera frame</string>
+    <string name="MBBarcodeStepUsed">Barcode step used</string>
     <string name="MBJsonResult">JSON result</string>
 
     <string name="MBDocumentImageColorStatus">Image color status</string>
@@ -343,6 +353,10 @@
     <string name="MBDocumentFrontImageBarcodeStatus">Front image barcode detection status</string>
     <string name="MBDocumentBackImageBarcodeStatus">Back image barcode detection status</string>
 
+    <string name="MBDocumentImageRealIDStatus">Real ID detection status</string>
+    <string name="MBDocumentFrontImageRealIDStatus">Front image Real ID detection status</string>
+    <string name="MBDocumentBackImageRealIDStatus">Back image Real ID detection status</string>
+
     <string name="MBDocumentImageCardOrientation">Card orientation</string>
     <string name="MBDocumentFrontImageCardOrientation">Front image card orientation</string>
     <string name="MBDocumentBackImageCardOrientation">Back image card orientation</string>
@@ -351,11 +365,16 @@
     <string name="MBDocumentFrontImageCardRotation">Front image card rotation</string>
     <string name="MBDocumentBackImageCardRotation">Back image card rotation</string>
 
-    <string name="MBDocumentImageBlurred">Image blurred</string>
-    <string name="MBDocumentFrontImageBlurred">Front image blurred</string>
-    <string name="MBDocumentBackImageBlurred">Back image blurred</string>
-    <string name="MBDocumentFirstSideImageBlurred">First side image blurred</string>
-    <string name="MBDocumentSecondSideImageBlurred">Second side image blurred</string>
+    <string name="MBDocumentImageBlurred">Image blur detected</string>
+    <string name="MBDocumentImageGlareDetected">Image glare detected</string>
+    <string name="MBDocumentFrontImageBlurred">Front image blur detected</string>
+    <string name="MBDocumentBackImageBlurred">Back image blur detected</string>
+    <string name="MBDocumentFirstSideImageBlurred">First side image blur detected</string>
+    <string name="MBDocumentSecondSideImageBlurred">Second side image blur detected</string>
+    <string name="MBDocumentFrontImageGlareDetected">Front image glare detected</string>
+    <string name="MBDocumentBackImageGlareDetected">Back image glare detected</string>
+    <string name="MBDocumentFirstSideImageGlareDetected">First side image glare detected</string>
+    <string name="MBDocumentSecondSideImageGlareDetected">Second side image glare detected</string>
 
     <string name="MBAdditionalProcessingInfo">Additional processing info</string>
     <string name="MBFrontAdditionalProcessingInfo">Front additional processing info</string>
@@ -364,20 +383,7 @@
     <string name="MBFrontProcessingStatus">Front processing status</string>
     <string name="MBBackProcessingStatus">Back processing status</string>
     <string name="MBRecognitionMode">Recognition mode</string>
-    <string name="MBDocumentLivenessAnalysisStatus">Document liveness analysis status</string>
-    <string name="MBDocumentLivenessAnalysisScore">Document liveness analysis score</string>
-    <string name="MBDocumentVerificationConsistencyScore">Consistency score</string>
-    <string name="MBDocumentStaticSecurityFeatureAnalysisResultStatus">Static security feature analysis status</string>
-    <string name="MBDocumentStaticSecurityFeatureAnalysisResultScore">Static security feature analysis score</string>
-    <string name="MBDocumentStaticSecurityFeatureAnalysisResultFullImage">Static security feature analysis full image</string>
-    <string name="MBDocumentStaticSecurityFeatureAnalysisSegmentImage">Static security feature segment image</string>
-    <string name="MBDocumentStaticSecurityFeatureAnalysisSegmentRelativeBox">Static security feature segment relative box</string>
-    <string name="MBDocumentStaticSecurityFeatureAnalysisSegmentStatus">Static security feature segment verified</string>
-    <string name="MBVerificationTiltNeutralStepImage">Verification tilt neutral step image</string>
-    <string name="MBVerificationTiltLeftStepImage">Verification tilt left step image</string>
-    <string name="MBVerificationTiltRightStepImage">Verification tilt right step image</string>
-    <string name="MBVerificationTiltUpStepImage">Verification tilt up step image</string>
-    <string name="MBVerificationTiltDownStepImage">Verification tilt down step image</string>
+
 
     <string name="MBDocumentLocation">Document location</string>
     <string name="MBFaceLocation">Face location</string>
