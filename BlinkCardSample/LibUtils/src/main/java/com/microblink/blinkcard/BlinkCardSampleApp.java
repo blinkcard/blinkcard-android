@@ -3,6 +3,9 @@ package com.microblink.blinkcard;
 import com.microblink.blinkcard.result.extract.BaseResultExtractorFactory;
 import com.microblink.blinkcard.result.extract.blinkcard.BlinkCardResultExtractorFactory;
 
+import androidx.annotation.Keep;
+
+@Keep
 public final class BlinkCardSampleApp extends SampleApplication {
 
     @Override

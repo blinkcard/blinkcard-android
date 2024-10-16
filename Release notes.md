@@ -1,5 +1,20 @@
 # Release notes
 
+## 2.10.0
+
+### Improvements
+
+- Significant improvements in photocopy detection. Both the False Rejection Rate and False Acceptance Rate are reduced by ~50% as measured on the default match level.
+
+### Bug fixes
+
+- Fix for duplicate attrs resource: `attr/mb_onboardingImageColor` when combining multiple Microblink's SDKs in the same app
+
+### Other changes
+
+- Removed `libc++_shared.so` from the SDK 
+
+
 ## 2.9.3
 
 ### Bug fixes

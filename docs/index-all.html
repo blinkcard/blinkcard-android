@@ -385,6 +385,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Builds image object from native context.</div>
 </dd>
+<dt><a href="com/microblink/blinkcard/image/ImageBuilder.html#buildInputImageFromByteBuffer(java.nio.ByteBuffer,int,int,int,com.microblink.blinkcard.hardware.orientation.Orientation,java.lang.Object)" class="member-name-link">buildInputImageFromByteBuffer(ByteBuffer, int, int, int, Orientation, Object)</a> - Static method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageBuilder.html" title="class in com.microblink.blinkcard.image">ImageBuilder</a></dt>
+<dd>
+<div class="block">Builds the input image from a byte buffer which contains BGRA image data.</div>
+</dd>
 <dt><a href="com/microblink/blinkcard/image/ImageBuilder.html#buildInputImageFromCamera1NV21Frame(byte%5B%5D,int,int,com.microblink.blinkcard.hardware.orientation.Orientation,com.microblink.blinkcard.geometry.Rectangle)" class="member-name-link">buildInputImageFromCamera1NV21Frame(byte[], int, int, Orientation, Rectangle)</a> - Static method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageBuilder.html" title="class in com.microblink.blinkcard.image">ImageBuilder</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/blinkcard/image/ImageBuilder.html#buildInputImageFromCamera2Image(android.media.Image,com.microblink.blinkcard.hardware.orientation.Orientation,com.microblink.blinkcard.geometry.Rectangle)" class="member-name-link">buildInputImageFromCamera2Image(Image, Orientation, Rectangle)</a> - Static method in class com.microblink.blinkcard.image.<a href="com/microblink/blinkcard/image/ImageBuilder.html" title="class in com.microblink.blinkcard.image">ImageBuilder</a></dt>
@@ -3847,8 +3851,7 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeBitmap(android.graphics.Bitmap,com.microblink.blinkcard.hardware.orientation.Orientation,com.microblink.blinkcard.geometry.Rectangle,com.microblink.blinkcard.view.recognition.ScanResultListener)" class="member-name-link">recognizeBitmap(Bitmap, Orientation, Rectangle, ScanResultListener)</a> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
 <dd>
-<div class="block">Perform recognition of still image represented as Android Bitmap.Mainly for the use cases
- when you need to recognize a single or more pre loaded Bitmaps, for example, from the gallery.</div>
+<div class="block">Perform recognition of still image represented as Android Bitmap.</div>
 </dd>
 <dt><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeBitmap(android.graphics.Bitmap,com.microblink.blinkcard.hardware.orientation.Orientation,com.microblink.blinkcard.view.recognition.ScanResultListener)" class="member-name-link">recognizeBitmap(Bitmap, Orientation, ScanResultListener)</a> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
 <dd>
@@ -3950,6 +3953,22 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeStringWithRecognizers(java.lang.String,com.microblink.blinkcard.view.recognition.ScanResultListener,com.microblink.blinkcard.entities.recognizers.RecognizerBundle)" class="member-name-link">recognizeStringWithRecognizers(String, ScanResultListener, RecognizerBundle)</a> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
 <dd>
 <div class="block">Use this method to directly recognize given string data without performing the OCR, while recognizer is active.</div>
+</dd>
+<dt><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeVideoBitmap(android.graphics.Bitmap,com.microblink.blinkcard.hardware.orientation.Orientation,com.microblink.blinkcard.geometry.Rectangle,com.microblink.blinkcard.view.recognition.ScanResultListener)" class="member-name-link">recognizeVideoBitmap(Bitmap, Orientation, Rectangle, ScanResultListener)</a> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
+<dd>
+<div class="block">Use this method to directly recognize Image from the video stream which are represented as an Android Bitmap.</div>
+</dd>
+<dt><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeVideoBitmap(android.graphics.Bitmap,com.microblink.blinkcard.hardware.orientation.Orientation,com.microblink.blinkcard.view.recognition.ScanResultListener)" class="member-name-link">recognizeVideoBitmap(Bitmap, Orientation, ScanResultListener)</a> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
+<dd>
+<div class="block">Use this method to directly recognize Image from the video stream which are represented as an Android Bitmap.</div>
+</dd>
+<dt><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeVideoBitmapWithRecognizers(android.graphics.Bitmap,com.microblink.blinkcard.hardware.orientation.Orientation,com.microblink.blinkcard.geometry.Rectangle,com.microblink.blinkcard.view.recognition.ScanResultListener,com.microblink.blinkcard.entities.recognizers.RecognizerBundle)" class="member-name-link">recognizeVideoBitmapWithRecognizers(Bitmap, Orientation, Rectangle, ScanResultListener, RecognizerBundle)</a> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
+<dd>
+<div class="block">Use this method to directly recognize Image from the video stream which are represented as an Android Bitmap.</div>
+</dd>
+<dt><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeVideoBitmapWithRecognizers(android.graphics.Bitmap,com.microblink.blinkcard.hardware.orientation.Orientation,com.microblink.blinkcard.view.recognition.ScanResultListener,com.microblink.blinkcard.entities.recognizers.RecognizerBundle)" class="member-name-link">recognizeVideoBitmapWithRecognizers(Bitmap, Orientation, ScanResultListener, RecognizerBundle)</a> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
+<dd>
+<div class="block">Use this method to directly recognize Image from the video stream which are represented as an Android Bitmap.</div>
 </dd>
 <dt><a href="com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeVideoImage(com.microblink.blinkcard.image.InputImage,com.microblink.blinkcard.view.recognition.ScanResultListener)" class="member-name-link">recognizeVideoImage(InputImage, ScanResultListener)</a> - Method in class com.microblink.blinkcard.directApi.<a href="com/microblink/blinkcard/directApi/RecognizerRunner.html" title="class in com.microblink.blinkcard.directApi">RecognizerRunner</a></dt>
 <dd>
