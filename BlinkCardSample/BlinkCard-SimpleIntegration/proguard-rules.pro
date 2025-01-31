@@ -23,3 +23,4 @@
 -keep class com.microblink.blinkcard.BlinkCardSampleApp {
     *;
 }
+-dontwarn com.microblink.blinkcard.menu.BaseMenuActivity
