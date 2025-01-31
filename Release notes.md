@@ -1,5 +1,11 @@
 # Release notes
 
+## 2.11.0
+
+### Bug fixes
+
+- Resolved an issue where UI elements could be obscured by system bars when using edge-to-edge mode. The SDK now properly applies insets to prevent overlap, ensuring content remains fully visible
+
 ## 2.10.0
 
 ### Improvements
@@ -12,7 +18,7 @@
 
 ### Other changes
 
-- Removed `libc++_shared.so` from the SDK 
+- Removed `libc++_shared.so` from the SDK
 
 
 ## 2.9.3
