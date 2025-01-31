@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AlertDialog;
 
@@ -35,7 +36,7 @@ public class MenuActivity extends BaseMenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        EdgeToEdge.enable(this);
         // in case of problems with the SDK (crashes or ANRs, uncomment following line to enable
         // verbose logging that can help developers track down the problem)
         //Log.setLogLevel(Log.LogLevel.LOG_VERBOSE);

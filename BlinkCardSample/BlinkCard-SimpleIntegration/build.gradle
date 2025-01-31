@@ -38,4 +38,5 @@ dependencies {
         transitive = true
     }
     implementation project(':LibUtils')
+    implementation("androidx.activity:activity:1.10.0")
 }
