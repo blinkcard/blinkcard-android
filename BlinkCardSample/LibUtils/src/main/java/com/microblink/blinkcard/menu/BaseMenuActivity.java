@@ -34,11 +34,13 @@ public abstract class BaseMenuActivity extends AppCompatActivity {
         ArrayAdapter<MenuListItem> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mListItems);
         lv.setAdapter(listAdapter);
         lv.setOnItemClickListener((parent, view, position, id) -> mListItems.get(position - lv.getHeaderViewsCount()).getOnClickAction().run());
-        if (this.findViewById(R.id.appBarLayout) != null) {
-            ViewCompat.setOnApplyWindowInsetsListener(this.findViewById(R.id.appBarLayout), (v, windowInsets) -> {
-                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars() | WindowInsetsCompat.Type.displayCutout());
+        if (toolbar != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(toolbar, (v, windowInsets) -> {
+                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.displayCutout() | WindowInsetsCompat.Type.systemBars());
                 ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
                 mlp.topMargin = insets.top;
+                mlp.rightMargin = insets.right;
+                mlp.leftMargin = insets.left;
                 v.setLayoutParams(mlp);
                 return WindowInsetsCompat.CONSUMED;
             });

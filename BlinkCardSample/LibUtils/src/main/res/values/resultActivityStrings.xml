@@ -392,6 +392,7 @@
     <string name="MBFormVersion">Form version</string>
     <string name="MBFormFunction">Form function</string>
     <string name="MBAvailableAccounts">Available accounts</string>
+    <string name="MBSlovakiaQrPaymentStandingOrder">Payment standing order</string>
 
     <string name="MBSlovakPaymentInfoKeySuffix">(%d)</string>
 
