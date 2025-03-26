@@ -1,6 +1,10 @@
 # Release notes
 
-## 2.11.0
+## 2.10.2
+
+- The SDK is now supported on Android 15 16KB page size devices.
+
+## 2.10.1
 
 ### Bug fixes
 
