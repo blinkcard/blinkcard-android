@@ -1,5 +1,18 @@
 # Release notes
 
+## v2.11.0
+
+### Improvements
+- Improved data extraction accuracy across all supported card types
+
+### UI changes
+- Added success checkmark after a successful first side scan
+- Added an error state when scanning the wrong side of the card
+- Minor changes in scanning instruction messages
+
+### Other changes
+- Native code is now built using NDK r28b
+
 ## 2.10.2
 
 - The SDK is now supported on Android 15 16KB page size devices.
