@@ -3,9 +3,9 @@
 ## v2.11.1
 
 ### Behavior Changes
-- Improved extraction of the 'owner' field (3 consecutive frames are used)
-- Only digits are allowed in card number, CVV, and date of expiry result
-- Only alphas are allowed in owner result
+- Improved extraction of the owner field
+- Only digits are allowed in card number, CVV, and date of expiry results
+- Only letters are allowed in owner field result
 
 ## v2.11.0
 
