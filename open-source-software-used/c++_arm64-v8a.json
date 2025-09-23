@@ -1,5 +1,11 @@
 [
     {
+        "package": "hash/2.0.3@microblink/main#bca5158cdd3532fd9a32d7539b66194f",
+        "url": "https://github.com/microblink/hash-library",
+        "license": "zlib",
+        "description": "Portable C++ Hashing Library"
+    },
+    {
         "package": "std_fix/1.0.2@microblink/main#3002fa1150d5261ad74d2d167d48e653",
         "url": "https://github.com/microblink/std_fix",
         "license": "BSL-1.0",
@@ -72,7 +78,7 @@
         "description": "JSON for Modern C++ parser and generator."
     },
     {
-        "package": "err/1.0.1@microblink/main#eacbc2adc310db0e96d61d4220650f8b",
+        "package": "err/1.0.2@microblink/main#c37bea8eb2a49b4f46fdd47f028d144d",
         "url": "https://github.com/microblink/err",
         "license": "Boost Software License",
         "description": "err - yet another take on C++ error handling"
@@ -114,7 +120,7 @@
         "description": "Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data"
     },
     {
-        "package": "abseil/20250512.0@microblink/main#29bf786c2055253ad2f60aa61d7dbd28",
+        "package": "abseil/20250512.0.1@microblink/main#120e2c1b766e76087248ee491d67cb52",
         "url": "https://github.com/microblink/abseil-cpp",
         "license": "Apache-2.0",
         "description": "Abseil Common Libraries (C++) from Google"
@@ -126,16 +132,16 @@
         "description": "qoixx is a high performance MIT licensed single-header QOI implementation written in C++20."
     },
     {
-        "package": "eigen/3.4.2@microblink/main#406195518d246c1d387b54df8ade9052",
-        "url": "https://github.com/microblink/eigen-git-mirror",
-        "license": "Mozilla Public License Version 2.0",
-        "description": "Eigen is a C++ template library for linear algebra: vectors, matrices, and related algorithms. It is versatile, fast, elegant and works on many platforms (OS/Compilers)."
+        "package": "pimpl/1.0.1@microblink/main#4857170a202027c0fd2f22d0c2c4c7a3",
+        "url": "https://github.com/microblink/pimpl",
+        "license": "BSD 2-Clause \"Simplified\" License",
+        "description": "Proving pimpls do not require heap, exceptions or runtime polymorphism."
     },
     {
-        "package": "hash/2.0.3@microblink/main#bca5158cdd3532fd9a32d7539b66194f",
-        "url": "https://github.com/microblink/hash-library",
-        "license": "zlib",
-        "description": "Portable C++ Hashing Library"
+        "package": "range-v3/0.12.0#abb9932b80d96eaf8fc992debe3870ed",
+        "url": "https://github.com/conan-io/conan-center-index",
+        "license": "BSL-1.0",
+        "description": "Experimental range library for C++11/14/17"
     },
     {
         "package": "adv_obfuscator/20170904.1@microblink/main#aa4c2ce54111773ef9ce027667b68d71",
@@ -150,22 +156,28 @@
         "description": "A small and fast ECDH and ECDSA implementation for 8-bit, 32-bit, and 64-bit processors."
     },
     {
+        "package": "zxing-cpp/1.1.0@microblink/main#6650d1dcd9e84e7917697e701c82ad47",
+        "url": "https://github.com/microblink/zxing",
+        "license": "Apache License 2.0",
+        "description": "ZXing (\"Zebra Crossing\") barcode scanning library for Java, Android"
+    },
+    {
+        "package": "eigen/3.4.2@microblink/main#406195518d246c1d387b54df8ade9052",
+        "url": "https://github.com/microblink/eigen-git-mirror",
+        "license": "Mozilla Public License Version 2.0",
+        "description": "Eigen is a C++ template library for linear algebra: vectors, matrices, and related algorithms. It is versatile, fast, elegant and works on many platforms (OS/Compilers)."
+    },
+    {
         "package": "xnnpack/20230525.1.6@microblink/main#3e5e60789c103ebfec170c7898cdfe4d",
         "url": "https://github.com/microblink/XNNPACK",
         "license": "BSD",
         "description": "XNNPACK library"
     },
     {
-        "package": "kiwaku/20230809.3@microblink/main#4386c7f0bd8838531bfacaf13c89a992",
+        "package": "kiwaku/20230809.4@microblink/main#6e5eb5cb85661173d4d516738282e5db",
         "url": "https://github.com/microblink/kiwaku",
         "license": "BSL-1.0",
         "description": "C++20 and onward collection of high performance data containers and related tools"
-    },
-    {
-        "package": "range-v3/0.12.0#abb9932b80d96eaf8fc992debe3870ed",
-        "url": "https://github.com/conan-io/conan-center-index",
-        "license": "BSL-1.0",
-        "description": "Experimental range library for C++11/14/17"
     },
     {
         "package": "tf_messages/1.0.1@microblink/main#96187cc0ac393ee835b807074bb3e884",
@@ -174,10 +186,10 @@
         "description": "Computation using data flow graphs for scalable machine learning"
     },
     {
-        "package": "pimpl/1.0.1@microblink/main#4857170a202027c0fd2f22d0c2c4c7a3",
-        "url": "https://github.com/microblink/pimpl",
-        "license": "BSD 2-Clause \"Simplified\" License",
-        "description": "Proving pimpls do not require heap, exceptions or runtime polymorphism."
+        "package": "tqdm/1.0.0@microblink/main#9f84ad8bec3a73f9635d64c0f49aea96",
+        "url": "https://bitbucket.org/microblink/core-tqdm",
+        "license": "MIT",
+        "description": "tqdm-like single header c++ pretty progress bar"
     },
     {
         "package": "tinyxml2/2.2.4@microblink/main#e75d39f68113ec40fde0b991ffa76a37",
@@ -186,9 +198,9 @@
         "description": "a simple, small, efficient, C++ XML parser"
     },
     {
-        "package": "tqdm/1.0.0@microblink/main#9f84ad8bec3a73f9635d64c0f49aea96",
-        "url": "https://bitbucket.org/microblink/core-tqdm",
-        "license": "MIT",
-        "description": "tqdm-like single header c++ pretty progress bar"
+        "package": "re2/20240702.0.0@microblink/main#97effdb903f6546348047925d9d1f365",
+        "url": "https://github.com/microblink/re2",
+        "license": "BSD-3-Clause",
+        "description": "Fast, safe, thread-friendly regular expression library"
     }
 ]
