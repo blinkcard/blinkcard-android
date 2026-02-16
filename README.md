@@ -238,11 +238,11 @@ When using the `BlinkCardCameraScanningScreen` composable, device rotation trigg
 Almost every UI element can be easily modified in many different ways (color, size, font, background). This chapter provides basic guides regarding each implementation method.
 
 <p align="center" >
-  <img src="https://raw.githubusercontent.com/wiki/blinkcard/blinkcard-android/images/blinkid_v7_ui_customizations.png" alt="BlinkCard SDK">
+  <img src="https://raw.githubusercontent.com/wiki/blinkcard/blinkcard-android/images/blinkcard_v3000_customization1.png" alt="BlinkCard SDK">
 </p>
 
 <p align="center" >
-  <img src="https://raw.githubusercontent.com/wiki/blinkcard/blinkcard-android/images/blinkid_v7_dialog_customizations.png" alt="BlinkCard SDK">
+  <img src="https://raw.githubusercontent.com/wiki/blinkcard/blinkcard-android/images/blinkcard_v3000_customization2.png" alt="BlinkCard SDK">
 </p>
 
 ## <a name="simple-customizations"></a> Simple customizations
