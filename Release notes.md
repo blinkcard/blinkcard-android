@@ -1,5 +1,7 @@
 # Release notes
 
+## v3000.0.0
+
 ## v2.12.0
 
 ### Improvements
