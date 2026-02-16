@@ -1,1218 +1,674 @@
-# _BlinkCard_ SDK for Android
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/wiki/BlinkCard/blinkcard-android/images/logo-microblink.png" alt="Microblink" title="Microblink">
+</p>
+
+# BlinkCard SDK for Android
 
 _BlinkCard_ SDK for Android is SDK that enables you to perform scans of various credit or payment cards in your app. You can simply integrate the SDK into your app by following the instructions below.
 
-Using _BlinkCard_ in your app requires a valid license. You can obtain a trial license by registering to [Microblink dashboard](https://microblink.com/login). After registering, you will be able to generate a license for your app. License is bound to [package name](https://developer.android.com/studio/build/application-id.html) of your app, so please make sure you enter the correct package name when asked.
-
-See below for more information about how to integrate _BlinkCard_ SDK into your app and also check latest [Release notes](Release%20notes.md).
-
-You can start by watching our [step-by-step tutorial](https://vimeo.com/542539564/c0f92f9cbf), in which you’ll find out how to make BlinkCard SDK a part of your Android app.
-
-To see _BlinkCard_ in action, check our [demo app](https://play.google.com/store/apps/details?id=com.microblink.showcase.playstore).
 
 # Table of contents
-
-* [Android _BlinkCard_ integration instructions](#intro)
 * [Quick Start](#quick-start)
-    * [Quick start with the sample app](#quick-demo)
-    * [SDK integration](#android-studio-integration)
-* [Device requirements](#support-check)
-* [_BlinkCard_ SDK integration levels](#ui-customizations)
-    * [Built-in activities (`UISettings`)](#run-builtin-activity)
-    * [Built-in fragment (`RecognizerRunnerFragment`)](#recognizer-runner-fragment)
-    * [Custom UX with `RecognizerRunnerView`](#recognizer-runner-view)
-    * [Direct API](#direct-api)
-        * [Using Direct API for recognition of Android Bitmaps and custom camera frames](#direct-api-images)
-        * [Using Direct API for `String` recognition (parsing)](#direct-api-strings)
-        * [Understanding DirectAPI's state machine](#direct-api-state-machine)
-        * [Using Direct API while RecognizerRunnerView is active](#direct-api-with-recognizer)
-        * [Using Direct API with combined recognizers ](#direct-api-combined-recognizers)
-* [Available built-in activities and overlays](#built-in-ui-components)
-    * [`BlinkCardUISettings` and `BlinkCardOverlayController`](#blinkcard-ui-component)
-    * [Translation and localization](#translation)
-* [Handling processing events with `RecognizerRunner` and `RecognizerRunnerView`](#processing-events)
-* [`Recognizer` concept and `RecognizerBundle`](#available-recognizers)
-    * [The `Recognizer` concept](#recognizer-concept)
-    * [`RecognizerBundle`](#recognizer-bundle)
-        * [Passing `Recognizer` objects between activities](#intent-optimization)
-* [List of available recognizers](#recognizer-list)
-    * [Frame Grabber Recognizer](#frame-grabber-recognizer)
-    * [Success Frame Grabber Recognizer](#success-frame-grabber-recognizer)
-    * [BlinkCard recognizers](#blinkcard-recognizers)
-* [Embedding _BlinkCard_ inside another SDK](#embed-aar)
-* [Processor architecture considerations](#arch-consider)
-    * [Reducing the final size of your app](#reduce-size)
-        * [Consequences of removing processor architecture](#arch-consequences)
-    * [Combining _BlinkCard_ with other native libraries](#combineNativeLibraries)
-        * [Resolving conflict on `libc++_shared.so`](#dynamicCppRuntime)
+    * [Quick start with the sample app](#quick-sample)
+    * [SDK integration](#sdk-integration)
+* [Device requirements](#device-requirements)
+    * [Android version](#android-version-req)
+    * [Camera](#camera-req)
+    * [Processor architecture](#processor-arch-req)
+* [Pre-bundling the SDK resources in your app](#pre-bundling-resources)
+* [Choosing between Composable and default scanning activity](#activity-vs-compose)
+* [Customizing the look and UX](#customizing-the-look)
+    * [Simple customizations](#simple-customizations)
+    * [Advanced customizations](#advanced-customizations)
+* [Changing default strings and localization](#changing-strings-and-localization)
+    * [Defining your own string resources for UI elements](#using-own-string-resources)
+* [Using SDK through `BlinkCardScanActivity`](#using-scan-activity)
+* [Completely custom UX (advanced)](#low-level-api)
+    * [The `BlinkCardSdk` and `BlinkCardScanningSession`](#core-api-sdk-and-session)
+* [Using SDK with Java and Views](#legacy-api)
 * [Troubleshooting](#troubleshoot)
-* [FAQ and known issues](#faq)
-* [Additional info](#info)
-    * [BlinkCard SDK size](#size-report)
-    * [API reference](#api-reference)
+* [Additional info](#additional-info)
+    * [BlinkCard SDK size](#sdk-size)
+    * [API documentation](#api-documentation)
     * [Contact](#contact)
 
-# <a name="intro"></a> Android _BlinkCard_ integration instructions
-
-The package contains Android Archive (AAR) that contains everything you need to use _BlinkCard_ library. Besides AAR, package also contains a sample project that contains following modules:
-
-- _BlinkCard-SimpleIntegration_ demonstrates quick and simple integration of _BlinkCard_ library.
- 
-The source code of all sample apps is given to you to show you how to perform integration of _BlinkCard_ SDK into your app. You can use this source code and all resources as you wish. You can use sample apps as a basis for creating your own app, or you can copy/paste the code and/or resources from sample apps into your app and use them as you wish without even asking us for permission.
- 
-_BlinkCard_ is supported on Android SDK version 21 (Android 5.0) or later.
-
-The list of all provided scan activities can be found in the [Available built-in activities and overlays](#built-in-ui-components) section.
-
-You can also create your own scanning UI - you just need to embed `RecognizerRunnerView` into your activity and pass activity's lifecycle events to it and it will control the camera and recognition process. For more information, see [Embedding `RecognizerRunnerView` into custom scan activity](#recognizer-runner-view).
 
 # <a name="quick-start"></a> Quick Start
 
-## <a name="quick-demo"></a> Quick start with the sample app
+## <a name="quick-sample"></a> Quick start with the sample apps
 
 1. Open Android Studio.
-2. In Quick Start dialog choose _Import project (Eclipse ADT, Gradle, etc.)_.
-3. In File dialog select _BlinkCardSample_ folder.
-4. Wait for the project to load. If Android studio asks you to reload project on startup, select `Yes`.
+2. In `Quick Start` dialog choose _Open project_.
+3. In `File` dialog select _BlinkCard_ folder.
+4. Wait for the project to load. If Android Studio asks you to reload the project on startup, select `Yes`.
 
+#### Included sample apps:
 
-## <a name="android-studio-integration"></a> SDK integration
-#### Adding _BlinkCard_ dependency
+- **_sample-app_** demonstrates quick and straightforward integration of the _BlinkCard_ SDK using the provided UX in Jetpack Compose to scan a card and display the results.
+- **_direct-api-sample-app_** demonstrates the functionality of _BlinkCard_ SDK by avoiding the card scanning process and without using the blinkcard-ux library. This approach should be used if you are obtaining card images via other methods.
 
-In your `build.gradle`, add _BlinkCard_ maven repository to repositories list
+## <a name="sdk-integration"></a> SDK integration
+
+### Adding _BlinkCard_ SDK dependency
+
+The `BlinkCard` library is available on Maven Central repository.
+
+In your project root, add `mavenCentral()` repository to the repositories list, if not already present:
 
 ```
 repositories {
-    maven { url 'https://maven.microblink.com' }
+    // ... other repositories
+    mavenCentral()
 }
 ```
 
-Add _BlinkCard_ as a dependency and make sure `transitive` is set to true
+Add _BlinkCard_ as a dependency in module level `build.gradle(.kts)`:
 
 ```
 dependencies {
-    implementation('com.microblink:blinkcard:2.12.0@aar') {
-        transitive = true
-    }
+    implementation("com.microblink:blinkcard-ux:3000.0.0")
 }
 ```
 
-#### Importing Javadoc
+### Launching the BlinkCard scanning session and obtaining the results
 
-Android studio should automatically import javadoc from maven dependency. If that doesn't happen, you can do that manually by following these steps:
+1. A valid license key is required to initialize the document capture process. You can request a free trial license key, after you register, at [Microblink Developer Hub](https://developer.microblink.com/).. License is bound to the [application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id) of your app, so please ensure you enter the correct application ID when asked.
 
-1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/studio/projects#ProjectView)
-2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkcard-2.12.0` entry, right click on it and select `Library Properties...`
-4. A `Library Properties` pop-up window will appear
-5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
-6. Window for defining documentation URL will appear
-7. Enter following address: `https://blinkcard.github.io/blinkcard-android/`
-8. Click `OK`
-
-
-#### Performing your first scan
-1. A valid license key is required to initialize scanning. You can request a free trial license key, after you register, at [Microblink Developer Hub](https://account.microblink.com/signin). License is bound to [package name](https://developer.android.com/studio/build/configure-app-module#set-application-id) of your app, so please make sure you enter the correct package name when asked. 
-
-    Download your licence file and put it in your application's _assets_ folder. Make sure to set the license key before using any other classes from the SDK, otherwise you will get a runtime exception. 
-    
-    We recommend that you extend [Android Application class](https://developer.android.com/reference/android/app/Application.html) and set the license in [onCreate callback](https://developer.android.com/reference/android/app/Application.html#onCreate()) like this:
-
-    ```java
-    public class MyApplication extends Application {
-        @Override
-        public void onCreate() {
-            MicroblinkSDK.setLicenseFile("path/to/license/file/within/assets/dir", this);
-        }
-    }
-    ```
-
-2. In your main activity, create recognizer objects that will perform image recognition, configure them and put them into [RecognizerBundle object](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/RecognizerBundle.html). You can see more information about available recognizers and `RecognizerBundle` [here](#availableRecognizers). 
-
-    For example, to scan Payment / Debit card, configure your recognizer like this:
-
-    ```java
-    public class MyActivity extends Activity {
-        private BlinkCardRecognizer mRecognizer;
-        private RecognizerBundle mRecognizerBundle;
-        
-        @Override
-        protected void onCreate(Bundle bundle) {
-            super.onCreate(bundle);
-            
-            // setup views, as you would normally do in onCreate callback
-            
-            // create BlinkCardRecognizer
-            mRecognizer = new BlinkCardRecognizer();
-            
-            // bundle recognizers into RecognizerBundle
-            mRecognizerBundle = new RecognizerBundle(mRecognizer);
-        }
-    }
-    ```
-
-3. Start recognition process by creating `BlinkCardUISettings` and calling [`ActivityRunner.startActivityForResult`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/uisettings/ActivityRunner.html#startActivityForResult(android.app.Activity,int,com.microblink.blinkcard.uisettings.UISettings)):
-    
-    ```java
-    // method within MyActivity from previous step
-    public void startScanning() {
-        // Settings for BlinkCardActivity
-        BlinkCardUISettings settings = new BlinkCardUISettings(mRecognizerBundle);
-        
-        // tweak settings as you wish
-        
-        // Start activity
-        ActivityRunner.startActivityForResult(this, MY_REQUEST_CODE, settings);
-    }
-    ```
-    
-4. `onActivityResult` will be called in your activity after scanning is finished, here you can get the scanning results.
-
-    ```java
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        
-        if (requestCode == MY_REQUEST_CODE) {
-            if (resultCode == Activity.RESULT_OK && data != null) {
-                // load the data into all recognizers bundled within your RecognizerBundle
-                mRecognizerBundle.loadFromIntent(data);
-                
-                // now every recognizer object that was bundled within RecognizerBundle
-                // has been updated with results obtained during scanning session
-                
-                // you can get the result by invoking getResult on recognizer
-                BlinkCardRecognizer.Result result = mRecognizer.getResult();
-                if (result.getResultState() == Recognizer.Result.State.Valid) {
-                    // result is valid, you can use it however you wish
-                }
-            }
-        }
-    }
-    ```
-    
-    For more information about available recognizers and `RecognizerBundle`, see [RecognizerBundle and available recognizers](#availableRecognizers).
-
-# <a name="support-check"></a> Device requirements
-
-### Android Version
-
-_BlinkCard_ requires Android API level **21** or newer.
-
-### Camera
-
-Camera video preview resolution also matters. In order to perform successful scans, camera preview resolution must be at least 720p. Note that camera preview resolution is not the same as video recording resolution.
-
-### Processor architecture
-
-_BlinkCard_ is distributed with **ARMv7** and **ARM64** native library binaries.
-
-_BlinkCard_ is a native library, written in C++ and available for multiple platforms. Because of this, _BlinkCard_ cannot work on devices with obscure hardware architectures. We have compiled _BlinkCard_ native code only for the most popular Android [ABIs](https://en.wikipedia.org/wiki/Application_binary_interface).
-
-Even before setting the license key, you should check if the _BlinkCard_ is supported on the current device (see next section: *Compatibility check*). Attempting to call any method from the SDK that relies on native code, such as license check, on a device with unsupported CPU architecture will crash your app.
-
-If you are combining _BlinkCard_ library with other libraries that contain native code into your application, make sure you match the architectures of all native libraries.
-
-For more information, see [Processor architecture considerations](#arch-consider) section.
-
-### Compatibility check
-
-Here's how you can check whether the _BlinkCard_ is supported on the device:
-
-##### Java
-```java
-// check if BlinkCard is supported on the device,
-RecognizerCompatibilityStatus status = RecognizerCompatibility.getRecognizerCompatibilityStatus(this);
-if (status == RecognizerCompatibilityStatus.RECOGNIZER_SUPPORTED) {
-    Toast.makeText(this, "BlinkCard is supported!", Toast.LENGTH_LONG).show();
-} else if (status == RecognizerCompatibilityStatus.NO_CAMERA) {
-    Toast.makeText(this, "BlinkCard is supported only via Direct API!", Toast.LENGTH_LONG).show();
-} else if (status == RecognizerCompatibilityStatus.PROCESSOR_ARCHITECTURE_NOT_SUPPORTED) {
-    Toast.makeText(this, "BlinkCard is not supported on current processor architecture!", Toast.LENGTH_LONG).show();
-} else {
-    Toast.makeText(this, "BlinkCard is not supported! Reason: " + status.name(), Toast.LENGTH_LONG).show();
-}
-```
-
-##### Kotlin
+2. You first need to initialize the SDK and obtain the `BlinkCardSdk` instance:
 ```kotlin
-// check if _BlinkCard_ is supported on the device,
-when (val status = RecognizerCompatibility.getRecognizerCompatibilityStatus(this)) {
-    RecognizerCompatibilityStatus.RECOGNIZER_SUPPORTED -> {
-        Toast.makeText(this, "BlinkCard is supported!", Toast.LENGTH_LONG).show()
-    }
-    RecognizerCompatibilityStatus.NO_CAMERA -> {
-        Toast.makeText(this, "BlinkCard is supported only via Direct API!", Toast.LENGTH_LONG).show()
-    }
-    RecognizerCompatibilityStatus.PROCESSOR_ARCHITECTURE_NOT_SUPPORTED -> {
-        Toast.makeText(this, "BlinkCard is not supported on current processor architecture!", Toast.LENGTH_LONG).show()
-    }
-    else -> {
-        Toast.makeText(this, "BlinkCard is not supported! Reason: " + status.name, Toast.LENGTH_LONG).show()
-    }
-}
-```
-Some recognizers require camera with autofocus. If you try using them on a device that doesn't support autofocus, you will get an error. To prevent that, you can check whether a recognizer requires autofocus by calling its [requiresAutofocus](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/Recognizer.html#requiresAutofocus()) method.
-
-If you already have an array of recognizers, you can easily filter out recognizers that require autofocus from array using the following code snippet:
-
-##### Java
-
-```java
-Recognizer[] recArray = ...;
-if(!RecognizerCompatibility.cameraHasAutofocus(CameraType.CAMERA_BACKFACE, this)) {
-    recArray = RecognizerUtils.filterOutRecognizersThatRequireAutofocus(recArray);
-}
-```
-
-##### Kotlin
-```kotlin
-var recArray: Array<Recognizer> = ...
-if(!RecognizerCompatibility.cameraHasAutofocus(CameraType.CAMERA_BACKFACE, this)) {
-    recArray = RecognizerUtils.filterOutRecognizersThatRequireAutofocus(recArray)
-}
-```
-
-# <a name="ui-customizations"></a> _BlinkCard_ SDK integration levels
-
-You can integrate _BlinkCard_ into your app in four different ways, depending on your use case and customisation needs:
-
-1. Built-in activities (`UISettings`) - SDK handles everything and you just need to start our built-in activity and handle result, customisation options are limited
-2. Built-in fragment (`RecognizerRunnerFragment`) - reuse scanning UX from our built-in activities in your own activity
-3. Custom UX (`RecognizerRunnerView`) - SDK handles camera management while you have to implement completely custom scanning UX
-4. Direct Api (`RecognizerRunner`) - SKD only handles recognition while you have to provide it with the images, either from camera or from a file
-
-## <a name="run-builtin-activity"></a> Built-in activities (`UISettings`)
-
-`UISettings` is a class that contains all the necessary settings for SDK's built-in scan activities. It configures scanning activity behaviour, strings, icons and other UI elements. 
-As shown in the first scan example, you should use [`ActivityRunner`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/uisettings/ActivityRunner.html) to start the scan activity configured by `UISettings`.
-
-We provide multiple `UISettings` classes specialised for different scanning scenarios. Each `UISettings` object has properties which can be changed via appropriate setter methods. For example, you can customise camera settings with `setCameraSettings` metod. 
-
-All available `UISettings` classes are listed [here](#built-in-ui-components).
-
-## <a name="recognizer-runner-fragment"></a> Built-in fragment (`RecognizerRunnerFragment`)
-
-If you want to reuse our built-in activity UX inside your own activity, use [`RecognizerRunnerFragment`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/fragment/RecognizerRunnerFragment.html). Activity that will host `RecognizerRunnerFragment` must implement [`ScanningOverlayBinder`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html) interface. Attempting to add `RecognizerRunnerFragment` to activity that does not implement that interface will result in `ClassCastException`.
-
-The `ScanningOverlayBinder` is responsible for returning `non-null` implementation of [`ScanningOverlay`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/fragment/overlay/ScanningOverlay.html) - class that will manage UI on top of `RecognizerRunnerFragment`. It is not recommended to create your own `ScanningOverlay` implementation, use one of our implementations listed [here](#built-in-ui-components) instead.
-
-Here is the minimum example for activity that hosts the `RecognizerRunnerFragment`:
-
-##### Java
-
-```java
-public class MyActivity extends AppCompatActivity implements RecognizerRunnerFragment.ScanningOverlayBinder {
-    private BlinkCardRecognizer mRecognizer;
-    private RecognizerBundle mRecognizerBundle;
-    private BlinkCardOverlayController mScanOverlay;
-    private RecognizerRunnerFragment mRecognizerRunnerFragment;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate();
-        setContentView(R.layout.activity_my_activity);
-        mScanOverlay = createOverlay();
-        if (null == savedInstanceState) {
-            // create fragment transaction to replace R.id.recognizer_runner_view_container with RecognizerRunnerFragment
-            mRecognizerRunnerFragment = new RecognizerRunnerFragment();
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.recognizer_runner_view_container, mRecognizerRunnerFragment);
-            fragmentTransaction.commit();
-        } else {
-            // obtain reference to fragment restored by Android within super.onCreate() call
-            mRecognizerRunnerFragment = (RecognizerRunnerFragment) getSupportFragmentManager().findFragmentById(R.id.recognizer_runner_view_container);
-        }
-    }
-
-    @Override
-    @NonNull
-    public ScanningOverlay getScanningOverlay() {
-        return mScanOverlay;
-    }
-
-    private BlinkCardOverlayController createOverlay() {
-        // create BlinkCardRecognizer
-        mRecognizer = new BlinkCardRecognizer();
-
-        // bundle recognizers into RecognizerBundle
-        mRecognizerBundle = new RecognizerBundle(mRecognizer);
-
-        BlinkCardUISettings settings = new BlinkCardUISettings(mRecognizerBundle);
-
-        return settings.createOverlayController(this, mScanResultListener);
-    }
-
-    private final ScanResultListener mScanResultListener = new ScanResultListener() {
-        @Override
-        public void onScanningDone(@NonNull RecognitionSuccessType recognitionSuccessType) {
-            // pause scanning to prevent new results while fragment is being removed
-            mRecognizerRunnerFragment.getRecognizerRunnerView().pauseScanning();
-
-            // now you can remove the RecognizerRunnerFragment with new fragment transaction
-            // and use result within mRecognizer safely without the need for making a copy of it
-
-            // if not paused, as soon as this method ends, RecognizerRunnerFragments continues
-            // scanning. Note that this can happen even if you created fragment transaction for
-            // removal of RecognizerRunnerFragment - in the time between end of this method
-            // and beginning of execution of the transaction. So to ensure result within mRecognizer
-            // does not get mutated, ensure calling pauseScanning() as shown above.
-        }
-        @Override
-        public void onUnrecoverableError(@NonNull Throwable throwable) {
-        }
-    };
-    
-}
-```
-
-##### Kotlin Compose
-
-```kotlin
-package com.microblink.blinkid
-
-class MainActivity : AppCompatActivity(), RecognizerRunnerFragment.ScanningOverlayBinder {
-    private lateinit var mRecognizer: BlinkCardRecognizer
-    private lateinit var mRecognizerRunnerFragment: RecognizerRunnerFragment
-    private lateinit var mRecognizerBundle: RecognizerBundle
-    private lateinit var mScanOverlay: BlinkCardOverlayController
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        if (!::mScanOverlay.isInitialized) {
-            mScanOverlay = createOverlayController()
-        }
-        setContent {
-            this.run {
-                // viewBinding has to be set to 'true' in buildFeatures block of the build.gradle file
-                AndroidViewBinding(RecognizerRunnerLayoutBinding::inflate) {
-                    mRecognizerRunnerFragment =
-                        fragmentContainerView.getFragment<RecognizerRunnerFragment>()
-                }
-            }
-        }
-    }
-
-    override fun getScanningOverlay(): ScanningOverlay {
-        return mScanOverlay
-    }
-
-    private fun createOverlay(): BlinkCardOverlayController {
-        // create BlinkCardRecognizer
-        val mRecognizer = BlinkCardRecognizer()
-
-        // bundle recognizers into RecognizerBundle
-        mRecognizerBundle = RecognizerBundle(mRecognizer)
-
-        val settings = BlinkCardUISettings(mRecognizerBundle)
-
-        return settings.createOverlayController(this, mScanResultListener)
-    }
-
-    private val mScanResultListener: ScanResultListener = object : ScanResultListener {
-        override fun onScanningDone(p0: RecognitionSuccessType) {
-            // pause scanning to prevent new results while fragment is being removed
-            mRecognizerRunnerFragment!!.recognizerRunnerView!!.pauseScanning()
-
-            // now you can remove the RecognizerRunnerFragment with new fragment transaction
-            // and use result within mRecognizer safely without the need for making a copy of it
-
-            // if not paused, as soon as this method ends, RecognizerRunnerFragments continues
-            // scanning. Note that this can happen even if you created fragment transaction for
-            // removal of RecognizerRunnerFragment - in the time between end of this method
-            // and beginning of execution of the transaction. So to ensure result within mRecognizer
-            // does not get mutated, ensure calling pauseScanning() as shown above.
-        }
-        override fun onUnrecoverableError(p0: Throwable) {
-        }
-    }
-    
-}
-```
-Please refer to sample apps provided with the SDK for more detailed example and make sure your host activity's orientation is set to `nosensor` or has configuration changing enabled (i.e. is not restarted when configuration change happens). For more information, check [scan orientation section](#scan-orientation).
-
-## <a name="recognizer-runner-view"></a> Custom UX with `RecognizerRunnerView`
-This section discusses how to embed [RecognizerRunnerView](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/view/recognition/RecognizerRunnerView.html) into your scan activity and perform scan.
-
-1. First make sure that `RecognizerRunnerView` is a member field in your activity. This is required because you will need to pass all activity's lifecycle events to `RecognizerRunnerView`.
-2. It is recommended to keep your scan activity in one orientation, such as `portrait` or `landscape`. Setting `sensor` as scan activity's orientation will trigger full restart of activity whenever device orientation changes. This will provide very poor user experience because both camera and _BlinkCard_ native library will have to be restarted every time. There are measures against this behaviour that are discussed [later](#scan-orientation).
-3. In your activity's `onCreate` method, create a new `RecognizerRunnerView`, set [RecognizerBundle](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/RecognizerBundle.html) containing recognizers that will be used by the view, define [CameraEventsListener](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/view/CameraEventsListener.html) that will handle mandatory camera events, define [ScanResultListener](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/view/recognition/ScanResultListener.html) that will receive call when recognition has been completed and then call its `create` method. After that, add your views that should be layouted on top of camera view.
-4. Pass in your activity's lifecycle using `setLifecycle` method to enable automatic handling of lifeceycle events.
- 
-Here is the minimum example of integration of `RecognizerRunnerView` as the only view in your activity:
-
-```java
-public class MyScanActivity extends AppCompatActivity {
-    private static final int PERMISSION_CAMERA_REQUEST_CODE = 42;
-    private RecognizerRunnerView mRecognizerRunnerView;
-    private BlinkCardRecognizer mRecognizer;
-    private RecognizerBundle mRecognizerBundle;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        // create BlinkCardRecognizer
-        mRecognizer = new BlinkCardRecognizer();
-
-        // bundle recognizers into RecognizerBundle
-        mRecognizerBundle = new RecognizerBundle(mRecognizer);
-        // create RecognizerRunnerView
-        mRecognizerRunnerView = new RecognizerRunnerView(this);
-        
-        // set lifecycle to automatically call recognizer runner view lifecycle methods
-        mRecognizerRunnerView.setLifecycle(getLifecycle());
-
-        // associate RecognizerBundle with RecognizerRunnerView
-        mRecognizerRunnerView.setRecognizerBundle(mRecognizerBundle);
-
-        // scan result listener will be notified when scanning is complete
-        mRecognizerRunnerView.setScanResultListener(mScanResultListener);
-        // camera events listener will be notified about camera lifecycle and errors
-        mRecognizerRunnerView.setCameraEventsListener(mCameraEventsListener);
-
-        setContentView(mRecognizerRunnerView);
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        // changeConfiguration is not handled by lifecycle events so call it manually
-        mRecognizerRunnerView.changeConfiguration(newConfig);
-    }
-
-    private final CameraEventsListener mCameraEventsListener = new CameraEventsListener() {
-        @Override
-        public void onCameraPreviewStarted() {
-            // this method is from CameraEventsListener and will be called when camera preview starts
-        }
-
-        @Override
-        public void onCameraPreviewStopped() {
-            // this method is from CameraEventsListener and will be called when camera preview stops
-        }
-
-        @Override
-        public void onError(Throwable exc) {
-            /**
-             * This method is from CameraEventsListener and will be called when
-             * opening of camera resulted in exception or recognition process
-             * encountered an error. The error details will be given in exc
-             * parameter.
-             */
-        }
-
-        @Override
-        @TargetApi(23)
-        public void onCameraPermissionDenied() {
-            /**
-             * Called in Android 6.0 and newer if camera permission is not given
-             * by user. You should request permission from user to access camera.
-             */
-            requestPermissions(new String[]{Manifest.permission.CAMERA}, PERMISSION_CAMERA_REQUEST_CODE);
-            /**
-             * Please note that user might have not given permission to use
-             * camera. In that case, you have to explain to user that without
-             * camera permissions scanning will not work.
-             * For more information about requesting permissions at runtime, check
-             * this article:
-             * https://developer.android.com/training/permissions/requesting.html
-             */
-        }
-
-        @Override
-        public void onAutofocusFailed() {
-            /**
-             * This method is from CameraEventsListener will be called when camera focusing has failed.
-             * Camera manager usually tries different focusing strategies and this method is called when all
-             * those strategies fail to indicate that either object on which camera is being focused is too
-             * close or ambient light conditions are poor.
-             */
-        }
-
-        @Override
-        public void onAutofocusStarted(Rect[] areas) {
-            /**
-             * This method is from CameraEventsListener and will be called when camera focusing has started.
-             * You can utilize this method to draw focusing animation on UI.
-             * Areas parameter is array of rectangles where focus is being measured.
-             * It can be null on devices that do not support fine-grained camera control.
-             */
-        }
-
-        @Override
-        public void onAutofocusStopped(Rect[] areas) {
-            /**
-             * This method is from CameraEventsListener and will be called when camera focusing has stopped.
-             * You can utilize this method to remove focusing animation on UI.
-             * Areas parameter is array of rectangles where focus is being measured.
-             * It can be null on devices that do not support fine-grained camera control.
-             */
-        }
-    };
-    
-    private final ScanResultListener mScanResultListener = new ScanResultListener() {
-        @Override
-        public void onScanningDone(@NonNull RecognitionSuccessType recognitionSuccessType) {
-            // this method is from ScanResultListener and will be called when scanning completes
-            // you can obtain scanning result by calling getResult on each
-            // recognizer that you bundled into RecognizerBundle.
-            // for example:
-
-            BlinkCardRecognizer.Result result = mRecognizer.getResult();
-            if (result.getResultState() == Recognizer.Result.State.Valid) {
-                // result is valid, you can use it however you wish
-            }
-
-            // Note that mRecognizer is stateful object and that as soon as
-            // scanning either resumes or its state is reset
-            // the result object within mRecognizer will be changed. If you
-            // need to create a immutable copy of the result, you can do that
-            // by calling clone() on it, for example:
-
-            BlinkCardRecognizer.Result immutableCopy = result.clone();
-
-            // After this method ends, scanning will be resumed and recognition
-            // state will be retained. If you want to prevent that, then
-            // you should call:
-            mRecognizerRunnerView.resetRecognitionState();
-            // Note that reseting recognition state will clear internal result
-            // objects of all recognizers that are bundled in RecognizerBundle
-            // associated with RecognizerRunnerView.
-
-            // If you want to pause scanning to prevent receiving recognition
-            // results or mutating result, you should call:
-            mRecognizerRunnerView.pauseScanning();
-            // if scanning is paused at the end of this method, it is guaranteed
-            // that result within mRecognizer will not be mutated, therefore you
-            // can avoid creating a copy as described above
-
-            // After scanning is paused, you will have to resume it with:
-            mRecognizerRunnerView.resumeScanning(true);
-            // boolean in resumeScanning method indicates whether recognition
-            // state should be automatically reset when resuming scanning - this
-            // includes clearing result of mRecognizer
-        }
-    };
-    
-}
-```
-#### <a name="scan-orientation"></a> Scan activity's orientation
-
-If activity's `screenOrientation` property in `AndroidManifest.xml` is set to `sensor`, `fullSensor` or similar, activity will be restarted every time device changes orientation from portrait to landscape and vice versa. While restarting activity, its `onPause`, `onStop` and `onDestroy` methods will be called and then new activity will be created anew. This is a potential problem for scan activity because in its lifecycle it controls both camera and native library - restarting the activity will trigger both restart of the camera and native library. This is a problem because changing orientation from landscape to portrait and vice versa will be very slow, thus degrading a user experience. **We do not recommend such setting.**
-
-For that matter, we recommend setting your scan activity to either `portrait` or `landscape` mode and handle device orientation changes manually. To help you with this, `RecognizerRunnerView` supports adding child views to it that will be rotated regardless of activity's `screenOrientation`. You add a view you wish to be rotated (such as view that contains buttons, status messages, etc.) to `RecognizerRunnerView` with [addChildView](#{javadocUrl}(com/microblink/blinkcard/view/CameraViewGroup.html#addChildView(android.view.View,boolean))) method. The second parameter of the method is a boolean that defines whether the view you are adding will be rotated with device. To define allowed orientations, implement [OrientationAllowedListener](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/view/OrientationAllowedListener.html) interface and add it to `RecognizerRunnerView` with method `setOrientationAllowedListener`. **This is the recommended way of rotating camera overlay.**
-
-However, if you really want to set `screenOrientation` property to `sensor` or similar and want Android to handle orientation changes of your scan activity, then we recommend to set `configChanges` property of your activity to `orientation|screenSize`. This will tell Android not to restart your activity when device orientation changes. Instead, activity's `onConfigurationChanged` method will be called so that activity can be notified of the configuration change. In your implementation of this method, you should call `changeConfiguration` method of `RecognizerView` so it can adapt its camera surface and child views to new configuration.
-## <a name="direct-api"></a> Direct API
-
-This section will describe how to use direct API to recognize android Bitmaps without the need for camera. You can use direct API anywhere from your application, not just from activities.
-
-Image recognition performance highly depends on the quality of the input images. When our camera management is used (scanning from a camera), we do our best to get camera frames with the best possible quality for the used device. On the other hand, when Direct API is used, you need to provide high-quality images without blur and glare for successful recognition.
-
-### <a name="direct-api-images"></a> Using Direct API for recognition of Android Bitmaps and custom camera frames
-
-1. First, you need to obtain reference to [RecognizerRunner singleton](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html) using [getSingletonInstance](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html#getSingletonInstance()).
-2. Second, you need to [initialize the recognizer runner](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html#initialize(android.content.Context,com.microblink.blinkcard.entities.recognizers.RecognizerBundle,com.microblink.blinkcard.directApi.DirectApiErrorListener)).
-3. After initialization, you can use singleton to process:
- - **Still** Android `Bitmaps` obtained, for example, from the gallery. Use [recognizeBitmap](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeBitmap(android.graphics.Bitmap,com.microblink.blinkcard.hardware.orientation.Orientation,com.microblink.blinkcard.view.recognition.ScanResultListener)) or [recognizeBitmapWithRecognizers](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeBitmapWithRecognizers(android.graphics.Bitmap,com.microblink.blinkcard.hardware.orientation.Orientation,com.microblink.blinkcard.geometry.Rectangle,com.microblink.blinkcard.view.recognition.ScanResultListener,com.microblink.blinkcard.entities.recognizers.RecognizerBundle)).
- - **Video** `Images` that are [built from custom camera video frames](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/image/ImageBuilder.html), for example, when you use your own or third party camera management. Recognition will be optimized for speed and will rely on time-redundancy between consecutive video frames in order to yield best possible recognition result. Use [recognizeVideoImage](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeVideoImage(com.microblink.blinkcard.image.InputImage,com.microblink.blinkcard.view.recognition.ScanResultListener)) or [recognizeVideoImageWithRecognizers](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeVideoImageWithRecognizers(com.microblink.blinkcard.image.InputImage,com.microblink.blinkcard.view.recognition.ScanResultListener,com.microblink.blinkcard.entities.recognizers.RecognizerBundle)).
- - **Still** `Images` when you need thorough scanning of single or few images which are not part of the video stream and you want to get best possible results from the single `InputImage`. [InputImage](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/image/InputImage.html) type comes from our SDK or it can be created by using [ImageBuilder](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/image/ImageBuilder.html). Use [recognizeStillImage](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeStillImage(com.microblink.blinkcard.image.InputImage,com.microblink.blinkcard.view.recognition.ScanResultListener)) or [recognizeStillImageWithRecognizers](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeStillImageWithRecognizers(com.microblink.blinkcard.image.InputImage,com.microblink.blinkcard.view.recognition.ScanResultListener,com.microblink.blinkcard.entities.recognizers.RecognizerBundle)). 
-
-4. When you want to delete all cached data from multiple recognitions, for example when you want to scan other document and/or restart scanning, you need to [reset the recognition state](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html#resetRecognitionState()).
-5. Do not forget to [terminate](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html#terminate()) the recognizer runner singleton after usage (it is a shared resource).
-
-Here is the minimum example of usage of direct API for recognizing android Bitmap:
-
-```java
-public class DirectAPIActivity extends Activity {
-    private RecognizerRunner mRecognizerRunner;
-    private BlinkCardRecognizer mRecognizer;
-    private RecognizerBundle mRecognizerBundle;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate();
-        // initialize your activity here
-        // create BlinkCardRecognizer
-        mRecognizer = new BlinkCardRecognizer();
-
-        // bundle recognizers into RecognizerBundle
-        mRecognizerBundle = new RecognizerBundle(mRecognizer);
-
-        try {
-            mRecognizerRunner = RecognizerRunner.getSingletonInstance();
-        } catch (FeatureNotSupportedException e) {
-            Toast.makeText(this, "Feature not supported! Reason: " + e.getReason().getDescription(), Toast.LENGTH_LONG).show();
-            finish();
-            return;
-        }
-
-        mRecognizerRunner.initialize(this, mRecognizerBundle, new DirectApiErrorListener() {
-            @Override
-            public void onRecognizerError(Throwable t) {
-                Toast.makeText(DirectAPIActivity.this, "There was an error in initialization of Recognizer: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        // start recognition
-        Bitmap bitmap = BitmapFactory.decodeFile("/path/to/some/file.jpg");
-        mRecognizerRunner.recognizeBitmap(bitmap, Orientation.ORIENTATION_LANDSCAPE_RIGHT, mScanResultListener);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mRecognizerRunner.terminate();
-    }
-
-    private final ScanResultListener mScanResultListener = new ScanResultListener() {
-        @Override
-        public void onScanningDone(@NonNull RecognitionSuccessType recognitionSuccessType) {
-            // this method is from ScanResultListener and will be called
-            // when scanning completes
-            // you can obtain scanning result by calling getResult on each
-            // recognizer that you bundled into RecognizerBundle.
-            // for example:
-
-            BlinkCardRecognizer.Result result = mRecognizer.getResult();
-            if (result.getResultState() == Recognizer.Result.State.Valid) {
-                // result is valid, you can use it however you wish
-            }
-        }
-    };
-
-}
-```
-
-[ScanResultListener.onScanningDone](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/view/recognition/ScanResultListener.html#onScanningDone(com.microblink.blinkcard.recognition.RecognitionSuccessType)) method is called for each input image that you send to the recognition. You can call `RecognizerRunner.recognize*` method multiple times with different images of the same document for better reading accuracy until you get a successful result in the listener's `onScanningDone` method. This is useful when you are using your own or third-party camera management.
-
-### <a name="direct-api-strings"></a> Using Direct API for `String` recognition (parsing)
-
-Some recognizers support recognition from `String`. They can be used through Direct API to parse given `String` and return data just like when they are used on an input image. When recognition is performed on `String`, there is no need for the OCR. Input `String` is used in the same way as the OCR output is used when image is being recognized. 
-
-Recognition from `String` can be performed in the same way as recognition from image, described in the [previous section](#direct-api-images).
-
-The only difference is that one of the [RecognizerRunner singleton](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html) methods for recognition from string should be called:
-
-- [recognizeString](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeString(java.lang.String,com.microblink.blinkcard.view.recognition.ScanResultListener))
-- [recognizeStringWithRecognizers](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html#recognizeStringWithRecognizers(java.lang.String,com.microblink.blinkcard.view.recognition.ScanResultListener,com.microblink.blinkcard.entities.recognizers.RecognizerBundle))
-
-
-### <a name="direct-api-state-machine"></a> Understanding DirectAPI's state machine
-
-Direct API's `RecognizerRunner` singleton is a state machine that can be in one of 3 states: `OFFLINE`, `READY` and `WORKING`.
-
-- When you obtain the reference to `RecognizerRunner` singleton, it will be in `OFFLINE` state. 
-- You can initialize `RecognizerRunner` by calling [initialize](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html#initialize(android.content.Context,com.microblink.blinkcard.entities.recognizers.RecognizerBundle,com.microblink.blinkcard.directApi.DirectApiErrorListener)) method. If you call `initialize` method while `RecognizerRunner` is not in `OFFLINE` state, you will get `IllegalStateException`.
-- After successful initialization, `RecognizerRunner` will move to `READY` state. Now you can call any of the `recognize*` methods.
-- When starting recognition with any of the `recognize*` methods, `RecognizerRunner` will move to `WORKING` state. If you attempt to call these methods while `RecognizerRunner` is not in `READY` state, you will get `IllegalStateException`
-- Recognition is performed on background thread so it is safe to call all `RecognizerRunner's` methods from UI thread
-- When recognition is finished, `RecognizerRunner` first moves back to `READY` state and then calls the [onScanningDone](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/view/recognition/ScanResultListener.html#onScanningDone(com.microblink.blinkcard.recognition.RecognitionSuccessType)) method of the provided [`ScanResultListener`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/view/recognition/ScanResultListener.html). 
-- Please note that `ScanResultListener`'s [`onScanningDone`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/view/recognition/ScanResultListener.html#onScanningDone(com.microblink.blinkcard.recognition.RecognitionSuccessType)) method will be called on background processing thread, so make sure you do not perform UI operations in this callback. Also note that until the `onScanningDone` method completes, `RecognizerRunner` will not perform recognition of another image or string, even if any of the `recognize*` methods have been called just after transitioning to `READY` state. This is to ensure that results of the recognizers bundled within `RecognizerBundle` associated with `RecognizerRunner` are not modified while possibly being used within `onScanningDone` method.
-- By calling [`terminate`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html#terminate()) method, `RecognizerRunner` singleton will release all its internal resources. Note that even after calling `terminate` you might receive `onScanningDone` event if there was work in progress when `terminate` was called.
-- `terminate` method can be called from any `RecognizerRunner` singleton's state
-- You can observe `RecognizerRunner` singleton's state with method [`getCurrentState`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html#getCurrentState())
-
-### <a name="direct-api-with-recognizer"></a> Using Direct API while RecognizerRunnerView is active
-Both [RecognizerRunnerView](#recognizer-runner-view) and `RecognizerRunner` use the same internal singleton that manages native code. This singleton handles initialization and termination of native library and propagating recognizers to native library. It is possible to use `RecognizerRunnerView` and `RecognizerRunner` together, as internal singleton will make sure correct synchronization and correct recognition settings are used. If you run into problems while using `RecognizerRunner` in combination with `RecognizerRunnerView`, [let us know](http://help.microblink.com)!
-
-
-### <a name="direct-api-combined-recognizers"></a> Using Direct API with combined recognizers 
-
-When you are using combined recognizer and images of both document sides are required, you need to call `RecognizerRunner.recognize*` multiple times. Call it first with the images of the first side of the document, until it is read, and then with the images of the second side. The combined recognizer automatically switches to second side scanning, after it has successfully read the first side. To be notified when the first side scanning is completed, you have to set the [FirstSideRecognitionCallback](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/metadata/recognition/FirstSideRecognitionCallback.html) through [MetadataCallbacks](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/metadata/MetadataCallbacks.html). If you don't need that information, e.g. when you have only one image for each document side, don't set the `FirstSideRecognitionCallback` and check the [RecognitionSuccessType](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/recognition/RecognitionSuccessType.html) in [ScanResultListener.onScanningDone](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/view/recognition/ScanResultListener.html#onScanningDone(com.microblink.blinkcard.recognition.RecognitionSuccessType)), after the second side image has been processed.
-
-# <a name="built-in-ui-components"></a> Available built-in activities and overlays
-## <a name="blinkcard-ui-component"></a> `BlinkCardUISettings` and `BlinkCardOverlayController`
-
-[`BlinkCardOverlayController`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/fragment/overlay/blinkcard/BlinkCardOverlayController.html) implements new UI for scanning card documents. It is an overlay best suited for scanning payment cards. It can be used for other card documents like ID cards, passports, driver's licenses, etc. This overlay also supports **combined recognizers**, because it manages scanning of multiple document sides in the single camera opening and guides the user through the scanning process. It implements several new features:
-
-* clear indication for searching phase, when BlinkCard is searching for a card
-* clear progress indication, when BlinkCard is busy with OCR and data extraction
-* visual indications when the user needs to place the card closer to the camera
-
-The new UI allows the user to scan the card at an any angle, in any orientation.
-
-To launch a built-in activity that uses `BlinkCardOverlayController` use [`BlinkCardUISettings`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/uisettings/BlinkCardUISettings.html).
-
-### Scan overlay theming
-<p align="center" >
-  <img src="https://raw.githubusercontent.com/wiki/blinkcard/blinkcard-android/images/reticle_overlay_customisation_1.png" alt="BlinkCard SDK">
-</p>
-<p align="center" >
-  <img src="https://raw.githubusercontent.com/wiki/blinkcard/blinkcard-android/images/reticle_overlay_customisation_2.png" alt="BlinkCard SDK">
-</p>
-
-To customise overlay, provide your custom style resource via [`BlinkCardUISettings.setOverlayViewStyle()`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/uisettings/BlinkCardUISettings.html#setOverlayViewStyle(int)) method or via [`BlinkCardReticleOverlayView`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/fragment/overlay/blinkcard/reticleui/BlinkCardReticleOverlayView.html) constructor. You can customise elements labeled on screenshots above by providing the following attributes in your style:
-
-**exit**
-
-* `mb_exitScanDrawable` - icon drawable
-
-**torch**
-
-* `mb_torchOnDrawable` - icon drawable that is shown when the torch is enabled
-* `mb_torchOffDrawable` - icon drawable that is show when the torch is disabled
-
-**instructions**
-
-* `mb_instructionsTextAppearance` - style that will be used as `android:textAppearance`
-* `mb_instructionsBackgroundDrawable` - drawable used for background
-
-**flashlight (glare) warning**
-
-* `mb_glareWarningTextAppearance` - style that will be used as `android:textAppearance`
-* `mb_glareWarningBackgroundDrawable` - drawable used for background
-* note that you can disable this element by using [`BlinkCardUISettings.setShowGlareWarning(false)`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/uisettings/BlinkCardUISettings.html#setShowGlareWarning(boolean))
-
-**card icon**
-
-* `mb_cardFrontDrawable` - icon drawable shown during card flip animation, representing front side of the card
-* `mb_cardBackDrawable` - icon drawable shown during card flip animation, representing back side of the card
-
-**reticle**
-
-* `mb_reticleDefaultDrawable` - drawable shown when reticle is in neutral state
-* `mb_reticleSuccessDrawable` - drawable shown when reticle is in success state (scanning was successful)
-* `mb_reticleErrorDrawable` - drawable shown when reticle is in error state
-
-**inner reticle**
-
-* `mb_reticleColor` - color of the reticle animation that is active before a card is detected
-
-### Edit results screen
-SDK also provides an activity that allows users to edit scanned results and input data that wasn't scanned. Note that this activity works only with `BlinkCardRecognizer`.
-
-If you are using `BlinkCardUISettings`, enable edit screen by calling `BlinkCardUISettings.setEditScreenEnabled(true)`, otherwise, launch it by building an intent with `BlinkCardEditActivity.buildIntent()` and save scanned results to the intent by using `RecognizerBundle.saveToIntent(intent)`.
-
-If edit screen is enabled, in your `onActivityResult(int requestCode, int resultCode, Intent data)` method, intent will contain the original scanned results (`RecognizerBundle.loadFromIntent(data)`) and also user-edited fields (`BlinkCardEditResultBundle.createFromIntent(data)`).
-
-Edit results activity can be customised in several ways:
-
-* to configure which fields should be displayed use `BlinkCardUISettings.setEditScreenFieldConfiguration()`
-* set your custom theme with `BlinkCardUISettings.setEditScreenTheme()` method
-* change default strings by using `BlinkCardUISettings.setEditScreenStrings()`
-
-### Edit screen theming
-
-<p align="center" >
-  <img src="https://raw.githubusercontent.com/wiki/blinkcard/blinkcard-android/images/edit_screen_customisation.png" alt="BlinkCard SDK">
-</p>
-
-To customise edit results activity, provide your custom theme resource via [`BlinkCardUISettings.setEditScreenTheme()`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/uisettings/BlinkCardUISettings.html#setEditScreenTheme(int)). Your custom theme can either:
-
-1. extend our default theme `MB_theme_blink_card_edit_screen` and override just specific attributes
-2. extend any of the AppCompat themes and define all attributes listed below
-
-Our default theme extends `Theme.AppCompat.Light` so if you want to use a dark theme you'll need to go with option number 2.
-
-**toolbar**
-
-* `mb_blinkcardEditToolbarTheme` - style that will be used as toolbar theme
-* `mb_blinkcardEditToolbarBackground` - toolbar background color
-
-**label**
-
-* `mb_blinkcardEditLabelTextAppearance` - style that will be used as `android:textAppearance`
-* `mb_blinkcardEditLabelTextColor` - text color used when the field is not in focus or in error state
-* `mb_blinkcardEditErrorColor` - text color used in case of an error
-* `colorAccent` - text color used when the field is focused
-
-**value**
-
-* `mb_blinkcardEditValueTextAppearance` - style that will be used as `android:textAppearance`
-* `mb_blinkcardEditValueTextColor` - color for inputed value text
-* `mb_blinkcardEditValueHintColor` - color for hint text
-
-**divider**
-
-* `mb_glareWarningTextAppearance` - style that will be used as `android:textAppearance`
-* `mb_blinkcardEditDividerColor` - background color used when the field is not in focus or in error state
-* `mb_blinkcardEditErrorColor` - background color used when the field is in error state
-* `colorAccent` - background color used when the field is focused
-
-**error**
-
-* `mb_blinkcardEditErrorTextAppearance` - style that will be used as `android:textAppearance`
-* `mb_blinkcardEditErrorColor ` - text color
-
-**confirm button**
-
-* `mb_blinkcardEditConfirmButtonStyle` - button style
-
-### Introduction dialog and onboarding dialog
-To customize the visibility of these two dialogs, use methods provided in `BlinkCardUISettings`.
-
-<p align="center" >
-  <img src="https://raw.githubusercontent.com/wiki/blinkcard/blinkcard-android/images/introduction_onboarding_overlay.png" alt="BlinkCard SDK">
-</p>
-
-The method for controlling the visibility of the **introduction dialog** is [`BlinkCardUISettings.setShowIntroductionDialog(boolean showIntroductionDialog)`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/uisettings/BlinkCardUISettings.html#setShowIntroductionDialog(boolean)) and it is set to true by default, meaning the introduction dialog will be shown.
-
-The method for controlling the visibility of the **onboarding dialog** is [`BlinkCardUISettings.setShowOnboardingInfo(boolean showOnboardingInfo)`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/uisettings/BlinkCardUISettings.html#setShowOnboardingInfo(boolean)) and it is set to true by default, meaning the introduction dialog will be shown.
-
-There is also a method for controlling the delay of the **"Show help?" tooltip** that is shown above the help button. The button itself will be shown if the previous method for showing onboarding is true.
-The method for setting the delay length of the tooltip is [`BlinkCardUISettings.setShowTooltipTimeIntervalMs(boolean showTooltipTimeIntervalMs)`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/uisettings/BlinkCardUISettings.html#setShowTooltipTimeIntervalMs(long)). Time parameter is set in milliseconds.
-The default setting of the delay is 12 seconds (12000 milliseconds).
-
-## <a name="translation"></a> Translation and localization
-
-Strings used within built-in activities and overlays can be localized to any language. If you are using `RecognizerRunnerView` ([see this chapter for more information](#recognizerRunnerView)) in your custom scan activity or fragment, you should handle localization as in any other Android app. `RecognizerRunnerView` does not use strings nor drawables, it only uses assets from `assets/microblink` folder. Those assets must not be touched as they are required for recognition to work correctly.
-
-However, if you use our built-in activities or overlays, they will use resources packed within `LibBlinkCard.aar` to display strings and images on top of the camera view. We have already prepared strings for several languages which you can use out of the box. You can also modify those strings, or you can add your own language.
-
-To use a language, you have to enable it from the code:
-        
-* To use a certain language, on application startup, before opening any UI component from the SDK, you should call method `LanguageUtils.setLanguageAndCountry(language, country, context)`. For example, you can set language to Croatian like this:
-    
-    ```java
-    // define BlinkCard language
-    LanguageUtils.setLanguageAndCountry("hr", "", this);
-    ```
-
-#### <a name="addLanguage"></a> Adding new language
-
-_BlinkCard_ can easily be translated to other languages. The `res` folder in `LibBlinkCard.aar` archive has folder `values` which contains `strings.xml` - this file contains english strings. In order to make e.g. croatian translation, create a folder `values-hr` in your project and put the copy of `strings.xml` inside it (you might need to extract `LibBlinkCard.aar` archive to access those files). Then, open that file and translate the strings from English into Croatian.
-
-#### <a name="stringChanging"></a> Changing strings in the existing language
-    
-To modify an existing string, the best approach would be to:
-
-1. Choose a language you want to modify. For example Croatian ('hr').
-2. Find `strings.xml` in folder `res/values-hr` of the `LibBlinkCard.aar` archive
-3. Choose a string key which you want to change. For example: ```<string name="MBBack">Back</string>```
-4. In your project create a file `strings.xml` in the folder `res/values-hr`, if it doesn't already exist
-5. Create an entry in the file with the value for the string which you want. For example: ```<string name="MBBack">Natrag</string>```
-6. Repeat for all the string you wish to change
-
-# <a name="processing-events"></a> Handling processing events with `RecognizerRunner` and `RecognizerRunnerView`
-
-Processing events, also known as _Metadata callbacks_ are purely intended for giving processing feedback on UI or to capture some debug information during development of your app using _BlinkCard_ SDK. For that reason, built-in activities and fragments handle those events internally. If you need to handle those events yourself, you need to use either [RecognizerRunnerView](#recognizer-runner-view) or [RecognizerRunner](#direct-api).
-
-Callbacks for all events are bundled into the [MetadataCallbacks](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/metadata/MetadataCallbacks.html) object. Both [RecognizerRunner](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html#setMetadataCallbacks(com.microblink.blinkcard.metadata.MetadataCallbacks)) and [RecognizerRunnerView](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/view/recognition/RecognizerRunnerView.html#setMetadataCallbacks(com.microblink.blinkcard.metadata.MetadataCallbacks)) have methods which allow you to set all your callbacks.
-
-We suggest that you check for more information about available callbacks and events to which you can handle in the [javadoc for MetadataCallbacks class](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/metadata/MetadataCallbacks.html).
-
-Please note that both those methods need to pass information about available callbacks to the native code and for efficiency reasons this is done at the time `setMetadataCallbacks` method is called and **not every time** when change occurs within the `MetadataCallbacks` object. This means that if you, for example, set `QuadDetectionCallback` to `MetadataCallbacks` **after** you already called `setMetadataCallbacks` method, the `QuadDetectionCallback` will not be registered with the native code and you will not receive its events.
-
-Similarly, if you, for example, remove the `QuadDetectionCallback` from `MetadataCallbacks` object **after** you already called `setMetadataCallbacks` method, your app will crash with `NullPointerException` when our processing code attempts to invoke the method on removed callback (which is now set to `null`). We **deliberately** do not perform `null` check here because of two reasons:
-
-- it is inefficient
-- having `null` callback, while still being registered to native code is illegal state of your program and it should therefore crash
-
-**Remember**, each time you make some changes to `MetadataCallbacks` object, you need to apply those changes to to your `RecognizerRunner` or `RecognizerRunnerView` by calling its `setMetadataCallbacks` method.
-
-# <a name="available-recognizers"></a> `Recognizer` concept and `RecognizerBundle`
-
-This section will first describe [what is a `Recognizer`](#recognizer-concept) and how it should be used to perform recognition of the images, videos and camera stream. Next, [we will describe how `RecognizerBundle`](#recognizer-bundle) can be used to tweak the recognition procedure and to transfer `Recognizer` objects between activities.
-
-[RecognizerBundle](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/RecognizerBundle.html) is an object which wraps the [Recognizers](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/Recognizer.html) and defines settings about how recognition should be performed. Besides that, `RecognizerBundle` makes it possible to transfer `Recognizer` objects between different activities, which is required when using built-in activities to perform scanning, as described in first scan section, but is also handy when you need to pass `Recognizer` objects between your activities.
-
-List of all available `Recognizer` objects, with a brief description of each `Recognizer`, its purpose and recommendations how it should be used to get best performance and user experience, can be found [here](#recognizer-list) .
-
-## <a name="recognizer-concept"></a> The `Recognizer` concept
-
-The [Recognizer](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/Recognizer.html) is the basic unit of processing within the _BlinkCard_ SDK. Its main purpose is to process the image and extract meaningful information from it. As you will see [later](#recognizer-list), the _BlinkCard_ SDK has lots of different `Recognizer` objects that have various purposes.
-
-Each `Recognizer` has a `Result` object, which contains the data that was extracted from the image. The `Result` object is a member of corresponding `Recognizer` object and its lifetime is bound to the lifetime of its parent `Recognizer` object. If you need your `Result` object to outlive its parent `Recognizer` object, you must make a copy of it by calling its method [`clone()`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/Entity.Result.html#clone()).
-
-Every `Recognizer` is a stateful object, that can be in two states: _idle state_ and _working state_. While in _idle state_, you can tweak `Recognizer` object's properties via its getters and setters. After you bundle it into a `RecognizerBundle` and use either [RecognizerRunner](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/directApi/RecognizerRunner.html) or [RecognizerRunnerView](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/view/recognition/RecognizerRunnerView.html) to _run_ the processing with all `Recognizer` objects bundled within `RecognizerBundle`, it will change to _working state_ where the `Recognizer` object is being used for processing. While being in _working state_, you cannot tweak `Recognizer` object's properties. If you need to, you have to create a copy of the `Recognizer` object by calling its [`clone()`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/Entity.html#clone()), then tweak that copy, bundle it into a new `RecognizerBundle` and use [`reconfigureRecognizers`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/view/recognition/RecognizerRunnerView.html#reconfigureRecognizers(com.microblink.blinkcard.entities.recognizers.RecognizerBundle)) to ensure new bundle gets used on processing thread.
-
-While `Recognizer` object works, it changes its internal state and its result. The `Recognizer` object's `Result` always starts in [Empty state](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/Recognizer.Result.State.html#Empty). When corresponding `Recognizer` object performs the recognition of given image, its `Result` can either stay in `Empty` state (in case `Recognizer` failed to perform recognition), move to [Uncertain state](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/Recognizer.Result.State.html#Uncertain) (in case `Recognizer` performed the recognition, but not all mandatory information was extracted), move to [StageValid state](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/Recognizer.Result.State.html#StageValid) (in case `Recognizer` successfully scanned one part/side of the document and there are more fields to extract) or move to [Valid state](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/Recognizer.Result.State.html#Valid) (in case `Recognizer` performed recognition and all mandatory information was successfully extracted from the image).
-
-As soon as one `Recognizer` object's `Result` within `RecognizerBundle` given to `RecognizerRunner` or `RecognizerRunnerView` changes to `Valid` state, the [`onScanningDone`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/view/recognition/ScanResultListener.html#onScanningDone(com.microblink.blinkcard.recognition.RecognitionSuccessType)) callback will be invoked on same thread that performs the background processing and you will have the opportunity to inspect each of your `Recognizer` objects' `Results` to see which one has moved to `Valid` state.
-
-As already stated in [section about `RecognizerRunnerView`](#recognizerRunnerView), as soon as `onScanningDone` method ends, the `RecognizerRunnerView` will continue processing new camera frames with same `Recognizer` objects, unless [paused](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/view/recognition/RecognizerRunnerView.html#pauseScanning()). Continuation of processing or [resetting recognition](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/view/recognition/RecognizerRunnerView.html#resetRecognitionState()) will modify or reset all `Recognizer` objects's `Results`. When using built-in activities, as soon as `onScanningDone` is invoked, built-in activity pauses the `RecognizerRunnerView` and starts finishing the activity, while saving the `RecognizerBundle` with active `Recognizer` objects into `Intent` so they can be transferred back to the calling activities.
-
-
-## <a name="recognizer-bundle"></a> `RecognizerBundle`
-
-The [RecognizerBundle](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/RecognizerBundle.html) is wrapper around [Recognizers](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/Recognizer.html) objects that can be used to transfer `Recognizer` objects between activities and to give `Recognizer` objects to `RecognizerRunner` or `RecognizerRunnerView` for processing.
-
-The `RecognizerBundle` is always [constructed with array](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/RecognizerBundle.html#RecognizerBundle(com.microblink.blinkcard.entities.recognizers.Recognizer...)) of `Recognizer` objects that need to be prepared for recognition (i.e. their properties must be tweaked already). The _varargs_ constructor makes it easier to pass `Recognizer` objects to it, without the need of creating a temporary array.
-
-The `RecognizerBundle` manages a chain of `Recognizer` objects within the recognition process. When a new image arrives, it is processed by the first `Recognizer` in chain, then by the second and so on, iterating until a `Recognizer` object's `Result` changes its state to `Valid` or all of the `Recognizer` objects in chain were invoked (none getting a `Valid` result state). If you want to invoke all `Recognizers` in the chain, regardless of whether some `Recognizer` object's `Result` in chain has changed its state to `Valid` or not, you can [allow returning of multiple results on a single image](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/RecognizerBundle.html#setAllowMultipleScanResultsOnSingleImage(boolean)).
-
-You cannot change the order of the `Recognizer` objects within the chain - no matter the order in which you give `Recognizer` objects to `RecognizerBundle`, they are internally ordered in a way that provides best possible performance and accuracy. Also, in order for _BlinkCard_ SDK to be able to order `Recognizer` objects in recognition chain in the best way possible, it is not allowed to have multiple instances of `Recognizer` objects of the same type within the chain. Attempting to do so will crash your application.
-
-### <a name="intent-optimization"></a> Passing `Recognizer` objects between activities
-
-Besides managing the chain of `Recognizer` objects, `RecognizerBundle` also manages transferring bundled `Recognizer` objects between different activities within your app. Although each `Recognizer` object, and each its `Result` object implements [Parcelable interface](https://developer.android.com/reference/android/os/Parcelable.html), it is not so straightforward to put those objects into [Intent](https://developer.android.com/reference/android/content/Intent.html) and pass them around between your activities and services for two main reasons:
-
-- `Result` object is tied to its `Recognizer` object, which manages lifetime of the native `Result` object.
-- `Result` object often contains large data blocks, such as images, which cannot be transferred via `Intent` because of [Android's Intent transaction data limit](https://developer.android.com/reference/android/os/TransactionTooLargeException.html).
-
-Although the first problem can be easily worked around by making a [copy](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/Entity.Result.html#clone()) of the `Result` and transfer it independently, the second problem is much tougher to cope with. This is where, `RecognizerBundle's` methods [saveToIntent](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/blinkcard/entities/util/IntentTransferableEntity.html#saveToIntent(android.content.Intent)) and [loadFromIntent](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/intent/IntentTransferableBundle.html#loadFromIntent(android.content.Intent)) come to help, as they ensure the safe passing of `Recognizer` objects bundled within `RecognizerBundle` between activities according to policy defined with method [`setIntentDataTransferMode`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/MicroblinkSDK.html#setIntentDataTransferMode(com.microblink.blinkcard.intent.IntentDataTransferMode)):
-
-- if set to [`STANDARD`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/intent/IntentDataTransferMode.html#STANDARD), the `Recognizer` objects will be passed via `Intent` using normal _Intent transaction mechanism_, which is limited by [Android's Intent transaction data limit](https://developer.android.com/reference/android/os/TransactionTooLargeException.html). This is same as manually putting `Recognizer` objects into `Intent` and is OK as long as you do not use `Recognizer` objects that produce images or other large objects in their `Results`.
-- if set to [`OPTIMISED`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/intent/IntentDataTransferMode.html#OPTIMISED), the `Recognizer` objects will be passed via internal singleton object and no serialization will take place. This means that there is no limit to the size of data that is being passed. This is also the fastest transfer method, but it has a serious drawback - if Android kills your app to save memory for other apps and then later restarts it and redelivers `Intent` that should contain `Recognizer` objects, the internal singleton that should contain saved `Recognizer` objects will be empty and data that was being sent will be lost. You can easily provoke that condition by choosing _No background processes_ under _Limit background processes_ in your device's _Developer options_, and then switch from your app to another app and then back to your app.
-- if set to [`PERSISTED_OPTIMISED`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/intent/IntentDataTransferMode.html#PERSISTED_OPTIMISED), the `Recognizer` objects will be passed via internal singleton object (just like in `OPTIMISED` mode) and will additionaly be serialized into a file in your application's private folder. In case Android restarts your app and internal singleton is empty after re-delivery of the `Intent`, the data will be loaded from file and nothing will be lost. The files will be automatically cleaned up when data reading takes place. Just like `OPTIMISED`, this mode does not have limit to the size of data that is being passed and does not have a drawback that `OPTIMISED` mode has, but some users might be concerned about files to which data is being written. 
-    - These files **will** contain end-user's private data, such as image of the object that was scanned and the extracted data. Also these files **may** remain saved in your application's private folder until the next successful reading of data from the file. 
-    - If your app gets restarted multiple times, only after first restart will reading succeed and will delete the file after reading. If multiple restarts take place, you must implement [`onSaveInstanceState`](https://developer.android.com/reference/android/app/Activity.html#onSaveInstanceState(android.os.Bundle)) and save bundle back to file by calling its [`saveState`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/RecognizerBundle.html#saveState()) method. Also, after saving state, you should ensure that you [clear saved state](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/RecognizerBundle.html#clearSavedState()) in your [`onResume`](https://developer.android.com/reference/android/app/Activity.html#onResume()), as [`onCreate`](https://developer.android.com/reference/android/app/Activity.html#onCreate(android.os.Bundle)) may not be called if activity is not restarted, while `onSaveInstanceState` may be called as soon as your activity goes to background (before `onStop`), even though activity may not be killed at later time. 
-    - If saving data to file in private storage is a concern to you, you should use either `OPTIMISED` mode to transfer large data and image between activities or create your own mechanism for data transfer. Note that your application's private folder is only accessible by your application and your application alone, unless the end-user's device is rooted.
-
-# <a name="recognizer-list"></a> List of available recognizers
-
-This section will give a list of all `Recognizer` objects that are available within _BlinkCard_ SDK, their purpose and recommendations how they should be used to get best performance and user experience.
-
-## <a name="frame-grabber-recognizer"></a> Frame Grabber Recognizer
-
-The [`FrameGrabberRecognizer`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/framegrabber/FrameGrabberRecognizer.html) is the simplest recognizer in _BlinkCard_ SDK, as it does not perform any processing on the given image, instead it just returns that image back to its [`FrameCallback`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/framegrabber/FrameCallback.html). Its [Result](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/framegrabber/FrameGrabberRecognizer.Result.html) never changes state from [Empty](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/Recognizer.Result.State.html#Empty).
-
-This recognizer is best for easy capturing of camera frames with [`RecognizerRunnerView`](#recognizerRunnerView). Note that [`Image`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/image/Image.html) sent to [`onFrameAvailable`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/framegrabber/FrameCallback.html#onFrameAvailable(com.microblink.blinkcard.image.Image,boolean,double)) are temporary and their internal buffers all valid only until the `onFrameAvailable` method is executing - as soon as method ends, all internal buffers of `Image` object are disposed. If you need to store `Image` object for later use, you must create a copy of it by calling [`clone`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/image/Image.html#clone()).
-
-Also note that [`FrameCallback`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/framegrabber/FrameCallback.html) interface extends [Parcelable interface](https://developer.android.com/reference/android/os/Parcelable.html), which means that when implementing `FrameCallback` interface, you must also implement `Parcelable` interface. 
-
-This is especially important if you plan to transfer `FrameGrabberRecognizer` between activities - in that case, keep in mind that the instance of your object may not be the same as the instance on which `onFrameAvailable` method gets called - the instance that receives `onFrameAvailable` calls is the one that is created within activity that is performing the scan.
-
-## <a name="success-frame-grabber-recognizer"></a> Success Frame Grabber Recognizer
-
-The [`SuccessFrameGrabberRecognizer`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/successframe/SuccessFrameGrabberRecognizer.html) is a special `Recognizer` that wraps some other `Recognizer` and impersonates it while processing the image. However, when the `Recognizer` being impersonated changes its `Result` into `Valid` state, the `SuccessFrameGrabberRecognizer` captures the image and saves it into its own `Result` object.
-
-Since `SuccessFrameGrabberRecognizer` impersonates its slave `Recognizer` object, it is not possible to give both concrete `Recognizer` object and `SuccessFrameGrabberRecognizer` that wraps it to same `RecognizerBundle` - doing so will have the same result as if you have given two instances of same `Recognizer` type to the `RecognizerBundle` - it will crash your application.
-
-This recognizer is best for use cases when you need to capture the exact image that was being processed by some other `Recognizer` object at the time its `Result` became `Valid`. When that happens, `SuccessFrameGrabber's` [`Result`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/successframe/SuccessFrameGrabberRecognizer.Result.html) will also become `Valid` and will contain described image. That image can then be retrieved with [`getSuccessFrame()`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/successframe/SuccessFrameGrabberRecognizer.Result.html#getSuccessFrame()) method.
-
-## <a name="blinkcard-recognizers"></a> BlinkCard recognizers
-
-BlinkCard recognizers work best with the [`BlinkCardActivity`](#blinkcard-ui-component), which has UI best suited for credit card scanning. 
-
-### <a name="blink_card_recognizer"></a> BlinkCard recognizer
-The [`BlinkCardRecognizer`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/recognizers/blinkcard/BlinkCardRecognizer.html) extracts the **card number** (PAN), **expiry date**, **owner** information (name or company title), **IBAN**, and **CVV**, from a large range of different card layouts. 
-
-`BlinkCardRecognizer` is a Combined recognizer, which means it's designed for scanning **both sides of a card**. However, if all required data is found on the first side, we do not wait for second side scanning. We can return the result early. A set of required fields is defined through the recognizer's settings.
-
-"Front side" and "back side" are terms more suited to ID scanning. We start the scanning process with the **side containing the card number**. This makes the UX easier for users with cards where all data is on the back side.
-# <a name="embed-aar"></a> Embedding _BlinkCard_ inside another SDK
-	
-You need to ensure that the final app gets all resources required by _BlinkCard_. At the time of writing this documentation, [Android does not have support for combining multiple AAR libraries into single fat AAR](https://stackoverflow.com/questions/20700581/android-studio-how-to-package-single-aar-from-multiple-library-projects/20715155#20715155). The problem is that resource merging is done while building application, not while building AAR, so application must be aware of all its dependencies. **There is no official Android way of "hiding" third party AAR within your AAR.**
-
-This problem is usually solved with transitive Maven dependencies, i.e. when publishing your AAR to Maven you specify dependencies of your AAR so they are automatically referenced by app using your AAR. Besides this, there are also several other approaches you can try:
-
-- you can ask your clients to reference _BlinkCard_ in their app when integrating your SDK
-- since the problem lies in resource merging part you can try avoiding this step by ensuring your library will not use any component from _BlinkCard_ that uses resources (i.e. built-in activities, fragments and views, except `RecognizerRunnerView`). You can perform [custom UI integration](#recognizer-runner-view) while taking care that all resources (strings, layouts, images, ...) used are solely from your AAR, not from _BlinkCard_. Then, in your AAR you should not reference `LibBlinkCard.aar` as gradle dependency, instead you should unzip it and copy its assets to your AAR’s assets folder, its `classes.jar` to your AAR’s lib folder (which should be referenced by gradle as jar dependency) and contents of its jni folder to your AAR’s src/main/jniLibs folder.
-- Another approach is to use [3rd party unofficial gradle script](https://github.com/adwiv/android-fat-aar) that aim to combine multiple AARs into single fat AAR. Use this script at your own risk and report issues to [its developers](https://github.com/adwiv/android-fat-aar/issues) - we do not offer support for using that script.
-- There is also a [3rd party unofficial gradle plugin](https://github.com/Vigi0303/fat-aar-plugin) which aims to do the same, but is more up to date with latest updates to Android gradle plugin. Use this plugin at your own risk and report all issues with using to [its developers](https://github.com/Vigi0303/fat-aar-plugin/issues) - we do not offer support for using that plugin.
-
-# <a name="arch-consider"></a> Processor architecture considerations
-
-_BlinkCard_ is distributed with **ARMv7** and **ARM64** native library binaries.
-
-**ARMv7** architecture gives the ability to take advantage of hardware accelerated floating point operations and SIMD processing with [NEON](http://www.arm.com/products/processors/technologies/neon.php). This gives _BlinkCard_ a huge performance boost on devices that have ARMv7 processors. Most new devices (all since 2012.) have ARMv7 processor so it makes little sense not to take advantage of performance boosts that those processors can give. Also note that some devices with ARMv7 processors do not support NEON and VFPv4 instruction sets, most popular being those based on [NVIDIA Tegra 2](https://en.wikipedia.org/wiki/Tegra#Tegra_2), [ARM Cortex A9](https://en.wikipedia.org/wiki/ARM_Cortex-A9) and older. Since these devices are old by today's standard, _BlinkCard_ does not support them. For the same reason, _BlinkCard_ does not support devices with ARMv5 (`armeabi`) architecture.
-
-**ARM64** is the new processor architecture that most new devices use. ARM64 processors are very powerful and also have the possibility to take advantage of new NEON64 SIMD instruction set to quickly process multiple pixels with a single instruction.
-
-There are some issues to be considered:
-
-- ARMv7 build of the native library cannot be run on devices that do not have ARMv7 compatible processor
-- ARMv7 processors do not understand x86 instruction set
-- ARM64 processors understand ARMv7 instruction set, but ARMv7 processors do not understand ARM64 instructions. 
-    - <a name="64bitNotice"></a> **NOTE:** as of the year 2018, some android devices that ship with ARM64 processors do not have full compatibility with ARMv7. This is mostly due to incorrect configuration of Android's 32-bit subsystem by the vendor, however Google decided that as of August 2019 all apps on PlayStore that contain native code need to have native support for 64-bit processors (this includes ARM64 and x86_64) - this is in anticipation of future Android devices that will support 64-bit code **only**, i.e. that will have ARM64 processors that do not understand ARMv7 instruction set.
-- if ARM64 processor executes ARMv7 code, it does not take advantage of modern NEON64 SIMD operations and does not take advantage of 64-bit registers it has - it runs in emulation mode
-
-`LibBlinkCard.aar` archive contains ARMv7 and ARM64 builds of the native library. By default, when you integrate _BlinkCard_ into your app, your app will contain native builds for all these processor architectures. Thus, _BlinkCard_ will work on ARMv7 and ARM64 devices and will use ARMv7 features on ARMv7 devices and ARM64 features on ARM64 devices. However, the size of your application will be rather large.
-
-## <a name="reduce-size"></a> Reducing the final size of your app
-
-We recommend that you distribute your app using [App Bundle](https://developer.android.com/platform/technology/app-bundle). This will defer apk generation to Google Play, allowing it to generate minimal APK for each specific device that downloads your app, including only required processor architecture support.
-
-### Using APK splits
-
-If you are unable to use App Bundle, you can create multiple flavors of your app - one flavor for each architecture. With gradle and Android studio this is very easy - just add the following code to `build.gradle` file of your app:
-
-```
-android {
-  ...
-  splits {
-    abi {
-      enable true
-      reset()
-      include 'armeabi-v7a', 'arm64-v8a'
-      universalApk true
-    }
+val maybeInstance = BlinkCardSdk.initializeSdk(
+  context,
+  BlinkCardSdkSettings(
+    licenseKey = "your_license-key",
+    ) 
+)
+when {
+  maybeInstance.isSuccess -> {
+    val sdkInstance = maybeInstance.getOrNull()
+    // use the SDK instance
+  }
+
+  maybeInstance.isFailure -> {
+    val exception = maybeInstance.exceptionOrNull()
+    Log.e(TAG, "Initialization failed", exception)
   }
 }
 ```
+`BlinkCardSdk.initializeSdk` is a suspend function which should be called from a coroutine.
 
-With that build instructions, gradle will build two different APK files for your app. Each APK will contain only native library for one processor architecture and one APK will contain all architectures. In order for Google Play to accept multiple APKs of the same app, you need to ensure that each APK has different version code. This can easily be done by defining a version code prefix that is dependent on architecture and adding real version code number to it in following gradle script:
+3. Use `BlinkCardCameraScanningScreen` composable to the scanning UX and obtain results:
+```kotlin
+BlinkCardCameraScanningScreen(
+  sdkInstance,
+  uiSettings = UiSettings(),
+  uxSettings = BlinkCardUxSettings(),
+  uiSettings = UiSettings(),
+  cameraSettings: CameraSettings = CameraSettings(),
+  sessionSettings = BlinkCardSessionSettings(),
+  onScanningSuccess = { scanningResult ->
+    // scanningResult is BlinkCardScanningResult
+  },
+  onScanningCanceled = {
+    // user canceled the scanning
+  }
+)
+```
+
+### Scanning session result
 
 ```
-// map for the version code
-def abiVersionCodes = ['armeabi-v7a':1, 'arm64-v8a':2]
+data class BlinkCardScanningResult(
+    val issuingNetwork: String,
+    val cardAccounts: List<CardAccountResult>,
+    val iban: String?,
+    val cardholderName: String?,
+    val overallCardLivenessResult: CheckResult,
+    val firstSideResult: BlinkCardSingleSideScanningResult?,
+    val secondSideResult: BlinkCardSingleSideScanningResult?
+)
+```
 
-import com.android.build.OutputFile
+After the document scanning session is finished the SDK returns an object of type [BlinkCardScanningResult](https://blinkcard.github.io/blinkcard-android/blinkcard-core/com.microblink.blinkcard.core.session/-blink-card-scanning-result/index.html).
+The object contains all the extracted data from the scanned card, as well as the results of the liveness checks performed on the card. 
+The scanning result is divided into general results and specific card account results. 
+Each card may have multiple card accounts (e.g., credit and debit), and each account has its own set of extracted data.
 
-android.applicationVariants.all { variant ->
-    // assign different version code for each output
-    variant.outputs.each { output ->
-        def filter = output.getFilter(OutputFile.ABI)
-        if(filter != null) {
-            output.versionCodeOverride = abiVersionCodes.get(output.getFilter(OutputFile.ABI)) * 1000000 + android.defaultConfig.versionCode
+Card account results are represented as a list of `CardAccountResult` objects, which contain the following data:
+
+```
+data class CardAccountResult(
+    val cardNumber: String,
+    val cardNumberValid: Boolean,
+    val cardNumberPrefix: String?,
+    val cvv: String?,
+    val expiryDate: DateResult<String>?,
+    val fundingType: String?,
+    val cardCategory: String?,
+    val issuerName: String?,
+    val issuerCountryCode: String?,
+    val issuerCountry: String?
+)
+```
+
+# <a name="device-requirements"></a> Device requirements
+
+## <a name="android-version-req"></a> Android version
+
+_BlinkCard_ SDK requires Android API level **24** or newer.
+
+## <a name="camera-req"></a> Camera
+
+To perform successful scans, the camera preview resolution must be at least **1080p**. Note that the camera preview resolution is not the same as the video recording resolution.
+
+_BlinkCard_ SDK allows the selection of higher and lower resolutions of camera selected for the scanning process. Additionally, if the deivce has more than one camera, it is possible to select between `CameraLensFacing.LensFacingBack` and `CameraLensFacing.LensFacingFront`. Both settings are accessible through `CameraSettings` in all implementation methods.
+
+**NOTE**: Most of the front facing cameras on Android devices are lower quality and do not have autofocus. This highly impacts their ability to successfully complete the scan.
+
+## <a name="processor-arch-req"></a> Processor architecture
+
+_BlinkCard_ SDK is distributed with **ARMv7** and **ARM64** native library binaries.
+
+_BlinkCard_ is a native library written in C++ and available for multiple platforms. Because of this, _BlinkCard_ cannot work on devices with obscure hardware architectures. We have compiled SDK's native code only for the most popular Android [ABIs](https://en.wikipedia.org/wiki/Application_binary_interface).
+
+If you are combining _BlinkCard_ library with other libraries that contain native code in your application, make sure to match the architectures of all native libraries. For example, if the third-party library has only ARMv7 version, you must use exactly ARMv7 version of _BlinkCard_ with that library, but not ARM64. Using different architectures will crash your app at the initialization step because JVM will try to load all its native dependencies in the same preferred architecture and fail with `UnsatisfiedLinkError`.
+
+To avoid this issue and ensure that only architectures supported by the _BlinkCard_ library are packaged in the final application, add the following statement to your `android/defaultConfig` block inside `build.gradle.kts`:
+
+```
+android {
+    ...
+    defaultConfig {
+        ...
+        ndk {
+            // Tells Gradle to package the following ABIs into your application
+            abiFilters += listOf("armeabi-v7a", "arm64-v8a")
         }
     }
 }
 ```
 
-For more information about creating APK splits with gradle, check [this article from Google](https://developer.android.com/studio/build/configure-apk-splits.html#configure-abi-split).
+# <a name="pre-bundling-resources"></a> Pre-bundling the SDK resources into your app
 
-After generating multiple APK's, you need to upload them to Google Play. For tutorial and rules about uploading multiple APK's to Google Play, please read the [official Google article about multiple APKs](https://developer.android.com/google/play/publishing/multiple-apks.html).
+If you want to reduce the SDK startup time and network traffic, you have option to pre-bundle the SDK resources as assets into your application. All required resources are located in [libs/resources/assets/microblink/blinkcard](https://github.com/BlinkCard/blinkcard-android/tree/main/libs/resources/assets/microblink/blinkcard) folder. You can bundle it to your application by including the mentioned folder to application's assets. Copy mentioned `libs/resources/assets/microblink` directory to `src/main/assets` folder of your application module (or appropriate folder for desired app flavor).
 
-### Removing processor architecture support
+Use `BlinkCardSdkSettings` to set the following options when instantiating the SDK:
 
-If you won't be distributing your app via Google Play or for some other reasons want to have single APK of smaller size, you can completely remove support for certain CPU architecture from your APK. **This is not recommended due to [consequences](#arch-consequences)**.
+```kotlin
+BlinkCardSdkSettings(
+    licenseKey = "license-key",
+    // define license key licensee (optional)
+    licensee = "licensee",
+    // disable or enable resource download
+    downloadResources = false,
+    // define path if you are not using a default one
+    resourceDownloadUrl = "download-path",
+    // define path if you are not using a default one: "microblink/blinkcard"
+    resourceLocalFolder = "path-within-app-assets",
+    // set custom timeout on resrouces download (10 seconds by default)
+    resourceRequestTimeout = RequestTimeout.DEFAULT,
+    // set custom proxy URL (needs to be allowed by license)
+    microblinkProxyUrl = null
+)
+```
 
-To keep only some CPU architectures, for example `armeabi-v7a` and `arm64-v8a`, add the following statement to your `android` block inside `build.gradle`:
+# <a name="activity-vs-compose"></a> Choosing between Composable and default scanning activity
+
+There are two primary methods for integrating the _BlinkCard_ SDK into your Android application: via the `BlinkCardCameraScanningScreen` composable or the `BlinkCardScanActivity` activity. Each approach offers distinct advantages and trade-offs. The following guidelines can help determine the most suitable integration method for your use case.
+
+When to use the `BlinkCardCameraScanningScreen` composable:
+- Single-activity architecture: If your application is structured around a single activity, this composable is the recommended integration point
+- Immediate scanning readiness: The composable allows preloading of all required resources and license validation before initiating the scanning process, ensuring that scanning can begin instantly without additional initialization delays
+- Advanced scanning customizations: This method supports extensive customization of the scanning workflow and user experience (see [Advanced customizations](#advanced-customizations))
+
+When to use the `BlinkCardScanActivity` activity:
+- Java-only applications: If your app is implemented entirely in Java, using the activity is preferable; while composables can be wrapped in Views for Java integration, the _BlinkCard_ SDK leverages concurrency features that are not natively supported in Java, potentially requiring additional effort to ensure correct operation (see *java-sample-app*)
+- Minimal customization requirements: If you are satisfied with the default scanning experience provided by the _BlinkCard_ SDK and only require basic UI modifications (such as colors and strings), integrating via the activity is the simplest approach
+
+## <a name="working-with-camera-x"></a> Working with CameraX
+
+CameraX is a core component of the _BlinkCard_ SDK, and its behavior during configuration changes is important to consider. By default, CameraX reinitializes the camera when certain system events occur (such as device rotation or screen size changes), which can cause the camera preview to temporarily display a black screen. This effect is more pronounced on older devices due to slower camera operations.
+
+When using the `BlinkCardScanActivity` integration method, the SDK addresses this by specifying the `android:configChanges="screenSize|smallestScreenSize|orientation|screenLayout"` attribute for the `BlinkCardScanActivity` in the `AndroidManifest.xml`. This prevents the activity from being recreated during these configuration changes, resulting in a seamless scanning experience.
+
+When using the `BlinkCardCameraScanningScreen` composable, device rotation triggers activity recreation, leading to a brief black screen as the camera is reinitialized. To avoid this, you can set the same `android:configChanges` attribute in your app's `AndroidManifest.xml`. If you prefer the activity to be recreated on rotation (e.g., to reload resources or UI), this step is optional. Either way, the SDK will work as intended. For more details, see [official Android documentation](https://developer.android.com/guide/topics/resources/runtime-changes).
+
+
+# <a name="customizing-the-look"></a> Customizing the look and the UX
+
+Almost every UI element can be easily modified in many different ways (color, size, font, background). This chapter provides basic guides regarding each implementation method.
+
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/wiki/blinkcard/blinkcard-android/images/blinkid_v7_ui_customizations.png" alt="BlinkCard SDK">
+</p>
+
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/wiki/blinkcard/blinkcard-android/images/blinkid_v7_dialog_customizations.png" alt="BlinkCard SDK">
+</p>
+
+## <a name="simple-customizations"></a> Simple customizations
+
+You can use basic customization options in our default `BlinkCardCameraScanningScreen` composable:
+
+```kotlin
+BlinkCardCameraScanningScreen(
+    blinkCardSdk = sdkInstance,
+    /* UX settings options */
+    uxSettings = BlinkCardUxSettings(
+        stepTimeoutDuration = <yourTimeoutDuration>,
+        allowHapticFeedback = true, // or false
+    ),
+    /* UI settings options */
+    uiSettings = UiSettings(
+        typography = <yourTypography>,
+        colorScheme = <yourColorScheme>,
+        uiColors = <youReticleColors>,
+        sdkStrings = <yourSdkStrings>,
+        showOnboardingDialog = true, // or false
+        showHelpButton = true // or false
+    ),
+    cameraSettings = CameraSettings(
+        lensFacing = CameraLensFacing.LensFacingBack, // or CameraLensFacing.LensFacingFront
+        desiredResolution = Resolution.Resolution2160p // range between 720p and 4320p
+    ),
+    sessionSettings = BlinkCardSessionSettings(
+        inputImageSource = InputImageSource.Video,
+        scanningSettings = ScanningSettings()
+    ),
+    onScanningSuccess = { scanningResult ->
+        // result is BlinkCardScanningResult
+    },
+    onScanningCanceled = {
+        // user canceled the scanning
+    }
+)
+```
+
+For a complete reference on available customization options, see [UiSettings](https://blinkcard.github.io/blinkcard-android/microblink-ux/com.microblink.blinkcard.ux/-ui-settings/index.html) API docs.
+
+## <a name="advanced-customizations"></a> Advanced customizations
+
+### Implementing scanning Composable
+
+It is possible to use completely custom UI elements by implementing your own Composable.
+
+Create your implementation of scanning ViewModel (which must be a subclass of our `CameraViewModel`) to handle UX events that come from our SDK:
+
+```kotlin
+class YourBlinkCardScanningUxViewModel(
+    blinkCardSdkInstance: BlinkCardSdk,
+    sessionSettings: ScanningSessionSettings,
+    uxSettings: BlinkCardUxSettings
+) : CameraViewModel() {
+    
+    val imageAnalyzer = BlinkCardAnalyzer(
+        blinkCardSdk = blinkCardSdkInstance,
+        sessionSettings = sessionSettings,
+        scanningDoneHandler = object : BlinkCardScanningDoneHandler {
+            override fun onScanningFinished(result: BlinkCardScanningResult) {
+                // TODO use scanning result
+            }
+
+            override fun onScanningCancelled() {
+                // user cancelled the scanning
+            }
+            
+            override fun onError(error: ErrorReason) {
+                // handle scanning errors
+            }
+        },
+        uxEventHandler = object : BlinkCardScanningUxEventHandler {
+            override fun onUxEvents(events: List<BlinkCardScanningUxEvent>) {
+                // handle scanning UX events to update UI state
+                for (event in events) {
+                    when (event) {
+                        is BlinkCardScanningUxEvent.ScanningDone -> {
+                            // TODO
+                        }
+                        
+                        is BlinkCardScanningUxEvent.RequestSide -> {
+                            // TODO
+                        }
+                        
+                        is BlinkCardScanningUxEvent.BlurDetected -> {
+                            // TODO
+                        }
+                        
+                        is BlinkCardScanningUxEvent.CardNotFound -> {
+                            // TODO
+                        }
+                        
+                        is BlinkCardScanningUxEvent.ScanningWrongSide -> {
+                            // TODO
+                        }
+
+                        is BlinkCardScanningUxEvent.CardLocated -> {
+                            // TODO
+                        }
+                        
+                        // TODO ... handle other events, when must be exhaustive, omitted for brevity
+                    
+                    }
+                }
+            }
+        }
+    )
+    
+    override fun analyzeImage(image: ImageProxy) {
+        // image has to be closed after processing
+        image.use {
+            imageAnalyzer?.analyze(it)
+        }
+    }
+
+     override fun onCleared() {
+        super.onCleared()
+        // cancel and close image analyzer when view model is cleared
+        imageAnalyzer.cancel()
+        imageAnalyzer.close()
+    }
+}
 
 ```
-android {
-    ...
-    ndk {
-        // Tells Gradle to package the following ABIs into your application
-        abiFilters 'armeabi-v7a', 'arm64-v8a'
+
+Implement your camera scanning screen Composable by using our `CameraScreen` Composable which is responsible for camera management:
+
+```kotlin
+@Composable
+fun YourCameraScanningScreen(
+    viewModel: YourBlinkCardScanningUxViewModel
+    //... other required parameters for your UI
+) {
+    // ...
+    CameraScreen(
+        cameraViewModel = viewModel,
+    ) {
+        // TODO your camera overlay Compose content
     }
+
+}
+``` 
+
+### Customizing `BlinkCardScanActivity`
+
+Customizing pre-made SDK scanning activity is somewhat limited compared to customizing a composable but still offers many customization options. Custom colors, fonts, and text styles are provided through [BlinkCardScanActivitySettings](https://blinkcard.github.io/blinkcard-android/blinkcard-ux/com.microblink.blinkcard.ux.contract/-blink-card-scan-activity-settings/index.html) class.
+
+```kotlin
+data class BlinkCardScanActivitySettings(
+    val sdkSettings: BlinkCardSdkSettings,
+    val scanningSessionSettings: BlinkCardSessionSettings = BlinkCardSessionSettings(),
+    val uxSettings: BlinkCardUxSettings = BlinkCardUxSettings(),
+    override val cameraSettings: CameraSettings = CameraSettings(),
+    override val scanActivityUiColors: ScanActivityColors? = null,
+    override val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
+    override val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
+    override val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
+    override val showHelpButton: Boolean = DefaultShowHelpButton,
+    override val enableEdgeToEdge: Boolean = true,
+    override val deleteCachedAssetsAfterUse: Boolean = false
+) : ScanActivitySettings
+``` 
+
+Variable `scanActivityUiColors` of type [ScanActivityColors](https://blinkcard.github.io/blinkcard-android/blinkcard-ux/com.microblink.blinkcard.ux.contract/-blink-card-scan-activity-colors/index.html) defines UI colors during the scanning session.
+
+Variable `scanActivityUiStrings` of type [SdkStrings](https://blinkcard.github.io/blinkcard-android/microblink-ux/com.microblink.blinkcard.ux.theme/-sdk-strings/index.html) allows for Strings customizations and adjustment of default translations.
+
+Finally, through `scanActivityTypography` of type [ParcelableUiTypography](https://blinkcard.github.io/blinkcard-android/microblink-ux/com.microblink.blinkcard.ux.utils/-parcelable-ui-typography/index.html), you can define different fonts and text styles for every text object found in the scanning screen. Due to limitations of the native `Typography` class, we created a custom solution that enables all important text customizations.
+
+### Modifying our ux libraries source code
+
+For larger control over the UX, you can use the open-source `blinkcard-ux` library and perform certain modifications. **Only the source files that specifically allow for modification by the license header** can be modified.
+
+To do so, you can include the source code of our library directly in your application.
+It is located in `libs/sources/blinkcard-ux` module.
+
+**Please keep in mind that we will regularly make changes and update the source code with each release.**
+
+# <a name="changing-strings-and-localization"></a> Changing default strings and localization
+
+Strings used within built-in activities and UX can be localized to any language.
+
+We have already prepared strings for several languages which you can use out of the box. You can also modify those strings, or you can add your own language. Languages natively supported by our SDK are the following: `Arabic`, `Chinese simplified`, `Chinese traditional`, `Croatian`, `Czech`, `Dutch`, `Filipino`, `French`, `German`, `Hebrew`, `Hungarian`, `Indonesian`, `Italian`, `Malay`, `Portugese`, `Romanian`, `Serbian`, `Slovak`, `Slovenian`, `Spanish`, `Thai`, `Vietnamese`, `Danish`, `English (U.K.)`, `Finnish`, `Greek`, `Icelandic`, `Latvian`, `Norwegian`, `Polish`, `Swedish`, `Turkish`, `Ukrainian`, `Russian`, `Japanese`, `Korean`, `Hindi`, `Urdu`, `Bengali`, `Farsi`, `Swahili`, `Amharic`, `Hausa`, `Yoruba`, `Nepali`, `Kazakh`, `Uzbek`, `Pashto`, `Sinhala`, `Georgian`, `Khmer`, `Akan (Twi, Fante)`, `Mexican Spanish`, `Brazilian Portuguese`, and `Canadian French`.
+
+The language is automatically adapted to the user's OS language settings. Additionally, to force a specific language, you have to enable it from the code.
+
+When implementing a language picker within the app it is recommended to use the official [Android OS app-specific language picker](https://developer.android.com/guide/topics/resources/app-languages). For customized language picker, please consult official Android documentation.
+
+#### <a name="addLanguage"></a> Adding new language
+
+_BlinkCard_ can easily be translated to other languages. The `res` folder in `blinkcard-ux` has folder `values` which contains `strings_core.xml`, `strings_blinkcard.xml`, and `strings_accessibility.xml` - these file contains english strings. In order to make e.g. Croatian translation, create a folder `values-hr` in your project and put the copy of one or more files inside it. Then, open that file and translate the strings from English into Croatian.
+
+#### <a name="stringChanging"></a> Changing strings in the existing language
+
+To modify an existing string, the best approach would be to:
+
+1. Choose a language you want to modify. For example Croatian ('hr').
+2. Find `strings_core.xml` in folder `res/values-hr`
+3. Choose a string key which you want to change. For example: ```<string name="mb_close">Close</string>```
+4. In your project create a file `strings_core.xml` in the folder `res/values-hr`, if it doesn't already exist
+5. Create an entry in the file with the value for the string which you want. For example: ```<string name="mb_back">Zatvori</string>```
+6. Repeat for all the string you wish to change
+
+You can modify strings and add another language. For more information on how localization works in Android, check out the [official Android documentation](https://developer.android.com/guide/topics/resources/localization).
+
+## <a name="using-own-string-resources"></a> Defining your own string resources for UI elements
+
+You can define string resources that will be used instead of predefined ones by using the custom [SdkStrings](https://blinkcard.github.io/blinkcard-android/microblink-ux/com.microblink.blinkcard.ux.theme/-sdk-strings/index.html) while creating the `UiSettings`.
+
+## <a name="using-scan-activity"></a> Using SDK through `BlinkCardScanActivity`
+
+The simplest way of using _BlinkCard_ SDK is through our integrated activity.
+This eliminates the need for Compose integration and allows for quick and easy access to results. By using this integration method customization is reduced, although most UI elements can still be customized.
+
+Activity is accessed through `rememberLauncherForActivityResult` by using [MbBlinkCardScan](https://blinkcard.github.io/blinkcard-android/blinkcard-ux/com.microblink.blinkcard.ux.contract/-mb-blink-card-scan/index.html) contract.
+```kotlin
+val blinkCardLauncher = rememberLauncherForActivityResult(
+    contract = MbBlinkCardScan(),
+    onResult = { scanningResult ->
+      if (scanningResult.status == ScanActivityResultStatus.Scanned) {
+      // use scanningResult.result (BlinkCardScanningResult)
+      }
+  }
+)
+```
+When launching the contract, [BlinkCardScanActivitySettings](https://blinkcard.github.io/blinkcard-android/blinkcard-ux/com.microblink.blinkcard.ux.contract/-blink-card-scan-activity-settings/index.html) need to be defined. These settings include basic SDK information such as license key and additional settings for customizing the scanning experience.
+```kotlin
+blinkCardLauncher.launch(
+  BlinkCardScanActivitySettings(
+    sdkSettings = BlinkCardSdkSettings(
+      licenseKey = "your-license-key"
+    ),
+    scanningSessionSettings = BlinkCardSessionSettings(
+      scanningSettings = ScanningSettings( 
+      // define additional settings here
+      )
+    )
+  )
+)
+```
+[BlinkCardScanActivitySettings](https://blinkcard.github.io/blinkcard-android/blinkcard-ux/com.microblink.blinkcard.ux.contract/-blink-card-scan-activity-settings/index.html) contain the following:
+```kotlin
+data class BlinkCardScanActivitySettings(
+    val sdkSettings: BlinkCardSdkSettings,
+    val scanningSessionSettings: BlinkCardSessionSettings = BlinkCardSessionSettings(),
+    val uxSettings: BlinkCardUxSettings = BlinkCardUxSettings(),
+    override val cameraSettings: CameraSettings = CameraSettings(),
+    override val scanActivityUiColors: ScanActivityColors? = null,
+    override val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
+    override val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
+    override val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
+    override val showHelpButton: Boolean = DefaultShowHelpButton,
+    override val enableEdgeToEdge: Boolean = true,
+    override val deleteCachedAssetsAfterUse: Boolean = false
+) : ScanActivitySettings
+```
+Most customizations regarding the UI are handled in the same way as with the Composable component.
+The main difference can be found in how `Typography` is set.
+
+Customizing SDK `Typography` is still available through `scanActivityTypography` which is [ParcelableUiTypography](https://blinkcard.github.io/blinkcard-android/microblink-ux/com.microblink.blinkcard.ux.utils/-parcelable-ui-typography/index.html) type. This class offers only the most important `TextStyle` and `Font` parameters.
+
+While `Colors` are fully customizable, the client needs to make sure that `Dark` and `Light` themes follow the current system state. In the Compose implementation, this is handled directly by the SDK.
+# <a name="low-level-api"></a> Completely custom UX (advanced)
+
+When using the low-level API, you are responsible for preparing the input image stream (or static images) for analysis as well as building a completely custom UX from scratch based on the image-by-image feedback from the SDK.
+
+Low-level API gives you more flexibility with the cost of a significantly larger integration effort. For example, if you need a camera, you will be responsible for camera management and displaying real-time user guidance.
+
+### Adding _BlinkCard_ Core SDK dependency for low-level API
+
+For low-level API integration, only _BlinkCard_ SDK core library: **blinkcard-core** is needed.
+In this case, `blinkcard-ux` is not needed.
+
+In your project root, add `mavenCentral()` repository to the repositories list, if not already present:
+
+```
+repositories {
+    // ... other repositories
+    mavenCentral()
 }
 ```
 
-This will remove other architecture builds for **all** native libraries used by the application.
-
-To remove support for a certain CPU architecture only for _BlinkCard_, add the following statement to your `android` block inside `build.gradle`:
+Add _blinkcard-core_ library as a dependency in module level `build.gradle(.kts)`:
 
 ```
-android {
-    ...
-    packagingOptions {
-        exclude 'lib/<ABI>/libBlinkCard.so'
-    }
+dependencies {
+    implementation("com.microblink:blinkcard-core:3000.0.0")
 }
 ```
 
-where `<ABI>` represents the CPU architecture you want to remove:
+## <a name="core-api-sdk-and-session"></a> The `BlinkCardSdk` and `BlinkCardScanningSession`
 
-- to remove ARMv7 support, use `exclude 'lib/armeabi-v7a/libBlinkCard.so'`
-- to remove ARM64 support, use `exclude 'lib/arm64-v8a/libBlinkCard.so'`
-    - **NOTE**: this is **not recommended**. See [this notice](#64bit-notice).
+[BlinkCardSdk](https://blinkcard.github.io/blinkcard-android/blinkcard-core/com.microblink.blinkcard.core/-blink-card-sdk/index.html) is a singleton that is main entry point to the _BlinkCard_ SDK. It manages the global state of the SDK. This involves managing the main processing, unlocking the SDK, ensuring that licence check is up-to-date, downloading resources, and performing all necessary synchronization for the processing operations.
 
-You can also remove multiple processor architectures by specifying `exclude` directive multiple times. Just bear in mind that removing processor architecture will have side effects on performance and stability of your app. Please read [this](#arch-consequences) for more information.
+Once you obtain an instance of the `BlinkCardSdk` class after the SDK initialization is completed, you can use it to start a card capture session.
 
-### <a name="arch-consequences"></a> Consequences of removing processor architecture
+[BlinkCardScanningSession](https://blinkcard.github.io/blinkcard-android/blinkcard-core/com.microblink.blinkcard.core.session/-blink-card-scanning-session/index.html) is the main object that accepts images and camera frames, processes them and returns frame-by-frame results, and final result when it becomes available.
 
-- Google decided that as of August 2019 all apps on Google Play that contain native code need to have native support for 64-bit processors (this includes ARM64 and x86_64). This means that you cannot upload application to Google Play Console that supports only 32-bit ABI and does not support corresponding 64-bit ABI.
 
-- By removing ARMv7 support, _BlinkCard_ will not work on devices that have ARMv7 processors. 
-- By removing ARM64 support, _BlinkCard_ will not use ARM64 features on ARM64 device
-    - also, some future devices may ship with ARM64 processors that will not support ARMv7 instruction set. Please see [this note](#64bit-notice) for more information.
+### <a name="analyzing-image-stream"></a> Analyzing the stream of images
 
-## <a name="combineNativeLibraries"></a> Combining _BlinkCard_ with other native libraries
+1. First initialize the SDK to obtain `BlinkCardSdk` instance by calling `BlinkCardSdk.initializeSdk` suspend function from a Coroutine:
+```kotlin
+val maybeInstance = BlinkCardSdk.initializeSdk(
+    context,
+    BlinkCardSdkSettings(
+        licenseKey = "your_license_key",
+    )
+)
+when {
+    maybeInstance.isSuccess -> {
+        val sdkInstance = maybeInstance.getOrNull()
+        // use the SDK instance
+    }
 
-If you are combining _BlinkCard_ library with other libraries that contain native code into your application, make sure you match the architectures of all native libraries. For example, if third party library has got only ARMv7 version, you must use exactly ARMv7 version of _BlinkCard_ with that library, but not ARM64. Using this architectures will crash your app at initialization step because JVM will try to load all its native dependencies in same preferred architecture and will fail with `UnsatisfiedLinkError`.
+    maybeInstance.isFailure -> {
+        val exception = maybeInstance.exceptionOrNull()
+        Log.e(TAG, "Initialization failed", exception)
+    }
+}
+```
+2. Create `BlinkCardScanningSession` by calling suspend function `BlinkCardSdk.createScanningSession(BlinkCardSessionSettings)`
+```kotlin
+val scanningSession = blinkCardSdk.createScanningSession(BlinkCardSessionSettings(
+    // use InputImageSource.Video to analyze stream of images, if you have few 
+    // images (e.g. from gallery) use InputImageSource.Photo
+    inputImageSource = InputImageSource.Video,
+    val scanningSettings = ScanningSettings(
+        // update other options if required    
+    )
+))
+```
+
+3. To process each image (camera frame) that comes to the recognition, call the suspend function `BlinkCardScanningSession.process(InputImage): BlinkCardProcessResult`
+```kotlin
+val processResult = scanningSesionSession.process(inputImage)
+```
+
+There are helper methods for creating [InputImage](https://blinkcard.github.io/blinkcard-android/blinkcard-core/com.microblink.blinkcard.core.image/-input-image/index.html) from `android.media.Image`, `androidx.camera.core.ImageProxy` and standard Android Bitmap.
+
+Processing of the single frame returns [BlinkCardProcessResult](https://blinkcard.github.io/blinkcard-android/blinkcard-core/com.microblink.blinkcard.core.session/-blink-card-process-result/index.html) which contains:
+
+- Detailed analysis of the input image, including various detection statuses and potential issues that should be used for frame-by-frame UX updates.
+- Completeness status of the overall process.
+
+You should keep calling the process function until the result completeness indicates that the result is complete, but you could have custom logic for cancellation and timeouts.
+
+### <a name="core-api-obtaining-results"></a> Obtaining scanning results
+
+If after analysis of some image completeness status of `BlinkCardProcessResult` indicates that card capture is complete, only then you should get the final result from the `BlinkCardScanningSession`:
+
+```kotlin
+if (processResult.resultCompleteness.isComplete()) {
+    val captureResult = session.getResult()
+    // do something with the final result
+}
+```
+
+You will get [BlinkCardScanningResult](https://blinkcard.github.io/blinkcard-android/blinkcard-core/com.microblink.blinkcard.core.session/-blink-card-scanning-result/index.html) with extraction results.
+
+**After scanning is completed, it is important to terminate the scanning session**
+
+To terminate the scanning session, ensure that `BlinkCardScanningSession.close()` is called.
+
+**If you are finished with the SDK processing, terminate the SDK to free up resources** by invoking `BlinkCardSdk.closeAndDeleteCachedAssets()` on the SDK instance. If you just wish to close the SDK but may need to use it and the future, you can eliminate the need for re-downloading the resources by calling `BlinkCardSdk.close()`.
+
+# <a name="legacy-api"></a> Using SDK with Java and Views
+
+Even though BlinkCard v3000 and above uses modern Android Jetpack components like Compose and coroutines, most functionalities still work with legacy code.
+It is important to note that even without using Jetpack Compose, it is highly recommended to use Kotlin when implementing the SDK, as it not only eases the implementation process, but also allows for some new functionalities.
+
+If the client insists on using only Java (and Android Views), BlinkCard functionalities can be used through [`BlinkCardScanActivity`](https://blinkcard.github.io/blinkcard-android/blinkcard-ux/com.microblink.blinkcard.ux.activity/-blink-card-scan-activity/index.html?query=class%20BlinkCardScanActivity%20:%20AppCompatActivity).
+A simple implementation like the following should suffice:
+
+```java
+ActivityResultLauncher<BlinkCardScanActivitySettings> resultLauncher = registerForActivityResult(
+        new MbBlinkCardScan(),
+        result -> {
+          // handle result here
+        }
+);
+```
+When launching the contract, [BlinkCardScanActivitySettings](https://blinkcard.github.io/blinkcard-android/blinkcard-ux/com.microblink.blinkcard.ux.contract/-blink-card-scan-activity-settings/index.html) need to be defined. These settings include basic SDK information such as license key and additional settings for customizing the scanning experience.
+```java
+String licenseKey = "your_license_key";
+BlinkCardSdkSettings sdkSettings = new BlinkCardSdkSettings(licenseKey);
+BlinkCardScanActivitySettings activitySettings = new BlinkCardScanActivitySettings(sdkSettings);
+
+resultLauncher.launch(activitySettings);
+```
+
+A **_java-sample-app_** can be found in the sample app list where the SDK is implemented using Java and Android Views.
+Additional helper functions have been created to simplify the implementation process with default class values from Kotlin.
+
+For more information on how to use `BlinkCardScanActivity`, please refer to the [`Using SDK through BlinkCardScanActivity`](#using-scan-activity) section.
+Currently, this is the **only officially supported** way of using our SDK with Java and without Kotlin/Jetpack Compose.
 
 # <a name="troubleshoot"></a> Troubleshooting
 
 ### Integration difficulties
+In case of problems with SDK integration, make sure that you have followed [integration instructions](#sdk-integration) and [device requirements](#device-requirements). If you're still having problems, please contact us at [help.microblink.com](http://help.microblink.com) describing your problem and provide the following information:
 
-In case of problems with SDK integration, first make sure that you have followed [integration instructions](#android-studio-integration). If you're still having problems, please contact us at [help.microblink.com](http://help.microblink.com).
+* high-resolution scan/photo of the item that you are trying to read
+* information about device that you are using - we need the exact model name of the device. You can obtain that information with any app like [this one](https://play.google.com/store/apps/details?id=ru.andr7e.deviceinfohw)
+* please stress that you are reporting a problem related to the Android version of _BlinkCard_ SDK
 
-### Licensing issues
+# <a name="additional-info"></a> Additional info
 
-If you are getting "invalid license key" error or having other license-related problems (e.g. some feature is not enabled that should be or there is a watermark on top of camera), first check the ADB logcat. All license-related problems are logged to error log so it is easy to determine what went wrong.
+## <a name="sdk-size"></a> BlinkCard SDK size
 
-When you have to determine what is the license-relate problem or you simply do not understand the log, you should contact us [help.microblink.com](http://help.microblink.com). When contacting us, please make sure you provide following information:
-
-* exact package name of your app (from your `AndroidManifest.xml` and/or your `build.gradle` file)
-* license that is causing problems
-* please stress out that you are reporting problem related to Android version of _BlinkCard_ SDK
-* if unsure about the problem, you should also provide excerpt from ADB logcat containing license error
-
-**Keep in mind:** Versions 2.0.0 and above require an internet connection to work under our new License Management Program.
-
-We’re only asking you to do this so we can validate your trial license key. Data extraction still happens offline, on the device itself.
-Once the validation is complete, you can continue using the SDK in offline mode (or over a private network) until the next check. 
-
-### Other problems
-
-If you are having problems with scanning certain items, undesired behaviour on specific device(s), crashes inside _BlinkCard_ or anything unmentioned, please do as follows:
-
-* enable logging to get the ability to see what is library doing. To enable logging, put this line in your application:
-
-    ```java
-    com.microblink.blinkcard.util.Log.setLogLevel(com.microblink.blinkcard.util.Log.LogLevel.LOG_VERBOSE);
-    ```
-
-    After this line, library will display as much information about its work as possible. Please save the entire log of scanning session to a file that you will send to us. It is important to send the entire log, not just the part where crash occurred, because crashes are sometimes caused by unexpected behaviour in the early stage of the library initialization.
-    
-* Contact us at [help.microblink.com](http://help.microblink.com) describing your problem and provide following information:
-    * log file obtained in previous step
-    * high resolution scan/photo of the item that you are trying to scan
-    * information about device that you are using - we need exact model name of the device. You can obtain that information with any app like [this one](https://play.google.com/store/apps/details?id=ru.andr7e.deviceinfohw)
-    * please stress out that you are reporting problem related to Android version of _BlinkCard_ SDK
+We recommend that you distribute your app using [App Bundle](https://developer.android.com/platform/technology/app-bundle). This will defer APK generation to Google Play, allowing it to generate minimal APK for each specific device that downloads your app, including only required processor architecture support.
 
 
-# <a name="faq"></a> FAQ and known issues
-#### <a name="feature-not-supported-by-license-key"></a> After switching from trial to production license I get `InvalidLicenseKeyException` when I construct specific `Recognizer` object
+Here is the SDK size, calculated for supported ABIs:
 
-Each license key contains information about which features are allowed to use and which are not. This exception indicates that your production license does not allow using of specific `Recognizer` object. You should contact [support](http://help.microblink.com) to check if provided license is OK and that it really contains all features that you have purchased.
+| ABI | Download size | Install size |
+| --- |:-------------:|:------------:|
+| armeabi-v7a |     -- MB     |    -- MB     |
+| arm64-v8a |     -- MB     |    -- MB     |
 
-#### <a name="invalid-license-key"></a> I get `InvalidLicenseKeyException` with trial license key
+SDK size is calculated as application size increases when _BlinkCard_ SDK is added, with all its dependencies included.
 
-Whenever you construct any `Recognizer` object or any other object that derives from [`Entity`](https://blinkcard.github.io/blinkcard-android/com/microblink/blinkcard/entities/Entity.html), a check whether license allows using that object will be performed. If license is not set prior constructing that object, you will get `InvalidLicenseKeyException`. We recommend setting license as early as possible in your app, ideally in `onCreate` callback of your [Application singleton](https://developer.android.com/reference/android/app/Application.html).
-
-#### <a name="missing-resources"></a> When my app starts, I get exception telling me that some resource/class cannot be found or I get `ClassNotFoundException`
-
-This usually happens when you perform integration into Eclipse project and you forget to add resources or native libraries into the project. You must alway take care that same versions of both resources, assets, java library and native libraries are used in combination. Combining different versions of resources, assets, java and native libraries will trigger crash in SDK. This problem can also occur when you have performed improper integration of _BlinkCard_ SDK into your SDK. Please read how to [embed _BlinkCard_ inside another SDK](#embed-aar).
-
-#### <a name="unsatisfied-link-error"></a> When my app starts, I get `UnsatisfiedLinkError`
-
-This error happens when JVM fails to load some native method from native library If performing integration into Android studio and this error happens, make sure that you have correctly combined _BlinkCard_ SDK with [third party SDKs that contain native code](#combineNativeLibraries), especially if you need resolving [conflict over `libc++_shared.so`](#dynamicCppRuntime). If this error also happens in our integration sample apps, then it may indicate a bug in the SDK that is manifested on specific device. Please report that to our [support team](http://help.microblink.com).
-
-#### <a name="libcpp-shared-conflict"></a> During build, I get conflict about duplicate `libc++_shared.so`
-
-Please consult the section about [resolving `libc++_shared.so` conflict](#dynamicCppRuntime).
-
-#### <a name="late-metadata1"></a> I've added my callback to `MetadataCallbacks` object, but it is not being called
-
-Make sure that after adding your callback to `MetadataCallbacks` you have applied changes to `RecognizerRunnerView` or `RecognizerRunner` as described in [this section](#processing-events).
-
-#### <a name="late-metadata2"></a> I've removed my callback to `MetadataCallbacks` object, and now app is crashing with `NullPointerException`
-
-Make sure that after removing your callback from `MetadataCallbacks` you have applied changes to `RecognizerRunnerView` or `RecognizerRunner` as described in [this section](#processing-events).
-
-#### <a name="stateful-recognizer"></a> In my `onScanningDone` callback I have the result inside my `Recognizer`, but when scanning activity finishes, the result is gone
-
-This usually happens when using `RecognizerRunnerView` and forgetting to pause the `RecognizerRunnerView` in your `onScanningDone` callback. Then, as soon as `onScanningDone` happens, the result is mutated or reset by additional processing that `Recognizer` performs in the time between end of your `onScanningDone` callback and actual finishing of the scanning activity. For more information about statefulness of the `Recognizer` objects, check [this section](#recognizer-concept).
-
-#### <a name="transaction-too-large"></a> I am using built-in activity to perform scanning and after scanning finishes, my app crashes with `IllegalStateException` stating `Data cannot be saved to intent because its size exceeds intent limit`.
-
-This usually happens when you use `Recognizer` that produces image or similar large object inside its `Result` and that object exceeds the Android intent transaction limit. You should enable different intent data transfer mode. For more information about this, [check this section](#intent-optimization). Also, instead of using built-in activity, you can use [`RecognizerRunnerFragment` with built-in scanning overlay](#recognizerRunnerFragment).
-
-#### <a name="transaction-too-large2"></a> After scanning finishes, my app freezes
-
-This usually happens when you attempt to transfer standalone `Result` that contains images or similar large objects via Intent and the size of the object exceeds Android intent transaction limit. Depending on the device, you will get either [TransactionTooLargeException](https://developer.android.com/reference/android/os/TransactionTooLargeException.html), a simple message `BINDER TRANSACTION FAILED` in log and your app will freeze or your app will get into restart loop. We recommend that you use `RecognizerBundle` and its API for sending `Recognizer` objects via Intent in a more safe manner ([check this section](#intent-optimization) for more information). However, if you really need to transfer standalone `Result` object (e.g. `Result` object obtained by cloning `Result` object owned by specific `Recognizer` object), you need to do that using global variables or singletons within your application. Sending large objects via Intent is not supported by Android.
-
-#### <a name="direct-api-bad-performance"></a> Scanning with a camera works better than a recognition of images by using the `Direct API`
-
-When automatic scanning of camera frames with our camera management is used (provided camera overlays or direct usage of `RecognizerRunnerView`), we use a stream of video frames and send multiple images to the recognition to boost reading accuracy. Also, we perform frame quality analysis and combine scanning results from multiple camera frames. On the other hand, when you are using the Direct API with a single image per document side, we cannot combine multiple images. We do our best to extract as much information as possible from that image. In some cases, when the quality of the input image is not good enough, for example, when the image is blurred or when glare is present, we are not able to successfully read the document.
-
-#### <a name="network-required-error"></a> I am getting a ‘Network required’ error when I'm on a private network
-
-Online trial licenses require a public network access for validation purposes. See [Licensing issues](#licensing-issues).
-
-
-#### <a name="ocr-result-forbidden"></a> `onOcrResult()` method in my `OcrCallback` is never invoked and all `Result` objects always return `null` in their OCR result getters
-
-In order to be able to obtain raw OCR result, which contains locations of each character, its value and its alternatives, you need to have a license that allows that. By default, licenses do not allow exposing raw OCR results in public API. If you really need that, please [contact us](https://help.microblink.com) and explain your use case.
-# <a name="info"></a> Additional info
-
-## <a name="size-report"></a> BlinkCard SDK size
-You can find BlinkCard SDK size report for all supported ABIs [here](https://github.com/blinkcard/blinkcard-android/blob/master/size-report/sdk_size_report.md).
-
-## <a name="api-reference"></a> API reference
-Complete API reference can be found in [Javadoc](https://blinkcard.github.io/blinkcard-android).
+## <a name="api-documentation"></a> API documentation
+You can find the _BlinkCard_ SDK **KDoc** documentation [here](https://blinkcard.github.io/blinkcard-android/index.html).
 
 ## <a name="contact"></a> Contact
 For any other questions, feel free to contact us at [help.microblink.com](http://help.microblink.com).
-
