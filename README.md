@@ -1,5 +1,5 @@
 <p align="center" >
-  <img src="https://raw.githubusercontent.com/wiki/BlinkCard/blinkcard-android/images/logo-microblink.png" alt="Microblink" title="Microblink">
+  <img src="https://raw.githubusercontent.com/wiki/blinkcard/blinkcard-android/images/logo-microblink.png" alt="Microblink" title="Microblink">
 </p>
 
 # BlinkCard SDK for Android
