@@ -611,7 +611,7 @@ To terminate the scanning session, ensure that `BlinkCardScanningSession.close()
 
 **If you are finished with the SDK processing, terminate the SDK to free up resources** by invoking `BlinkCardSdk.closeAndDeleteCachedAssets()` on the SDK instance. If you just wish to close the SDK but may need to use it and the future, you can eliminate the need for re-downloading the resources by calling `BlinkCardSdk.close()`.
 
-Note that `close()` and `closeAndDeleteCachedAssets()` are blocking calls. Do not call them on the main/UI thread; run them on a background dispatcher/thread (for example `Dispatchers.IO`).
+Note that `BlinkCardScanningSession.close()`, `BlinkCardSdk.close()` and `BlinkCardSdk.closeAndDeleteCachedAssets()` are blocking calls. Do not call them on the main/UI thread; run them on a background dispatcher/thread (for example `Dispatchers.IO`).
 
 # <a name="legacy-api"></a> Using SDK with Java and Views
 
