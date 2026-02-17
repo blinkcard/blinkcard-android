@@ -20,6 +20,8 @@ import com.microblink.blinkcard.core.image.InputImage
 import com.microblink.blinkcard.core.session.BlinkCardProcessResult
 import com.microblink.blinkcard.core.session.BlinkCardSessionSettings
 import com.microblink.blinkcard.core.session.InputImageSource
+import com.microblink.blinkcard.core.settings.CroppedImageSettings
+import com.microblink.blinkcard.core.settings.ExtractionSettings
 import com.microblink.blinkcard.core.settings.ScanningSettings
 import com.microblink.blinkcard.sample.navigation.Destination
 import com.microblink.blinkcard.sample.result.BlinkCardResultHolder
@@ -73,23 +75,30 @@ class MainActivity : ComponentActivity() {
                                 val session = sdk.createScanningSession(
                                     BlinkCardSessionSettings(
                                         inputImageSource = InputImageSource.Photo,
-                                        scanningSettings = ScanningSettings()
+                                        scanningSettings = ScanningSettings(
+                                            extractionSettings = ExtractionSettings(
+                                                extractCvv = true
+                                            ),
+                                            croppedImageSettings = CroppedImageSettings(
+                                                returnCardImage = true
+                                            )
+                                        )
                                     )
                                 )
 
                                 var result: Result<BlinkCardProcessResult>? = null
-                                val front = getBitmapFromAsset(context, "test-images/front.jpg")
-                                front?.let {
-                                    result = session?.process(InputImage.createFromBitmap(front))
+                                val firstSide = getBitmapFromAsset(context, "test-images/card_first.png")
+                                firstSide?.let {
+                                    result = session.process(InputImage.createFromBitmap(firstSide))
                                 }
 
-                                val back = getBitmapFromAsset(context, "test-images/back.jpg")
-                                back?.let {
-                                    result = session?.process(InputImage.createFromBitmap(back))
+                                val secondSide = getBitmapFromAsset(context, "test-images/card_second.png")
+                                secondSide?.let {
+                                    result = session.process(InputImage.createFromBitmap(secondSide))
                                 }
 
-                                if (result != null && result!!.isSuccess) {
-                                    viewModel.onDirectApiResultAvailable(session!!.getResult())
+                                if (result != null && result.isSuccess) {
+                                    viewModel.onDirectApiResultAvailable(session.getResult())
                                     navController.navigate(Destination.BlinkCardResult)
                                 } else {
                                     Toast.makeText(

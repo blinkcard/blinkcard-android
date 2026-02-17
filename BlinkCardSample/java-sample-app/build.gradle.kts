@@ -7,7 +7,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.microblink.blinkcard.sample.java"
+        applicationId = "com.microblink.blinkcard.sample"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

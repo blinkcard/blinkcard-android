@@ -1,6 +1,9 @@
 package com.microblink.blinkcard.sample;
 
+import static android.widget.Toast.LENGTH_SHORT;
+
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
@@ -34,9 +37,8 @@ public class JavaActivity extends AppCompatActivity {
         ActivityResultLauncher<BlinkCardScanActivitySettings> resultLauncher = registerForActivityResult(
                 new MbBlinkCardScan(),
                 result -> {
-                    if (result.getStatus() == ScanActivityResultStatus.Scanned) {
-                        // handle result.getResult() here
-                    }
+                    // handle result here
+                    Toast.makeText(this, result.getResult().getCardholderName(), LENGTH_SHORT).show();
                 }
         );
 

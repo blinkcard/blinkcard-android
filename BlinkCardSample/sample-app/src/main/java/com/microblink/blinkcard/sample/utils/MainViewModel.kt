@@ -8,6 +8,8 @@ import com.microblink.blinkcard.core.BlinkCardSdkSettings
 import com.microblink.blinkcard.core.session.BlinkCardScanningResult
 import com.microblink.blinkcard.core.session.BlinkCardSessionSettings
 import com.microblink.blinkcard.core.session.InputImageSource
+import com.microblink.blinkcard.core.settings.CroppedImageSettings
+import com.microblink.blinkcard.core.settings.ExtractionSettings
 import com.microblink.blinkcard.core.settings.ScanningSettings
 import com.microblink.blinkcard.sample.config.BlinkCardConfig.licenseKey
 import com.microblink.blinkcard.sample.result.BlinkCardResultHolder
@@ -41,7 +43,14 @@ class MainViewModel : ViewModel() {
 
     val scanningSessionSettings = BlinkCardSessionSettings(
         inputImageSource = InputImageSource.Video,
-        scanningSettings = ScanningSettings()
+        scanningSettings = ScanningSettings(
+            extractionSettings = ExtractionSettings(
+                extractCvv = true
+            ),
+            croppedImageSettings = CroppedImageSettings(
+                returnCardImage = true
+            )
+        )
     )
 
     suspend fun initializeLocalSdk(context: Context) {
