@@ -42,4 +42,5 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     api(libs.androidx.material3)
     api(libs.blinkcard.core)
+    api(libs.androidx.navigation.compose)
 }
