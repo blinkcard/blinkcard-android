@@ -2,6 +2,68 @@
 
 ## v3000.0.0
 
+### New fraud detection: BIN intelligence
+BIN intelligence enhances payment risk assessment at the moment of card capture. 
+Real-time BIN lookup validates the PAN and returns detailed card information, including type, brand, category, issuing bank, and issuer country. 
+This additional fraud signal helps customers identify high-risk transactions early, before the transaction begins.
+
+### Architectural shift: session-based API
+The legacy `Recognizer` architecture is deprecated. BlinkCard v3000 moves to a session-based model, decoupling scanning logic from the UI lifecycle and enabling a headless integration for custom implementations.
+
+### Epoch versioning scheme
+We are moving to an Epoch-based versioning system: `(EPOCH * 1000 + MAJOR).MINOR.PATCH`. This new versioning makes it easier for customers to immediately identify the impact of an update and plan upgrades with confidence. 
+- **EPOCH**: Fundamental architectural rewrites.
+- **MAJOR**: Breaking API changes.
+- **MINOR**: New features, backward-compatible.
+- **PATCH**: Bug fixes.
+
+### Other improvements
+- **i18n**: Expanded localization support to better serve a global user base: we added 33 new languages, bringing the total supported languages to 56, enabling a more convenient user experience across diverse regions.
+- **a11y**: Enhanced accessibility capabilities, including support for screen readers.
+- We introduced more granular event tracking throughout the SDK lifecycle, enabling customers to gain deeper insights into success rates and drop-off points during scanning sessions. These enhanced analytics help identify optimization opportunities and ensure an improved, more reliable user experience.
+- Improved photocopy detection model, reducing FAR@FRR of 1% from 27.53% to 13.69%, significantly enhancing reliability.
+
+### Highlights & integration improvements
+- **Lighter SDK**: By incorporating dynamic model loading, BlinkCard v3000 drastically reduces download size from ~11MB to ~3.8MB, and lowers memory usage.
+- **Unified session-based API**: We've moved away from recognizer-approach to a single session-based BlinkCardScanningSession, unifying scanning logic under one simplified API.
+- **Backward compatibility**: Existing production keys will continue to work with v3000.0. No new license key is required for the upgrade.
+- **More maintainable codebase**: This new architecture sets the stage for easier and faster updates.
+- **Updated minimum OS requirement**: BlinkCard SDK now requires Android API level 24 (Android 7.0 Nougat) or newer. This update allows us to leverage modern development practices, improve stability, and streamline future updates.
+
+### Architecture changes
+- **New core components**: Instead of Recognizer-based architecture, BlinkCard uses a streamlined Session-based approach.
+- **Modern Kotlin features**: Written fully in Kotlin, the code is simple and easy to work with, while still supporting Java integration.
+- **Jetpack Compose UI & modular SDK**:
+  - UI is now built with Jetpack Compose, simplifying integration via `blinkcard-ux`.
+  - The SDK is modular:
+    - `blinkcard-core` for scanning logic.
+    - `blinkcard-ux` for prebuilt UI components.
+- **Simplified flow**: More straightforward API with clearer separation of concerns.
+
+### Major API changes
+
+- Simplified initialization & result handling
+  - New SDK initialization method:
+    ```kotlin
+    BlinkCardSdk.initializeSdk(BlinkCardSdkSettings(licenseKey))
+    ```
+  - Results are now retrieved through structured session-based callbacks instead of recognizer bundles.
+
+- Enhanced UI customization & source-available UX
+  - `UiSettings` enables direct customization of typography, colors, and strings.
+  - The source-available UI layer allows advanced modifications for branding and accessibility.
+
+### Plan your upgrade
+We have prepared transition guides to help you get started with BlinkCard v3000.0.0:
+
+- [General transition guide](https://blinkcard.docs.microblink.com/migration-v3000)
+- [Android-specific transition guide](https://github.com/BlinkCard/blinkcard-android/blob/master/Transition%20guide.md)
+
+These guides outline all major API changes and best practices for migrating existing code. 
+
+For any questions or feedback, reach out to support@microblink.com. We value your input and look forward to hearing how BlinkCard v3000 improves your app’s experience!
+
+
 ## v2.12.0
 
 ### Improvements
