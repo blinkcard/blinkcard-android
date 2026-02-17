@@ -27,7 +27,7 @@ public class JavaActivity extends AppCompatActivity {
             return insets;
         });
 
-        String licenseKey = "YOUR_LICENSE_KEY";
+        String licenseKey = "sRwCAB9jb20ubWljcm9ibGluay5ibGlua2NhcmQuc2FtcGxlAGxleUpEY21WaGRHVmtUMjRpT2pFM056RXpNelU1TnpNeE5ETXNJa055WldGMFpXUkdiM0lpT2lKa1pHUXdOalpsWmkwMU9ESXpMVFF3TURndE9UUTRNQzAxTkRVNFlqQXhZVFUyWWpnaWZRPT0YFrpq6KfwMg1/IisdQJgz1wolnIpfGXQMT43vZmSMfueSLyL5HKpkotfXDzdy6xxsIrsVpBq1OTWHoL1URjMWSzezzuTmP9qjklZrOdHGeeUolfXYwsXJTG38rCI=";
         BlinkCardSdkSettings sdkSettings = new BlinkCardSdkSettings(licenseKey);
         BlinkCardScanActivitySettings activitySettings = new BlinkCardScanActivitySettings(sdkSettings);
 

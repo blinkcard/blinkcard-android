@@ -14,9 +14,12 @@ import com.microblink.blinkcard.sample.result.BlinkCardResultHolder
 import com.microblink.blinkcard.ux.UiSettings
 import com.microblink.blinkcard.ux.camera.CameraSettings
 import com.microblink.blinkcard.ux.settings.BlinkCardUxSettings
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 private const val TAG = "MainViewModel"
 
@@ -77,11 +80,14 @@ class MainViewModel : ViewModel() {
     }
 
     private fun unloadSdk() {
-        try {
-            localSdk?.close()
-        } catch (_: Exception) {
-            Log.w(TAG, "SDK is already closed")
-        }
+        val sdkToClose = localSdk
         localSdk = null
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                sdkToClose?.close()
+            } catch (_: Exception) {
+                Log.w(TAG, "SDK is already closed")
+            }
+        }
     }
 }

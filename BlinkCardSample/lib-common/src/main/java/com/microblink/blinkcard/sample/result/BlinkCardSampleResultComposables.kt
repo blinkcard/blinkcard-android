@@ -42,7 +42,7 @@ fun BlinkCardSampleResultScreen(
             add(ResultItem("Card account ${index + 1} number", account.cardNumber))
             add(ResultItem("Card account ${index + 1} number valid", account.cardNumberValid.toString()))
             add(ResultItem("Card account ${index + 1} prefix", account.cardNumberPrefix ?: "N/A"))
-            add(ResultItem("Card account ${index + 1} expiry", account.expiryDate?.toString() ?: "N/A"))
+            add(ResultItem("Card account ${index + 1} expiry", account.expiryDate?.originalString ?: "N/A"))
             add(ResultItem("Card account ${index + 1} CVV", account.cvv ?: "N/A"))
             add(ResultItem("Card account ${index + 1} funding type", account.fundingType ?: "N/A"))
             add(ResultItem("Card account ${index + 1} card category", account.cardCategory ?: "N/A"))
