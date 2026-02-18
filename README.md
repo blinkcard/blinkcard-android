@@ -670,7 +670,7 @@ Here is the SDK size, calculated for supported ABIs:
 SDK size is calculated as application size increases when _BlinkCard_ SDK is added, with all its dependencies included.
 
 ## <a name="api-documentation"></a> API documentation
-You can find the _BlinkCard_ SDK **KDoc** documentation [here](https://blinkcard.github.io/blinkcard-android/index.html).
+You can find the _BlinkCard_ SDK **KDoc** documentation [here](https://blinkcard.github.io/blinkcard-android/index).
 
 ## <a name="contact"></a> Contact
 For any other questions, feel free to contact us at [help.microblink.com](http://help.microblink.com).
