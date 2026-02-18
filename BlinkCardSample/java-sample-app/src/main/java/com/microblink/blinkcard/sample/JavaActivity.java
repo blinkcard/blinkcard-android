@@ -38,7 +38,10 @@ public class JavaActivity extends AppCompatActivity {
                 new MbBlinkCardScan(),
                 result -> {
                     // handle result here
-                    Toast.makeText(this, result.getResult().getCardholderName(), LENGTH_SHORT).show();
+                    if (result.getStatus() == ScanActivityResultStatus.Scanned
+                            && result.getResult().getCardholderName() != null) {
+                        Toast.makeText(this, result.getResult().getCardholderName(), LENGTH_SHORT).show();
+                    }
                 }
         );
 
