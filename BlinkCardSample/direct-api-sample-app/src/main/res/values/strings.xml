@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name" translatable="false">BlinkCard Direct API Sample</string>
+    <string name="btn_launch" translatable="false">Launch</string>
+</resources>

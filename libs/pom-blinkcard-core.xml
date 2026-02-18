@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.microblink</groupId>
+    <artifactId>blinkcard-core</artifactId>
+    <version>3000.0.0</version>
+    <packaging>aar</packaging>
+    <name>BlinkCard SDK for Android</name>
+    <description>SDK for Android is SDK that enables you to perform scans of various credit or payment cards in your Android application</description>
+    <url>https://microblink.com/products/payment-card-cnp-fraud-prevention/</url>
+    <scm>
+        <url>https://github.com/blinkcard/blinkcard-android</url>
+        <connection>scm:git:https://github.com/blinkcard/blinkcard-android.git</connection>
+        <developerConnection>scm:git:https://github.com/blinkcard/blinkcard-android.git</developerConnection>
+    </scm>
+    <licenses>
+        <license>
+            <name>MicroBlink Terms of Use</name>
+            <url>https://microblink.com/terms-of-use/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>Microblink</id>
+            <name>Microblink Ltd.</name>
+        </developer>
+    </developers>
+    <dependencies>
+        <dependency>
+            <groupId>org.jetbrains.kotlinx</groupId>
+            <artifactId>kotlinx-serialization-json</artifactId>
+            <version>1.8.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlinx</groupId>
+            <artifactId>kotlinx-coroutines-android</artifactId>
+            <version>1.10.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.12.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>androidx.datastore</groupId>
+            <artifactId>datastore-preferences</artifactId>
+            <version>1.1.4</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>androidx.camera</groupId>
+            <artifactId>camera-core</artifactId>
+            <version>1.4.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>androidx.lifecycle</groupId>
+            <artifactId>lifecycle-process</artifactId>
+            <version>2.9.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>2.1.20</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <createChecksum>true</createChecksum>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
