@@ -283,7 +283,7 @@ BlinkCardCameraScanningScreen(
 )
 ```
 
-For a complete reference on available customization options, see [UiSettings](https://blinkcard.github.io/blinkcard-android/microblink-ux/com.microblink.blinkcard.ux/-ui-settings/index.html) API docs.
+For a complete reference on available customization options, see [UiSettings](https://blinkcard.github.io/blinkcard-android/blinkcard-ux/com.microblink.blinkcard.ux/-ui-settings/index.html) API docs.
 
 ## <a name="advanced-customizations"></a> Advanced customizations
 
@@ -410,9 +410,9 @@ data class BlinkCardScanActivitySettings(
 
 Variable `scanActivityUiColors` of type [ScanActivityColors](https://blinkcard.github.io/blinkcard-android/blinkcard-ux/com.microblink.blinkcard.ux.contract/-blink-card-scan-activity-colors/index.html) defines UI colors during the scanning session.
 
-Variable `scanActivityUiStrings` of type [SdkStrings](https://blinkcard.github.io/blinkcard-android/microblink-ux/com.microblink.blinkcard.ux.theme/-sdk-strings/index.html) allows for Strings customizations and adjustment of default translations.
+Variable `scanActivityUiStrings` of type [SdkStrings](https://blinkcard.github.io/blinkcard-android/blinkcard-ux/com.microblink.blinkcard.ux.theme/-sdk-strings/index.html) allows for Strings customizations and adjustment of default translations.
 
-Finally, through `scanActivityTypography` of type [ParcelableUiTypography](https://blinkcard.github.io/blinkcard-android/microblink-ux/com.microblink.blinkcard.ux.utils/-parcelable-ui-typography/index.html), you can define different fonts and text styles for every text object found in the scanning screen. Due to limitations of the native `Typography` class, we created a custom solution that enables all important text customizations.
+Finally, through `scanActivityTypography` of type [ParcelableUiTypography](https://blinkcard.github.io/blinkcard-android/blinkcard-ux/com.microblink.blinkcard.ux.utils/-parcelable-ui-typography/index.html), you can define different fonts and text styles for every text object found in the scanning screen. Due to limitations of the native `Typography` class, we created a custom solution that enables all important text customizations.
 
 ### Modifying our ux libraries source code
 
@@ -452,7 +452,7 @@ You can modify strings and add another language. For more information on how loc
 
 ## <a name="using-own-string-resources"></a> Defining your own string resources for UI elements
 
-You can define string resources that will be used instead of predefined ones by using the custom [SdkStrings](https://blinkcard.github.io/blinkcard-android/microblink-ux/com.microblink.blinkcard.ux.theme/-sdk-strings/index.html) while creating the `UiSettings`.
+You can define string resources that will be used instead of predefined ones by using the custom [SdkStrings](https://blinkcard.github.io/blinkcard-android/blinkcard-ux/com.microblink.blinkcard.ux.theme/-sdk-strings/index.html) while creating the `UiSettings`.
 
 ## <a name="using-scan-activity"></a> Using SDK through `BlinkCardScanActivity`
 
@@ -504,7 +504,7 @@ data class BlinkCardScanActivitySettings(
 Most customizations regarding the UI are handled in the same way as with the Composable component.
 The main difference can be found in how `Typography` is set.
 
-Customizing SDK `Typography` is still available through `scanActivityTypography` which is [ParcelableUiTypography](https://blinkcard.github.io/blinkcard-android/microblink-ux/com.microblink.blinkcard.ux.utils/-parcelable-ui-typography/index.html) type. This class offers only the most important `TextStyle` and `Font` parameters.
+Customizing SDK `Typography` is still available through `scanActivityTypography` which is [ParcelableUiTypography](https://blinkcard.github.io/blinkcard-android/blinkcard-ux/com.microblink.blinkcard.ux.utils/-parcelable-ui-typography/index.html) type. This class offers only the most important `TextStyle` and `Font` parameters.
 
 While `Colors` are fully customizable, the client needs to make sure that `Dark` and `Light` themes follow the current system state. In the Compose implementation, this is handled directly by the SDK.
 # <a name="low-level-api"></a> Completely custom UX (advanced)
