@@ -189,7 +189,7 @@ android {
 
 # <a name="pre-bundling-resources"></a> Pre-bundling the SDK resources into your app
 
-If you want to reduce the SDK startup time and network traffic, you have option to pre-bundle the SDK resources as assets into your application. All required resources are located in [libs/resources/assets/microblink/blinkcard](https://github.com/BlinkCard/blinkcard-android/tree/main/libs/resources/assets/microblink/blinkcard) folder. You can bundle it to your application by including the mentioned folder to application's assets. Copy mentioned `libs/resources/assets/microblink` directory to `src/main/assets` folder of your application module (or appropriate folder for desired app flavor).
+If you want to reduce the SDK startup time and network traffic, you have option to pre-bundle the SDK resources as assets into your application. All required resources are located in [libs/resources/assets/microblink/blinkcard](https://github.com/BlinkCard/blinkcard-android/tree/master/libs/resources/assets/microblink/blinkcard) folder. You can bundle it to your application by including the mentioned folder to application's assets. Copy mentioned `libs/resources/assets/microblink` directory to `src/main/assets` folder of your application module (or appropriate folder for desired app flavor).
 
 Use `BlinkCardSdkSettings` to set the following options when instantiating the SDK:
 
@@ -390,7 +390,7 @@ fun YourCameraScanningScreen(
 
 ### Customizing `BlinkCardScanActivity`
 
-Customizing pre-made SDK scanning activity is somewhat limited compared to customizing a composable but still offers many customization options. Custom colors, fonts, and text styles are provided through [BlinkCardScanActivitySettings](https://blinkcard.github.io/blinkcard-android/blinkcard-ux/com.microblink.blinkcard.ux.contract/-blink-card-scan-activity-settings/index.html) class.
+Customizing pre-made SDK scanning activity is somewhat limited compared to customizing a composable but still offers many customization options. Custom colors, fonts, and text styles are provided through [ScanActivitySettings](https://blinkcard.github.io/blinkcard-android/blinkcard-ux/com.microblink.blinkcard.ux.contract/-scan-activity-settings/index.html) class.
 
 ```kotlin
 data class BlinkCardScanActivitySettings(
