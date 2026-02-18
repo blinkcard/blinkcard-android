@@ -56,8 +56,7 @@ We are moving to an Epoch-based versioning system: `(EPOCH * 1000 + MAJOR).MINOR
 ### Plan your upgrade
 We have prepared transition guides to help you get started with BlinkCard v3000.0.0:
 
-- [General transition guide](https://blinkcard.docs.microblink.com/migration-v3000)
-- [Android-specific transition guide](https://github.com/BlinkCard/blinkcard-android/blob/master/Transition%20guide.md)
+- [Transition guide](https://blinkcard.docs.microblink.com/migration-v3000)
 
 These guides outline all major API changes and best practices for migrating existing code. 
 
