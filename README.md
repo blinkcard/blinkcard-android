@@ -46,6 +46,7 @@ _BlinkCard_ SDK for Android is SDK that enables you to perform scans of various 
 
 - **_sample-app_** demonstrates quick and straightforward integration of the _BlinkCard_ SDK using the provided UX in Jetpack Compose to scan a card and display the results.
 - **_direct-api-sample-app_** demonstrates the functionality of _BlinkCard_ SDK by avoiding the card scanning process and without using the blinkcard-ux library. This approach should be used if you are obtaining card images via other methods.
+- **_java-sample-app_** demonstrates quick and straightforward integration of the _BlinkCard_ SDK using only Java (without Jetpack Compose) through `BlinkCardScanActivity`.
 
 ## <a name="sdk-integration"></a> SDK integration
 
