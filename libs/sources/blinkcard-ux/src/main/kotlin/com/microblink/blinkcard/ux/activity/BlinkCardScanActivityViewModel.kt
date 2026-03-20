@@ -7,11 +7,14 @@ package com.microblink.blinkcard.ux.activity
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.microblink.blinkcard.core.BlinkCardSdk
 import com.microblink.blinkcard.core.BlinkCardSdkSettings
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 class BlinkCardScanActivityViewModel : ViewModel() {
 
@@ -49,19 +52,25 @@ class BlinkCardScanActivityViewModel : ViewModel() {
     }
 
     fun unloadSdk() {
-        try {
-            localSdk?.close()
-        } catch (_: Exception) {
-        }
+        val sdkToClose = localSdk
         localSdk = null
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                sdkToClose?.close()
+            } catch (_: Exception) {
+            }
+        }
     }
 
     fun unloadSdkAndDeleteCachedAssets() {
-        try {
-            localSdk?.closeAndDeleteCachedAssets()
-        } catch (_: Exception) {
-        }
+        val sdkToClose = localSdk
         localSdk = null
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                sdkToClose?.closeAndDeleteCachedAssets()
+            } catch (_: Exception) {
+            }
+        }
     }
 
 }

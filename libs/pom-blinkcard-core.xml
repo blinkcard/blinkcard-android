@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.microblink</groupId>
     <artifactId>blinkcard-core</artifactId>
-    <version>3000.0.0</version>
+    <version>3000.0.1</version>
     <packaging>aar</packaging>
     <name>BlinkCard SDK for Android</name>
     <description>SDK for Android is SDK that enables you to perform scans of various credit or payment cards in your Android application</description>

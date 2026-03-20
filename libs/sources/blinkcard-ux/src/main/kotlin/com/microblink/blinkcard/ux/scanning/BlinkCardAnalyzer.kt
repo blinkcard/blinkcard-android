@@ -18,6 +18,7 @@ import com.microblink.blinkcard.ux.camera.ImageAnalyzer
 import com.microblink.blinkcard.ux.utils.ErrorReason
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Default
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
@@ -135,7 +136,9 @@ class BlinkCardAnalyzer(
     override fun close() {
         session?.also { s ->
             session = null
-            s.close()
+            CoroutineScope(IO).launch {
+                s.close()
+            }
         }
     }
 }
