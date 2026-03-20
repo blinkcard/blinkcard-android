@@ -4,7 +4,7 @@
 
 # BlinkCard SDK for Android
 
-_BlinkCard_ SDK for Android is SDK that enables you to perform scans of various credit or payment cards in your app. You can simply integrate the SDK into your app by following the instructions below.
+The _BlinkCard_ Android SDK enables scanning of various credit and payment cards in your app. You can integrate the SDK by following the instructions below.
 
 
 # Table of contents
@@ -15,7 +15,7 @@ _BlinkCard_ SDK for Android is SDK that enables you to perform scans of various 
     * [Android version](#android-version-req)
     * [Camera](#camera-req)
     * [Processor architecture](#processor-arch-req)
-* [Pre-bundling the SDK resources in your app](#pre-bundling-resources)
+* [Pre-bundling the SDK resources into your app](#pre-bundling-resources)
 * [Choosing between Composable and default scanning activity](#activity-vs-compose)
 * [Customizing the look and UX](#customizing-the-look)
     * [Simple customizations](#simple-customizations)
@@ -73,14 +73,14 @@ dependencies {
 
 ### Launching the BlinkCard scanning session and obtaining the results
 
-1. A valid license key is required to initialize the document capture process. You can request a free trial license key, after you register, at [Microblink Developer Hub](https://developer.microblink.com/).. License is bound to the [application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id) of your app, so please ensure you enter the correct application ID when asked.
+1. A valid license key is required to initialize the card capture process. You can request a free trial license key, after you register, at [Microblink Developer Hub](https://developer.microblink.com/). License is bound to the [application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id) of your app, so please ensure you enter the correct application ID when asked.
 
 2. You first need to initialize the SDK and obtain the `BlinkCardSdk` instance:
 ```kotlin
 val maybeInstance = BlinkCardSdk.initializeSdk(
   context,
   BlinkCardSdkSettings(
-    licenseKey = "your_license-key",
+    licenseKey = "your_license_key",
     ) 
 )
 when {
@@ -97,14 +97,13 @@ when {
 ```
 `BlinkCardSdk.initializeSdk` is a suspend function which should be called from a coroutine.
 
-3. Use `BlinkCardCameraScanningScreen` composable to the scanning UX and obtain results:
+3. Use `BlinkCardCameraScanningScreen` composable to display the scanning UX and obtain results:
 ```kotlin
 BlinkCardCameraScanningScreen(
   sdkInstance,
-  uiSettings = UiSettings(),
   uxSettings = BlinkCardUxSettings(),
   uiSettings = UiSettings(),
-  cameraSettings: CameraSettings = CameraSettings(),
+  cameraSettings = CameraSettings(),
   sessionSettings = BlinkCardSessionSettings(),
   onScanningSuccess = { scanningResult ->
     // scanningResult is BlinkCardScanningResult
@@ -129,7 +128,7 @@ data class BlinkCardScanningResult(
 )
 ```
 
-After the document scanning session is finished the SDK returns an object of type [BlinkCardScanningResult](https://blinkcard.github.io/blinkcard-android/blinkcard-core/com.microblink.blinkcard.core.session/-blink-card-scanning-result/index.html).
+After the card scanning session is finished, the SDK returns an object of type [BlinkCardScanningResult](https://blinkcard.github.io/blinkcard-android/blinkcard-core/com.microblink.blinkcard.core.session/-blink-card-scanning-result/index.html).
 The object contains all the extracted data from the scanned card, as well as the results of the liveness checks performed on the card. 
 The scanning result is divided into general results and specific card account results. 
 Each card may have multiple card accounts (e.g., credit and debit), and each account has its own set of extracted data.
@@ -161,7 +160,7 @@ _BlinkCard_ SDK requires Android API level **24** or newer.
 
 To perform successful scans, the camera preview resolution must be at least **1080p**. Note that the camera preview resolution is not the same as the video recording resolution.
 
-_BlinkCard_ SDK allows the selection of higher and lower resolutions of camera selected for the scanning process. Additionally, if the deivce has more than one camera, it is possible to select between `CameraLensFacing.LensFacingBack` and `CameraLensFacing.LensFacingFront`. Both settings are accessible through `CameraSettings` in all implementation methods.
+_BlinkCard_ SDK allows the selection of higher and lower resolutions of camera selected for the scanning process. Additionally, if the device has more than one camera, it is possible to select between `CameraLensFacing.LensFacingBack` and `CameraLensFacing.LensFacingFront`. Both settings are accessible through `CameraSettings` in all implementation methods.
 
 **NOTE**: Most of the front facing cameras on Android devices are lower quality and do not have autofocus. This highly impacts their ability to successfully complete the scan.
 
@@ -190,7 +189,7 @@ android {
 
 # <a name="pre-bundling-resources"></a> Pre-bundling the SDK resources into your app
 
-If you want to reduce the SDK startup time and network traffic, you have option to pre-bundle the SDK resources as assets into your application. All required resources are located in [libs/resources/assets/microblink/blinkcard](https://github.com/BlinkCard/blinkcard-android/tree/master/libs/resources/assets/microblink/blinkcard) folder. You can bundle it to your application by including the mentioned folder to application's assets. Copy mentioned `libs/resources/assets/microblink` directory to `src/main/assets` folder of your application module (or appropriate folder for desired app flavor).
+If you want to reduce the SDK startup time and network traffic, you have the option to pre-bundle the SDK resources as assets into your application. All required resources are located in [libs/resources/assets/microblink/blinkcard](https://github.com/BlinkCard/blinkcard-android/tree/master/libs/resources/assets/microblink/blinkcard) folder. You can bundle it to your application by including the mentioned folder into application's assets. Copy the mentioned `libs/resources/assets/microblink` directory to `src/main/assets` folder of your application module (or appropriate folder for desired app flavor).
 
 Use `BlinkCardSdkSettings` to set the following options when instantiating the SDK:
 
@@ -205,7 +204,7 @@ BlinkCardSdkSettings(
     resourceDownloadUrl = "download-path",
     // define path if you are not using a default one: "microblink/blinkcard"
     resourceLocalFolder = "path-within-app-assets",
-    // set custom timeout on resrouces download (10 seconds by default)
+    // set custom timeout on resources download (10 seconds by default)
     resourceRequestTimeout = RequestTimeout.DEFAULT,
     // set custom proxy URL (needs to be allowed by license)
     microblinkProxyUrl = null
@@ -260,10 +259,10 @@ BlinkCardCameraScanningScreen(
     ),
     /* UI settings options */
     uiSettings = UiSettings(
-        typography = <yourTypography>,
-        colorScheme = <yourColorScheme>,
-        uiColors = <youReticleColors>,
-        sdkStrings = <yourSdkStrings>,
+        typography = yourTypography,
+        colorScheme = yourColorScheme,
+        uiColors = yourReticleColors,
+        sdkStrings = yourSdkStrings,
         showOnboardingDialog = true, // or false
         showHelpButton = true // or false
     ),
@@ -428,15 +427,15 @@ It is located in `libs/sources/blinkcard-ux` module.
 
 Strings used within built-in activities and UX can be localized to any language.
 
-We have already prepared strings for several languages which you can use out of the box. You can also modify those strings, or you can add your own language. Languages natively supported by our SDK are the following: `Arabic`, `Chinese simplified`, `Chinese traditional`, `Croatian`, `Czech`, `Dutch`, `Filipino`, `French`, `German`, `Hebrew`, `Hungarian`, `Indonesian`, `Italian`, `Malay`, `Portugese`, `Romanian`, `Serbian`, `Slovak`, `Slovenian`, `Spanish`, `Thai`, `Vietnamese`, `Danish`, `English (U.K.)`, `Finnish`, `Greek`, `Icelandic`, `Latvian`, `Norwegian`, `Polish`, `Swedish`, `Turkish`, `Ukrainian`, `Russian`, `Japanese`, `Korean`, `Hindi`, `Urdu`, `Bengali`, `Farsi`, `Swahili`, `Amharic`, `Hausa`, `Yoruba`, `Nepali`, `Kazakh`, `Uzbek`, `Pashto`, `Sinhala`, `Georgian`, `Khmer`, `Akan (Twi, Fante)`, `Mexican Spanish`, `Brazilian Portuguese`, and `Canadian French`.
+We have already prepared strings for several languages which you can use out of the box. You can also modify those strings, or you can add your own language. Languages natively supported by our SDK are the following: `Arabic`, `Chinese simplified`, `Chinese traditional`, `Croatian`, `Czech`, `Dutch`, `Filipino`, `French`, `German`, `Hebrew`, `Hungarian`, `Indonesian`, `Italian`, `Malay`, `Portuguese`, `Romanian`, `Serbian`, `Slovak`, `Slovenian`, `Spanish`, `Thai`, `Vietnamese`, `Danish`, `English (U.K.)`, `Finnish`, `Greek`, `Icelandic`, `Latvian`, `Norwegian`, `Polish`, `Swedish`, `Turkish`, `Ukrainian`, `Russian`, `Japanese`, `Korean`, `Hindi`, `Urdu`, `Bengali`, `Farsi`, `Swahili`, `Amharic`, `Hausa`, `Yoruba`, `Nepali`, `Kazakh`, `Uzbek`, `Pashto`, `Sinhala`, `Georgian`, `Khmer`, `Akan (Twi, Fante)`, `Mexican Spanish`, `Brazilian Portuguese`, and `Canadian French`.
 
 The language is automatically adapted to the user's OS language settings. Additionally, to force a specific language, you have to enable it from the code.
 
-When implementing a language picker within the app it is recommended to use the official [Android OS app-specific language picker](https://developer.android.com/guide/topics/resources/app-languages). For customized language picker, please consult official Android documentation.
+When implementing a language picker within the app it is recommended to use the official [Android OS app-specific language picker](https://developer.android.com/guide/topics/resources/app-languages). For a customized language picker, please consult official Android documentation.
 
 #### <a name="addLanguage"></a> Adding new language
 
-_BlinkCard_ can easily be translated to other languages. The `res` folder in `blinkcard-ux` has folder `values` which contains `strings_core.xml`, `strings_blinkcard.xml`, and `strings_accessibility.xml` - these file contains english strings. In order to make e.g. Croatian translation, create a folder `values-hr` in your project and put the copy of one or more files inside it. Then, open that file and translate the strings from English into Croatian.
+_BlinkCard_ can easily be translated to other languages. The `res` folder in `blinkcard-ux` has folder `values` which contains `strings_core.xml`, `strings_blinkcard.xml`, and `strings_accessibility.xml` - these files contain English strings. In order to make e.g. a Croatian translation, create a folder `values-hr` in your project and put the copy of one or more files inside it. Then, open that file and translate the strings from English into Croatian.
 
 #### <a name="stringChanging"></a> Changing strings in the existing language
 
@@ -446,8 +445,8 @@ To modify an existing string, the best approach would be to:
 2. Find `strings_core.xml` in folder `res/values-hr`
 3. Choose a string key which you want to change. For example: ```<string name="mb_close">Close</string>```
 4. In your project create a file `strings_core.xml` in the folder `res/values-hr`, if it doesn't already exist
-5. Create an entry in the file with the value for the string which you want. For example: ```<string name="mb_back">Zatvori</string>```
-6. Repeat for all the string you wish to change
+5. Create an entry in the file with the value for the string which you want. For example: ```<string name="mb_close">Zatvori</string>```
+6. Repeat for all the strings you wish to change
 
 You can modify strings and add another language. For more information on how localization works in Android, check out the [official Android documentation](https://developer.android.com/guide/topics/resources/localization).
 
@@ -538,11 +537,11 @@ dependencies {
 
 ## <a name="core-api-sdk-and-session"></a> The `BlinkCardSdk` and `BlinkCardScanningSession`
 
-[BlinkCardSdk](https://blinkcard.github.io/blinkcard-android/blinkcard-core/com.microblink.blinkcard.core/-blink-card-sdk/index.html) is a singleton that is main entry point to the _BlinkCard_ SDK. It manages the global state of the SDK. This involves managing the main processing, unlocking the SDK, ensuring that licence check is up-to-date, downloading resources, and performing all necessary synchronization for the processing operations.
+[BlinkCardSdk](https://blinkcard.github.io/blinkcard-android/blinkcard-core/com.microblink.blinkcard.core/-blink-card-sdk/index.html) is a singleton that is the main entry point to the _BlinkCard_ SDK. It manages the global state of the SDK. This involves managing the main processing, unlocking the SDK, ensuring that license check is up-to-date, downloading resources, and performing all necessary synchronization for the processing operations.
 
 Once you obtain an instance of the `BlinkCardSdk` class after the SDK initialization is completed, you can use it to start a card capture session.
 
-[BlinkCardScanningSession](https://blinkcard.github.io/blinkcard-android/blinkcard-core/com.microblink.blinkcard.core.session/-blink-card-scanning-session/index.html) is the main object that accepts images and camera frames, processes them and returns frame-by-frame results, and final result when it becomes available.
+[BlinkCardScanningSession](https://blinkcard.github.io/blinkcard-android/blinkcard-core/com.microblink.blinkcard.core.session/-blink-card-scanning-session/index.html) is the main object that accepts images and camera frames, processes them and returns frame-by-frame results, and the final result when it becomes available.
 
 
 ### <a name="analyzing-image-stream"></a> Analyzing the stream of images
@@ -573,7 +572,7 @@ val scanningSession = blinkCardSdk.createScanningSession(BlinkCardSessionSetting
     // use InputImageSource.Video to analyze stream of images, if you have few 
     // images (e.g. from gallery) use InputImageSource.Photo
     inputImageSource = InputImageSource.Video,
-    val scanningSettings = ScanningSettings(
+    scanningSettings = ScanningSettings(
         // update other options if required    
     )
 ))
@@ -581,7 +580,7 @@ val scanningSession = blinkCardSdk.createScanningSession(BlinkCardSessionSetting
 
 3. To process each image (camera frame) that comes to the recognition, call the suspend function `BlinkCardScanningSession.process(InputImage): BlinkCardProcessResult`
 ```kotlin
-val processResult = scanningSesionSession.process(inputImage)
+val processResult = scanningSession.process(inputImage)
 ```
 
 There are helper methods for creating [InputImage](https://blinkcard.github.io/blinkcard-android/blinkcard-core/com.microblink.blinkcard.core.image/-input-image/index.html) from `android.media.Image`, `androidx.camera.core.ImageProxy` and standard Android Bitmap.
@@ -595,11 +594,11 @@ You should keep calling the process function until the result completeness indic
 
 ### <a name="core-api-obtaining-results"></a> Obtaining scanning results
 
-If after analysis of some image completeness status of `BlinkCardProcessResult` indicates that card capture is complete, only then you should get the final result from the `BlinkCardScanningSession`:
+If, after analysis of some image, completeness status of `BlinkCardProcessResult` indicates that card capture is complete, only then you should get the final result from the `BlinkCardScanningSession`:
 
 ```kotlin
 if (processResult.resultCompleteness.isComplete()) {
-    val captureResult = session.getResult()
+    val result = session.getResult()
     // do something with the final result
 }
 ```
@@ -610,7 +609,7 @@ You will get [BlinkCardScanningResult](https://blinkcard.github.io/blinkcard-and
 
 To terminate the scanning session, ensure that `BlinkCardScanningSession.close()` is called.
 
-**If you are finished with the SDK processing, terminate the SDK to free up resources** by invoking `BlinkCardSdk.closeAndDeleteCachedAssets()` on the SDK instance. If you just wish to close the SDK but may need to use it and the future, you can eliminate the need for re-downloading the resources by calling `BlinkCardSdk.close()`.
+**If you are finished with the SDK processing, terminate the SDK to free up resources** by invoking `BlinkCardSdk.closeAndDeleteCachedAssets()` on the SDK instance. If you just wish to close the SDK but may need to use it in the future, you can eliminate the need for re-downloading the resources by calling `BlinkCardSdk.close()`.
 
 Note that `BlinkCardScanningSession.close()`, `BlinkCardSdk.close()` and `BlinkCardSdk.closeAndDeleteCachedAssets()` are blocking calls. Do not call them on the main/UI thread; run them on a background dispatcher/thread (for example `Dispatchers.IO`).
 
@@ -671,7 +670,7 @@ Here is the SDK size, calculated for supported ABIs:
 SDK size is calculated as application size increases when _BlinkCard_ SDK is added, with all its dependencies included.
 
 ## <a name="api-documentation"></a> API documentation
-You can find the _BlinkCard_ SDK **KDoc** documentation [here](https://blinkcard.github.io/blinkcard-android/index).
+You can find the _BlinkCard_ SDK **KDoc** documentation [here](https://blinkcard.github.io/blinkcard-android/index.html).
 
 ## <a name="contact"></a> Contact
 For any other questions, feel free to contact us at [help.microblink.com](http://help.microblink.com).

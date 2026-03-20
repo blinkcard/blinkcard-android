@@ -1,5 +1,12 @@
 # Release notes
 
+## v3000.0.1
+
+### What's new
+- Improved SDK and session shutdown behavior, and removed misleading warning logs during normal cleanup
+- Improved analytics reporting
+- Improved SDK initialization to help reduce failures
+
 ## v3000.0.0
 
 ### New fraud detection: BIN intelligence

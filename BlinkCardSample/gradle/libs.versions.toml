@@ -1,5 +1,5 @@
 [versions]
-blinkCardSdkVersion = "3000.0.0"
+blinkCardSdkVersion = "3000.0.1"
 
 agp = "8.10.1"
 kotlin = "2.1.20"
